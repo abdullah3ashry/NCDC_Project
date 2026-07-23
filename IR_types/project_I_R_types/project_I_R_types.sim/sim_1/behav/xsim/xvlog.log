@@ -1,0 +1,18 @@
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/root/Documents/Abdullah/alu.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module alu
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/root/Documents/Abdullah/alu_ctrl.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module alu_ctrl
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/root/Documents/Abdullah/i_mem.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module i_mem
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/root/Documents/Abdullah/imm_gen.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module imm_gen
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/root/Documents/Abdullah/main_ctrl.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module main_ctrl
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/root/Documents/Abdullah/program_counter.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module program_counter
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/root/Documents/Abdullah/reg_file.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module reg_file
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/root/Documents/Abdullah/riscv_top.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module riscv_top
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/root/Documents/Abdullah/riscv_top_tb.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module riscv_top_tb

@@ -1,0 +1,15 @@
+0.6
+2019.1
+May 24 2019
+15:06:07
+C:/Users/root/Documents/Abdullah/alu.sv,1784785023,systemVerilog,,C:/Users/root/Documents/Abdullah/alu_ctrl.sv,,alu,,,,,,,,
+C:/Users/root/Documents/Abdullah/alu_ctrl.sv,1784786178,systemVerilog,,C:/Users/root/Documents/Abdullah/i_mem.sv,,alu_ctrl,,,,,,,,
+C:/Users/root/Documents/Abdullah/alu_ctrl_tb.sv,1784725158,systemVerilog,,,,alu_ctrl_tb,,,,,,,,
+C:/Users/root/Documents/Abdullah/i_mem.sv,1784724887,systemVerilog,,C:/Users/root/Documents/Abdullah/imm_gen.sv,,i_mem,,,,,,,,
+C:/Users/root/Documents/Abdullah/imm_gen.sv,1784724498,systemVerilog,,C:/Users/root/Documents/Abdullah/main_ctrl.sv,,imm_gen,,,,,,,,
+C:/Users/root/Documents/Abdullah/main_ctrl.sv,1784724546,systemVerilog,,C:/Users/root/Documents/Abdullah/program_counter.sv,,main_ctrl,,,,,,,,
+C:/Users/root/Documents/Abdullah/program_counter.sv,1784724498,systemVerilog,,C:/Users/root/Documents/Abdullah/reg_file.sv,,program_counter,,,,,,,,
+C:/Users/root/Documents/Abdullah/project_I_R_types/project_I_R_types.sim/sim_1/behav/xsim/glbl.v,1558713910,verilog,,,,glbl,,,,,,,,
+C:/Users/root/Documents/Abdullah/reg_file.sv,1784724669,systemVerilog,,C:/Users/root/Documents/Abdullah/riscv_top.sv,,reg_file,,,,,,,,
+C:/Users/root/Documents/Abdullah/riscv_top.sv,1784724498,systemVerilog,,C:/Users/root/Documents/Abdullah/riscv_top_tb.sv,,riscv_top,,,,,,,,
+C:/Users/root/Documents/Abdullah/riscv_top_tb.sv,1784725179,systemVerilog,,,,riscv_top_tb,,,,,,,,

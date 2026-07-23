@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Webtalk v2019.1 (64-bit)
+# SW Build 2552052 on Fri May 24 14:49:42 MDT 2019
+# IP Build 2548770 on Fri May 24 18:01:18 MDT 2019
+# Start of session at: Wed Jul 22 18:03:20 2026
+# Process ID: 15592
+# Current directory: C:/Users/root/Documents/Abdullah/project_I_R_types/project_I_R_types.sim/sim_1/behav/xsim
+# Command line: wbtcv.exe -mode batch -source C:/Users/root/Documents/Abdullah/project_I_R_types/project_I_R_types.sim/sim_1/behav/xsim/xsim.dir/riscv_top_tb_behav/webtalk/xsim_webtalk.tcl -notrace
+# Log file: C:/Users/root/Documents/Abdullah/project_I_R_types/project_I_R_types.sim/sim_1/behav/xsim/webtalk.log
+# Journal file: C:/Users/root/Documents/Abdullah/project_I_R_types/project_I_R_types.sim/sim_1/behav/xsim\webtalk.jou
+#-----------------------------------------------------------
+source C:/Users/root/Documents/Abdullah/project_I_R_types/project_I_R_types.sim/sim_1/behav/xsim/xsim.dir/riscv_top_tb_behav/webtalk/xsim_webtalk.tcl -notrace
