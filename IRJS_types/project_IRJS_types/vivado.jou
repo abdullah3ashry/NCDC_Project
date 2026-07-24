@@ -1,0 +1,121 @@
+#-----------------------------------------------------------
+# Vivado v2019.1 (64-bit)
+# SW Build 2552052 on Fri May 24 14:49:42 MDT 2019
+# IP Build 2548770 on Fri May 24 18:01:18 MDT 2019
+# Start of session at: Fri Jul 24 09:27:49 2026
+# Process ID: 8808
+# Current directory: C:/Users/root/Documents/Abdullah/project_IRJS_types
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent15280 C:\Users\root\Documents\Abdullah\project_IRJS_types\project_IRJS_types.xpr
+# Log file: C:/Users/root/Documents/Abdullah/project_IRJS_types/vivado.log
+# Journal file: C:/Users/root/Documents/Abdullah/project_IRJS_types\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project C:/Users/root/Documents/Abdullah/project_IRJS_types/project_IRJS_types.xpr
+update_compile_order -fileset sources_1
+export_ip_user_files -of_objects  [get_files C:/Users/root/Documents/Abdullah/project_IRJS_types/project_IRJS_types.srcs/sources_1/imports/Abdullah/data_mem.sv] -no_script -reset -force -quiet
+remove_files  C:/Users/root/Documents/Abdullah/project_IRJS_types/project_IRJS_types.srcs/sources_1/imports/Abdullah/data_mem.sv
+export_ip_user_files -of_objects  [get_files C:/Users/root/Documents/Abdullah/project_IRJS_types/project_IRJS_types.srcs/sim_1/imports/Abdullah/data_mem_ctrl_tb.sv] -no_script -reset -force -quiet
+remove_files  -fileset sim_1 C:/Users/root/Documents/Abdullah/project_IRJS_types/project_IRJS_types.srcs/sim_1/imports/Abdullah/data_mem_ctrl_tb.sv
+add_files -norecurse -scan_for_includes C:/Users/root/Documents/Abdullah/data_mem.sv
+import_files -force -norecurse C:/Users/root/Documents/Abdullah/data_mem.sv
+update_compile_order -fileset sources_1
+launch_simulation
+export_ip_user_files -of_objects  [get_files C:/Users/root/Documents/Abdullah/project_IRJS_types/project_IRJS_types.srcs/sources_1/imports/Abdullah/data_mem_tb.sv] -no_script -reset -force -quiet
+remove_files  C:/Users/root/Documents/Abdullah/project_IRJS_types/project_IRJS_types.srcs/sources_1/imports/Abdullah/data_mem_tb.sv
+update_compile_order -fileset sources_1
+update_compile_order -fileset sim_1
+add_files -norecurse -scan_for_includes C:/Users/root/Documents/Abdullah/data_mem_tb.sv
+import_files -force -norecurse C:/Users/root/Documents/Abdullah/data_mem_tb.sv
+update_compile_order -fileset sources_1
+update_compile_order -fileset sim_1
+export_ip_user_files -of_objects  [get_files C:/Users/root/Documents/Abdullah/project_IRJS_types/project_IRJS_types.srcs/sources_1/imports/Abdullah/data_mem.sv] -no_script -reset -force -quiet
+remove_files  C:/Users/root/Documents/Abdullah/project_IRJS_types/project_IRJS_types.srcs/sources_1/imports/Abdullah/data_mem.sv
+add_files -norecurse -scan_for_includes C:/Users/root/Documents/Abdullah/data_mem.sv
+import_files -force -norecurse C:/Users/root/Documents/Abdullah/data_mem.sv
+update_compile_order -fileset sources_1
+launch_simulation
+open_wave_config C:/Users/root/Documents/Abdullah/project_I_R_types/riscv_top_tb_behav.wcfg
+source data_mem_tb.tcl
+current_wave_config {}
+add_wave {{/data_mem_tb/clk}} {{/data_mem_tb/mem_read}} {{/data_mem_tb/mem_write}} {{/data_mem_tb/write_mask}} {{/data_mem_tb/addr}} {{/data_mem_tb/write_data}} {{/data_mem_tb/read_data}} 
+relaunch_sim
+save_wave_config {C:/Users/root/Documents/Abdullah/project_I_R_types/riscv_top_tb_behav.wcfg}
+close_sim
+export_ip_user_files -of_objects  [get_files C:/Users/root/Documents/Abdullah/project_IRJS_types/project_IRJS_types.srcs/sources_1/imports/Abdullah/data_mem_tb.sv] -no_script -reset -force -quiet
+remove_files  C:/Users/root/Documents/Abdullah/project_IRJS_types/project_IRJS_types.srcs/sources_1/imports/Abdullah/data_mem_tb.sv
+export_ip_user_files -of_objects  [get_files C:/Users/root/Documents/Abdullah/project_IRJS_types/project_IRJS_types.srcs/sources_1/imports/Abdullah/data_mem.sv] -no_script -reset -force -quiet
+remove_files  C:/Users/root/Documents/Abdullah/project_IRJS_types/project_IRJS_types.srcs/sources_1/imports/Abdullah/data_mem.sv
+update_compile_order -fileset sources_1
+update_compile_order -fileset sim_1
+add_files -norecurse -scan_for_includes {C:/Users/root/Documents/Abdullah/data_mem_tb.sv C:/Users/root/Documents/Abdullah/data_mem.sv}
+update_compile_order -fileset sources_1
+update_compile_order -fileset sim_1
+export_ip_user_files -of_objects  [get_files C:/Users/root/Documents/Abdullah/riscv_top.sv] -no_script -reset -force -quiet
+export_ip_user_files -of_objects  [get_files C:/Users/root/Documents/Abdullah/program_counter.sv] -no_script -reset -force -quiet
+export_ip_user_files -of_objects  [get_files C:/Users/root/Documents/Abdullah/i_mem.sv] -no_script -reset -force -quiet
+export_ip_user_files -of_objects  [get_files C:/Users/root/Documents/Abdullah/reg_file.sv] -no_script -reset -force -quiet
+export_ip_user_files -of_objects  [get_files C:/Users/root/Documents/Abdullah/imm_gen.sv] -no_script -reset -force -quiet
+export_ip_user_files -of_objects  [get_files C:/Users/root/Documents/Abdullah/main_ctrl.sv] -no_script -reset -force -quiet
+export_ip_user_files -of_objects  [get_files C:/Users/root/Documents/Abdullah/alu.sv] -no_script -reset -force -quiet
+export_ip_user_files -of_objects  [get_files C:/Users/root/Documents/Abdullah/alu_ctrl.sv] -no_script -reset -force -quiet
+remove_files  {C:/Users/root/Documents/Abdullah/riscv_top.sv C:/Users/root/Documents/Abdullah/program_counter.sv C:/Users/root/Documents/Abdullah/i_mem.sv C:/Users/root/Documents/Abdullah/reg_file.sv C:/Users/root/Documents/Abdullah/imm_gen.sv C:/Users/root/Documents/Abdullah/main_ctrl.sv C:/Users/root/Documents/Abdullah/alu.sv C:/Users/root/Documents/Abdullah/alu_ctrl.sv}
+export_ip_user_files -of_objects  [get_files C:/Users/root/Documents/Abdullah/project_IRJS_types/project_IRJS_types.srcs/sources_1/imports/Abdullah/data_mem_ctrl_tb.sv] -no_script -reset -force -quiet
+remove_files  C:/Users/root/Documents/Abdullah/project_IRJS_types/project_IRJS_types.srcs/sources_1/imports/Abdullah/data_mem_ctrl_tb.sv
+export_ip_user_files -of_objects  [get_files C:/Users/root/Documents/Abdullah/project_IRJS_types/project_IRJS_types.srcs/sources_1/imports/Abdullah/data_mem_ctrl.sv] -no_script -reset -force -quiet
+remove_files  C:/Users/root/Documents/Abdullah/project_IRJS_types/project_IRJS_types.srcs/sources_1/imports/Abdullah/data_mem_ctrl.sv
+add_files -norecurse -scan_for_includes {C:/Users/root/Documents/Abdullah/data_mem_ctrl_tb.sv C:/Users/root/Documents/Abdullah/i_mem_tb.sv C:/Users/root/Documents/Abdullah/riscv_top.sv C:/Users/root/Documents/Abdullah/riscv_top_tb.sv C:/Users/root/Documents/Abdullah/alu_ctrl.sv C:/Users/root/Documents/Abdullah/alu_tb.sv C:/Users/root/Documents/Abdullah/imm_gen_tb.sv C:/Users/root/Documents/Abdullah/program_counter.sv C:/Users/root/Documents/Abdullah/main_ctrl_tb.sv C:/Users/root/Documents/Abdullah/alu.sv C:/Users/root/Documents/Abdullah/program_counter_tb.sv C:/Users/root/Documents/Abdullah/reg_file_tb.sv C:/Users/root/Documents/Abdullah/alu_ctrl_tb.sv C:/Users/root/Documents/Abdullah/reg_file.sv C:/Users/root/Documents/Abdullah/data_mem_ctrl.sv C:/Users/root/Documents/Abdullah/i_mem.sv C:/Users/root/Documents/Abdullah/main_ctrl.sv C:/Users/root/Documents/Abdullah/imm_gen.sv}
+update_compile_order -fileset sources_1
+# Disabling source management mode.  This is to allow the top design properties to be set without GUI intervention.
+set_property source_mgmt_mode None [current_project]
+set_property top riscv_top_tb [current_fileset]
+# Re-enabling previously disabled source management mode.
+set_property source_mgmt_mode All [current_project]
+update_compile_order -fileset sources_1
+# Disabling source management mode.  This is to allow the top design properties to be set without GUI intervention.
+set_property source_mgmt_mode None [current_project]
+set_property top riscv_top_tb [get_filesets sim_1]
+set_property top_lib xil_defaultlib [get_filesets sim_1]
+set_property top_file C:/Users/root/Documents/Abdullah/riscv_top_tb.sv [get_filesets sim_1]
+# Re-enabling previously disabled source management mode.
+set_property source_mgmt_mode All [current_project]
+update_compile_order -fileset sim_1
+launch_simulation
+launch_simulation
+launch_simulation
+open_wave_config C:/Users/root/Documents/Abdullah/project_I_R_types/riscv_top_tb_behav.wcfg
+source riscv_top_tb.tcl
+current_wave_config {riscv_top_tb_behav.wcfg}
+add_wave {{/riscv_top_tb/dut/rst}} {{/riscv_top_tb/dut/clk}} {{/riscv_top_tb/dut/pc_current}} {{/riscv_top_tb/dut/instruction}} {{/riscv_top_tb/dut/reg_write}} 
+current_wave_config {riscv_top_tb_behav.wcfg}
+add_wave {{/riscv_top_tb/dut/reg_file_inst/rsW}} {{/riscv_top_tb/dut/reg_file_inst/dataW}} 
+current_wave_config {riscv_top_tb_behav.wcfg}
+add_wave {{/riscv_top_tb/dut/data_mem_inst/mem_write}} {{/riscv_top_tb/dut/data_mem_inst/write_mask}} {{/riscv_top_tb/dut/data_mem_inst/addr}} {{/riscv_top_tb/dut/data_mem_inst/write_data}} {{/riscv_top_tb/dut/data_mem_inst/memory}} 
+current_wave_config {riscv_top_tb_behav.wcfg}
+add_wave {{/riscv_top_tb/dut/data_mem_inst/memory[1]}} 
+current_wave_config {riscv_top_tb_behav.wcfg}
+add_wave {{/riscv_top_tb/dut/jump_target}} 
+current_wave_config {riscv_top_tb_behav.wcfg}
+add_wave {{/riscv_top_tb/dut/jump}} 
+relaunch_sim
+close_sim
+move_files -fileset sim_1 [get_files  {C:/Users/root/Documents/Abdullah/riscv_top_tb.sv C:/Users/root/Documents/Abdullah/alu_ctrl_tb.sv C:/Users/root/Documents/Abdullah/alu_tb.sv C:/Users/root/Documents/Abdullah/data_mem_ctrl_tb.sv C:/Users/root/Documents/Abdullah/data_mem_tb.sv C:/Users/root/Documents/Abdullah/i_mem_tb.sv C:/Users/root/Documents/Abdullah/imm_gen_tb.sv C:/Users/root/Documents/Abdullah/main_ctrl_tb.sv C:/Users/root/Documents/Abdullah/program_counter_tb.sv C:/Users/root/Documents/Abdullah/reg_file_tb.sv}]
+move_files -fileset sim_1 [get_files  {C:/Users/root/Documents/Abdullah/riscv_top_tb.sv C:/Users/root/Documents/Abdullah/alu_ctrl_tb.sv C:/Users/root/Documents/Abdullah/alu_tb.sv C:/Users/root/Documents/Abdullah/data_mem_ctrl_tb.sv C:/Users/root/Documents/Abdullah/data_mem_tb.sv C:/Users/root/Documents/Abdullah/i_mem_tb.sv C:/Users/root/Documents/Abdullah/imm_gen_tb.sv C:/Users/root/Documents/Abdullah/main_ctrl_tb.sv C:/Users/root/Documents/Abdullah/program_counter_tb.sv C:/Users/root/Documents/Abdullah/reg_file_tb.sv}]
+move_files -fileset sim_1 [get_files  C:/Users/root/Documents/Abdullah/riscv_top_tb.sv]
+launch_simulation
+open_wave_config C:/Users/root/Documents/Abdullah/project_I_R_types/riscv_top_tb_behav.wcfg
+source riscv_top_tb.tcl
+current_wave_config {riscv_top_tb_behav.wcfg}
+add_wave {{/riscv_top_tb/dut/rst}} {{/riscv_top_tb/dut/clk}} 
+current_wave_config {riscv_top_tb_behav.wcfg}
+add_wave {{/riscv_top_tb/dut/pc_current}} 
+current_wave_config {riscv_top_tb_behav.wcfg}
+add_wave {{/riscv_top_tb/dut/instruction}} 
+current_wave_config {riscv_top_tb_behav.wcfg}
+add_wave {{/riscv_top_tb/dut/reg_file_inst/registers}} 
+current_wave_config {riscv_top_tb_behav.wcfg}
+add_wave {{/riscv_top_tb/dut/data_mem_inst/memory}} 
+relaunch_sim
+relaunch_sim
+relaunch_sim
+relaunch_sim
+relaunch_sim

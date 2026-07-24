@@ -1,0 +1,1 @@
+-wto "72edfa7ef0894110b36fe159e761777f" --incr --debug "typical" --relax --mt "2" -L "secureip" --snapshot "data_mem_ctrl_behav" "xil_defaultlib.data_mem_ctrl" -log "elaborate.log" 
