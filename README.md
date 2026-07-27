@@ -3,7 +3,7 @@
 ## Overview
 This repository contains a SystemVerilog implementation of a single-cycle RISC-V processor. Currently, the datapath is designed to fetch, decode, and execute the core **R-Type** and **I-Type** arithmetic and logical instructions. The architecture has recently been fully expanded to support **S-Type** stores, load operations, and **J-Type** control flow instructions. Additionally, the processor supports **B-Type** conditional branches and **U-Type** upper immediate instructions. The design has been fully simulated and verified using Xilinx Vivado.
 
-## Features Implemented So Far
+## Features Implemented
 
 ### 1. Arithmetic Logic Unit (ALU)
 A fully combinational 32-bit ALU supporting the following operations:
