@@ -1,0 +1,10 @@
+Pegasus 23.13-e113 anw81tyqgLFqD3VfwlLdAg 2026-08-12 09:38:24 73302 ncdc-0137
+Copyright 2023 Cadence Design Systems, Inc.
+All rights reserved worldwide.
+
+INFO:    Command Line Options: -lvs -control ../inputs/pegasus_ctrl.ctl ../inputs/lvs.pvl
+INFO:    Launch host CPU: Model: 13th Gen Intel(R) Core(TM) i7-13700, OS: Red Hat Enterprise Linux release 8.6 (Ootpa), Logical cores: 24, Physical cores: 16, Cache: 30720 KB, CPU Speed: 3752.18 MHz
+         Launch host Memory: MemTotal: 63790 MB,  MemFree: 51180 MB,  SwapTotal: 7679 MB,  SwapFree: 7679 MB,  VmallocTotal: 33554431 MB,  VmallocUsed: 66 MB
+INFO:    Current path: /home/cc/Documents/Abdullah/RISCV_synthesis/workspace
+INFO:    Run directory same as current path
+INFO:    Log directory: /home/cc/Documents/Abdullah/RISCV_synthesis/workspace/pegasus-1786541904-ncdc-0137-73302

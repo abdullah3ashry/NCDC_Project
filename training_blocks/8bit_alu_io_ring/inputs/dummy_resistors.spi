@@ -1,0 +1,5 @@
+.SUBCKT rnpolywo PLUS MINUS
+.ENDS rnpolywo
+
+.SUBCKT rppolywo PLUS MINUS
+.ENDS rppolywo

@@ -1,0 +1,6 @@
+-debug
+-gui
+-f ../sourcecode/counterfiles.txt
+
+# Optionally add a tcl script to run upon Xcelium invocation
+-input restore.tcl

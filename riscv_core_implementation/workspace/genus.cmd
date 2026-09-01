@@ -1,0 +1,93 @@
+# Cadence Genus(TM) Synthesis Solution, Version 21.18-s082_1, built Jul 18 2023 13:08:41
+
+# Date: Fri Jul 31 02:38:38 2026
+# Host: ncdc-0137 (x86_64 w/Linux 7.1.4-1.el8.elrepo.x86_64) (16cores*24cpus*1physical cpu*13th Gen Intel(R) Core(TM) i7-13700 30720KB)
+# OS:   Red Hat Enterprise Linux release 8.6 (Ootpa)
+
+set FLOW_TYPE    "physical"
+set INCLUDE_DFT  "false"
+set start_time [clock seconds]
+set DESIGN       "riscv_core"
+set GEN_EFF      "high"
+set MAP_OPT_EFF  "high"
+set WORK_DIR     "/home/cc/Documents/Abdullah/RISCV_synthesis"
+set RTL_DIR      "${WORK_DIR}/sourcecode/rtl"
+set PDK_DIR      "${WORK_DIR}/libraries"
+set MMMC_FILE    "${WORK_DIR}/inputs/mmmc_master.view"
+set LEF_FILES    "${PDK_DIR}/lef/tcbn65lp_9lmT2.lef"
+set SYN_DATA_DIR "${WORK_DIR}/export/Synthesis_Data"
+set RPT_DIR      "${SYN_DATA_DIR}/reports"
+set OUT_DIR      "${SYN_DATA_DIR}/outputs"
+set NETLIST_DIR  "${SYN_DATA_DIR}/netlists"
+set DB_DIR       "${SYN_DATA_DIR}/db"
+file mkdir $SYN_DATA_DIR $RPT_DIR $OUT_DIR $NETLIST_DIR $DB_DIR
+puts "INFO: Starting $FLOW_TYPE Synthesis Flow (DFT: $INCLUDE_DFT) for $DESIGN"
+if {$FLOW_TYPE == "physical"} {
+    read_mmmc $MMMC_FILE
+    read_physical -lef $LEF_FILES
+} else {
+    set_db init_lib_search_path "$PDK_DIR/libs"
+    read_libs {tcbn65lptc.lib}
+}
+read_hdl -sv [glob ${RTL_DIR}/*.sv]
+elaborate $DESIGN
+check_design -unresolved
+if {$FLOW_TYPE == "physical"} {
+    init_design
+} else {
+    read_sdc ${WORK_DIR}/inputs/riscv_baseline.sdc
+}
+check_timing_intent -verbose > ${RPT_DIR}/check_timing_intent_baseline.rpt
+if {$INCLUDE_DFT == "true"} {
+    set_db dft_scan_style muxed_scan
+    define_shift_enable -name SE -active high -create_port SE
+    check_dft_rules
+}
+set_db syn_generic_effort $GEN_EFF
+set_db syn_map_effort     $MAP_OPT_EFF
+set_db syn_opt_effort     $MAP_OPT_EFF
+if {$FLOW_TYPE == "physical"} {
+    syn_generic -physical -create_floorplan
+    syn_map -physical
+    
+    write_do_lec -revised_design fv_map -logfile ${RPT_DIR}/lec_rtl_to_mapped.log > ${OUT_DIR}/rtl_to_mapped_baseline.do 
+    exec sed -i "/exit -f/d" ${OUT_DIR}/rtl_to_mapped_baseline.do
+    
+    syn_opt
+    
+    write_do_lec -golden_design fv_map -revised_design fv_opt -logfile ${RPT_DIR}/lec_mapped_to_opt.log > ${OUT_DIR}/mapped_to_opt_baseline.do 
+    exec sed -i "/read_design/s| fv_opt| ${NETLIST_DIR}/${DESIGN}_${FLOW_TYPE}_synth.v|g" ${OUT_DIR}/mapped_to_opt_baseline.do
+    exec sed -i "/exit -f/d" ${OUT_DIR}/mapped_to_opt_baseline.do
+    
+} else {
+    syn_generic 
+    syn_map     
+    syn_opt     
+}
+if {$INCLUDE_DFT == "true"} {
+    define_scan_chain -name top_chain -sdi scan_in -sdo scan_out -create_ports
+    connect_scan_chains -auto_create_chains
+    syn_opt -incr
+}
+puts "INFO: Generating Comprehensive Synthesis Reports..."
+report_timing -full_pin_names  -max_paths 10 > ${RPT_DIR}/${DESIGN}_${FLOW_TYPE}_timing_baseline.rpt
+report_area > ${RPT_DIR}/${DESIGN}_${FLOW_TYPE}_area_baseline.rpt
+report_gates > ${RPT_DIR}/${DESIGN}_${FLOW_TYPE}_gates_baseline.rpt
+report_power > ${RPT_DIR}/${DESIGN}_${FLOW_TYPE}_power_baseline.rpt
+report_qor -levels_of_logic > ${RPT_DIR}/${DESIGN}_${FLOW_TYPE}_qor_baseline.rpt
+if {$INCLUDE_DFT == "true"} {
+    report_scan_chains > ${RPT_DIR}/${DESIGN}_${FLOW_TYPE}_scan_chains_baseline.rpt
+}
+puts "INFO: Exporting Netlist, SDF, and Physical Database..."
+write_hdl $DESIGN -mapped > ${NETLIST_DIR}/${DESIGN}_${FLOW_TYPE}_synth_baseline.v
+write_sdf -setuphold merge_always -recrem merge_always -design $DESIGN > ${OUT_DIR}/${DESIGN}_${FLOW_TYPE}_synth_baseline.sdf
+if {$FLOW_TYPE == "physical"} {
+    write_db ${DB_DIR}/${DESIGN}_synth_baseline.db
+    if {$INCLUDE_DFT == "true"} {
+        write_scandef > ${OUT_DIR}/${DESIGN}_synthDFT_baseline.scandef
+    }
+}
+set total_time [expr {[clock seconds] - $start_time}]
+puts "INFO: Flow Completed Successfully in $total_time seconds!"
+gui_show
+exit

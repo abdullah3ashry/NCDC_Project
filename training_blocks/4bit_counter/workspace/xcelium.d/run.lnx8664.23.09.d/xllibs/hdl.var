@@ -1,0 +1,3 @@
+define LIB_MAP ( $LIB_MAP \
+, ../../../../libraries/v/tcbn65lp.v => tcbn65lp \
+)

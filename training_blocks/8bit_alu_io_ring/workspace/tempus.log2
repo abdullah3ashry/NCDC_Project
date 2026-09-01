@@ -1,0 +1,626 @@
+
+Cadence Tempus(TM) Timing Solution.
+Copyright 2022 Cadence Design Systems, Inc. All rights reserved worldwide.
+
+Version:	v22.15-s092_1, built Fri Mar 1 14:05:47 PST 2024
+Options:	-stylus 
+Date:		Wed Aug 12 04:42:43 2026
+Host:		ncdc-0137 (x86_64 w/Linux 7.1.4-1.el8.elrepo.x86_64) (16cores*24cpus*13th Gen Intel(R) Core(TM) i7-13700 30720KB)
+OS:		Red Hat Enterprise Linux 8.6 (Ootpa)
+
+License:
+		[04:42:43.216969] Configured Lic search path (22.01-s003): 5280@10.19.32.90
+
+		tpsxl	Tempus Timing Signoff Solution XL	22.1	checkout succeeded
+		16 CPU jobs allowed with the current license(s). Use set_multi_cpu_usage to set your required CPU count.
+
+
+Change the soft stacksize limit to 0.2%RAM (127 mbytes). Set global soft_stack_size_limit to change the value.
+environment variable TMPDIR is '/tmp/ssv_tmpdir_34774_0IEoEb'.
+#@ Processing -execute option
+@tempus 1> 
+@tempus 1> ################################################################################
+##################################################################### [1G###########
+# CADENCE TEMPUS: STANDALONE MASTER SIGNOFF STA SCRIPT
+@tempus 2> # CADENCE TEMPUS: STANDALONE MASTER SIGNOFF STA SCRIPT
+@tempus 3> # Design: counter (65nm)
+# Design: counter (65nm)
+################################################################################
+@tempus 4> ##################################################################### [1G###########
+@tempus 5> puts "INFO: Starting Tempus Signoff Flow..."
+puts "INFO: Starting Tempus Signoff Flow..."
+
+INFO: Starting Tempus Signoff Flow...
+@tempus 6> 
+# ==============================================================================
+# 1. ENGINE CONFIGURATION
+@tempus 6> # =================================================================== [1G===========
+@tempus 7> # 1. ENGINE CONFIGURATION
+@tempus 8> # =================================================================== [1G===========
+# ==============================================================================
+@tempus 9> # Enable On-Chip Variation (OCV) to simulate manufacturing tolerances# Enable On-Chip Variation (OCV) to simulate manufacturing tolerances
+ [1G
+@tempus 10> set_db timing_analysis_type ocset_db timing_analysis_type ocv
+v
+1 ocv
+@tempus 11> 
+
+@tempus 11> # Enable Clock Path Pessimism Removal (CPPR) to remove common-path a [1Grtificial delays
+# Enable Clock Path Pessimism Removal (CPPR) to remove common-path artificial delays
+@tempus 12> set_db timing_analysis_cppr both
+set_db timing_analysis_cppr both
+1 both
+@tempus 13> 
+
+@tempus 13> # Enable Signal Integrity (SI) to account for Crosstalk delays betwe [1Gen wires# Enable Signal Integrity (SI) to account for Crosstalk delays between wires
+
+@tempus 14> set_db delaycal_enable_si truset_db delaycal_enable_si true
+e
+AAE_INFO: switching -siAware from false to true ...
+AAE_INFO: The setting is changed from false to true in setDelayCalMode -SIAware
+1 true
+@tempus 15> 
+
+@tempus 15> # ================================================================== [1G============
+# ==============================================================================
+@tempus 16> # 2. LOAD DESIGN DATA
+# 2. LOAD DESIGN DATA
+@tempus 17> # ================================================================== [1G============
+# ==============================================================================
+@tempus 18> # A. Load the MMMC View Definition (Links .libs to .sdcs# A. Load the MMMC View Definition (Links .libs to .sdcs)
+)
+@tempus 19> puts "INFO: Loading MMMC View Definitions..."
+puts "INFO: Loading MMMC View Definitions..."
+INFO: Loading MMMC View Definitions...
+@tempus 20> read_mmmc /home/cc/Documents/Abdullah/Lab_04_Data/inputs/mmmc_master [1G.view
+read_mmmc /home/cc/Documents/Abdullah/Lab_04_Data/inputs/mmmc_master.view
+#@ Begin verbose source (pre): 
+@file 1: # ==============================================================================
+@file 2: # CADENCE MMMC (Multi-Mode Multi-Corner) SETUP FILE
+@file 3: # Project: ALU with I/O Pads
+@file 4: # ==============================================================================
+@file 5:
+@file 6: # ------------------------------------------------------------------------------
+@file 7: # 0. SAFETY CHECK & FILE PATH VARIABLES
+@file 8: # ------------------------------------------------------------------------------
+@file 9: # If this script is run standalone and INCLUDE_DFT isn't set, default to false.
+@file 10: if {![info exists INCLUDE_DFT]} {
+@file 11: set INCLUDE_DFT "false"
+@file 12: }
+@file 13:
+@file 14: # ------------------------------------------------------------------------------
+@file 15: # â ï¸ IMPORTANT: UPDATE THIS DIRECTORY PATH FOR YOUR SPECIFIC PC â ï¸
+@file 16: # ------------------------------------------------------------------------------
+@file 17: # NOTE FOR USERS: Change the WORK_DIR path below to point to where you saved 
+@file 18: # the project folder on your specific computer. 
+@file 19: # Example: "/home/your_username/Desktop/Lab01_Data"
+@file 20: # Since all other paths are dynamic, this is the ONLY path you need to change!
+@file 21:
+@file 22: set WORK_DIR "/home/cc/Documents/Abdullah/Lab_04_Data"
+@file 23:
+@file 24: # ------------------------------------------------------------------------------
+@file 25: # --- Auto-Generated Sub-Paths (Do not change these) ---
+@file 26: # ------------------------------------------------------------------------------
+@file 27:
+@file 28: # --- SDC Files ---
+@file 29: set SDC_FUNC_FILE "${WORK_DIR}/inputs/ALU.sdc"
+@file 30: #set SDC_TEST_FILE "${WORK_DIR}/inputs/alu_dft.sdc"
+@file 31:
+@file 32: # --- Standard Cell Libraries (Logic) ---
+@file 33: set LIB_TC        "${WORK_DIR}/libraries/libs/tcbn65lptc.lib"
+@file 34: set LIB_WC        "${WORK_DIR}/libraries/libs/tcbn65lpwc.lib"
+@file 35: set LIB_BC        "${WORK_DIR}/libraries/libs/tcbn65lpbc.lib"
+@file 36:
+@file 37: # --- I/O Pad Libraries (Physical Interface) ---
+@file 38: set IO_LIB_TC     "${WORK_DIR}/libraries/libs/tpzn65lpgv2od3tc.lib"
+@file 39: set IO_LIB_WC     "${WORK_DIR}/libraries/libs/tpzn65lpgv2od3wc.lib"
+@file 40: set IO_LIB_BC     "${WORK_DIR}/libraries/libs/tpzn65lpgv2od3bc.lib"
+@file 41:
+@file 42: # --- Cap Tables ---
+@file 43: set CAPTABLE_TC   "${WORK_DIR}/inputs/mmmc_files/captable/cln65lp_1p09m+alrdl_top2_typical.captable"
+@file 44: set CAPTABLE_WC   "${WORK_DIR}/inputs/mmmc_files/captable/cln65lp_1p09m+alrdl_top2_rcworst.captable"
+@file 45: set CAPTABLE_BC   "${WORK_DIR}/inputs/mmmc_files/captable/cln65lp_1p09m+alrdl_top2_rcbest.captable"
+@file 46:
+@file 47: # ------------------------------------------------------------------------------
+@file 48: # 1. LIBRARY SETS (Logical Timing & Power)
+@file 49: # ------------------------------------------------------------------------------
+@file 50: # Merging Core Logic and I/O Timing into single sets for each corner
+@@file 51: create_library_set -name tc_libset -timing [list $LIB_TC $IO_LIB_TC]
+@@file 52: create_library_set -name wc_libset -timing [list $LIB_WC $IO_LIB_WC]
+@@file 53: create_library_set -name bc_libset -timing [list $LIB_BC $IO_LIB_BC]
+@file 54:
+@file 55: # ------------------------------------------------------------------------------
+@file 56: # 2. TIMING CONDITIONS
+@file 57: # ------------------------------------------------------------------------------
+@@file 58: create_timing_condition -name tc_cond -library_sets {tc_libset}
+@@file 59: create_timing_condition -name wc_cond -library_sets {wc_libset}
+@@file 60: create_timing_condition -name bc_cond -library_sets {bc_libset}
+@file 61:
+@file 62: # ------------------------------------------------------------------------------
+@file 63: # 3. RC CORNERS (Physical Interconnect Parasitics)
+@file 64: # ------------------------------------------------------------------------------
+@@file 65: create_rc_corner -name rc_typical -temperature 25  -cap_table $CAPTABLE_TC
+@@file 66: create_rc_corner -name rc_worst   -temperature 125 -cap_table $CAPTABLE_WC
+@@file 67: create_rc_corner -name rc_best    -temperature -40 -cap_table $CAPTABLE_BC
+@file 68:
+@file 69: # ------------------------------------------------------------------------------
+@file 70: # 4. CONSTRAINT MODES (Design Goals)
+@file 71: # ------------------------------------------------------------------------------
+@file 72: # Mode 1: Functional (Always Active) - High speed standard operation
+@@file 73: create_constraint_mode -name func_mode -sdc_files [list $SDC_FUNC_FILE]
+@file 74:
+@file 75: # Mode 2: Test (Conditional) - Slow clock, shifting data for scan chains
+@file 76: if {$INCLUDE_DFT == "true"} {...}
+@file 79:
+@file 80: # ------------------------------------------------------------------------------
+@file 81: # 5. DELAY CORNERS (Merging Logic and Physics)
+@file 82: # ------------------------------------------------------------------------------
+@@file 83: create_delay_corner -name dc_typical -timing_condition {tc_cond} -rc_corner {rc_typical}
+@@file 84: create_delay_corner -name dc_worst   -timing_condition {wc_cond} -rc_corner {rc_worst}
+@@file 85: create_delay_corner -name dc_best    -timing_condition {bc_cond} -rc_corner {rc_best}
+@file 86:
+@file 87: # ------------------------------------------------------------------------------
+@file 88: # 6. ANALYSIS VIEWS (Merging Delays and Constraints)
+@file 89: # ------------------------------------------------------------------------------
+@file 90: # Create Functional Views
+@@file 91: create_analysis_view -name view_func_typical -constraint_mode {func_mode} -delay_corner {dc_typical}
+@@file 92: create_analysis_view -name view_func_setup   -constraint_mode {func_mode} -delay_corner {dc_worst}
+@@file 93: create_analysis_view -name view_func_hold    -constraint_mode {func_mode} -delay_corner {dc_best}
+@file 94:
+@file 95: # Create Test Views (If DFT is enabled)
+@file 96: if {$INCLUDE_DFT == "true"} {...}
+@file 101:
+@file 102: # ------------------------------------------------------------------------------
+@file 103: # 7. SET ACTIVE VIEWS
+@file 104: # ------------------------------------------------------------------------------
+@file 105: # If DFT is enabled, we force the tool to balance timing for BOTH modes.
+@file 106: # However, Genus requires a single, primary view for power analysis (leakage/dynamic).
+@file 107: if {$INCLUDE_DFT == "true"} {...
+@file 113: } else {
+@@file 114: set_analysis_view  -setup   {view_func_setup}  -hold    {view_func_hold}  -leakage {view_func_typical}  -dynamic {view_func_typical}
+Number of views requested 1 are allowed with the current licenses... continuing with set_analysis_view.
+@file 115: }
+#@ End verbose source: /home/cc/Documents/Abdullah/Lab_04_Data/inputs/mmmc_master.view
+Reading wc_libset timing library '/home/cc/Documents/Abdullah/Lab_04_Data/libraries/libs/tcbn65lpwc.lib' ...
+**WARN: (TECHLIB-302):	No function defined for cell 'OD25DCAP64'. The cell will only be used for analysis. (File /home/cc/Documents/Abdullah/Lab_04_Data/libraries/libs/tcbn65lpwc.lib)
+**WARN: (TECHLIB-302):	No function defined for cell 'OD25DCAP32'. The cell will only be used for analysis. (File /home/cc/Documents/Abdullah/Lab_04_Data/libraries/libs/tcbn65lpwc.lib)
+**WARN: (TECHLIB-302):	No function defined for cell 'OD25DCAP16'. The cell will only be used for analysis. (File /home/cc/Documents/Abdullah/Lab_04_Data/libraries/libs/tcbn65lpwc.lib)
+**WARN: (TECHLIB-302):	No function defined for cell 'DCAP8'. The cell will only be used for analysis. (File /home/cc/Documents/Abdullah/Lab_04_Data/libraries/libs/tcbn65lpwc.lib)
+**WARN: (TECHLIB-302):	No function defined for cell 'DCAP64'. The cell will only be used for analysis. (File /home/cc/Documents/Abdullah/Lab_04_Data/libraries/libs/tcbn65lpwc.lib)
+**WARN: (TECHLIB-302):	No function defined for cell 'DCAP4'. The cell will only be used for analysis. (File /home/cc/Documents/Abdullah/Lab_04_Data/libraries/libs/tcbn65lpwc.lib)
+**WARN: (TECHLIB-302):	No function defined for cell 'DCAP32'. The cell will only be used for analysis. (File /home/cc/Documents/Abdullah/Lab_04_Data/libraries/libs/tcbn65lpwc.lib)
+**WARN: (TECHLIB-302):	No function defined for cell 'DCAP16'. The cell will only be used for analysis. (File /home/cc/Documents/Abdullah/Lab_04_Data/libraries/libs/tcbn65lpwc.lib)
+**WARN: (TECHLIB-302):	No function defined for cell 'DCAP'. The cell will only be used for analysis. (File /home/cc/Documents/Abdullah/Lab_04_Data/libraries/libs/tcbn65lpwc.lib)
+**WARN: (TECHLIB-302):	No function defined for cell 'ANTENNA'. The cell will only be used for analysis. (File /home/cc/Documents/Abdullah/Lab_04_Data/libraries/libs/tcbn65lpwc.lib)
+Read 816 cells in library 'tcbn65lpwc' 
+Reading wc_libset timing library '/home/cc/Documents/Abdullah/Lab_04_Data/libraries/libs/tpzn65lpgv2od3wc.lib' ...
+**WARN: (TECHLIB-302):	No function defined for cell 'PVSS3DGZ'. The cell will only be used for analysis. (File /home/cc/Documents/Abdullah/Lab_04_Data/libraries/libs/tpzn65lpgv2od3wc.lib)
+**WARN: (TECHLIB-302):	No function defined for cell 'PVSS2DGZ'. The cell will only be used for analysis. (File /home/cc/Documents/Abdullah/Lab_04_Data/libraries/libs/tpzn65lpgv2od3wc.lib)
+**WARN: (TECHLIB-302):	No function defined for cell 'PVSS2ANA'. The cell will only be used for analysis. (File /home/cc/Documents/Abdullah/Lab_04_Data/libraries/libs/tpzn65lpgv2od3wc.lib)
+**WARN: (TECHLIB-302):	No function defined for cell 'PVSS1DGZ'. The cell will only be used for analysis. (File /home/cc/Documents/Abdullah/Lab_04_Data/libraries/libs/tpzn65lpgv2od3wc.lib)
+**WARN: (TECHLIB-302):	No function defined for cell 'PVSS1ANA'. The cell will only be used for analysis. (File /home/cc/Documents/Abdullah/Lab_04_Data/libraries/libs/tpzn65lpgv2od3wc.lib)
+**WARN: (TECHLIB-302):	No function defined for cell 'PVDD2POC'. The cell will only be used for analysis. (File /home/cc/Documents/Abdullah/Lab_04_Data/libraries/libs/tpzn65lpgv2od3wc.lib)
+**WARN: (TECHLIB-302):	No function defined for cell 'PVDD2DGZ'. The cell will only be used for analysis. (File /home/cc/Documents/Abdullah/Lab_04_Data/libraries/libs/tpzn65lpgv2od3wc.lib)
+**WARN: (TECHLIB-302):	No function defined for cell 'PVDD2ANA'. The cell will only be used for analysis. (File /home/cc/Documents/Abdullah/Lab_04_Data/libraries/libs/tpzn65lpgv2od3wc.lib)
+**WARN: (TECHLIB-302):	No function defined for cell 'PVDD1DGZ'. The cell will only be used for analysis. (File /home/cc/Documents/Abdullah/Lab_04_Data/libraries/libs/tpzn65lpgv2od3wc.lib)
+**WARN: (TECHLIB-302):	No function defined for cell 'PVDD1ANA'. The cell will only be used for analysis. (File /home/cc/Documents/Abdullah/Lab_04_Data/libraries/libs/tpzn65lpgv2od3wc.lib)
+Message <TECHLIB-302> has exceeded the message display limit of '20'. Use 'set_message -no_limit -id list_of_msgIDs' to reset the message limit.
+Read 131 cells in library 'tpzn65lpgv2od3wc' 
+Reading bc_libset timing library '/home/cc/Documents/Abdullah/Lab_04_Data/libraries/libs/tcbn65lpbc.lib' ...
+Read 816 cells in library 'tcbn65lpbc' 
+Reading bc_libset timing library '/home/cc/Documents/Abdullah/Lab_04_Data/libraries/libs/tpzn65lpgv2od3bc.lib' ...
+Read 131 cells in library 'tpzn65lpgv2od3bc' 
+timing_initialized
+@tempus 21> 
+
+@tempus 21> # B. Load Technology LEFs (Crucial for RC Extraction awareness# B. Load Technology LEFs (Crucial for RC Extraction awareness)
+)
+@tempus 22> puts "INFO: Reading Technology LEFs..."
+puts "INFO: Reading Technology LEFs..."
+INFO: Reading Technology LEFs...
+@tempus 23> read_physical -lef /home/cc/Documents/Abdullah/Lab_04_Data/libraries [1G/lef/tcbn65lp_9lmT2.lef
+read_physical -lef /home/cc/Documents/Abdullah/Lab_04_Data/libraries/lef/tcbn65lp_9lmT2.lef
+
+Loading LEF file /home/cc/Documents/Abdullah/Lab_04_Data/libraries/lef/tcbn65lp_9lmT2.lef ...
+Set DBUPerIGU to M2 pitch 400.
+**WARN: (IMPLF-200):	Pin 'I' in macro 'ANTENNA' has no ANTENNAGATEAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+
+##  Check design process and node:  
+##  Both design process and tech node are not set.
+
+0
+@tempus 24> 
+
+@tempus 24> # C. Load the Final Routed Netlist from Innovus
+# C. Load the Final Routed Netlist from Innovus
+@tempus 25> puts "INFO: Reading Post-Route Netlist..."puts "INFO: Reading Post-Route Netlist..."
+
+INFO: Reading Post-Route Netlist...
+@tempus 26> read_netlist /home/cc/Documents/Abdullah/Lab_04_Data/export/Innovus_ [1GData/outputs/pnr/top_wrapper.final.v
+read_netlist /home/cc/Documents/Abdullah/Lab_04_Data/export/Innovus_Data/outputs/pnr/top_wrapper.final.v
+#% Begin Load netlist data ... (date=08/12 04:43:19, mem=1513.5M)
+*** Begin netlist parsing (mem=1522.1M) ***
+Reading verilog netlist '/home/cc/Documents/Abdullah/Lab_04_Data/export/Innovus_Data/outputs/pnr/top_wrapper.final.v'
+
+*** Memory Usage v#3 (Current mem = 1694.125M, initial mem = 656.645M) ***
+*** End netlist parsing (cpu=0:00:00.0, real=0:00:00.0, mem=1694.1M) ***
+#% End Load netlist data ... (date=08/12 04:43:19, total cpu=0:00:00.2, real=0:00:00.0, peak res=1665.0M, current mem=1660.1M)
+Top level cell is top_wrapper.
+Building hierarchical netlist for Cell top_wrapper ...
+***** UseNewTieNetMode *****.
+*** Netlist is unique.
+** info: there are 1934 modules.
+** info: there are 170 stdCell insts.
+** info: there are 142 stdCell insts with at least one signal pin.
+
+*** Memory Usage v#3 (Current mem = 2063.070M, initial mem = 656.645M) ***
+@tempus 27> 
+
+@tempus 27> # D. Initialize the Timing Graph
+# D. Initialize the Timing Graph
+@tempus 28> # This builds the logic connectivity in memory
+# This builds the logic connectivity in memory
+@tempus 29> puts "INFO: Initializing Design Database..."
+puts "INFO: Initializing Design Database..."
+INFO: Initializing Design Database...
+@tempus 30> init_design
+init_design
+Set Default Input Pin Transition as 0.1 ps.
+**WARN: (IMPFP-3961):	The techSite 'dcore' has no related standard cells in the LEF/OA library. The calculations for this site type cannot be made unless standard cell models of this type exist in the LEF/OA library. Ignore this warning if the SITE is not used by the library. Alternatively, remove the SITE definition for the LEF/OA library to avoid this message.
+**WARN: (IMPFP-3961):	The techSite 'ccore' has no related standard cells in the LEF/OA library. The calculations for this site type cannot be made unless standard cell models of this type exist in the LEF/OA library. Ignore this warning if the SITE is not used by the library. Alternatively, remove the SITE definition for the LEF/OA library to avoid this message.
+Start create_tracks
+Extraction setup Started 
+/home/cc/Documents/Abdullah/Lab_04_Data/inputs/ALU.sdc
+Reading Capacitance Table File /home/cc/Documents/Abdullah/Lab_04_Data/inputs/mmmc_files/captable/cln65lp_1p09m+alrdl_top2_rcworst.captable ...
+Reading Capacitance Table File /home/cc/Documents/Abdullah/Lab_04_Data/inputs/mmmc_files/captable/cln65lp_1p09m+alrdl_top2_typical.captable ...
+Reading Capacitance Table File /home/cc/Documents/Abdullah/Lab_04_Data/inputs/mmmc_files/captable/cln65lp_1p09m+alrdl_top2_rcbest.captable ...
+Importing multi-corner RC tables ... 
+Summary of Active RC-Corners : 
+ 
+ Analysis View: view_func_setup
+    RC-Corner Name        : rc_worst
+    RC-Corner Index       : 0
+    RC-Corner Temperature : 125 Celsius
+    RC-Corner Cap Table   : '/home/cc/Documents/Abdullah/Lab_04_Data/inputs/mmmc_files/captable/cln65lp_1p09m+alrdl_top2_rcworst.captable'
+    RC-Corner PostRoute Res Factor        : 1
+    RC-Corner PostRoute Cap Factor        : 1
+    RC-Corner PostRoute XCap Factor       : 1
+ 
+ Analysis View: view_func_typical
+    RC-Corner Name        : rc_typical
+    RC-Corner Index       : 1
+    RC-Corner Temperature : 25 Celsius
+    RC-Corner Cap Table   : '/home/cc/Documents/Abdullah/Lab_04_Data/inputs/mmmc_files/captable/cln65lp_1p09m+alrdl_top2_typical.captable'
+    RC-Corner PostRoute Res Factor        : 1
+    RC-Corner PostRoute Cap Factor        : 1
+    RC-Corner PostRoute XCap Factor       : 1
+ 
+ Analysis View: view_func_hold
+    RC-Corner Name        : rc_best
+    RC-Corner Index       : 2
+    RC-Corner Temperature : -40 Celsius
+    RC-Corner Cap Table   : '/home/cc/Documents/Abdullah/Lab_04_Data/inputs/mmmc_files/captable/cln65lp_1p09m+alrdl_top2_rcbest.captable'
+    RC-Corner PostRoute Res Factor        : 1
+    RC-Corner PostRoute Cap Factor        : 1
+    RC-Corner PostRoute XCap Factor       : 1
+Initializing multi-corner capacitance tables ... 
+Initializing multi-corner resistance tables ...
+Reading tc_libset timing library '/home/cc/Documents/Abdullah/Lab_04_Data/libraries/libs/tcbn65lptc.lib' ...
+Read 816 cells in library 'tcbn65lptc' 
+Reading tc_libset timing library '/home/cc/Documents/Abdullah/Lab_04_Data/libraries/libs/tpzn65lpgv2od3tc.lib' ...
+Read 131 cells in library 'tpzn65lpgv2od3tc' 
+Reading timing constraints file '/home/cc/Documents/Abdullah/Lab_04_Data/inputs/ALU.sdc' ...
+Current (total cpu=0:00:17.1, real=0:00:38.0, peak res=2384.0M, current mem=2384.0M)
+INFO (CTE): Constraints read successfully.
+Ending "Constraint file reading stats" (total cpu=0:00:00.0, real=0:00:00.0, peak res=2402.7M, current mem=2402.7M)
+Current (total cpu=0:00:17.1, real=0:00:38.0, peak res=2402.7M, current mem=2402.7M)
+Total number of combinational cells: 483
+Total number of sequential cells: 303
+Total number of tristate cells: 11
+Total number of level shifter cells: 0
+Total number of power gating cells: 0
+Total number of isolation cells: 0
+Total number of power switch cells: 0
+Total number of pulse generator cells: 0
+Total number of always on buffers: 0
+Total number of retention cells: 0
+Total number of physical cells: 19
+List of usable buffers: BUFFD1 BUFFD0 BUFFD2 BUFFD12 BUFFD16 BUFFD3 BUFFD4 BUFFD6 BUFFD8 CKBD1 CKBD0 CKBD2 CKBD12 CKBD16 CKBD3 CKBD4 CKBD6 CKBD8
+Total number of usable buffers: 18
+List of unusable buffers: BUFFD20 BUFFD24 CKBD20 CKBD24 GBUFFD1 GBUFFD3 GBUFFD2 GBUFFD4 GBUFFD8
+Total number of unusable buffers: 9
+List of usable inverters: CKND1 CKND0 CKND2 CKND12 CKND16 CKND3 CKND4 CKND6 CKND8 INVD1 INVD0 INVD2 INVD12 INVD16 INVD3 INVD4 INVD6 INVD8
+Total number of usable inverters: 18
+List of unusable inverters: CKND20 CKND24 GINVD2 GINVD1 GINVD4 GINVD3 GINVD8 INVD20 INVD24
+Total number of unusable inverters: 9
+List of identified usable delay cells: DEL0 DEL005 DEL01 DEL015 DEL02 DEL1 DEL2 DEL3 DEL4
+Total number of identified usable delay cells: 9
+List of identified unusable delay cells:
+Total number of identified unusable delay cells: 0
+@tempus 31> 
+
+@tempus 31> # ================================================================== [1G============
+# ==============================================================================
+@tempus 32> # 3. LOAD PHYSICAL PARASITICS (SPEF)
+# 3. LOAD PHYSICAL PARASITICS (SPEF)
+@tempus 33> # ================================================================== [1G============
+# ==============================================================================
+@tempus 34> # We map the physical copper delays to their respective timing corne [1Grs
+# We map the physical copper delays to their respective timing corners
+@tempus 35> set spef_file "/home/cc/Documents/Abdullah/Lab_04_Data/export/Innovu [1Gs_Data/outputs/pnr/top_wrapper.spef"
+set spef_file "/home/cc/Documents/Abdullah/Lab_04_Data/export/Innovus_Data/outputs/pnr/top_wrapper.spef"
+/home/cc/Documents/Abdullah/Lab_04_Data/export/Innovus_Data/outputs/pnr/top_wrapper.spef
+@tempus 36> 
+
+@tempus 36> puts "INFO: Mapping SPEF parasitics to RC Corners..."
+puts "INFO: Mapping SPEF parasitics to RC Corners..."
+INFO: Mapping SPEF parasitics to RC Corners...
+@tempus 37>
+ 
+@tempus 37> # Worst-Case (Setup) Corner
+# Worst-Case (Setup) Corner
+@tempus 38> read_spef -rc_corner rc_worst $spef_file
+read_spef -rc_corner rc_worst $spef_file
+
+# Best-Case (Hold) Corner
+@tempus 39> 
+@tempus 39> # Best-Case (Hold) Corner
+read_spef -rc_corner rc_best $spef_file
+@tempus 40> read_spef -rc_corner rc_best $spef_file
+
+@tempus 41> 
+@tempus 41> # Typical Corner (Optional)
+# Typical Corner (Optional)
+@tempus 42> read_spef -rc_corner rc_typical $spef_file
+read_spef -rc_corner rc_typical $spef_file
+
+SPEF files for RC Corner rc_worst:
+Top-level spef file '/home/cc/Documents/Abdullah/Lab_04_Data/export/Innovus_Data/outputs/pnr/top_wrapper.spef'.
+
+SPEF files for RC Corner rc_typical:
+Top-level spef file '/home/cc/Documents/Abdullah/Lab_04_Data/export/Innovus_Data/outputs/pnr/top_wrapper.spef'.
+
+SPEF files for RC Corner rc_best:
+Top-level spef file '/home/cc/Documents/Abdullah/Lab_04_Data/export/Innovus_Data/outputs/pnr/top_wrapper.spef'.
+Start spef parsing (MEM=2566.82).
+Spef file '/home/cc/Documents/Abdullah/Lab_04_Data/export/Innovus_Data/outputs/pnr/top_wrapper.spef' reading completed:: 10 %
+Spef file '/home/cc/Documents/Abdullah/Lab_04_Data/export/Innovus_Data/outputs/pnr/top_wrapper.spef' reading completed:: 20 %
+Spef file '/home/cc/Documents/Abdullah/Lab_04_Data/export/Innovus_Data/outputs/pnr/top_wrapper.spef' reading completed:: 30 %
+Spef file '/home/cc/Documents/Abdullah/Lab_04_Data/export/Innovus_Data/outputs/pnr/top_wrapper.spef' reading completed:: 40 %
+Spef file '/home/cc/Documents/Abdullah/Lab_04_Data/export/Innovus_Data/outputs/pnr/top_wrapper.spef' reading completed:: 50 %
+Spef file '/home/cc/Documents/Abdullah/Lab_04_Data/export/Innovus_Data/outputs/pnr/top_wrapper.spef' reading completed:: 60 %
+Spef file '/home/cc/Documents/Abdullah/Lab_04_Data/export/Innovus_Data/outputs/pnr/top_wrapper.spef' reading completed:: 70 %
+Spef file '/home/cc/Documents/Abdullah/Lab_04_Data/export/Innovus_Data/outputs/pnr/top_wrapper.spef' reading completed:: 80 %
+Spef file '/home/cc/Documents/Abdullah/Lab_04_Data/export/Innovus_Data/outputs/pnr/top_wrapper.spef' reading completed:: 90 %
+SPEF file /home/cc/Documents/Abdullah/Lab_04_Data/export/Innovus_Data/outputs/pnr/top_wrapper.spef.
+Number of Resistors     : 2306
+Number of Ground Caps   : 2360
+Number of Coupling Caps : 0
+
+Spef file '/home/cc/Documents/Abdullah/Lab_04_Data/export/Innovus_Data/outputs/pnr/top_wrapper.spef' reading completed:: 10 %
+Spef file '/home/cc/Documents/Abdullah/Lab_04_Data/export/Innovus_Data/outputs/pnr/top_wrapper.spef' reading completed:: 20 %
+Spef file '/home/cc/Documents/Abdullah/Lab_04_Data/export/Innovus_Data/outputs/pnr/top_wrapper.spef' reading completed:: 30 %
+Spef file '/home/cc/Documents/Abdullah/Lab_04_Data/export/Innovus_Data/outputs/pnr/top_wrapper.spef' reading completed:: 40 %
+Spef file '/home/cc/Documents/Abdullah/Lab_04_Data/export/Innovus_Data/outputs/pnr/top_wrapper.spef' reading completed:: 50 %
+Spef file '/home/cc/Documents/Abdullah/Lab_04_Data/export/Innovus_Data/outputs/pnr/top_wrapper.spef' reading completed:: 60 %
+Spef file '/home/cc/Documents/Abdullah/Lab_04_Data/export/Innovus_Data/outputs/pnr/top_wrapper.spef' reading completed:: 70 %
+Spef file '/home/cc/Documents/Abdullah/Lab_04_Data/export/Innovus_Data/outputs/pnr/top_wrapper.spef' reading completed:: 80 %
+Spef file '/home/cc/Documents/Abdullah/Lab_04_Data/export/Innovus_Data/outputs/pnr/top_wrapper.spef' reading completed:: 90 %
+SPEF file /home/cc/Documents/Abdullah/Lab_04_Data/export/Innovus_Data/outputs/pnr/top_wrapper.spef.
+Number of Resistors     : 2306
+Number of Ground Caps   : 2360
+Number of Coupling Caps : 0
+
+Spef file '/home/cc/Documents/Abdullah/Lab_04_Data/export/Innovus_Data/outputs/pnr/top_wrapper.spef' reading completed:: 10 %
+Spef file '/home/cc/Documents/Abdullah/Lab_04_Data/export/Innovus_Data/outputs/pnr/top_wrapper.spef' reading completed:: 20 %
+Spef file '/home/cc/Documents/Abdullah/Lab_04_Data/export/Innovus_Data/outputs/pnr/top_wrapper.spef' reading completed:: 30 %
+Spef file '/home/cc/Documents/Abdullah/Lab_04_Data/export/Innovus_Data/outputs/pnr/top_wrapper.spef' reading completed:: 40 %
+Spef file '/home/cc/Documents/Abdullah/Lab_04_Data/export/Innovus_Data/outputs/pnr/top_wrapper.spef' reading completed:: 50 %
+Spef file '/home/cc/Documents/Abdullah/Lab_04_Data/export/Innovus_Data/outputs/pnr/top_wrapper.spef' reading completed:: 60 %
+Spef file '/home/cc/Documents/Abdullah/Lab_04_Data/export/Innovus_Data/outputs/pnr/top_wrapper.spef' reading completed:: 70 %
+Spef file '/home/cc/Documents/Abdullah/Lab_04_Data/export/Innovus_Data/outputs/pnr/top_wrapper.spef' reading completed:: 80 %
+Spef file '/home/cc/Documents/Abdullah/Lab_04_Data/export/Innovus_Data/outputs/pnr/top_wrapper.spef' reading completed:: 90 %
+SPEF file /home/cc/Documents/Abdullah/Lab_04_Data/export/Innovus_Data/outputs/pnr/top_wrapper.spef.
+Number of Resistors     : 2306
+Number of Ground Caps   : 2360
+Number of Coupling Caps : 0
+
+End spef parsing (MEM=2578.82 CPU=0:00:00.1 REAL=0:00:00.0).
+10 nets are missing in SPEF file. The names of these nets are saved in ./rc_worst.missing_nets.rpt.
+10 nets are missing in SPEF file. The names of these nets are saved in ./rc_typical.missing_nets.rpt.
+10 nets are missing in SPEF file. The names of these nets are saved in ./rc_best.missing_nets.rpt.
+
+@tempus 43> 
+@tempus 43> # ================================================================== [1G============
+# ==============================================================================
+# 4. ANALYSIS & REPORTING
+@tempus 44> # 4. ANALYSIS & REPORTING
+# ==============================================================================
+@tempus 45> # ================================================================== [1G============
+@tempus 46> # Define which views to use for Setup and Hold auditing
+# Define which views to use for Setup and Hold auditing
+set_analysis_view -setup {view_func_setup} -hold {view_func_hold}
+@tempus 47> set_analysis_view -setup {view_func_setup} -hold {view_func_hold}
+Number of views requested 1 are allowed with the current licenses... continuing with set_analysis_view.
+Extraction setup Started 
+/home/cc/Documents/Abdullah/Lab_04_Data/inputs/ALU.sdc
+Reading Capacitance Table File /home/cc/Documents/Abdullah/Lab_04_Data/inputs/mmmc_files/captable/cln65lp_1p09m+alrdl_top2_rcworst.captable ...
+Reading Capacitance Table File /home/cc/Documents/Abdullah/Lab_04_Data/inputs/mmmc_files/captable/cln65lp_1p09m+alrdl_top2_rcbest.captable ...
+Importing multi-corner RC tables ... 
+Summary of Active RC-Corners : 
+ 
+ Analysis View: view_func_setup
+    RC-Corner Name        : rc_worst
+    RC-Corner Index       : 0
+    RC-Corner Temperature : 125 Celsius
+    RC-Corner Cap Table   : '/home/cc/Documents/Abdullah/Lab_04_Data/inputs/mmmc_files/captable/cln65lp_1p09m+alrdl_top2_rcworst.captable'
+    RC-Corner PostRoute Res Factor        : 1
+    RC-Corner PostRoute Cap Factor        : 1
+    RC-Corner PostRoute XCap Factor       : 1
+ 
+ Analysis View: view_func_hold
+    RC-Corner Name        : rc_best
+    RC-Corner Index       : 1
+    RC-Corner Temperature : -40 Celsius
+    RC-Corner Cap Table   : '/home/cc/Documents/Abdullah/Lab_04_Data/inputs/mmmc_files/captable/cln65lp_1p09m+alrdl_top2_rcbest.captable'
+    RC-Corner PostRoute Res Factor        : 1
+    RC-Corner PostRoute Cap Factor        : 1
+    RC-Corner PostRoute XCap Factor       : 1
+set_analysis_view/update_rc_corner called to change MMMC setup. New set of RC Corners are a subset of previous MMMC setup and the RC setup information for the new set has remained same. Therefore, parasitic data in the tool brought as per previous MMMC setup is being maintained.
+Initializing multi-corner capacitance tables ... 
+Initializing multi-corner resistance tables ...
+Reading timing constraints file '/home/cc/Documents/Abdullah/Lab_04_Data/inputs/ALU.sdc' ...
+Current (total cpu=0:00:18.1, real=0:00:39.0, peak res=2435.7M, current mem=2357.0M)
+INFO (CTE): Constraints read successfully.
+Ending "Constraint file reading stats" (total cpu=0:00:00.0, real=0:00:00.0, peak res=2373.6M, current mem=2373.6M)
+Current (total cpu=0:00:18.1, real=0:00:39.0, peak res=2435.7M, current mem=2373.6M)
+Total number of combinational cells: 483
+Total number of sequential cells: 303
+Total number of tristate cells: 11
+Total number of level shifter cells: 0
+Total number of power gating cells: 0
+Total number of isolation cells: 0
+Total number of power switch cells: 0
+Total number of pulse generator cells: 0
+Total number of always on buffers: 0
+Total number of retention cells: 0
+Total number of physical cells: 19
+List of usable buffers: BUFFD1 BUFFD0 BUFFD2 BUFFD12 BUFFD16 BUFFD3 BUFFD4 BUFFD6 BUFFD8 CKBD1 CKBD0 CKBD2 CKBD12 CKBD16 CKBD3 CKBD4 CKBD6 CKBD8
+Total number of usable buffers: 18
+List of unusable buffers: BUFFD20 BUFFD24 CKBD20 CKBD24 GBUFFD1 GBUFFD3 GBUFFD2 GBUFFD4 GBUFFD8
+Total number of unusable buffers: 9
+List of usable inverters: CKND1 CKND0 CKND2 CKND12 CKND16 CKND3 CKND4 CKND6 CKND8 INVD1 INVD0 INVD2 INVD12 INVD16 INVD3 INVD4 INVD6 INVD8
+Total number of usable inverters: 18
+List of unusable inverters: CKND20 CKND24 GINVD2 GINVD1 GINVD4 GINVD3 GINVD8 INVD20 INVD24
+Total number of unusable inverters: 9
+List of identified usable delay cells: DEL0 DEL005 DEL01 DEL015 DEL02 DEL1 DEL2 DEL3 DEL4
+Total number of identified usable delay cells: 9
+List of identified unusable delay cells:
+Total number of identified unusable delay cells: 0
+@tempus 48> 
+
+@tempus 48> # Force a full timing update to propagate parasitics through the gra [1Gph
+# Force a full timing update to propagate parasitics through the graph
+@tempus 49> puts "INFO: Building final timing graph with parasitics..."
+puts "INFO: Building final timing graph with parasitics..."
+INFO: Building final timing graph with parasitics...
+@tempus 50> update_timing -full
+update_timing -full
+AAE_INFO: opIsDesignInPostRouteState() is 0
+AAE DB initialization (MEM=2620.38 CPU=0:00:00.0 REAL=0:00:00.0) 
+AAE_INFO: resetNetProps viewIdx 0 
+AAE_INFO: resetNetProps viewIdx 1 
+Starting SI iteration 1 using Infinite Timing Windows
+Start slew iteration 
+#################################################################################
+# Design Name: top_wrapper
+# Design Mode: 65nm
+# Analysis Mode: MMMC OCV 
+# Parasitics Mode: SPEF/RCDB 
+# Signoff Settings: SI On 
+#################################################################################
+Start delay calculation (fullDC) (1 T). (MEM=2652.52)
+**ERROR: (IMPESI-2016):	There is no coupling capacitance found in the design. Use 'set_db delaycal_enable_si false' to perform base delay analysis. SI analysis requires the SPEF to contain coupling capacitance. To perform SI analysis, load a SPEF with coupling capacitance and re-run.
+End delay calculation. (MEM=3086.94 CPU=0:00:00.0 REAL=0:00:00.0)
+/home/cc/Documents/Abdullah/Lab_04_Data/inputs/ALU.sdc
+/home/cc/Documents/Abdullah/Lab_04_Data/inputs/ALU.sdc
+End delay calculation (fullDC). (MEM=3086.94 CPU=0:00:00.1 REAL=0:00:00.0)
+update aggressor slew in non distributed run
+End Slew iteration 
+Start delay calculation (fullDC) (1 T). (MEM=3086.94)
+**ERROR: (IMPESI-2016):	There is no coupling capacitance found in the design. Use 'set_db delaycal_enable_si false' to perform base delay analysis. SI analysis requires the SPEF to contain coupling capacitance. To perform SI analysis, load a SPEF with coupling capacitance and re-run.
+**WARN: (IMPESI-3095):	Net: 'A[0]' has no receivers. SI analysis is not performed.
+**WARN: (IMPESI-3095):	Net: 'Sel[1]' has no receivers. SI analysis is not performed.
+**WARN: (IMPESI-3095):	Net: 'Sel[0]' has no receivers. SI analysis is not performed.
+**WARN: (IMPESI-3095):	Net: 'rst' has no receivers. SI analysis is not performed.
+**WARN: (IMPESI-3095):	Net: 'B[7]' has no receivers. SI analysis is not performed.
+**WARN: (IMPESI-3095):	Net: 'B[6]' has no receivers. SI analysis is not performed.
+**WARN: (IMPESI-3095):	Net: 'B[5]' has no receivers. SI analysis is not performed.
+**WARN: (IMPESI-3095):	Net: 'B[4]' has no receivers. SI analysis is not performed.
+**WARN: (IMPESI-3095):	Net: 'B[3]' has no receivers. SI analysis is not performed.
+**WARN: (IMPESI-3095):	Net: 'B[2]' has no receivers. SI analysis is not performed.
+**WARN: (IMPESI-3095):	Net: 'B[1]' has no receivers. SI analysis is not performed.
+**WARN: (IMPESI-3095):	Net: 'B[0]' has no receivers. SI analysis is not performed.
+**WARN: (IMPESI-3095):	Net: 'A[7]' has no receivers. SI analysis is not performed.
+**WARN: (IMPESI-3095):	Net: 'A[6]' has no receivers. SI analysis is not performed.
+**WARN: (IMPESI-3095):	Net: 'A[5]' has no receivers. SI analysis is not performed.
+**WARN: (IMPESI-3095):	Net: 'A[4]' has no receivers. SI analysis is not performed.
+**WARN: (IMPESI-3095):	Net: 'A[3]' has no receivers. SI analysis is not performed.
+**WARN: (IMPESI-3095):	Net: 'A[2]' has no receivers. SI analysis is not performed.
+**WARN: (IMPESI-3095):	Net: 'A[1]' has no receivers. SI analysis is not performed.
+AAE_INFO-618: Total number of nets in the design is 199,  100.0 percent of the nets selected for SI analysis
+**WARN: (IMPESI-3095):	Net: 'A[0]' has no receivers. SI analysis is not performed.
+AAE_INFO-618: Total number of nets in the design is 199,  100.0 percent of the nets selected for SI analysis
+End delay calculation. (MEM=3154.55 CPU=0:00:00.1 REAL=0:00:00.0)
+End delay calculation (fullDC). (MEM=3154.55 CPU=0:00:00.1 REAL=0:00:00.0)
+Loading CTE timing window with TwFlowType 0...(CPU = 0:00:00.0, REAL = 0:00:00.0, MEM = 3136.6M)
+Loading CTE timing window is completed (CPU = 0:00:00.0, REAL = 0:00:00.0, MEM = 3136.6M)
+Starting SI iteration 2
+Start delay calculation (fullDC) (1 T). (MEM=3106.83)
+**ERROR: (IMPESI-2016):	There is no coupling capacitance found in the design. Use 'set_db delaycal_enable_si false' to perform base delay analysis. SI analysis requires the SPEF to contain coupling capacitance. To perform SI analysis, load a SPEF with coupling capacitance and re-run.
+AAE_INFO-618: Total number of nets in the design is 199,  0.5 percent of the nets selected for SI analysis
+AAE_INFO-618: Total number of nets in the design is 199,  0.5 percent of the nets selected for SI analysis
+End delay calculation. (MEM=3194.6 CPU=0:00:00.0 REAL=0:00:00.0)
+End delay calculation (fullDC). (MEM=3194.6 CPU=0:00:00.0 REAL=0:00:00.0)
+0
+@tempus 51> 
+
+# Create report directory
+@tempus 51> # Create report directory
+file mkdir /home/cc/Documents/Abdullah/Lab_04_Data/export/Tempus_Data/reports/tempus_signoff
+@tempus 52> file mkdir /home/cc/Documents/Abdullah/Lab_04_Data/export/Tempus_Dat [1Ga/reports/tempus_signoff
+
+@tempus 53> 
+@tempus 53> # --- Generate Signoff Reports --# --- Generate Signoff Reports ---
+-
+puts "INFO: Generating Signoff Scorecards..."
+
+@tempus 54> puts "INFO: Generating Signoff Scorecards..."
+INFO: Generating Signoff Scorecards...
+@tempus 55> 
+# 1. Global Summary (Check TNS/WNS here)
+@tempus 55> # 1. Global Summary (Check TNS/WNS here)
+@tempus 56> report_timing_summary > /home/cc/Documents/Abdullah/Lab_04_Data/expo [1Grt/Tempus_Data/reports/tempus_signoff/summary.rpreport_timing_summary > /home/cc/Documents/Abdullah/Lab_04_Data/export/Tempus_Data/reports/tempus_signoff/summary.rpt
+t
+@tempus 57> 
+
+@tempus 57> # 2. Detailed Setup Report (Top 10 Critical Paths)
+# 2. Detailed Setup Report (Top 10 Critical Paths)
+@tempus 58> report_timing -late  -max_paths 10 > /home/cc/Documents/Abdullah/Lab [1G_04_Data/export/Tempus_Data/reports/tempus_signoff/setup_paths.rpt
+report_timing -late  -max_paths 10 > /home/cc/Documents/Abdullah/Lab_04_Data/export/Tempus_Data/reports/tempus_signoff/setup_paths.rpt
+@tempus 59> 
+
+@tempus 59> # 3. Detailed Hold Report (Top 10 Critical Paths)
+# 3. Detailed Hold Report (Top 10 Critical Paths)
+@tempus 60> report_timing -early -max_paths 10 > /home/cc/Documents/Abdullah/Lab [1G_04_Data/export/Tempus_Data/reports/tempus_signoff/hold_paths.rpt
+report_timing -early -max_paths 10 > /home/cc/Documents/Abdullah/Lab_04_Data/export/Tempus_Data/reports/tempus_signoff/hold_paths.rpt
+@tempus 61> 
+
+@tempus 61> # 4. Design Rule Violations (Max Cap/Tran/Fanout)
+# 4. Design Rule Violations (Max Cap/Tran/Fanout)
+@tempus 62> # In Stylus, we explicitly list the DRV types we want to audit
+# In Stylus, we explicitly list the DRV types we want to audit
+@tempus 63> report_constraint -drv_violation_type {max_capacitance max_transitio [1Gn max_fanout} > /home/cc/Documents/Abdullah/Lab_04_Data/export/Tempus_Data/repor [1Gts/tempus_signoff/drv.rpt
+report_constraint -drv_violation_type {max_capacitance max_transition max_fanout} > /home/cc/Documents/Abdullah/Lab_04_Data/export/Tempus_Data/reports/tempus_signoff/drv.rpt
+@tempus 64>
+ 
+@tempus 64> puts "INFO: Tempus Signoff Script Completed Successfully!"?62;c?62;c [1GLoading  (top_wrapper)
+Traverse HInst (top_wrapper)
+@tempus 64> puts "INFO: Tempus Signoff Script Completed Successfully!"?62;c?62;c [1Gputs "INFO: Tempus Signoff Script Completed Successfully!"?62;c?62;c
+
+extra characters after close-quote
+extra characters after close-quote
+@tempus 65> exit
+
+*** Memory Usage v#3 (Current mem = 3120.602M, initial mem = 656.645M) ***
+
+*** Summary of all messages that are not suppressed in this session:
+Severity  ID               Count  Summary                                  
+WARNING   IMPLF-200            1  Pin '%s' in macro '%s' has no ANTENNAGAT...
+WARNING   IMPFP-3961           2  The techSite '%s' has no related standar...
+WARNING   IMPESI-3095         38  Net: '%s' has no receivers. SI analysis ...
+ERROR     IMPESI-2016          3  There is no coupling capacitance found i...
+WARNING   TECHLIB-302         69  No function defined for cell '%s'. The c...
+*** Message Summary: 110 warning(s), 3 error(s)
+
+--- Ending "Tempus Timing Solution" (totcpu=0:00:21.4, real=0:01:56, mem=3120.6M) ---

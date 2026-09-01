@@ -1,0 +1,102 @@
+======================================================================
+
+Annotating SDF timing data:
+  Compiled SDF file:     counter_physical_synth.sdf.X
+  Log file:              MAXIMUM
+  Backannotation scope:  counter_tb.uut
+  Configuration file:    sdf.log
+  MTM control:           
+  Scale factors:         
+  Scale type:            
+xmelab: *W,SDFCFW: Errors in config file, proceeding without it: sdf.log.
+
+Time units: 1ps
+
+
+Annotating to instance count_reg[3] of module DFCNQD1
+	ABSOLUTE (COND ((CP==0)&&(D==0)) (IOPATH CDN Q)) = ((), 141)
+	ABSOLUTE (COND ((CP==0)&&(D==1)) (IOPATH CDN Q)) = ((), 141)
+	ABSOLUTE (COND ((CP==1)&&(D==0)) (IOPATH CDN Q)) = ((), 138)
+	ABSOLUTE (IOPATH CDN Q) = ((), 141)
+	ABSOLUTE (COND ((CP==1)&&(D==1)) (IOPATH CDN Q)) = ((), 138)
+	ABSOLUTE (IOPATH CP Q) = (320, 324)
+
+Annotating to instance g81__2398 of module XOR2D1
+	ABSOLUTE (COND (A1==0) (IOPATH A2 Z)) = (165, 171)
+	ABSOLUTE (COND (A2==0) (IOPATH A1 Z)) = (133, 122)
+	ABSOLUTE (COND (A1==1) (IOPATH A2 Z)) = (204, 236)
+	ABSOLUTE (COND (A2==1) (IOPATH A1 Z)) = (148, 186)
+	ABSOLUTE (IOPATH A1 Z) = (160, 186)
+	ABSOLUTE (IOPATH A2 Z) = (218, 188)
+
+Annotating to instance count_reg[2] of module DFCNQD1
+	ABSOLUTE (COND ((CP==0)&&(D==0)) (IOPATH CDN Q)) = ((), 144)
+	ABSOLUTE (COND ((CP==0)&&(D==1)) (IOPATH CDN Q)) = ((), 144)
+	ABSOLUTE (COND ((CP==1)&&(D==0)) (IOPATH CDN Q)) = ((), 141)
+	ABSOLUTE (IOPATH CDN Q) = ((), 144)
+	ABSOLUTE (COND ((CP==1)&&(D==1)) (IOPATH CDN Q)) = ((), 141)
+	ABSOLUTE (IOPATH CP Q) = (324, 327)
+
+Annotating to instance g83__5107 of module HA1D0
+	ABSOLUTE (IOPATH A CO) = (190, 148)
+	ABSOLUTE (IOPATH B CO) = (180, 140)
+	ABSOLUTE (COND (A==1) (IOPATH B S)) = (189, 149)
+	ABSOLUTE (COND (B==1) (IOPATH A S)) = (210, 208)
+	ABSOLUTE (IOPATH A S) = (226, 226)
+	ABSOLUTE (IOPATH B S) = (202, 154)
+	ABSOLUTE (COND (A==0) (IOPATH B S)) = (140, 141)
+	ABSOLUTE (COND (B==0) (IOPATH A S)) = (210, 208)
+
+Annotating to instance count_reg[1] of module DFCNQD1
+	ABSOLUTE (COND ((CP==0)&&(D==0)) (IOPATH CDN Q)) = ((), 151)
+	ABSOLUTE (COND ((CP==0)&&(D==1)) (IOPATH CDN Q)) = ((), 151)
+	ABSOLUTE (COND ((CP==1)&&(D==0)) (IOPATH CDN Q)) = ((), 147)
+	ABSOLUTE (IOPATH CDN Q) = ((), 151)
+	ABSOLUTE (COND ((CP==1)&&(D==1)) (IOPATH CDN Q)) = ((), 147)
+	ABSOLUTE (IOPATH CP Q) = (331, 333)
+
+Annotating to instance g85__6260 of module HA1D0
+	ABSOLUTE (IOPATH A CO) = (207, 160)
+	ABSOLUTE (IOPATH B CO) = (217, 173)
+	ABSOLUTE (COND (A==1) (IOPATH B S)) = (211, 166)
+	ABSOLUTE (COND (B==1) (IOPATH A S)) = (209, 209)
+	ABSOLUTE (IOPATH A S) = (227, 228)
+	ABSOLUTE (IOPATH B S) = (229, 177)
+	ABSOLUTE (COND (A==0) (IOPATH B S)) = (158, 161)
+	ABSOLUTE (COND (B==0) (IOPATH A S)) = (211, 207)
+
+Annotating to instance g87 of module CKND0
+	ABSOLUTE (IOPATH I ZN) = (15, 14)
+
+Annotating to instance count_reg[0] of module DFCND1
+	ABSOLUTE (COND ((CP==0)&&(D==0)) (IOPATH CDN Q)) = ((), 150)
+	ABSOLUTE (COND ((CP==0)&&(D==1)) (IOPATH CDN Q)) = ((), 150)
+	ABSOLUTE (COND ((CP==1)&&(D==0)) (IOPATH CDN Q)) = ((), 149)
+	ABSOLUTE (IOPATH CDN Q) = ((), 149)
+	ABSOLUTE (COND ((CP==1)&&(D==1)) (IOPATH CDN Q)) = ((), 149)
+	ABSOLUTE (IOPATH CP Q) = (328, 324)
+	ABSOLUTE (COND ((CP==0)&&(D==0)) (IOPATH CDN QN)) = (173, ())
+	ABSOLUTE (COND ((CP==0)&&(D==1)) (IOPATH CDN QN)) = (173, ())
+	ABSOLUTE (COND ((CP==1)&&(D==0)) (IOPATH CDN QN)) = (150, ())
+	ABSOLUTE (IOPATH CDN QN) = (173, ())
+	ABSOLUTE (COND ((CP==1)&&(D==1)) (IOPATH CDN QN)) = (150, ())
+	ABSOLUTE (IOPATH CP QN) = (325, 299)
+ABSOLUTE PORT: counter_tb.uut.\count_reg[3] .CDN = (0)
+ABSOLUTE PORT: counter_tb.uut.\count_reg[3] .CP = (0)
+ABSOLUTE PORT: counter_tb.uut.\count_reg[3] .D = (0)
+ABSOLUTE PORT: counter_tb.uut.g81__2398.A1 = (0)
+ABSOLUTE PORT: counter_tb.uut.g81__2398.A2 = (0)
+ABSOLUTE PORT: counter_tb.uut.\count_reg[2] .CDN = (0)
+ABSOLUTE PORT: counter_tb.uut.\count_reg[2] .CP = (0)
+ABSOLUTE PORT: counter_tb.uut.\count_reg[2] .D = (0)
+ABSOLUTE PORT: counter_tb.uut.g83__5107.A = (0)
+ABSOLUTE PORT: counter_tb.uut.g83__5107.B = (0)
+ABSOLUTE PORT: counter_tb.uut.\count_reg[1] .CDN = (0)
+ABSOLUTE PORT: counter_tb.uut.\count_reg[1] .CP = (0)
+ABSOLUTE PORT: counter_tb.uut.\count_reg[1] .D = (0)
+ABSOLUTE PORT: counter_tb.uut.g85__6260.A = (0)
+ABSOLUTE PORT: counter_tb.uut.g85__6260.B = (0)
+ABSOLUTE PORT: counter_tb.uut.g87.I = (0)
+ABSOLUTE PORT: counter_tb.uut.\count_reg[0] .CDN = (0)
+ABSOLUTE PORT: counter_tb.uut.\count_reg[0] .CP = (0)
+ABSOLUTE PORT: counter_tb.uut.\count_reg[0] .D = (0)

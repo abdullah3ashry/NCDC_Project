@@ -1,0 +1,91 @@
+********************************************************************************
+db2gds 23.11-s036 64 bit (Wed Jan 17 18:11:41 PST 2024)
+Build Ref No.: 036 Production (01-17-2024) [pvs_2311]
+
+Copyright 2024 Cadence Design Systems, Inc.
+All rights reserved worldwide.
+
+Build O/S:       Linux x86_64 3.10.0-693.el7.x86_64
+Executed on:     ncdc-0137 (Linux x86_64 7.1.4-1.el8.elrepo.x86_64)
+Process Id:      44546
+Starting Time:   Tue Aug 11 08:35:10 2026 (Tue Aug 11 12:35:10 2026 GMT)
+With parameters: counter_44493 erc.db counter -lmap lmapiCDTcn -gdslib drc.db -gds_scale 1000 
+********************************************************************************
+
+Library name: counter_44493
+GDSII file name: erc.db
+Cells to be written out: counter
+Source Library: counter_44493
+Layer mapping file(GDS <- DMC): lmapiCDTcn
+    0 (dt:0) <- 0
+    0 (dt:0) <- 0
+    0 (dt:0) <- 0
+    0 (dt:0) <- 0
+    0 (dt:0) <- 0
+    0 (dt:0) <- 0
+    0 (dt:0) <- 0
+    0 (dt:0) <- 0
+    0 (dt:0) <- 0
+Cell name case: PRESERVE
+
+
+                Object Statistics of Cells                            
+Cell Name         Box  Polygon     Path   Label Instance Array    Total
+----------------------------------------------------------------------
+counter             0        0        0       0   227      0       227
+CKBD4               0        0        0       0     0      0         0
+DFCNQD1             0        0        0       0     0      0         0
+XOR2D1              0        0        0       0     0      0         0
+HA1D0               0        0        0       0     0      0         0
+CKND0               0        0        0       0     0      0         0
+DFCND1              0        0        0       0     0      0         0
+DCAP                0        0        0       0     0      0         0
+FILL4               0        0        0       0     0      0         0
+FILL1               0        0        0       0     0      0         0
+DCAP4               0        0        0       0     0      0         0
+FILL2               0        0        0       0     0      0         0
+VIA12_1cut_V        0        0        0       0     0      0         0
+VIA12_2cut_HN        0        0        0       0     0      0         0
+VIA12_2cut_W        0        0        0       0     0      0         0
+VIA23_2cut_E        0        0        0       0     0      0         0
+VIA23_2cut_W        0        0        0       0     0      0         0
+VIA12_2cut_E        0        0        0       0     0      0         0
+VIA23_2cut_S        0        0        0       0     0      0         0
+VIA34_2cut_S        0        0        0       0     0      0         0
+VIA23_2cut_N        0        0        0       0     0      0         0
+VIA12_2cut_N        0        0        0       0     0      0         0
+counter_VIA0        0        0        0       0     0      0         0
+counter_VIA1        0        0        0       0     0      0         0
+counter_VIA2        0        0        0       0     0      0         0
+counter_VIA3        0        0        0       0     0      0         0
+counter_VIA4        0        0        0       0     0      0         0
+counter_VIA5        0        0        0       0     0      0         0
+counter_VIA6        0        0        0       0     0      0         0
+counter_VIA7        0        0        0       0     0      0         0
+counter_VIA8        0        0        0       0     0      0         0
+counter_VIA9        0        0        0       0     0      0         0
+counter_VIA10        0        0        0       0     0      0         0
+counter_VIA11        0        0        0       0     0      0         0
+counter_VIA12        0        0        0       0     0      0         0
+counter_VIA13        0        0        0       0     0      0         0
+----------------------------------------------------------------------
+
+Object Statistics of Layers
+Layer   Objects
+----------------
+----------------
+
+Object Summary
+------------------
+     Box         0
+ Polygon         0
+    Path         0
+   Label         0
+Instance       227
+   Array         0
+------------------
+   Total       227
+
+Total CPU Time          : 0(s)
+Total Real Time         : 0(s)
+Peak Memory Used        : 9(M)

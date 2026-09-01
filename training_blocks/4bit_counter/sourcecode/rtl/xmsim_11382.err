@@ -1,0 +1,47 @@
+csi-xmsim - CSI: Command line:
+xmsim
+    -f /home/cc/Fawad_PD/example/sourcecode/rtl/xcelium.d/run.lnx8664.23.09.d/ncdc-0081_20fe0323-f017-45e5-aae6-b094273d9fe4/xmsim.args
+        -MESSAGES
+        +EMGRLOG xrun.log
+        -XLSTIME 1784700036
+        -XLKEEP
+        -XLMODE ./xcelium.d/run.lnx8664.23.09.d
+        -RUNMODE
+        -CDSLIB ./xcelium.d/run.lnx8664.23.09.d/cds.lib
+        -HDLVAR ./xcelium.d/run.lnx8664.23.09.d/hdl.var
+        -XLNAME xrun
+        -XLVERSION TOOL:	xrun(64)	23.09-s006
+        -XLNAME ./xcelium.d/run.lnx8664.23.09.d/ncdc-0081_20fe0323-f017-45e5-aae6-b094273d9fe4
+    -CHECK_VERSION TOOL:	xrun(64)	23.09-s006
+    -LOG_FD 4
+    -LOG_FD_NAME xrun.log
+    -cmdnopsim
+    -runlock /home/cc/Fawad_PD/example/sourcecode/rtl/xcelium.d/run.lnx8664.23.09.d/.xmlib.lock
+    -runscratch /home/cc/Fawad_PD/example/sourcecode/rtl/xcelium.d/run.lnx8664.23.09.d/ncdc-0081_20fe0323-f017-45e5-aae6-b094273d9fe4
+
+csi-xmsim - CSI: *F,INTERR: INTERNAL EXCEPTION
+Observed simulation time : 0 FS + 0
+-----------------------------------------------------------------
+The tool has encountered an unexpected condition and must exit.
+Contact Cadence Design Systems customer support about this
+problem and provide enough information to help us reproduce it,
+including the logfile that contains this error message.
+  TOOL:	xmsim(64)	23.09-s006 (CL: 587028 )
+  HOSTNAME: ncdc-0081
+  OPERATING SYSTEM: Linux 4.18.0-513.24.1.el8_9.x86_64 #1 SMP Thu Mar 14 14:20:09 EDT 2024 x86_64
+  MESSAGE: T(0): sv_seghandler - trapno -1 addr(0x56e016c)
+	Stream rts_xfer
+-----------------------------------------------------------------
+
+csi-xmsim - CSI: Cadence Support Investigation, recording details
+External Code in function: <unavailable> offset -65510
+External Code in function: <unavailable> offset -65536
+Simulator Snap Shot: gd (SSS_GD) in snapshot worklib.counter_tb:v (SSS)
+External Code in function: <unavailable> offset -65535
+Simulator Snap Shot: root (SSS_ROOT) in snapshot worklib.counter_tb:v (SSS)
+Intermediate File: root (IF_ROOT) in snapshot worklib.counter_tb:v (SSS)
+Intermediate File: root (IF_ROOT)
+Intermediate File: data block (IF_BLK) in snapshot worklib.counter_tb:v (SSS)
+Simulator Snap Shot: dynlib (SSS_DYNLIB) in snapshot worklib.counter_tb:v (SSS)
+External Code in function: <unavailable> offset -65532
+csi-xmsim - CSI: investigation complete took 0.008 secs, send this file to Cadence Support

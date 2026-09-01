@@ -1,0 +1,433 @@
+[08/06 01:58:12      0s] 
+[08/06 01:58:12      0s] Cadence Innovus(TM) Implementation System.
+[08/06 01:58:12      0s] Copyright 2021 Cadence Design Systems, Inc. All rights reserved worldwide.
+[08/06 01:58:12      0s] 
+[08/06 01:58:12      0s] Version:	v21.18-s099_1, built Tue Jul 18 13:03:50 PDT 2023
+[08/06 01:58:12      0s] Options:	-stylus 
+[08/06 01:58:12      0s] Date:		Thu Aug  6 01:58:11 2026
+[08/06 01:58:12      0s] Host:		ncdc-0137 (x86_64 w/Linux 7.1.4-1.el8.elrepo.x86_64) (16cores*24cpus*13th Gen Intel(R) Core(TM) i7-13700 30720KB)
+[08/06 01:58:12      0s] OS:		Red Hat Enterprise Linux 8.6 (Ootpa)
+[08/06 01:58:12      0s] 
+[08/06 01:58:12      0s] License:
+[08/06 01:58:12      0s] 		[01:58:11.301441] Configured Lic search path (21.01-s002): 5280@10.19.32.90
+[08/06 01:58:12      0s] 
+[08/06 01:58:12      0s] 		invs	Innovus Implementation System	21.1	checkout succeeded
+[08/06 01:58:12      0s] 		8 CPU jobs allowed with the current license(s). Use set_multi_cpu_usage to set your required CPU count.
+[08/06 01:58:22      4s] 
+[08/06 01:58:22      4s] 
+[08/06 01:58:28      6s] Reset Parastics called with the command setExtractRCMode -reset@(#)CDS: Innovus v21.18-s099_1 (64bit) 07/18/2023 13:03 (Linux 3.10.0-693.el7.x86_64)
+[08/06 01:58:33      7s] @(#)CDS: NanoRoute 21.18-s099_1 NR230707-1955/21_18-UB (database version 18.20.605) {superthreading v2.17}
+[08/06 01:58:33      7s] @(#)CDS: AAE 21.18-s017 (64bit) 07/18/2023 (Linux 3.10.0-693.el7.x86_64)
+[08/06 01:58:33      7s] @(#)CDS: CTE 21.18-s022_1 () Jul 11 2023 23:10:24 ( )
+[08/06 01:58:33      7s] @(#)CDS: SYNTECH 21.18-s010_1 () Jul  5 2023 06:32:03 ( )
+[08/06 01:58:33      7s] @(#)CDS: CPE v21.18-s053
+[08/06 01:58:33      7s] @(#)CDS: IQuantus/TQuantus 21.1.1-s966 (64bit) Wed Mar 8 10:22:20 PST 2023 (Linux 3.10.0-693.el7.x86_64)
+[08/06 01:58:33      7s] @(#)CDS: OA 22.60-p087 Thu Feb  9 09:35:26 2023
+[08/06 01:58:33      7s] @(#)CDS: SGN 20.10-d001 (01-Jun-2020) (64 bit executable, Qt5.9.0)
+[08/06 01:58:33      7s] @(#)CDS: RCDB 11.15.0
+[08/06 01:58:33      7s] @(#)CDS: STYLUS 21.12-s019_1 (12/20/2022 05:13 PST)
+[08/06 01:58:33      7s] @(#)CDS: SystemPlanner-21.18-10439 (21.18) (2023-03-01 15:40:03+0800)
+[08/06 01:58:33      7s] Create and set the environment variable TMPDIR to /tmp/innovus_temp_5818_ncdc-0137_cc_2JElhZ.
+
+[08/06 01:58:33      7s] Create and set the environment variable TMPDIR to /tmp/innovus_temp_5818_ncdc-0137_cc_2JElhZ.
+[08/06 01:58:33      7s] 
+[08/06 01:58:33      7s] Change the soft stacksize limit to 0.2%RAM (127 mbytes). Set global soft_stack_size_limit to change the value.
+[08/06 01:58:36      8s] [INFO] Loading Pegasus 23.13 fill procedures
+[08/06 01:58:38      9s] 
+[08/06 01:58:38      9s] **INFO:  MMMC transition support version v31-84 
+[08/06 01:58:38      9s] 
+[08/06 01:58:39     10s] @innovus 1> set WORK_DIR                  "/home/cc/Documents/Abdullah/Lab01_Materials/Lab01_Data"
+/home/cc/Documents/Abdullah/Lab01_Materials/Lab01_Data
+[08/06 02:00:00     12s] @innovus 2> set INNOVUS_DATA_DIR          "${WORK_DIR}/export/Innovus_Data"
+/home/cc/Documents/Abdullah/Lab01_Materials/Lab01_Data/export/Innovus_Data
+[08/06 02:00:27     13s] @innovus 3> set design(export_dir)        "${INNOVUS_DATA_DIR}/outputs"
+set design(export_dir)        "${INNOVUS_DATA_DIR}/outputs"
+[08/06 02:00:27     13s] /home/cc/Documents/Abdullah/Lab01_Materials/Lab01_Data/export/Innovus_Data/outputs
+[08/06 02:00:27     13s] @innovus 4> set design(reports_dir)       "${INNOVUS_DATA_DIR}/reports"
+set design(reports_dir)       "${INNOVUS_DATA_DIR}/reports"
+[08/06 02:00:27     13s] /home/cc/Documents/Abdullah/Lab01_Materials/Lab01_Data/export/Innovus_Data/reports
+[08/06 02:00:27     13s] @innovus 5> 
+
+[08/06 02:00:27     13s] @innovus 5> # file mkdir: Instructs the OS to create the folder hierarchy to avo [1Gid 'directory not found' errors# file mkdir: Instructs the OS to create the folder hierarchy to avoid 'directory not found' errors.
+.
+[08/06 02:00:27     13s] @innovus 6> file mkdir $INNOVUS_DATA_DIR \
+[08/06 02:00:27     13s] +            ${design(export_dir)}/pnr \
+[08/06 02:00:27     13s] +            ${design(reports_dir)}/verify \
+[08/06 02:00:27     13s] +            ${design(reports_dir)}/signofffile mkdir $INNOVUS_DATA_DIR \
+           ${design(export_dir)}/pnr \
+           ${design(reports_dir)}/verify \
+           ${design(reports_dir)}/signoff
+
+[08/06 02:00:29     13s] @innovus 7> set design(postsyn_netlist)   "${WORK_DIR}/export/Synthesis_Data/netlists/${design(TOPLEVEL)}_physical_synth.v"
+set design(postsyn_netlist)   "${WORK_DIR}/export/Synthesis_Data/net [1Glists/${design(TOPLEVEL)}_physical_synth.v"
+[08/06 02:00:49     14s] can't read "design(TOPLEVEL)": no such element in array
+[08/06 02:00:49     14s] can't read "design(TOPLEVEL)": no such element in array
+[08/06 02:00:49     14s] @innovus 8> # Link the MMMC (Multi-Mode Multi-Corner) file for timing constraint [1Gs (SDC) and RC corners.
+# Link the MMMC (Multi-Mode Multi-Corner) file for timing constraints (SDC) and RC corners.
+[08/06 02:00:49     14s] @innovus 9> set design(mmmc_view_file)    "${WORK_DIR}/inputs/mmmc_master.viewset design(mmmc_view_file)    "${WORK_DIR}/inputs/mmmc_master.view"
+"
+[08/06 02:00:49     14s] /home/cc/Documents/Abdullah/Lab01_Materials/Lab01_Data/inputs/mmmc_master.view
+[08/06 02:00:49     14s] @innovus 10> # Link the IO file which dictates exact coordinates for input/outpu# Link the IO file which dictates exact coordinates for input/output pins.
+ [1Gt pins.
+[08/06 02:00:49     14s] @innovus 11> set design(io_file)           "${WORK_DIR}/inputs/${design(TOPLEVEL [1G)}.io"
+set design(io_file)           "${WORK_DIR}/inputs/${design(TOPLEVEL)}.io"
+[08/06 02:00:49     14s] can't read "design(TOPLEVEL)": no such element in array
+[08/06 02:00:49     14s] can't read "design(TOPLEVEL)": no such element in array
+[08/06 02:00:49     14s] @innovus 12> # Link the LEF file containing the physical dimensions, shapes, and [1G layer rules of standard cells.
+# Link the LEF file containing the physical dimensions, shapes, and layer rules of standard cells.
+[08/06 02:00:49     14s] @innovus 13> set tech(ALL_LEFS)            "${WORK_DIR}/libraries/lef/tcbn65lp_9 [1GlmT2.lefset tech(ALL_LEFS)            "${WORK_DIR}/libraries/lef/tcbn65lp_9lmT2.lef"
+"
+[08/06 02:00:49     14s] /home/cc/Documents/Abdullah/Lab01_Materials/Lab01_Data/libraries/lef/tcbn65lp_9lmT2.lef
+[08/06 02:00:49     14s] @innovus 14> 
+
+[08/06 02:00:49     14s] @innovus 14> # --- Cell Library Definitions ---
+# --- Cell Library Definitions ---
+[08/06 02:00:49     14s] @innovus 15> # Map the logical power/ground pins to physical cell ences.refer[5D[5C
+# Map the logical power/ground pins to physical cell ences.refer
+set tech(STANDARD_CELL_VDD)   "VDD"
+set tech(STANDARD_CELL_GND)   "VSS"
+[08/06 02:00:49     14s] @innovus 16> set tech(STANDARD_CELL_VDD)   "VDD"
+[08/06 02:00:49     14s] VDD
+[08/06 02:00:49     14s] @innovus 17> set tech(STANDARD_CELL_GND)   "VSS"
+[08/06 02:00:49     14s] VSS
+[08/06 02:00:49     14s] @innovus 18> # Specify the cells used at the ends of standard cell rows to preve# Specify the cells used at the ends of standard cell rows to prevent well-spacing DRCs.
+ [1Gnt well-spacing DRCs.
+[08/06 02:00:49     14s] @innovus 19> set tech(ENDCAPS_right)       "DCAP"    
+set tech(ENDCAPS_right)       "DCAP"    
+[08/06 02:00:49     14s] DCAP
+[08/06 02:00:49     14s] @innovus 20> set tech(ENDCAPS_left)        "DCAP"
+set tech(ENDCAPS_left)        "DCAP"
+[08/06 02:00:49     14s] DCAP
+[08/06 02:00:49     14s] @innovus 21> # Specify cells used to tie logic '1' and logic '0' without connect [1Ging directly to PG rails (prevents ESD damage).
+# Specify cells used to tie logic '1' and logic '0' without connecting directly to PG rails (prevents ESD damage).
+[08/06 02:00:49     14s] @innovus 22> set tech(TIEHI)               "TIEHset tech(TIEHI)               "TIEH"
+"
+[08/06 02:00:49     14s] TIEH
+[08/06 02:00:49     14s] @innovus 23> set tech(TIELO)               "TIEL"set tech(TIELO)               "TIEL"
+
+[08/06 02:00:49     14s] TIEL
+[08/06 02:00:49     14s] @innovus 24> # Limit the fanout of tie cells so they don't get overloaded.
+# Limit the fanout of tie cells so they don't get overloaded.
+[08/06 02:00:49     14s] @innovus 25> set tech(TIE_MAX_FANOUT)      10
+set tech(TIE_MAX_FANOUT)      10
+[08/06 02:00:49     14s] 10
+[08/06 02:00:49     14s] @innovus 26> # List of Decoupling Capacitor and Filler cells to fill empty space [1Gs in the floorplan# List of Decoupling Capacitor and Filler cells to fill empty spaces in the floorplan.
+.
+[08/06 02:00:49     14s] @innovus 27> set tech(DECAP)               "DCAP64 DCAP32 DCAP16 DCAP8 DCAP4 DCA [1GP"
+set tech(DECAP)               "DCAP64 DCAP32 DCAP16 DCAP8 DCAP4 DCAP"
+[08/06 02:00:49     14s] DCAP64 DCAP32 DCAP16 DCAP8 DCAP4 DCAP
+[08/06 02:00:49     14s] @innovus 28> set tech(FILLERS)             "FILL64 FILL32 FILL16 FILL8 FILL4 FIL [1GL2 FILL1set tech(FILLERS)             "FILL64 FILL32 FILL16 FILL8 FILL4 FILL2 FILL1"
+"
+[08/06 02:00:49     14s] FILL64 FILL32 FILL16 FILL8 FILL4 FILL2 FILL1
+[08/06 02:00:49     14s] @innovus 29>
+ 
+[08/06 02:00:49     14s] @innovus 29> # --- Global Net Definitions --# --- Global Net Definitions ---
+-
+[08/06 02:00:49     14s] @innovus 30> # Explicitly name the global power and ground nets for routing.
+# Explicitly name the global power and ground nets for routing.
+[08/06 02:00:49     14s] @innovus 31> set design(digital_gnd)       "VSS"
+set design(digital_gnd)       "VSS"
+[08/06 02:00:49     14s] VSS
+[08/06 02:00:49     14s] @innovus 32> set design(digital_vdd)       "set design(digital_vdd)       "VDD"
+VDD"
+[08/06 02:00:49     14s] VDD
+[08/06 02:00:49     14s] @innovus 33> set design(all_ground_nets)   $design(digital_gnd)
+set design(all_ground_nets)   $design(digital_gnd)
+[08/06 02:00:49     14s] VSS
+[08/06 02:00:49     14s] @innovus 34> set design(all_power_nets)    $design(digital_vdd)set design(all_power_nets)    $design(digital_vdd)
+
+[08/06 02:00:49     14s] VDD
+[08/06 02:00:49     14s] @innovus 35> set design(core_ring_nets)    "$design(digital_gnd) $design(digital [1G_vdd)"set design(core_ring_nets)    "$design(digital_gnd) $design(digital_vdd)"
+
+[08/06 02:00:51     14s] VSS VDD
+[08/06 02:00:51     14s] @innovus 36> set_library_unit -time 1ns -cap 1pf
+@innovus 37> # timing_analysis_type ocv: Enables On-Chip Variation to account fo [1Gr physical manufacturing differences.
+# timing_analysis_type ocv: Enables On-Chip Variation to account for physical manufacturing differences.
+[08/06 02:07:59     24s] @innovus 38> set_db timing_analysis_type ocv
+set_db timing_analysis_type ocv
+[08/06 02:07:59     24s] 1 ocv
+[08/06 02:07:59     24s] @innovus 39> # timing_analysis_cppr both: Enables Clock Pessimism Removal for mo [1Gre accurate timing in common clock paths.
+# timing_analysis_cppr both: Enables Clock Pessimism Removal for more accurate timing in common clock paths.
+[08/06 02:07:59     24s] @innovus 40> set_db timing_analysis_cppr botset_db timing_analysis_cppr both
+h
+[08/06 02:07:59     24s] 1 both
+[08/06 02:07:59     24s] @innovus 41> # timing_report_unconstrained_paths: Forces the tool to report path [1Gs missing SDC constraints.
+# timing_report_unconstrained_paths: Forces the tool to report paths missing SDC constraints.
+[08/06 02:07:59     24s] @innovus 42> set_db timing_report_unconstrained_paths true
+set_db timing_report_unconstrained_paths true
+[08/06 02:07:59     24s] 1 true
+[08/06 02:07:59     24s] @innovus 43> 
+
+[08/06 02:07:59     24s] @innovus 43> # init_ground/power_nets: Tells Innovus which nets act as global VD [1GD and VSS before loading the design# init_ground/power_nets: Tells Innovus which nets act as global VDD and VSS before loading the design.
+.
+[08/06 02:07:59     24s] @innovus 44> set_db init_ground_nets $design(all_ground_nets)
+set_db init_ground_nets $design(all_ground_nets)
+[08/06 02:07:59     24s] 1 VSS
+[08/06 02:07:59     24s] @innovus 45> set_db init_power_nets  $design(all_power_nets)
+set_db init_power_nets  $design(all_power_nets)
+[08/06 02:07:59     24s] 1 VDD
+[08/06 02:07:59     24s] @innovus 46> 
+
+[08/06 02:07:59     24s] @innovus 46> # Load constraints (MMMC), physical shapes (LEF), and logical gates [1G (Netlist).
+# Load constraints (MMMC), physical shapes (LEF), and logical gates (Netlist).
+[08/06 02:07:59     24s] @innovus 47> read_mmmc $design(mmmc_view_file) 
+read_mmmc $design(mmmc_view_file) 
+[08/06 02:07:59     24s] #@ Begin verbose source (pre): 
+[08/06 02:07:59     24s] @file 1: # ==============================================================================
+[08/06 02:07:59     24s] @file 2: # CADENCE MMMC (Multi-Mode Multi-Corner) SETUP FILE
+[08/06 02:07:59     24s] @file 3: # ==============================================================================
+[08/06 02:07:59     24s] @file 4:
+[08/06 02:07:59     24s] @file 5: # ------------------------------------------------------------------------------
+[08/06 02:07:59     24s] @file 6: # 0. SAFETY CHECK & FILE PATH VARIABLES
+[08/06 02:07:59     24s] @file 7: # ------------------------------------------------------------------------------
+[08/06 02:07:59     24s] @file 8: # If this script is run standalone and INCLUDE_DFT isn't set, default to false.
+[08/06 02:07:59     24s] @file 9: if {![info exists INCLUDE_DFT]} {
+[08/06 02:07:59     24s] @file 10: set INCLUDE_DFT "false"
+[08/06 02:07:59     24s] @file 11: }
+[08/06 02:07:59     24s] @file 12:
+[08/06 02:07:59     24s] @file 13: # ------------------------------------------------------------------------------
+[08/06 02:07:59     24s] @file 14: # â ï¸ IMPORTANT: UPDATE THIS DIRECTORY PATH FOR YOUR SPECIFIC PC â ï¸
+[08/06 02:07:59     24s] @file 15: # ------------------------------------------------------------------------------
+[08/06 02:07:59     24s] @file 16: # NOTE FOR USERS: Change the WORK_DIR path below to point to where you saved 
+[08/06 02:07:59     24s] @file 17: # the project folder on your specific computer. 
+[08/06 02:07:59     24s] @file 18: # Example: "/home/your_username/Desktop/Lab01_Data"
+[08/06 02:07:59     24s] @file 19: # Since all other paths are dynamic, this is the ONLY path you need to change!
+[08/06 02:07:59     24s] @file 20:
+[08/06 02:07:59     24s] @file 21: set WORK_DIR "/home/cc/Documents/Abdullah/Lab01_Materials/Lab01_Data"
+[08/06 02:07:59     24s] @file 22:
+[08/06 02:07:59     24s] @file 23: # ------------------------------------------------------------------------------
+[08/06 02:07:59     24s] @file 24: # --- Auto-Generated Sub-Paths (Do not change these) ---
+[08/06 02:07:59     24s] @file 25: # ------------------------------------------------------------------------------
+[08/06 02:07:59     24s] @file 26:
+[08/06 02:07:59     24s] @file 27: # --- SDC Files ---
+[08/06 02:07:59     24s] @file 28: set SDC_FUNC_FILE "${WORK_DIR}/inputs/new_counter.sdc"
+[08/06 02:07:59     24s] @file 29: set SDC_TEST_FILE "${WORK_DIR}/inputs/counter_dft.sdc"
+[08/06 02:07:59     24s] @file 30:
+[08/06 02:07:59     24s] @file 31: # --- Libraries ---
+[08/06 02:07:59     24s] @file 32: set LIB_TC        "${WORK_DIR}/libraries/libs/tcbn65lptc.lib"
+[08/06 02:07:59     24s] @file 33: set LIB_WC        "${WORK_DIR}/libraries/libs/tcbn65lpwc.lib"
+[08/06 02:07:59     24s] @file 34: set LIB_BC        "${WORK_DIR}/libraries/libs/tcbn65lpbc.lib"
+[08/06 02:07:59     24s] @file 35:
+[08/06 02:07:59     24s] @file 36: # --- Cap Tables ---
+[08/06 02:07:59     24s] @file 37: set CAPTABLE_TC   "${WORK_DIR}/inputs/mmmc_files/captable/cln65lp_1p09m+alrdl_top2_typical.captable"
+[08/06 02:07:59     24s] @file 38: set CAPTABLE_WC   "${WORK_DIR}/inputs/mmmc_files/captable/cln65lp_1p09m+alrdl_top2_rcworst.captable"
+[08/06 02:07:59     24s] @file 39: set CAPTABLE_BC   "${WORK_DIR}/inputs/mmmc_files/captable/cln65lp_1p09m+alrdl_top2_rcbest.captable"
+[08/06 02:07:59     24s] @file 40:
+[08/06 02:07:59     24s] @file 41: # ------------------------------------------------------------------------------
+[08/06 02:07:59     24s] @file 42: # 1. LIBRARY SETS (Logical Timing & Power)
+[08/06 02:07:59     24s] @file 43: # ------------------------------------------------------------------------------
+[08/06 02:07:59     24s] @@file 44: create_library_set -name tc_libset -timing $LIB_TC
+[08/06 02:07:59     24s] @@file 45: create_library_set -name wc_libset -timing $LIB_WC
+[08/06 02:07:59     24s] @@file 46: create_library_set -name bc_libset -timing $LIB_BC
+[08/06 02:07:59     24s] @file 47:
+[08/06 02:07:59     24s] @file 48: # ------------------------------------------------------------------------------
+[08/06 02:07:59     24s] @file 49: # 2. TIMING CONDITIONS
+[08/06 02:07:59     24s] @file 50: # ------------------------------------------------------------------------------
+[08/06 02:07:59     24s] @@file 51: create_timing_condition -name tc_cond -library_sets {tc_libset}
+[08/06 02:07:59     24s] @@file 52: create_timing_condition -name wc_cond -library_sets {wc_libset}
+[08/06 02:07:59     24s] @@file 53: create_timing_condition -name bc_cond -library_sets {bc_libset}
+[08/06 02:07:59     24s] @file 54:
+[08/06 02:07:59     24s] @file 55: # ------------------------------------------------------------------------------
+[08/06 02:07:59     24s] @file 56: # 3. RC CORNERS (Physical Interconnect Parasitics)
+[08/06 02:07:59     24s] @file 57: # ------------------------------------------------------------------------------
+[08/06 02:07:59     24s] @@file 58: create_rc_corner -name rc_typical -temperature 25  -cap_table $CAPTABLE_TC
+[08/06 02:07:59     24s] @@file 59: create_rc_corner -name rc_worst   -temperature 125 -cap_table $CAPTABLE_WC
+[08/06 02:07:59     24s] @@file 60: create_rc_corner -name rc_best    -temperature -40 -cap_table $CAPTABLE_BC
+[08/06 02:07:59     24s] @file 61:
+[08/06 02:07:59     24s] @file 62: # ------------------------------------------------------------------------------
+[08/06 02:07:59     24s] @file 63: # 4. CONSTRAINT MODES (Design Goals)
+[08/06 02:07:59     24s] @file 64: # ------------------------------------------------------------------------------
+[08/06 02:07:59     24s] @file 65: # Mode 1: Functional (Always Active) - High speed standard operation
+[08/06 02:07:59     24s] @@file 66: create_constraint_mode -name func_mode -sdc_files $SDC_FUNC_FILE
+[08/06 02:07:59     24s] @file 67:
+[08/06 02:07:59     24s] @file 68: # Mode 2: Test (Conditional) - Slow clock, shifting data for scan chains
+[08/06 02:07:59     24s] @file 69: if {$INCLUDE_DFT == "true"} {...}
+[08/06 02:07:59     24s] @file 72:
+[08/06 02:07:59     24s] @file 73: # ------------------------------------------------------------------------------
+[08/06 02:07:59     24s] @file 74: # 5. DELAY CORNERS (Merging Logic and Physics)
+[08/06 02:07:59     24s] @file 75: # ------------------------------------------------------------------------------
+[08/06 02:07:59     24s] @@file 76: create_delay_corner -name dc_typical -timing_condition {tc_cond} -rc_corner {rc_typical}
+[08/06 02:07:59     24s] @@file 77: create_delay_corner -name dc_worst   -timing_condition {wc_cond} -rc_corner {rc_worst}
+[08/06 02:07:59     24s] @@file 78: create_delay_corner -name dc_best    -timing_condition {bc_cond} -rc_corner {rc_best}
+[08/06 02:07:59     24s] @file 79:
+[08/06 02:07:59     24s] @file 80: # ------------------------------------------------------------------------------
+[08/06 02:07:59     24s] @file 81: # 6. ANALYSIS VIEWS (Merging Delays and Constraints)
+[08/06 02:07:59     24s] @file 82: # ------------------------------------------------------------------------------
+[08/06 02:07:59     24s] @file 83: # Create Functional Views
+[08/06 02:07:59     24s] @@file 84: create_analysis_view -name view_func_typical -constraint_mode {func_mode} -delay_corner {dc_typical}
+[08/06 02:07:59     24s] @@file 85: create_analysis_view -name view_func_setup   -constraint_mode {func_mode} -delay_corner {dc_worst}
+[08/06 02:07:59     24s] @@file 86: create_analysis_view -name view_func_hold    -constraint_mode {func_mode} -delay_corner {dc_best}
+[08/06 02:07:59     24s] @file 87:
+[08/06 02:07:59     24s] @file 88: # Create Test Views (If DFT is enabled)
+[08/06 02:07:59     24s] @file 89: if {$INCLUDE_DFT == "true"} {...}
+[08/06 02:07:59     24s] @file 94:
+[08/06 02:07:59     24s] @file 95: # ------------------------------------------------------------------------------
+[08/06 02:07:59     24s] @file 96: # 7. SET ACTIVE VIEWS
+[08/06 02:07:59     24s] @file 97: # ------------------------------------------------------------------------------
+[08/06 02:07:59     24s] @file 98: # If DFT is enabled, we force the tool to balance timing for BOTH modes.
+[08/06 02:07:59     24s] @file 99: # However, Genus requires a single, primary view for power analysis (leakage/dynamic).
+[08/06 02:07:59     24s] @file 100: if {$INCLUDE_DFT == "true"} {...
+[08/06 02:07:59     24s] @file 106: } else {
+[08/06 02:07:59     24s] @@file 107: set_analysis_view  -setup   {view_func_setup}  -hold    {view_func_hold}  -leakage {view_func_typical}  -dynamic {view_func_typical}
+[08/06 02:07:59     24s] @file 108: }
+[08/06 02:07:59     24s] #@ End verbose source: /home/cc/Documents/Abdullah/Lab01_Materials/Lab01_Data/inputs/mmmc_master.view
+[08/06 02:07:59     24s] Reading wc_libset timing library '/home/cc/Documents/Abdullah/Lab01_Materials/Lab01_Data/libraries/libs/tcbn65lpwc.lib' ...
+[08/06 02:08:00     25s] **WARN: (TECHLIB-302):	No function defined for cell 'OD25DCAP64'. The cell will only be used for analysis. (File /home/cc/Documents/Abdullah/Lab01_Materials/Lab01_Data/libraries/libs/tcbn65lpwc.lib)
+[08/06 02:08:00     25s] **WARN: (TECHLIB-302):	No function defined for cell 'OD25DCAP32'. The cell will only be used for analysis. (File /home/cc/Documents/Abdullah/Lab01_Materials/Lab01_Data/libraries/libs/tcbn65lpwc.lib)
+[08/06 02:08:00     25s] **WARN: (TECHLIB-302):	No function defined for cell 'OD25DCAP16'. The cell will only be used for analysis. (File /home/cc/Documents/Abdullah/Lab01_Materials/Lab01_Data/libraries/libs/tcbn65lpwc.lib)
+[08/06 02:08:00     25s] **WARN: (TECHLIB-302):	No function defined for cell 'DCAP8'. The cell will only be used for analysis. (File /home/cc/Documents/Abdullah/Lab01_Materials/Lab01_Data/libraries/libs/tcbn65lpwc.lib)
+[08/06 02:08:00     25s] **WARN: (TECHLIB-302):	No function defined for cell 'DCAP64'. The cell will only be used for analysis. (File /home/cc/Documents/Abdullah/Lab01_Materials/Lab01_Data/libraries/libs/tcbn65lpwc.lib)
+[08/06 02:08:00     25s] **WARN: (TECHLIB-302):	No function defined for cell 'DCAP4'. The cell will only be used for analysis. (File /home/cc/Documents/Abdullah/Lab01_Materials/Lab01_Data/libraries/libs/tcbn65lpwc.lib)
+[08/06 02:08:00     25s] **WARN: (TECHLIB-302):	No function defined for cell 'DCAP32'. The cell will only be used for analysis. (File /home/cc/Documents/Abdullah/Lab01_Materials/Lab01_Data/libraries/libs/tcbn65lpwc.lib)
+[08/06 02:08:00     25s] **WARN: (TECHLIB-302):	No function defined for cell 'DCAP16'. The cell will only be used for analysis. (File /home/cc/Documents/Abdullah/Lab01_Materials/Lab01_Data/libraries/libs/tcbn65lpwc.lib)
+[08/06 02:08:00     25s] **WARN: (TECHLIB-302):	No function defined for cell 'DCAP'. The cell will only be used for analysis. (File /home/cc/Documents/Abdullah/Lab01_Materials/Lab01_Data/libraries/libs/tcbn65lpwc.lib)
+[08/06 02:08:00     25s] **WARN: (TECHLIB-302):	No function defined for cell 'ANTENNA'. The cell will only be used for analysis. (File /home/cc/Documents/Abdullah/Lab01_Materials/Lab01_Data/libraries/libs/tcbn65lpwc.lib)
+[08/06 02:08:00     25s] Read 816 cells in library 'tcbn65lpwc' 
+[08/06 02:08:00     25s] Reading bc_libset timing library '/home/cc/Documents/Abdullah/Lab01_Materials/Lab01_Data/libraries/libs/tcbn65lpbc.lib' ...
+[08/06 02:08:01     27s] **WARN: (TECHLIB-302):	No function defined for cell 'OD25DCAP64'. The cell will only be used for analysis. (File /home/cc/Documents/Abdullah/Lab01_Materials/Lab01_Data/libraries/libs/tcbn65lpbc.lib)
+[08/06 02:08:01     27s] **WARN: (TECHLIB-302):	No function defined for cell 'OD25DCAP32'. The cell will only be used for analysis. (File /home/cc/Documents/Abdullah/Lab01_Materials/Lab01_Data/libraries/libs/tcbn65lpbc.lib)
+[08/06 02:08:01     27s] **WARN: (TECHLIB-302):	No function defined for cell 'OD25DCAP16'. The cell will only be used for analysis. (File /home/cc/Documents/Abdullah/Lab01_Materials/Lab01_Data/libraries/libs/tcbn65lpbc.lib)
+[08/06 02:08:01     27s] **WARN: (TECHLIB-302):	No function defined for cell 'DCAP8'. The cell will only be used for analysis. (File /home/cc/Documents/Abdullah/Lab01_Materials/Lab01_Data/libraries/libs/tcbn65lpbc.lib)
+[08/06 02:08:01     27s] **WARN: (TECHLIB-302):	No function defined for cell 'DCAP64'. The cell will only be used for analysis. (File /home/cc/Documents/Abdullah/Lab01_Materials/Lab01_Data/libraries/libs/tcbn65lpbc.lib)
+[08/06 02:08:01     27s] **WARN: (TECHLIB-302):	No function defined for cell 'DCAP4'. The cell will only be used for analysis. (File /home/cc/Documents/Abdullah/Lab01_Materials/Lab01_Data/libraries/libs/tcbn65lpbc.lib)
+[08/06 02:08:01     27s] **WARN: (TECHLIB-302):	No function defined for cell 'DCAP32'. The cell will only be used for analysis. (File /home/cc/Documents/Abdullah/Lab01_Materials/Lab01_Data/libraries/libs/tcbn65lpbc.lib)
+[08/06 02:08:01     27s] **WARN: (TECHLIB-302):	No function defined for cell 'DCAP16'. The cell will only be used for analysis. (File /home/cc/Documents/Abdullah/Lab01_Materials/Lab01_Data/libraries/libs/tcbn65lpbc.lib)
+[08/06 02:08:01     27s] **WARN: (TECHLIB-302):	No function defined for cell 'DCAP'. The cell will only be used for analysis. (File /home/cc/Documents/Abdullah/Lab01_Materials/Lab01_Data/libraries/libs/tcbn65lpbc.lib)
+[08/06 02:08:01     27s] **WARN: (TECHLIB-302):	No function defined for cell 'ANTENNA'. The cell will only be used for analysis. (File /home/cc/Documents/Abdullah/Lab01_Materials/Lab01_Data/libraries/libs/tcbn65lpbc.lib)
+[08/06 02:08:02     27s] Read 816 cells in library 'tcbn65lpbc' 
+[08/06 02:08:02     27s] Ending "PreSetAnalysisView" (total cpu=0:00:02.9, real=0:00:03.0, peak res=1288.1M, current mem=1083.9M)
+[08/06 02:08:02     27s] timing_initialized
+[08/06 02:08:02     27s] @innovus 48> read_physical -lef $tech(ALL_LEFS)
+read_physical -lef $tech(ALL_LEFS)
+[08/06 02:08:02     27s] 
+[08/06 02:08:02     27s] Loading LEF file /home/cc/Documents/Abdullah/Lab01_Materials/Lab01_Data/libraries/lef/tcbn65lp_9lmT2.lef ...
+[08/06 02:08:02     27s] Set DBUPerIGU to M2 pitch 400.
+[08/06 02:08:02     27s] **WARN: (IMPLF-200):	Pin 'I' in macro 'ANTENNA' has no ANTENNAGATEAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+[08/06 02:08:02     27s] Type 'man IMPLF-200' for more detail.
+[08/06 02:08:02     27s] 
+[08/06 02:08:02     27s] ##  Check design process and node:  
+[08/06 02:08:02     27s] ##  Both design process and tech node are not set.
+[08/06 02:08:02     27s] 
+[08/06 02:08:02     27s] 0
+[08/06 02:08:02     27s] @innovus 49> read_netlist $design(postsyn_netlist)?62;c?62;cread_netlist $design(postsyn_netlist)?62;c?62;c
+[08/06 02:11:00     31s] can't read "design(postsyn_netlist)": no such element in array
+can't read "design(postsyn_netlist)": no such element in array
+[08/06 02:11:00     31s] @innovus 50> read_netlist $design(postsyn_netlist)
+[08/06 02:11:11     31s] can't read "design(postsyn_netlist)": no such element in array
+can't read "design(postsyn_netlist)": no such element in array
+[08/06 02:11:11     31s] @innovus 51> read_netlist $design(postsyn_netlist)
+
+[08/06 02:32:47     64s] can't read "design(postsyn_netlist)": no such element in array
+[08/06 02:32:47     64s] can't read "design(postsyn_netlist)": no such element in array
+[08/06 02:32:47     64s] @innovus 52> set design(postsyn_netlist)   "${WORK_DIR}/export/Synthesis_Data/netlists/${design(TOPLEVEL)}_physical_synth.v"
+
+[08/06 02:33:59     66s] can't read "design(TOPLEVEL)": no such element in array
+[08/06 02:33:59     66s] can't read "design(TOPLEVEL)": no such element in array
+[08/06 02:33:59     66s] @innovus 53> set design(TOPLEVEL)          "counter"
+counter
+[08/06 02:36:05     69s] @innovus 54> set design(postsyn_netlist)   "${WORK_DIR}/export/Synthesis_Data/netlists/${design(TOPLEVEL)}_physical_synth.v"
+/home/cc/Documents/Abdullah/Lab01_Materials/Lab01_Data/export/Synthesis_Data/netlists/counter_physical_synth.v
+[08/06 02:36:08     69s] @innovus 55> init_design
+**ERROR: (IMPIMEX-12):	'init_design' failed. You are missing one or more of the required commands before running init_design.
+[08/06 02:36:22     70s] The MMMC init sequence looks like this: 
+[08/06 02:36:22     70s] read_mmmc top.mmmc 
+[08/06 02:36:22     70s] read_physical -lef {tech.lef stdcell.lef}   #optional in Tempus, required for Innovus 
+[08/06 02:36:22     70s] read_netlist top.v 
+[08/06 02:36:22     70s] read_power_intent -1801 top.1801	    #only for MSV designs 
+[08/06 02:36:22     70s] init_design 
+[08/06 02:36:22     70s] 
+[08/06 02:36:22     70s] Tempus also supports a single-mode timing init sequence with no MMMC file like this: 
+[08/06 02:36:22     70s] read_libs all.lib 
+[08/06 02:36:22     70s] read_netlist top.v 
+[08/06 02:36:22     70s] read_sdc top.sdc 
+[08/06 02:36:22     70s] init_design 
+[08/06 02:36:22     70s] 
+[08/06 02:36:22     70s] See the 'Stylus Common UI Initialization' section in the 'Design Import and Export Capabilities' chapter of the Innovus Stylus 
+[08/06 02:36:22     70s] Common UI User Guide for more details.
+[08/06 02:36:22     70s] 
+[08/06 02:36:22     70s] 
+[08/06 02:36:22     70s] @innovus 56> set design(TOPLEVEL)          "counter"
+counter
+[08/06 02:37:57     72s] @innovus 57> set design(postsyn_netlist)   "${WORK_DIR}/export/Synthesis_Data/netlists/${design(TOPLEVEL)}_physical_synth.v"
+/home/cc/Documents/Abdullah/Lab01_Materials/Lab01_Data/export/Synthesis_Data/netlists/counter_physical_synth.v
+[08/06 02:38:08     72s] @innovus 58> read_netlist $design(postsyn_netlist)
+**ERROR: (IMPIMEX-12):	'init_design' failed. You are missing one or more of the required commands before running init_design.
+[08/06 02:38:12     73s] The MMMC init sequence looks like this: 
+[08/06 02:38:12     73s] read_mmmc top.mmmc 
+[08/06 02:38:12     73s] read_physical -lef {tech.lef stdcell.lef}   #optional in Tempus, required for Innovus 
+[08/06 02:38:12     73s] read_netlist top.v 
+[08/06 02:38:12     73s] read_power_intent -1801 top.1801	    #only for MSV designs 
+[08/06 02:38:12     73s] init_design 
+[08/06 02:38:12     73s] 
+[08/06 02:38:12     73s] Tempus also supports a single-mode timing init sequence with no MMMC file like this: 
+[08/06 02:38:12     73s] read_libs all.lib 
+[08/06 02:38:12     73s] read_netlist top.v 
+[08/06 02:38:12     73s] read_sdc top.sdc 
+[08/06 02:38:12     73s] init_design 
+[08/06 02:38:12     73s] 
+[08/06 02:38:12     73s] See the 'Stylus Common UI Initialization' section in the 'Design Import and Export Capabilities' chapter of the Innovus Stylus 
+[08/06 02:38:12     73s] Common UI User Guide for more details.
+[08/06 02:38:12     73s] 
+[08/06 02:38:12     73s] 
+[08/06 02:38:12     73s] @innovus 59> set design(TOPLEVEL)          "counter"
+
+[08/06 02:38:36     73s] counter
+[08/06 02:38:36     73s] @innovus 60> set design(postsyn_netlist)   "${WORK_DIR}/export/Synthesis_Data/netlists/${design(TOPLEVEL)}_physical_synth.v"
+/home/cc/Documents/Abdullah/Lab01_Materials/Lab01_Data/export/Synthesis_Data/netlists/counter_physical_synth.v
+[08/06 02:38:44     73s] @innovus 61> read_netlist $design(postsyn_netlist)
+
+[08/06 02:38:54     74s] **ERROR: (IMPIMEX-12):	'init_design' failed. You are missing one or more of the required commands before running init_design.
+[08/06 02:38:54     74s] The MMMC init sequence looks like this: 
+[08/06 02:38:54     74s] read_mmmc top.mmmc 
+[08/06 02:38:54     74s] read_physical -lef {tech.lef stdcell.lef}   #optional in Tempus, required for Innovus 
+[08/06 02:38:54     74s] read_netlist top.v 
+[08/06 02:38:54     74s] read_power_intent -1801 top.1801	    #only for MSV designs 
+[08/06 02:38:54     74s] init_design 
+[08/06 02:38:54     74s] 
+[08/06 02:38:54     74s] Tempus also supports a single-mode timing init sequence with no MMMC file like this: 
+[08/06 02:38:54     74s] read_libs all.lib 
+[08/06 02:38:54     74s] read_netlist top.v 
+[08/06 02:38:54     74s] read_sdc top.sdc 
+[08/06 02:38:54     74s] init_design 
+[08/06 02:38:54     74s] 
+[08/06 02:38:54     74s] See the 'Stylus Common UI Initialization' section in the 'Design Import and Export Capabilities' chapter of the Innovus Stylus 
+[08/06 02:38:54     74s] Common UI User Guide for more details.
+[08/06 02:38:54     74s] 
+[08/06 02:38:54     74s] 
+[08/06 02:38:54     74s] @innovus 62> read_mmmc $design(mmmc_view_file) 
+**WARN: (TCLCMD-1306):	read_mmmc command should be called once before init_design.
+[08/06 02:40:06     76s] 1
+[08/06 02:40:06     76s] 1
+[08/06 02:40:06     76s] @innovus 63> read_physical -lef $tech(ALL_LEFSread_physical -lef $tech(ALL_LEFS)
+)
+[08/06 02:40:06     76s] **ERROR: (IMPIMEX-12):	'init_design' failed. You are missing one or more of the required commands before running init_design.
+[08/06 02:40:06     76s] The MMMC init sequence looks like this: 
+[08/06 02:40:06     76s] read_mmmc top.mmmc 
+[08/06 02:40:06     76s] read_physical -lef {tech.lef stdcell.lef}   #optional in Tempus, required for Innovus 
+[08/06 02:40:06     76s] read_netlist top.v 
+[08/06 02:40:06     76s] read_power_intent -1801 top.1801	    #only for MSV designs 
+[08/06 02:40:06     76s] init_design 
+[08/06 02:40:06     76s] 
+[08/06 02:40:06     76s] Tempus also supports a single-mode timing init sequence with no MMMC file like this: 
+[08/06 02:40:06     76s] read_libs all.lib 
+[08/06 02:40:06     76s] read_netlist top.v 
+[08/06 02:40:06     76s] read_sdc top.sdc 
+[08/06 02:40:06     76s] init_design 
+[08/06 02:40:06     76s] 
+[08/06 02:40:06     76s] See the 'Stylus Common UI Initialization' section in the 'Design Import and Export Capabilities' chapter of the Innovus Stylus 
+[08/06 02:40:06     76s] Common UI User Guide for more details.
+[08/06 02:40:06     76s] 
+[08/06 02:40:06     76s] 
+[08/06 02:40:06     76s] @innovus 64> read_netlist $design(postsyn_netlist)exit
+
+[08/06 02:40:18     76s] *** Memory Usage v#1 (Current mem = 1182.281M, initial mem = 494.957M) ***
+[08/06 02:40:18     76s] 
+[08/06 02:40:18     76s] *** Summary of all messages that are not suppressed in this session:
+[08/06 02:40:18     76s] Severity  ID               Count  Summary                                  
+[08/06 02:40:18     76s] WARNING   IMPLF-200            1  Pin '%s' in macro '%s' has no ANTENNAGAT...
+[08/06 02:40:18     76s] ERROR     IMPIMEX-12           4  'init_design' failed. You are missing on...
+[08/06 02:40:18     76s] WARNING   TCLCMD-1306          1  read_mmmc command should be called once ...
+[08/06 02:40:18     76s] WARNING   TECHLIB-302         20  No function defined for cell '%s'. The c...
+[08/06 02:40:18     76s] *** Message Summary: 22 warning(s), 4 error(s)
+[08/06 02:40:18     76s] 
+[08/06 02:40:18     76s] --- Ending "Innovus" (totcpu=0:01:16, real=0:42:07, mem=1182.3M) ---

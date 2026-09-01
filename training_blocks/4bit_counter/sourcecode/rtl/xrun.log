@@ -1,0 +1,57 @@
+xrun(64): 23.09-s006: (c) Copyright 1995-2024 Cadence Design Systems, Inc.
+TOOL:	xrun(64)	23.09-s006: Started on Jul 22, 2026 at 11:00:36 PKT
+xrun
+	counter.v
+	counter_tb.v
+	-top counter_tb
+	-access +rwc
+	-timescale 1ns/1ps
+	-l xrun.log
+file: counter.v
+	module worklib.counter:v
+		errors: 0, warnings: 0
+file: counter_tb.v
+	module worklib.counter_tb:v
+		errors: 0, warnings: 0
+	Elaborating the design hierarchy:
+		Caching library 'worklib' ....... Done
+	Top level design units:
+		counter_tb
+	Building instance overlay tables: .................... Done
+	Generating native compiled code:
+		worklib.counter:v <0x6428047f>
+			streams:   2, words:   461
+		worklib.counter_tb:v <0x065bb9ee>
+			streams:   8, words:  6439
+	Building instance specific data structures.
+	Loading native compiled code:     .................... Done
+	Design hierarchy summary:
+		                 Instances  Unique
+		Modules:                 2       2
+		Registers:               4       4
+		Scalar wires:            2       -
+		Vectored wires:          1       -
+		Always blocks:           4       4
+		Initial blocks:          2       2
+		Pseudo assignments:      2       -
+		Process Clocks:          1       1
+		Simulation timescale:  1ps
+	Writing initial simulation snapshot: worklib.counter_tb:v
+Loading snapshot worklib.counter_tb:v .................... Done
+xcelium> source /home/cc/mnt/XCELIUM2309/tools/xcelium/files/xmsimrc
+xcelium> run
+xmsim: *F,INTERR: INTERNAL EXCEPTION
+Observed simulation time : 0 FS + 0
+-----------------------------------------------------------------
+The tool has encountered an unexpected condition and must exit.
+Contact Cadence Design Systems customer support about this
+problem and provide enough information to help us reproduce it,
+including the logfile that contains this error message.
+  TOOL:	xmsim(64)	23.09-s006 (CL: 587028 )
+  HOSTNAME: ncdc-0081
+  OPERATING SYSTEM: Linux 4.18.0-513.24.1.el8_9.x86_64 #1 SMP Thu Mar 14 14:20:09 EDT 2024 x86_64
+  MESSAGE: T(0): sv_seghandler - trapno -1 addr(0x56e016c)
+	Stream rts_xfer
+-----------------------------------------------------------------
+csi-xmsim - CSI: Cadence Support Investigation, sending details to /home/cc/Fawad_PD/example/sourcecode/rtl/xmsim_11382.err
+csi-xmsim - CSI: investigation complete, send /home/cc/Fawad_PD/example/sourcecode/rtl/xmsim_11382.err to Cadence Support

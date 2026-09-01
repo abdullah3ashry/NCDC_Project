@@ -1,0 +1,8 @@
+# SVDB: Port Table (ports)
+# SVDB: Layout Primary counter
+count[1] 3 count[1] 2000 235 metal1
+count[3] 6 count[3] 235 3000 metal1
+reset 18 reset 4000 34765 metal1
+count[0] 10 count[0] 34765 3000 metal1
+clk 11 clk 2000 34765 metal1
+count[2] 8 count[2] 4000 235 metal1

@@ -1,0 +1,754 @@
+[08/11 01:43:27      0s] 
+[08/11 01:43:27      0s] Cadence Tempus(TM) Timing Solution.
+[08/11 01:43:27      0s] Copyright 2022 Cadence Design Systems, Inc. All rights reserved worldwide.
+[08/11 01:43:27      0s] 
+[08/11 01:43:27      0s] Version:	v22.15-s092_1, built Fri Mar 1 14:05:47 PST 2024
+[08/11 01:43:27      0s] Options:	-stylus 
+[08/11 01:43:27      0s] Date:		Tue Aug 11 01:43:27 2026
+[08/11 01:43:27      0s] Host:		ncdc-0137 (x86_64 w/Linux 7.1.4-1.el8.elrepo.x86_64) (16cores*24cpus*13th Gen Intel(R) Core(TM) i7-13700 30720KB)
+[08/11 01:43:27      0s] OS:		Red Hat Enterprise Linux 8.6 (Ootpa)
+[08/11 01:43:27      0s] 
+[08/11 01:43:27      0s] License:
+[08/11 01:43:27      0s] 		[01:43:27.216969] Configured Lic search path (22.01-s003): 5280@10.19.32.90
+[08/11 01:43:27      0s] 
+[08/11 01:43:27      0s] 		tpsxl	Tempus Timing Signoff Solution XL	22.1	checkout succeeded
+[08/11 01:43:27      0s] 		16 CPU jobs allowed with the current license(s). Use set_multi_cpu_usage to set your required CPU count.
+[08/11 01:43:32      0s] {{{ isCertus 0,  isCertusOrDistOptClient = 0, isInnovusCertusClient = 0}}}
+[08/11 01:43:38      6s] 
+[08/11 01:43:38      6s] 
+[08/11 01:43:40      6s] Reset Parastics called with the command setExtractRCMode -reset@(#)CDS: Tempus Timing Solution v22.15-s092_1 (64bit) 03/01/2024 14:05 (Linux 3.10.0-693.el7.x86_64)
+[08/11 01:43:46      9s] @(#)CDS: NanoRoute 22.15-s092_1 NR240223-1321/22_15-UB (database version 18.20.620) {superthreading v2.20}
+[08/11 01:43:46      9s] @(#)CDS: AAE 22.15-s036 (64bit) 03/01/2024 (Linux 3.10.0-693.el7.x86_64)
+[08/11 01:43:46      9s] @(#)CDS: CTE 22.15-s038_1 () Mar  1 2024 09:01:33 ( )
+[08/11 01:43:46      9s] @(#)CDS: SYNTECH 22.15-s014_1 () Feb 13 2024 19:37:21 ( )
+[08/11 01:43:46      9s] @(#)CDS: CPE v22.15-s066
+[08/11 01:43:46      9s] @(#)CDS: OA 22.60-s025 Thu Sep 28 14:54:31 2023
+[08/11 01:43:46      9s] @(#)CDS: SGN 22.20-d001 (02-Jan-2023) (64 bit executable, TkQt5.9.1)
+[08/11 01:43:46      9s] @(#)CDS: RCDB 11.15.0
+[08/11 01:43:46      9s] @(#)CDS: STYLUS 22.15-s002_1 (02/05/2024 03:56 PST)
+[08/11 01:43:46      9s] Change the soft stacksize limit to 0.2%RAM (127 mbytes). Set global soft_stack_size_limit to change the value.
+[08/11 01:43:46      9s] **INFO: (TMPDIR-1001): The environment variable TMPDIR is not set.
+Create and set the environment variable TMPDIR to '/tmp/ssv_tmpdir_5164_Nlh5Hd'.
+[08/11 01:43:46      9s] environment variable TMPDIR is '/tmp/ssv_tmpdir_5164_Nlh5Hd'.
+[08/11 01:43:48     10s] #@ Processing -execute option
+[08/11 01:43:48     10s] @tempus 1> 
+[08/11 01:43:50     11s] @tempus 1> set WORK_DIR                  "/home/cc/Documents/Abdullah/Lab01_Materials/Lab01_Data"
+/home/cc/Documents/Abdullah/Lab01_Materials/Lab01_Data
+[08/11 01:44:22     12s] @tempus 2> # ------------------------------------------------------------------- [1G-----------
+# ------------------------------------------------------------------------------
+[08/11 01:44:22     12s] @tempus 3> 
+
+[08/11 01:44:22     12s] @tempus 3> set design(TOPLEVEL)          "counter"
+set design(TOPLEVEL)          "counter"
+[08/11 01:44:22     12s] counter
+[08/11 01:44:22     12s] @tempus 4> 
+
+[08/11 01:44:22     12s] @tempus 4> # --- Dynamic Path Generation ---
+# --- Dynamic Path Generation ---
+[08/11 01:44:22     12s] @tempus 5> set MMMC_FILE                 "${WORK_DIR}/inputs/mmmc_master.view"
+set MMMC_FILE                 "${WORK_DIR}/inputs/mmmc_master.view"
+[08/11 01:44:22     12s] /home/cc/Documents/Abdullah/Lab01_Materials/Lab01_Data/inputs/mmmc_master.view
+[08/11 01:44:22     12s] @tempus 6> set LEF_FILE                  "${WORK_DIR}/libraries/lef/tcbn65lp_9lm [1GT2.lef"
+set LEF_FILE                  "${WORK_DIR}/libraries/lef/tcbn65lp_9lmT2.lef"
+[08/11 01:44:22     12s] /home/cc/Documents/Abdullah/Lab01_Materials/Lab01_Data/libraries/lef/tcbn65lp_9lmT2.lef
+[08/11 01:44:22     12s] @tempus 7>
+ 
+[08/11 01:44:22     12s] @tempus 7> # Input Netlist & SPEF from Innovus
+# Input Netlist & SPEF from Innovus
+[08/11 01:44:22     12s] @tempus 8> set PNR_OUT_DIR               "${WORK_DIR}/export/Innovus_Data/outputset PNR_OUT_DIR               "${WORK_DIR}/export/Innovus_Data/outputs/pnr"
+ [1Gs/pnr"
+[08/11 01:44:22     12s] /home/cc/Documents/Abdullah/Lab01_Materials/Lab01_Data/export/Innovus_Data/outputs/pnr
+[08/11 01:44:22     12s] @tempus 9> set NETLIST_FILE              "${PNR_OUT_DIR}/${design(TOPLEVEL)}.fiset NETLIST_FILE              "${PNR_OUT_DIR}/${design(TOPLEVEL)}.final.v"
+n [1Gal.v"
+[08/11 01:44:22     12s] /home/cc/Documents/Abdullah/Lab01_Materials/Lab01_Data/export/Innovus_Data/outputs/pnr/counter.final.v
+[08/11 01:44:22     12s] @tempus 10> set SPEF_FILE                 "${PNR_OUT_DIR}/${design(TOPLEVEL)}.sp [1Gef"
+set SPEF_FILE                 "${PNR_OUT_DIR}/${design(TOPLEVEL)}.spef"
+[08/11 01:44:22     12s] /home/cc/Documents/Abdullah/Lab01_Materials/Lab01_Data/export/Innovus_Data/outputs/pnr/counter.spef
+[08/11 01:44:22     12s] @tempus 11> 
+
+[08/11 01:44:22     12s] @tempus 11> # Output Reporting Directory
+# Output Reporting Directory
+[08/11 01:44:22     12s] @tempus 12> set TEMPUS_RPT_DIR            "${WORK_DIR}/export/Innovus_Data/repor [1Gts/tempus_signoff"
+set TEMPUS_RPT_DIR            "${WORK_DIR}/export/Innovus_Data/reports/tempus_signoff"
+[08/11 01:44:22     12s] /home/cc/Documents/Abdullah/Lab01_Materials/Lab01_Data/export/Innovus_Data/reports/tempus_signoff
+[08/11 01:44:22     12s] @tempus 13> 
+
+[08/11 01:44:22     12s] @tempus 13> # Automatically create the reporting directory to prevent "No such f# Automatically create the reporting directory to prevent "No such file" errors
+ [1Gile" errors
+[08/11 01:44:22     12s] @tempus 14> file mkdir $TEMPUS_RPT_DIRfile mkdir $TEMPUS_RPT_DIR
+@tempus 15> set_db timing_analysis_type ocv
+set_db timing_analysis_type ocv
+[08/11 01:44:30     12s] 1 ocv
+[08/11 01:44:30     12s] @tempus 16> 
+
+[08/11 01:44:30     12s] @tempus 16> # timing_analysis_cppr both: Clock Path Pessimism Removal. Removes a [1Grtificially added setup/hold 
+# timing_analysis_cppr both: Clock Path Pessimism Removal. Removes artificially added setup/hold 
+[08/11 01:44:30     12s] @tempus 17> # delays from common clock paths shared by both launch and capture # delays from common clock paths shared by both launch and capture flip-flops.
+f [1Glip-flops.
+set_db timing_analysis_cppr both
+[08/11 01:44:30     12s] @tempus 18> set_db timing_analysis_cppr both
+[08/11 01:44:30     12s] 1 both
+[08/11 01:44:30     12s] @tempus 19> 
+
+[08/11 01:44:30     12s] @tempus 19> # delaycal_enable_si true: Enables Signal Integrity (SI) analysis. C [1Galculates delay variations# delaycal_enable_si true: Enables Signal Integrity (SI) analysis. Calculates delay variations 
+ 
+[08/11 01:44:30     12s] @tempus 20> # caused by crosstalk (coupling capacitance) between neighboring phy# caused by crosstalk (coupling capacitance) between neighboring physical wires.
+ [1Gsical wires.
+[08/11 01:44:30     12s] @tempus 21> set_db delaycal_enable_si trueset_db delaycal_enable_si true
+
+[08/11 01:44:32     12s] AAE_INFO: switching -siAware from false to true ...
+[08/11 01:44:32     12s] AAE_INFO: The setting is changed from false to true in setDelayCalMode -SIAware
+[08/11 01:44:32     12s] 1 true
+[08/11 01:44:32     12s] @tempus 22> puts "INFO: Loading MMMC View Definitions..."
+INFO: Loading MMMC View Definitions...
+[08/11 01:44:40     13s] @tempus 23> read_mmmc $MMMC_FILE
+read_mmmc $MMMC_FILE
+[08/11 01:44:40     13s] #@ Begin verbose source (pre): 
+[08/11 01:44:40     13s] @file 1: # ==============================================================================
+[08/11 01:44:40     13s] @file 2: # CADENCE MMMC (Multi-Mode Multi-Corner) SETUP FILE
+[08/11 01:44:40     13s] @file 3: # ==============================================================================
+[08/11 01:44:40     13s] @file 4:
+[08/11 01:44:40     13s] @file 5: # ------------------------------------------------------------------------------
+[08/11 01:44:40     13s] @file 6: # 0. SAFETY CHECK & FILE PATH VARIABLES
+[08/11 01:44:40     13s] @file 7: # ------------------------------------------------------------------------------
+[08/11 01:44:40     13s] @file 8: # If this script is run standalone and INCLUDE_DFT isn't set, default to false.
+[08/11 01:44:40     13s] @file 9: if {![info exists INCLUDE_DFT]} {
+[08/11 01:44:40     13s] @file 10: set INCLUDE_DFT "false"
+[08/11 01:44:40     13s] @file 11: }
+[08/11 01:44:40     13s] @file 12:
+[08/11 01:44:40     13s] @file 13: # ------------------------------------------------------------------------------
+[08/11 01:44:40     13s] @file 14: # â ï¸ IMPORTANT: UPDATE THIS DIRECTORY PATH FOR YOUR SPECIFIC PC â ï¸
+[08/11 01:44:40     13s] @file 15: # ------------------------------------------------------------------------------
+[08/11 01:44:40     13s] @file 16: # NOTE FOR USERS: Change the WORK_DIR path below to point to where you saved 
+[08/11 01:44:40     13s] @file 17: # the project folder on your specific computer. 
+[08/11 01:44:40     13s] @file 18: # Example: "/home/your_username/Desktop/Lab01_Data"
+[08/11 01:44:40     13s] @file 19: # Since all other paths are dynamic, this is the ONLY path you need to change!
+[08/11 01:44:40     13s] @file 20:
+[08/11 01:44:40     13s] @file 21: set WORK_DIR "/home/cc/Documents/Abdullah/Lab01_Materials/Lab01_Data"
+[08/11 01:44:40     13s] @file 22:
+[08/11 01:44:40     13s] @file 23: # ------------------------------------------------------------------------------
+[08/11 01:44:40     13s] @file 24: # --- Auto-Generated Sub-Paths (Do not change these) ---
+[08/11 01:44:40     13s] @file 25: # ------------------------------------------------------------------------------
+[08/11 01:44:40     13s] @file 26:
+[08/11 01:44:40     13s] @file 27: # --- SDC Files ---
+[08/11 01:44:40     13s] @file 28: set SDC_FUNC_FILE "${WORK_DIR}/inputs/new_counter.sdc"
+[08/11 01:44:40     13s] @file 29: set SDC_TEST_FILE "${WORK_DIR}/inputs/counter_dft.sdc"
+[08/11 01:44:40     13s] @file 30:
+[08/11 01:44:40     13s] @file 31: # --- Libraries ---
+[08/11 01:44:40     13s] @file 32: set LIB_TC        "${WORK_DIR}/libraries/libs/tcbn65lptc.lib"
+[08/11 01:44:40     13s] @file 33: set LIB_WC        "${WORK_DIR}/libraries/libs/tcbn65lpwc.lib"
+[08/11 01:44:40     13s] @file 34: set LIB_BC        "${WORK_DIR}/libraries/libs/tcbn65lpbc.lib"
+[08/11 01:44:40     13s] @file 35:
+[08/11 01:44:40     13s] @file 36: # --- Cap Tables ---
+[08/11 01:44:40     13s] @file 37: set CAPTABLE_TC   "${WORK_DIR}/inputs/mmmc_files/captable/cln65lp_1p09m+alrdl_top2_typical.captable"
+[08/11 01:44:40     13s] @file 38: set CAPTABLE_WC   "${WORK_DIR}/inputs/mmmc_files/captable/cln65lp_1p09m+alrdl_top2_rcworst.captable"
+[08/11 01:44:40     13s] @file 39: set CAPTABLE_BC   "${WORK_DIR}/inputs/mmmc_files/captable/cln65lp_1p09m+alrdl_top2_rcbest.captable"
+[08/11 01:44:40     13s] @file 40:
+[08/11 01:44:40     13s] @file 41: # ------------------------------------------------------------------------------
+[08/11 01:44:40     13s] @file 42: # 1. LIBRARY SETS (Logical Timing & Power)
+[08/11 01:44:40     13s] @file 43: # ------------------------------------------------------------------------------
+[08/11 01:44:40     13s] @@file 44: create_library_set -name tc_libset -timing $LIB_TC
+[08/11 01:44:40     13s] @@file 45: create_library_set -name wc_libset -timing $LIB_WC
+[08/11 01:44:40     13s] @@file 46: create_library_set -name bc_libset -timing $LIB_BC
+[08/11 01:44:40     13s] @file 47:
+[08/11 01:44:40     13s] @file 48: # ------------------------------------------------------------------------------
+[08/11 01:44:40     13s] @file 49: # 2. TIMING CONDITIONS
+[08/11 01:44:40     13s] @file 50: # ------------------------------------------------------------------------------
+[08/11 01:44:40     13s] @@file 51: create_timing_condition -name tc_cond -library_sets {tc_libset}
+[08/11 01:44:40     13s] @@file 52: create_timing_condition -name wc_cond -library_sets {wc_libset}
+[08/11 01:44:40     13s] @@file 53: create_timing_condition -name bc_cond -library_sets {bc_libset}
+[08/11 01:44:40     13s] @file 54:
+[08/11 01:44:40     13s] @file 55: # ------------------------------------------------------------------------------
+[08/11 01:44:40     13s] @file 56: # 3. RC CORNERS (Physical Interconnect Parasitics)
+[08/11 01:44:40     13s] @file 57: # ------------------------------------------------------------------------------
+[08/11 01:44:40     13s] @@file 58: create_rc_corner -name rc_typical -temperature 25  -cap_table $CAPTABLE_TC
+[08/11 01:44:40     13s] @@file 59: create_rc_corner -name rc_worst   -temperature 125 -cap_table $CAPTABLE_WC
+[08/11 01:44:40     13s] @@file 60: create_rc_corner -name rc_best    -temperature -40 -cap_table $CAPTABLE_BC
+[08/11 01:44:40     13s] @file 61:
+[08/11 01:44:40     13s] @file 62: # ------------------------------------------------------------------------------
+[08/11 01:44:40     13s] @file 63: # 4. CONSTRAINT MODES (Design Goals)
+[08/11 01:44:40     13s] @file 64: # ------------------------------------------------------------------------------
+[08/11 01:44:40     13s] @file 65: # Mode 1: Functional (Always Active) - High speed standard operation
+[08/11 01:44:40     13s] @@file 66: create_constraint_mode -name func_mode -sdc_files $SDC_FUNC_FILE
+[08/11 01:44:40     13s] @file 67:
+[08/11 01:44:40     13s] @file 68: # Mode 2: Test (Conditional) - Slow clock, shifting data for scan chains
+[08/11 01:44:40     13s] @file 69: if {$INCLUDE_DFT == "true"} {...}
+[08/11 01:44:40     13s] @file 72:
+[08/11 01:44:40     13s] @file 73: # ------------------------------------------------------------------------------
+[08/11 01:44:40     13s] @file 74: # 5. DELAY CORNERS (Merging Logic and Physics)
+[08/11 01:44:40     13s] @file 75: # ------------------------------------------------------------------------------
+[08/11 01:44:40     13s] @@file 76: create_delay_corner -name dc_typical -timing_condition {tc_cond} -rc_corner {rc_typical}
+[08/11 01:44:40     13s] @@file 77: create_delay_corner -name dc_worst   -timing_condition {wc_cond} -rc_corner {rc_worst}
+[08/11 01:44:40     13s] @@file 78: create_delay_corner -name dc_best    -timing_condition {bc_cond} -rc_corner {rc_best}
+[08/11 01:44:40     13s] @file 79:
+[08/11 01:44:40     13s] @file 80: # ------------------------------------------------------------------------------
+[08/11 01:44:40     13s] @file 81: # 6. ANALYSIS VIEWS (Merging Delays and Constraints)
+[08/11 01:44:40     13s] @file 82: # ------------------------------------------------------------------------------
+[08/11 01:44:40     13s] @file 83: # Create Functional Views
+[08/11 01:44:40     13s] @@file 84: create_analysis_view -name view_func_typical -constraint_mode {func_mode} -delay_corner {dc_typical}
+[08/11 01:44:40     13s] @@file 85: create_analysis_view -name view_func_setup   -constraint_mode {func_mode} -delay_corner {dc_worst}
+[08/11 01:44:40     13s] @@file 86: create_analysis_view -name view_func_hold    -constraint_mode {func_mode} -delay_corner {dc_best}
+[08/11 01:44:40     13s] @file 87:
+[08/11 01:44:40     13s] @file 88: # Create Test Views (If DFT is enabled)
+[08/11 01:44:40     13s] @file 89: if {$INCLUDE_DFT == "true"} {...}
+[08/11 01:44:40     13s] @file 94:
+[08/11 01:44:40     13s] @file 95: # ------------------------------------------------------------------------------
+[08/11 01:44:40     13s] @file 96: # 7. SET ACTIVE VIEWS
+[08/11 01:44:40     13s] @file 97: # ------------------------------------------------------------------------------
+[08/11 01:44:40     13s] @file 98: # If DFT is enabled, we force the tool to balance timing for BOTH modes.
+[08/11 01:44:40     13s] @file 99: # However, Genus requires a single, primary view for power analysis (leakage/dynamic).
+[08/11 01:44:40     13s] @file 100: if {$INCLUDE_DFT == "true"} {...
+[08/11 01:44:40     13s] @file 106: } else {
+[08/11 01:44:40     13s] @@file 107: set_analysis_view  -setup   {view_func_setup}  -hold    {view_func_hold}  -leakage {view_func_typical}  -dynamic {view_func_typical}
+[08/11 01:44:40     13s] Number of views requested 1 are allowed with the current licenses... continuing with set_analysis_view.
+[08/11 01:44:40     13s] @file 108: }
+[08/11 01:44:40     13s] #@ End verbose source: /home/cc/Documents/Abdullah/Lab01_Materials/Lab01_Data/inputs/mmmc_master.view
+[08/11 01:44:40     13s] Reading wc_libset timing library '/home/cc/Documents/Abdullah/Lab01_Materials/Lab01_Data/libraries/libs/tcbn65lpwc.lib' ...
+[08/11 01:44:41     14s] **WARN: (TECHLIB-302):	No function defined for cell 'OD25DCAP64'. The cell will only be used for analysis. (File /home/cc/Documents/Abdullah/Lab01_Materials/Lab01_Data/libraries/libs/tcbn65lpwc.lib)
+[08/11 01:44:41     14s] **WARN: (TECHLIB-302):	No function defined for cell 'OD25DCAP32'. The cell will only be used for analysis. (File /home/cc/Documents/Abdullah/Lab01_Materials/Lab01_Data/libraries/libs/tcbn65lpwc.lib)
+[08/11 01:44:41     14s] **WARN: (TECHLIB-302):	No function defined for cell 'OD25DCAP16'. The cell will only be used for analysis. (File /home/cc/Documents/Abdullah/Lab01_Materials/Lab01_Data/libraries/libs/tcbn65lpwc.lib)
+[08/11 01:44:41     14s] **WARN: (TECHLIB-302):	No function defined for cell 'DCAP8'. The cell will only be used for analysis. (File /home/cc/Documents/Abdullah/Lab01_Materials/Lab01_Data/libraries/libs/tcbn65lpwc.lib)
+[08/11 01:44:41     14s] **WARN: (TECHLIB-302):	No function defined for cell 'DCAP64'. The cell will only be used for analysis. (File /home/cc/Documents/Abdullah/Lab01_Materials/Lab01_Data/libraries/libs/tcbn65lpwc.lib)
+[08/11 01:44:41     14s] **WARN: (TECHLIB-302):	No function defined for cell 'DCAP4'. The cell will only be used for analysis. (File /home/cc/Documents/Abdullah/Lab01_Materials/Lab01_Data/libraries/libs/tcbn65lpwc.lib)
+[08/11 01:44:41     14s] **WARN: (TECHLIB-302):	No function defined for cell 'DCAP32'. The cell will only be used for analysis. (File /home/cc/Documents/Abdullah/Lab01_Materials/Lab01_Data/libraries/libs/tcbn65lpwc.lib)
+[08/11 01:44:41     14s] **WARN: (TECHLIB-302):	No function defined for cell 'DCAP16'. The cell will only be used for analysis. (File /home/cc/Documents/Abdullah/Lab01_Materials/Lab01_Data/libraries/libs/tcbn65lpwc.lib)
+[08/11 01:44:41     14s] **WARN: (TECHLIB-302):	No function defined for cell 'DCAP'. The cell will only be used for analysis. (File /home/cc/Documents/Abdullah/Lab01_Materials/Lab01_Data/libraries/libs/tcbn65lpwc.lib)
+[08/11 01:44:41     14s] **WARN: (TECHLIB-302):	No function defined for cell 'ANTENNA'. The cell will only be used for analysis. (File /home/cc/Documents/Abdullah/Lab01_Materials/Lab01_Data/libraries/libs/tcbn65lpwc.lib)
+[08/11 01:44:41     14s] Read 816 cells in library 'tcbn65lpwc' 
+[08/11 01:44:41     14s] Reading bc_libset timing library '/home/cc/Documents/Abdullah/Lab01_Materials/Lab01_Data/libraries/libs/tcbn65lpbc.lib' ...
+[08/11 01:44:42     15s] **WARN: (TECHLIB-302):	No function defined for cell 'OD25DCAP64'. The cell will only be used for analysis. (File /home/cc/Documents/Abdullah/Lab01_Materials/Lab01_Data/libraries/libs/tcbn65lpbc.lib)
+[08/11 01:44:42     15s] **WARN: (TECHLIB-302):	No function defined for cell 'OD25DCAP32'. The cell will only be used for analysis. (File /home/cc/Documents/Abdullah/Lab01_Materials/Lab01_Data/libraries/libs/tcbn65lpbc.lib)
+[08/11 01:44:42     15s] **WARN: (TECHLIB-302):	No function defined for cell 'OD25DCAP16'. The cell will only be used for analysis. (File /home/cc/Documents/Abdullah/Lab01_Materials/Lab01_Data/libraries/libs/tcbn65lpbc.lib)
+[08/11 01:44:42     15s] **WARN: (TECHLIB-302):	No function defined for cell 'DCAP8'. The cell will only be used for analysis. (File /home/cc/Documents/Abdullah/Lab01_Materials/Lab01_Data/libraries/libs/tcbn65lpbc.lib)
+[08/11 01:44:42     15s] **WARN: (TECHLIB-302):	No function defined for cell 'DCAP64'. The cell will only be used for analysis. (File /home/cc/Documents/Abdullah/Lab01_Materials/Lab01_Data/libraries/libs/tcbn65lpbc.lib)
+[08/11 01:44:42     15s] **WARN: (TECHLIB-302):	No function defined for cell 'DCAP4'. The cell will only be used for analysis. (File /home/cc/Documents/Abdullah/Lab01_Materials/Lab01_Data/libraries/libs/tcbn65lpbc.lib)
+[08/11 01:44:42     15s] **WARN: (TECHLIB-302):	No function defined for cell 'DCAP32'. The cell will only be used for analysis. (File /home/cc/Documents/Abdullah/Lab01_Materials/Lab01_Data/libraries/libs/tcbn65lpbc.lib)
+[08/11 01:44:42     15s] **WARN: (TECHLIB-302):	No function defined for cell 'DCAP16'. The cell will only be used for analysis. (File /home/cc/Documents/Abdullah/Lab01_Materials/Lab01_Data/libraries/libs/tcbn65lpbc.lib)
+[08/11 01:44:42     15s] **WARN: (TECHLIB-302):	No function defined for cell 'DCAP'. The cell will only be used for analysis. (File /home/cc/Documents/Abdullah/Lab01_Materials/Lab01_Data/libraries/libs/tcbn65lpbc.lib)
+[08/11 01:44:42     15s] **WARN: (TECHLIB-302):	No function defined for cell 'ANTENNA'. The cell will only be used for analysis. (File /home/cc/Documents/Abdullah/Lab01_Materials/Lab01_Data/libraries/libs/tcbn65lpbc.lib)
+[08/11 01:44:42     15s] Read 816 cells in library 'tcbn65lpbc' 
+Ending "PreSetAnalysisView" (total cpu=0:00:02.1, real=0:00:02.0, peak res=1562.6M, current mem=1437.0M)
+
+[08/11 01:44:42     15s] timing_initialized
+[08/11 01:44:42     15s] @tempus 24> 
+# B. Load Technology LEFs
+[08/11 01:44:42     15s] @tempus 24> # B. Load Technology LEFs
+[08/11 01:44:42     15s] @tempus 25> # read_physical: Crucial for accurate RC Extraction awareness. Tempu [1Gs needs physical 
+# read_physical: Crucial for accurate RC Extraction awareness. Tempus needs physical 
+# layer rules and cell spacing info for accurate Signal Integrity calculations.
+puts "INFO: Reading Technology LEFs..."
+[08/11 01:44:42     15s] @tempus 26> # layer rules and cell spacing info for accurate Signal Integrity ca [1Glculations.
+[08/11 01:44:42     15s] @tempus 27> puts "INFO: Reading Technology LEFs..."
+[08/11 01:44:42     15s] INFO: Reading Technology LEFs...
+read_physical -lef $LEF_FILE
+[08/11 01:44:42     15s] @tempus 28> read_physical -lef $LEF_FILE
+[08/11 01:44:42     15s] 
+[08/11 01:44:42     15s] Loading LEF file /home/cc/Documents/Abdullah/Lab01_Materials/Lab01_Data/libraries/lef/tcbn65lp_9lmT2.lef ...
+[08/11 01:44:42     15s] Set DBUPerIGU to M2 pitch 400.
+[08/11 01:44:42     15s] **WARN: (IMPLF-200):	Pin 'I' in macro 'ANTENNA' has no ANTENNAGATEAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+[08/11 01:44:42     15s] 
+[08/11 01:44:42     15s] ##  Check design process and node:  
+[08/11 01:44:42     15s] ##  Both design process and tech node are not set.
+[08/11 01:44:42     15s] 
+[08/11 01:44:42     15s] 0
+[08/11 01:44:42     15s] @tempus 29> 
+
+[08/11 01:44:42     15s] @tempus 29> # C. Load the Final Routed Netlist from Innovus
+# C. Load the Final Routed Netlist from Innovus
+[08/11 01:44:42     15s] @tempus 30> # read_netlist: Loads the gate-level Verilog file that Innovus gener [1Gated after full routing# read_netlist: Loads the gate-level Verilog file that Innovus generated after full routing.
+.
+[08/11 01:44:42     15s] @tempus 31> puts "INFO: Reading Post-Route Netlist..."
+puts "INFO: Reading Post-Route Netlist..."
+[08/11 01:44:42     15s] INFO: Reading Post-Route Netlist...
+[08/11 01:44:42     15s] @tempus 32> read_netlist $NETLIST_FILE?62;c?62;cread_netlist $NETLIST_FILE?62;c?62;c
+
+[08/11 01:44:44     15s] **ERROR: (IMPIMEX-10):	Specified file cannot be found: /home/cc/Documents/Abdullah/Lab01_Materials/Lab01_Data/export/Innovus_Data/outputs/pnr/counter.final.v?62.
+[08/11 01:44:44     15s] invalid command name "c?62"
+[08/11 01:44:44     15s] invalid command name "c?62"
+[08/11 01:44:44     15s] @tempus 33> read_netlist $NETLIST_FILE
+
+[08/11 01:44:50     15s] #% Begin Load netlist data ... (date=08/11 01:44:50, mem=1497.9M)
+[08/11 01:44:50     15s] *** Begin netlist parsing (mem=1525.2M) ***
+[08/11 01:44:50     15s] Reading verilog netlist '/home/cc/Documents/Abdullah/Lab01_Materials/Lab01_Data/export/Innovus_Data/outputs/pnr/counter.final.v'
+[08/11 01:44:50     15s] 
+[08/11 01:44:50     15s] *** Memory Usage v#3 (Current mem = 1673.250M, initial mem = 656.645M) ***
+[08/11 01:44:50     15s] *** End netlist parsing (cpu=0:00:00.0, real=0:00:00.0, mem=1673.2M) ***
+[08/11 01:44:50     15s] #% End Load netlist data ... (date=08/11 01:44:50, total cpu=0:00:00.2, real=0:00:00.0, peak res=1624.4M, current mem=1618.4M)
+[08/11 01:44:50     15s] Top level cell is counter.
+[08/11 01:44:51     15s] Ending "BindLib:" (total cpu=0:00:00.1, real=0:00:01.0, peak res=1683.3M, current mem=1683.3M)
+[08/11 01:44:51     15s] Building hierarchical netlist for Cell counter ...
+[08/11 01:44:51     15s] ***** UseNewTieNetMode *****.
+[08/11 01:44:51     15s] *** Netlist is unique.
+[08/11 01:44:51     15s] Setting Std. cell height to 3600 DBU (smallest netlist inst).
+[08/11 01:44:51     15s] ** info: there are 1672 modules.
+[08/11 01:44:51     15s] ** info: there are 12 stdCell insts.
+[08/11 01:44:51     15s] ** info: there are 12 stdCell insts with at least one signal pin.
+[08/11 01:44:51     16s] 
+[08/11 01:44:51     16s] *** Memory Usage v#3 (Current mem = 2036.195M, initial mem = 656.645M) ***
+[08/11 01:44:51     16s] @tempus 34> Loading  (counter)
+[08/11 01:44:51     16s] Traverse HInst (counter)
+[08/11 01:44:51     16s] @tempus 34> init_design
+Set Default Input Pin Transition as 0.1 ps.
+[08/11 01:44:58     16s] **WARN: (IMPFP-3961):	The techSite 'dcore' has no related standard cells in the LEF/OA library. The calculations for this site type cannot be made unless standard cell models of this type exist in the LEF/OA library. Ignore this warning if the SITE is not used by the library. Alternatively, remove the SITE definition for the LEF/OA library to avoid this message.
+[08/11 01:44:58     16s] **WARN: (IMPFP-3961):	The techSite 'ccore' has no related standard cells in the LEF/OA library. The calculations for this site type cannot be made unless standard cell models of this type exist in the LEF/OA library. Ignore this warning if the SITE is not used by the library. Alternatively, remove the SITE definition for the LEF/OA library to avoid this message.
+[08/11 01:44:58     16s] Start create_tracks
+[08/11 01:44:58     16s] Extraction setup Started 
+[08/11 01:44:58     16s] Reading Capacitance Table File /home/cc/Documents/Abdullah/Lab01_Materials/Lab01_Data/inputs/mmmc_files/captable/cln65lp_1p09m+alrdl_top2_rcworst.captable ...
+[08/11 01:44:58     16s] Reading Capacitance Table File /home/cc/Documents/Abdullah/Lab01_Materials/Lab01_Data/inputs/mmmc_files/captable/cln65lp_1p09m+alrdl_top2_typical.captable ...
+[08/11 01:44:58     16s] Reading Capacitance Table File /home/cc/Documents/Abdullah/Lab01_Materials/Lab01_Data/inputs/mmmc_files/captable/cln65lp_1p09m+alrdl_top2_rcbest.captable ...
+[08/11 01:44:58     16s] Importing multi-corner RC tables ... 
+[08/11 01:44:58     16s] Summary of Active RC-Corners : 
+[08/11 01:44:58     16s]  
+[08/11 01:44:58     16s]  Analysis View: view_func_setup
+[08/11 01:44:58     16s]     RC-Corner Name        : rc_worst
+[08/11 01:44:58     16s]     RC-Corner Index       : 0
+[08/11 01:44:58     16s]     RC-Corner Temperature : 125 Celsius
+[08/11 01:44:58     16s]     RC-Corner Cap Table   : '/home/cc/Documents/Abdullah/Lab01_Materials/Lab01_Data/inputs/mmmc_files/captable/cln65lp_1p09m+alrdl_top2_rcworst.captable'
+[08/11 01:44:58     16s]     RC-Corner PostRoute Res Factor        : 1
+[08/11 01:44:58     16s]     RC-Corner PostRoute Cap Factor        : 1
+[08/11 01:44:58     16s]     RC-Corner PostRoute XCap Factor       : 1
+[08/11 01:44:58     16s]  
+[08/11 01:44:58     16s]  Analysis View: view_func_typical
+[08/11 01:44:58     16s]     RC-Corner Name        : rc_typical
+[08/11 01:44:58     16s]     RC-Corner Index       : 1
+[08/11 01:44:58     16s]     RC-Corner Temperature : 25 Celsius
+[08/11 01:44:58     16s]     RC-Corner Cap Table   : '/home/cc/Documents/Abdullah/Lab01_Materials/Lab01_Data/inputs/mmmc_files/captable/cln65lp_1p09m+alrdl_top2_typical.captable'
+[08/11 01:44:58     16s]     RC-Corner PostRoute Res Factor        : 1
+[08/11 01:44:58     16s]     RC-Corner PostRoute Cap Factor        : 1
+[08/11 01:44:58     16s]     RC-Corner PostRoute XCap Factor       : 1
+[08/11 01:44:58     16s]  
+[08/11 01:44:58     16s]  Analysis View: view_func_hold
+[08/11 01:44:58     16s]     RC-Corner Name        : rc_best
+[08/11 01:44:58     16s]     RC-Corner Index       : 2
+[08/11 01:44:58     16s]     RC-Corner Temperature : -40 Celsius
+[08/11 01:44:58     16s]     RC-Corner Cap Table   : '/home/cc/Documents/Abdullah/Lab01_Materials/Lab01_Data/inputs/mmmc_files/captable/cln65lp_1p09m+alrdl_top2_rcbest.captable'
+[08/11 01:44:58     16s]     RC-Corner PostRoute Res Factor        : 1
+[08/11 01:44:58     16s]     RC-Corner PostRoute Cap Factor        : 1
+[08/11 01:44:58     16s]     RC-Corner PostRoute XCap Factor       : 1
+[08/11 01:44:58     16s] eee: RC Grid memory allocated = 480 (2 X 2 X 10 X 12b)
+[08/11 01:44:58     16s] eee: pegSigSF=1.070000
+[08/11 01:44:58     16s] Initializing multi-corner capacitance tables ... 
+[08/11 01:44:58     16s] Initializing multi-corner resistance tables ...
+[08/11 01:44:58     16s] eee: Grid unit RC data computation started
+[08/11 01:44:58     16s] eee: Grid unit RC data computation completed
+[08/11 01:44:58     16s] eee: l=1 avDens=0.000000 usedTrk=0.000000 availTrk=0.000000 sigTrk=0.000000
+[08/11 01:44:58     16s] eee: l=2 avDens=0.000000 usedTrk=0.000000 availTrk=0.000000 sigTrk=0.000000
+[08/11 01:44:58     16s] eee: l=3 avDens=0.000000 usedTrk=0.000000 availTrk=0.000000 sigTrk=0.000000
+[08/11 01:44:58     16s] eee: l=4 avDens=0.000000 usedTrk=0.000000 availTrk=0.000000 sigTrk=0.000000
+[08/11 01:44:58     16s] eee: l=5 avDens=0.000000 usedTrk=0.000000 availTrk=0.000000 sigTrk=0.000000
+[08/11 01:44:58     16s] eee: l=6 avDens=0.000000 usedTrk=0.000000 availTrk=0.000000 sigTrk=0.000000
+[08/11 01:44:58     16s] eee: l=7 avDens=0.000000 usedTrk=0.000000 availTrk=0.000000 sigTrk=0.000000
+[08/11 01:44:58     16s] eee: l=8 avDens=0.000000 usedTrk=0.000000 availTrk=0.000000 sigTrk=0.000000
+[08/11 01:44:58     16s] eee: l=9 avDens=0.000000 usedTrk=0.000000 availTrk=0.000000 sigTrk=0.000000
+[08/11 01:44:58     16s] eee: l=10 avDens=0.000000 usedTrk=0.000000 availTrk=0.000000 sigTrk=0.000000
+[08/11 01:44:58     16s] eee: LAM-FP: thresh=1 ; dimX=48.875000 ; dimY=45.000000 ; multX=1.000000 ; multY=1.000000 ; minP=400 ; fpMult=1.000000 ;
+[08/11 01:44:58     16s] eee: LAM: n=40 LLS=2-3 HLS=3-5 rDens=0.000000 uaWl=0.000000 uaWlH=0.000000 aWlH=0.000000 lMod=0 pMax=0.850000 pMod=82 pModAss=50 wcR=0.693800 crit=0.000000 siPrev=0 newSi=0.000000 wHLS=1.734500 viaL=0.000000 shortMod=0.000000 fModUnas=0.000000 fModAs=0.000000 pDens=0.500000 
+[08/11 01:44:58     16s] eee: NetCapCache creation started. (Current Mem: 2310.000M) 
+[08/11 01:44:58     16s] eee: NetCapCache completed. (CPU Time: 0:00:00.0  Real Time: 0:00:00.0  Curr Mem: 2310.000M) 
+[08/11 01:44:58     16s] eee: dbu = 2000, Design = [ll(0.000000, 0.000000) ur(9.775000, 9.000000)], Layers = [f(10) b(0)], Grid size = 18.000000 um, Grid Dim = (1 X 1)
+[08/11 01:44:58     16s] eee: Metal Layers Info:
+[08/11 01:44:58     16s] eee: +----------+-----+---------+---------+---------+--------+--------+---+---+----+
+[08/11 01:44:58     16s] eee: |   Layer  |  Id |    W    |    S    |    P    |   uC   |   uR   | D | T | wS |
+[08/11 01:44:58     16s] eee: +----------+-----+---------+---------+---------+--------+--------+---+---+----+
+[08/11 01:44:58     16s] eee: |       M1 |   1 |   0.090 |   0.090 |   0.200 |  0.199 |   2.16 | H | 0 |  4 |
+[08/11 01:44:58     16s] eee: |       M2 |   2 |   0.100 |   0.100 |   0.200 |  0.212 |   1.83 | V | 0 |  4 |
+[08/11 01:44:58     16s] eee: |       M3 |   3 |   0.100 |   0.100 |   0.200 |  0.212 |   1.83 | H | 0 |  4 |
+[08/11 01:44:58     16s] eee: |       M4 |   4 |   0.100 |   0.100 |   0.200 |  0.212 |   1.83 | V | 0 |  4 |
+[08/11 01:44:58     16s] eee: |       M5 |   5 |   0.100 |   0.100 |   0.200 |  0.212 |   1.83 | H | 0 |  4 |
+[08/11 01:44:58     16s] eee: |       M6 |   6 |   0.100 |   0.100 |   0.200 |  0.212 |   1.83 | V | 0 |  4 |
+[08/11 01:44:58     16s] eee: |       M7 |   7 |   0.100 |   0.100 |   0.200 |  0.211 |   1.83 | H | 0 |  4 |
+[08/11 01:44:58     16s] eee: |       M8 |   8 |   0.400 |   0.400 |   0.800 |  0.333 |   0.07 | V | 0 |  4 |
+[08/11 01:44:58     16s] eee: |       M9 |   9 |   0.400 |   0.400 |   0.800 |  0.322 |   0.07 | H | 0 |  4 |
+[08/11 01:44:58     16s] eee: |       AP |  10 |   3.000 |   2.000 |   6.500 |  0.287 |   0.01 | V | 0 |  2 |
+[08/11 01:44:58     16s] eee: +----------+-----+---------+---------+---------+--------+--------+---+---+----+
+[08/11 01:44:58     16s] eee: uC/uR for corner rc_worst, min-width/min-spacing, 30 perc over/under densities.
+[08/11 01:44:58     16s] Reading tc_libset timing library '/home/cc/Documents/Abdullah/Lab01_Materials/Lab01_Data/libraries/libs/tcbn65lptc.lib' ...
+[08/11 01:44:59     17s] Message <TECHLIB-302> has exceeded the message display limit of '20'. Use 'set_message -no_limit -id list_of_msgIDs' to reset the message limit.
+[08/11 01:44:59     17s] Read 816 cells in library 'tcbn65lptc' 
+[08/11 01:44:59     17s] Ending "SetAnalysisView" (total cpu=0:00:01.0, real=0:00:01.0, peak res=2208.9M, current mem=1896.4M)
+[08/11 01:45:00     17s] Reading timing constraints file '/home/cc/Documents/Abdullah/Lab01_Materials/Lab01_Data/inputs/new_counter.sdc' ...
+[08/11 01:45:00     17s] Current (total cpu=0:00:18.0, real=0:01:33, peak res=2350.6M, current mem=2350.6M)
+[08/11 01:45:00     18s] INFO (CTE): Constraints read successfully.
+[08/11 01:45:00     18s] Ending "Constraint file reading stats" (total cpu=0:00:00.0, real=0:00:00.0, peak res=2365.7M, current mem=2365.7M)
+[08/11 01:45:00     18s] Current (total cpu=0:00:18.0, real=0:01:33, peak res=2365.7M, current mem=2365.7M)
+[08/11 01:45:00     18s] Tech dependent Parameter, Build TLibAnalyzer for: cellAreaConsiderPadding
+[08/11 01:45:00     18s] 
+[08/11 01:45:00     18s] TimeStamp Creating Cell Server ...(0, 1, 1, 1) Begin ...
+[08/11 01:45:00     18s] Summary for sequential cells identification: 
+[08/11 01:45:00     18s]   Identified SBFF number: 199
+[08/11 01:45:00     18s]   Identified MBFF number: 0
+[08/11 01:45:00     18s]   Identified SB Latch number: 0
+[08/11 01:45:00     18s]   Identified MB Latch number: 0
+[08/11 01:45:00     18s]   Not identified SBFF number: 0
+[08/11 01:45:00     18s]   Not identified MBFF number: 0
+[08/11 01:45:00     18s]   Not identified SB Latch number: 0
+[08/11 01:45:00     18s]   Not identified MB Latch number: 0
+[08/11 01:45:00     18s]   Number of sequential cells which are not FFs: 104
+[08/11 01:45:00     18s] 
+[08/11 01:45:00     18s] TimeStamp Creating Cell Server ...(0, 1, 1, 1) End ...
+[08/11 01:45:00     18s] Total number of combinational cells: 483
+[08/11 01:45:00     18s] Total number of sequential cells: 303
+[08/11 01:45:00     18s] Total number of tristate cells: 11
+[08/11 01:45:00     18s] Total number of level shifter cells: 0
+[08/11 01:45:00     18s] Total number of power gating cells: 0
+[08/11 01:45:00     18s] Total number of isolation cells: 0
+[08/11 01:45:00     18s] Total number of power switch cells: 0
+[08/11 01:45:00     18s] Total number of pulse generator cells: 0
+[08/11 01:45:00     18s] Total number of always on buffers: 0
+[08/11 01:45:00     18s] Total number of retention cells: 0
+[08/11 01:45:00     18s] Total number of physical cells: 19
+[08/11 01:45:00     18s] List of usable buffers: BUFFD1 BUFFD0 BUFFD2 BUFFD12 BUFFD16 BUFFD3 BUFFD4 BUFFD6 BUFFD8 CKBD1 CKBD0 CKBD2 CKBD12 CKBD16 CKBD3 CKBD4 CKBD6 CKBD8
+[08/11 01:45:00     18s] Total number of usable buffers: 18
+[08/11 01:45:00     18s] List of unusable buffers: BUFFD20 BUFFD24 CKBD20 CKBD24 GBUFFD1 GBUFFD3 GBUFFD2 GBUFFD4 GBUFFD8
+[08/11 01:45:00     18s] Total number of unusable buffers: 9
+[08/11 01:45:00     18s] List of usable inverters: CKND1 CKND0 CKND2 CKND12 CKND16 CKND3 CKND4 CKND6 CKND8 INVD1 INVD0 INVD2 INVD12 INVD16 INVD3 INVD4 INVD6 INVD8
+[08/11 01:45:00     18s] Total number of usable inverters: 18
+[08/11 01:45:00     18s] List of unusable inverters: CKND20 CKND24 GINVD2 GINVD1 GINVD4 GINVD3 GINVD8 INVD20 INVD24
+[08/11 01:45:00     18s] Total number of unusable inverters: 9
+[08/11 01:45:00     18s] List of identified usable delay cells: DEL0 DEL005 DEL01 DEL015 DEL02 DEL1 DEL2 DEL3 DEL4
+[08/11 01:45:00     18s] Total number of identified usable delay cells: 9
+[08/11 01:45:00     18s] List of identified unusable delay cells:
+[08/11 01:45:00     18s] Total number of identified unusable delay cells: 0
+[08/11 01:45:00     18s] 
+[08/11 01:45:00     18s] TimeStamp Deleting Cell Server Begin ...
+[08/11 01:45:00     18s] 
+[08/11 01:45:00     18s] TimeStamp Deleting Cell Server End ...
+[08/11 01:45:00     18s] Ending "Cell type marking" (total cpu=0:00:00.0, real=0:00:00.0, peak res=2391.3M, current mem=2388.0M)
+[08/11 01:45:00     18s] 
+[08/11 01:45:00     18s] TimeStamp Creating Cell Server ...(0, 0, 0, 0) Begin ...
+[08/11 01:45:00     18s] Summary for sequential cells identification: 
+[08/11 01:45:00     18s]   Identified SBFF number: 199
+[08/11 01:45:00     18s]   Identified MBFF number: 0
+[08/11 01:45:00     18s]   Identified SB Latch number: 0
+[08/11 01:45:00     18s]   Identified MB Latch number: 0
+[08/11 01:45:00     18s]   Not identified SBFF number: 0
+[08/11 01:45:00     18s]   Not identified MBFF number: 0
+[08/11 01:45:00     18s]   Not identified SB Latch number: 0
+[08/11 01:45:00     18s]   Not identified MB Latch number: 0
+[08/11 01:45:00     18s]   Number of sequential cells which are not FFs: 104
+[08/11 01:45:00     18s]  Visiting view : view_func_setup
+[08/11 01:45:00     18s]    : PowerDomain = none : Weighted F : unweighted  = 25.60 (1.000) with rcCorner = 0
+[08/11 01:45:00     18s]    : PowerDomain = none : Weighted F : unweighted  = 21.10 (1.000) with rcCorner = -1
+[08/11 01:45:00     18s]  Visiting view : view_func_hold
+[08/11 01:45:00     18s]    : PowerDomain = none : Weighted F : unweighted  = 11.00 (1.000) with rcCorner = 2
+[08/11 01:45:00     18s]    : PowerDomain = none : Weighted F : unweighted  = 9.70 (1.000) with rcCorner = -1
+[08/11 01:45:00     18s] TLC MultiMap info (StdDelay):
+[08/11 01:45:00     18s]   : dc_best + bc_libset + 1 + no RcCorner := 9.7ps
+[08/11 01:45:00     18s]   : dc_best + bc_libset + 1 + rc_best := 11ps
+[08/11 01:45:00     18s]   : dc_worst + wc_libset + 1 + no RcCorner := 21.1ps
+[08/11 01:45:00     18s]   : dc_worst + wc_libset + 1 + rc_worst := 25.6ps
+[08/11 01:45:00     18s]  Setting StdDelay to: 25.6ps
+[08/11 01:45:00     18s] 
+[08/11 01:45:00     18s] TimeStamp Creating Cell Server ...(0, 0, 0, 0) End ...
+[08/11 01:45:00     18s] 
+[08/11 01:45:00     18s] TimeStamp Deleting Cell Server Begin ...
+[08/11 01:45:00     18s] 
+[08/11 01:45:00     18s] TimeStamp Deleting Cell Server End ...
+[08/11 01:45:00     18s] @tempus 35> read_spef -rc_corner rc_worst $SPEF_FILE
+read_spef -rc_corner rc_worst $SPEF_FILE
+[08/11 01:49:01     24s] read_spef Option :  /home/cc/Documents/Abdullah/Lab01_Materials/Lab01_Data/export/Innovus_Data/outputs/pnr/counter.spef -noStarN -rc_corner rc_worst 
+[08/11 01:49:01     24s] Spef available for 1 corner(s) but not available for 2 corner(s). Spef reading will be triggered only after spef for all active RC Corners are available.
+[08/11 01:49:01     24s] @tempus 36> 
+
+[08/11 01:49:01     24s] @tempus 36> # Best-Case (Hold) Corner: Simulates low temp, high voltage, min wir [1Ge resistance (signals travel too fast).
+# Best-Case (Hold) Corner: Simulates low temp, high voltage, min wire resistance (signals travel too fast).
+[08/11 01:49:01     24s] @tempus 37> read_spef -rc_corner rc_best $SPEF_FILE
+read_spef -rc_corner rc_best $SPEF_FILE
+[08/11 01:49:01     24s] read_spef Option :  /home/cc/Documents/Abdullah/Lab01_Materials/Lab01_Data/export/Innovus_Data/outputs/pnr/counter.spef -noStarN -rc_corner rc_best 
+[08/11 01:49:01     24s] Spef available for 2 corner(s) but not available for 1 corner(s). Spef reading will be triggered only after spef for all active RC Corners are available.
+[08/11 01:49:01     24s] @tempus 38> 
+
+[08/11 01:49:01     24s] @tempus 38> # Typical Corner (Optional): Nominal operating conditions# Typical Corner (Optional): Nominal operating conditions.
+.
+[08/11 01:49:01     24s] @tempus 39> read_spef -rc_corner rc_typical $SPEF_FILEread_spef -rc_corner rc_typical $SPEF_FILE
+
+[08/11 01:49:03     24s] read_spef Option :  /home/cc/Documents/Abdullah/Lab01_Materials/Lab01_Data/export/Innovus_Data/outputs/pnr/counter.spef -noStarN -rc_corner rc_typical 
+[08/11 01:49:03     24s] 
+[08/11 01:49:03     24s] SPEF files for RC Corner rc_worst:
+[08/11 01:49:03     24s] Top-level spef file '/home/cc/Documents/Abdullah/Lab01_Materials/Lab01_Data/export/Innovus_Data/outputs/pnr/counter.spef'.
+[08/11 01:49:03     24s] 
+[08/11 01:49:03     24s] SPEF files for RC Corner rc_typical:
+[08/11 01:49:03     24s] Top-level spef file '/home/cc/Documents/Abdullah/Lab01_Materials/Lab01_Data/export/Innovus_Data/outputs/pnr/counter.spef'.
+[08/11 01:49:03     24s] 
+[08/11 01:49:03     24s] SPEF files for RC Corner rc_best:
+[08/11 01:49:03     24s] Top-level spef file '/home/cc/Documents/Abdullah/Lab01_Materials/Lab01_Data/export/Innovus_Data/outputs/pnr/counter.spef'.
+[08/11 01:49:03     24s] Number of corners: 3
+[08/11 01:49:03     24s] Number of parallel threads processing the nets is: 1
+[08/11 01:49:03     24s] Maximum backlog used in parser: 50.
+[08/11 01:49:03     24s] Reading multiple SPEF files in parallel.
+[08/11 01:49:03     24s] Start spef parsing (MEM=2539.65).
+[08/11 01:49:03     24s] RCDB /tmp/ssv_tmpdir_5164_Nlh5Hd/counter_5164_xGkMH1.rcdb.d/counter.rcdb.d Creation Started (CPU Time= 0:00:00.0  MEM= 2547.6M)
+[08/11 01:49:03     24s] Creating parasitic data file '/tmp/ssv_tmpdir_5164_Nlh5Hd/counter_5164_xGkMH1.rcdb.d/counter.rcdb.d' for storing RC.
+[08/11 01:49:03     24s] Spef file '/home/cc/Documents/Abdullah/Lab01_Materials/Lab01_Data/export/Innovus_Data/outputs/pnr/counter.spef' reading completed:: 10 %
+[08/11 01:49:03     24s] Spef file '/home/cc/Documents/Abdullah/Lab01_Materials/Lab01_Data/export/Innovus_Data/outputs/pnr/counter.spef' reading completed:: 20 %
+[08/11 01:49:03     24s] Spef file '/home/cc/Documents/Abdullah/Lab01_Materials/Lab01_Data/export/Innovus_Data/outputs/pnr/counter.spef' reading completed:: 30 %
+[08/11 01:49:03     24s] Spef file '/home/cc/Documents/Abdullah/Lab01_Materials/Lab01_Data/export/Innovus_Data/outputs/pnr/counter.spef' reading completed:: 40 %
+[08/11 01:49:03     24s] Spef file '/home/cc/Documents/Abdullah/Lab01_Materials/Lab01_Data/export/Innovus_Data/outputs/pnr/counter.spef' reading completed:: 50 %
+[08/11 01:49:03     24s] Spef file '/home/cc/Documents/Abdullah/Lab01_Materials/Lab01_Data/export/Innovus_Data/outputs/pnr/counter.spef' reading completed:: 60 %
+[08/11 01:49:03     24s] Spef file '/home/cc/Documents/Abdullah/Lab01_Materials/Lab01_Data/export/Innovus_Data/outputs/pnr/counter.spef' reading completed:: 70 %
+[08/11 01:49:03     24s] Spef file '/home/cc/Documents/Abdullah/Lab01_Materials/Lab01_Data/export/Innovus_Data/outputs/pnr/counter.spef' reading completed:: 80 %
+[08/11 01:49:03     24s] Spef file '/home/cc/Documents/Abdullah/Lab01_Materials/Lab01_Data/export/Innovus_Data/outputs/pnr/counter.spef' reading completed:: 90 %
+[08/11 01:49:03     24s] Spef file '/home/cc/Documents/Abdullah/Lab01_Materials/Lab01_Data/export/Innovus_Data/outputs/pnr/counter.spef' reading completed:: 100 %
+[08/11 01:49:03     24s] SPEF file /home/cc/Documents/Abdullah/Lab01_Materials/Lab01_Data/export/Innovus_Data/outputs/pnr/counter.spef.
+[08/11 01:49:03     24s] Number of Resistors     : 188
+[08/11 01:49:03     24s] Number of Ground Caps   : 188
+[08/11 01:49:03     24s] Number of Coupling Caps : 0
+[08/11 01:49:03     24s] 
+[08/11 01:49:03     24s] Spef file '/home/cc/Documents/Abdullah/Lab01_Materials/Lab01_Data/export/Innovus_Data/outputs/pnr/counter.spef' reading completed:: 10 %
+[08/11 01:49:03     24s] Spef file '/home/cc/Documents/Abdullah/Lab01_Materials/Lab01_Data/export/Innovus_Data/outputs/pnr/counter.spef' reading completed:: 20 %
+[08/11 01:49:03     24s] Spef file '/home/cc/Documents/Abdullah/Lab01_Materials/Lab01_Data/export/Innovus_Data/outputs/pnr/counter.spef' reading completed:: 30 %
+[08/11 01:49:03     24s] Spef file '/home/cc/Documents/Abdullah/Lab01_Materials/Lab01_Data/export/Innovus_Data/outputs/pnr/counter.spef' reading completed:: 40 %
+[08/11 01:49:03     24s] Spef file '/home/cc/Documents/Abdullah/Lab01_Materials/Lab01_Data/export/Innovus_Data/outputs/pnr/counter.spef' reading completed:: 50 %
+[08/11 01:49:03     24s] Spef file '/home/cc/Documents/Abdullah/Lab01_Materials/Lab01_Data/export/Innovus_Data/outputs/pnr/counter.spef' reading completed:: 60 %
+[08/11 01:49:03     24s] Spef file '/home/cc/Documents/Abdullah/Lab01_Materials/Lab01_Data/export/Innovus_Data/outputs/pnr/counter.spef' reading completed:: 70 %
+[08/11 01:49:03     24s] Spef file '/home/cc/Documents/Abdullah/Lab01_Materials/Lab01_Data/export/Innovus_Data/outputs/pnr/counter.spef' reading completed:: 80 %
+[08/11 01:49:03     24s] Spef file '/home/cc/Documents/Abdullah/Lab01_Materials/Lab01_Data/export/Innovus_Data/outputs/pnr/counter.spef' reading completed:: 90 %
+[08/11 01:49:03     24s] Spef file '/home/cc/Documents/Abdullah/Lab01_Materials/Lab01_Data/export/Innovus_Data/outputs/pnr/counter.spef' reading completed:: 100 %
+[08/11 01:49:03     24s] SPEF file /home/cc/Documents/Abdullah/Lab01_Materials/Lab01_Data/export/Innovus_Data/outputs/pnr/counter.spef.
+[08/11 01:49:03     24s] Number of Resistors     : 188
+[08/11 01:49:03     24s] Number of Ground Caps   : 188
+[08/11 01:49:03     24s] Number of Coupling Caps : 0
+[08/11 01:49:03     24s] 
+[08/11 01:49:03     24s] Spef file '/home/cc/Documents/Abdullah/Lab01_Materials/Lab01_Data/export/Innovus_Data/outputs/pnr/counter.spef' reading completed:: 10 %
+[08/11 01:49:03     24s] Spef file '/home/cc/Documents/Abdullah/Lab01_Materials/Lab01_Data/export/Innovus_Data/outputs/pnr/counter.spef' reading completed:: 20 %
+[08/11 01:49:03     24s] Spef file '/home/cc/Documents/Abdullah/Lab01_Materials/Lab01_Data/export/Innovus_Data/outputs/pnr/counter.spef' reading completed:: 30 %
+[08/11 01:49:03     24s] Spef file '/home/cc/Documents/Abdullah/Lab01_Materials/Lab01_Data/export/Innovus_Data/outputs/pnr/counter.spef' reading completed:: 40 %
+[08/11 01:49:03     24s] Spef file '/home/cc/Documents/Abdullah/Lab01_Materials/Lab01_Data/export/Innovus_Data/outputs/pnr/counter.spef' reading completed:: 50 %
+[08/11 01:49:03     24s] Spef file '/home/cc/Documents/Abdullah/Lab01_Materials/Lab01_Data/export/Innovus_Data/outputs/pnr/counter.spef' reading completed:: 60 %
+[08/11 01:49:03     24s] Spef file '/home/cc/Documents/Abdullah/Lab01_Materials/Lab01_Data/export/Innovus_Data/outputs/pnr/counter.spef' reading completed:: 70 %
+[08/11 01:49:03     24s] Spef file '/home/cc/Documents/Abdullah/Lab01_Materials/Lab01_Data/export/Innovus_Data/outputs/pnr/counter.spef' reading completed:: 80 %
+[08/11 01:49:03     24s] Spef file '/home/cc/Documents/Abdullah/Lab01_Materials/Lab01_Data/export/Innovus_Data/outputs/pnr/counter.spef' reading completed:: 90 %
+[08/11 01:49:03     24s] Spef file '/home/cc/Documents/Abdullah/Lab01_Materials/Lab01_Data/export/Innovus_Data/outputs/pnr/counter.spef' reading completed:: 100 %
+[08/11 01:49:03     24s] SPEF file /home/cc/Documents/Abdullah/Lab01_Materials/Lab01_Data/export/Innovus_Data/outputs/pnr/counter.spef.
+[08/11 01:49:03     24s] Number of Resistors     : 188
+[08/11 01:49:03     24s] Number of Ground Caps   : 188
+[08/11 01:49:03     24s] Number of Coupling Caps : 0
+[08/11 01:49:03     24s] 
+[08/11 01:49:03     24s] RCDB /tmp/ssv_tmpdir_5164_Nlh5Hd/counter_5164_xGkMH1.rcdb.d/counter.rcdb.d Creation Completed (CPU Time= 0:00:00.1  MEM= 2580.6M)
+[08/11 01:49:03     24s] End spef parsing (MEM=2548.65 CPU=0:00:00.1 REAL=0:00:00.0).
+[08/11 01:49:03     24s] Spef for RC Corner 'rc_worst' was previously specified. Dropping the previous specification.
+[08/11 01:49:03     24s] Spef for RC Corner 'rc_typical' was previously specified. Dropping the previous specification.
+[08/11 01:49:03     24s] Spef for RC Corner 'rc_best' was previously specified. Dropping the previous specification.
+[08/11 01:49:03     24s] Lumped Parasitic Loading Started (total cpu=0:00:00.0, real=0:00:00.0, current mem=2540.648M)
+[08/11 01:49:03     24s] Opening parasitic data file '/tmp/ssv_tmpdir_5164_Nlh5Hd/counter_5164_xGkMH1.rcdb.d/counter.rcdb.d' for reading (mem: 2540.648M)
+[08/11 01:49:03     24s] Closing parasitic data file '/tmp/ssv_tmpdir_5164_Nlh5Hd/counter_5164_xGkMH1.rcdb.d/counter.rcdb.d': 0 access done (mem: 2540.648M)
+[08/11 01:49:03     24s] Lumped Parasitic Loading Completed (total cpu=0:00:00.0, real=0:00:00.0, current mem=2540.648M)
+[08/11 01:49:03     24s] @tempus 40> @tempus 40> set_analysis_view -setup {view_func_setup} -hold {view_func_hold}
+Number of views requested 1 are allowed with the current licenses... continuing with set_analysis_view.
+[08/11 01:50:27     26s] Extraction setup Started 
+[08/11 01:50:27     26s] Reading Capacitance Table File /home/cc/Documents/Abdullah/Lab01_Materials/Lab01_Data/inputs/mmmc_files/captable/cln65lp_1p09m+alrdl_top2_rcworst.captable ...
+[08/11 01:50:27     26s] Reading Capacitance Table File /home/cc/Documents/Abdullah/Lab01_Materials/Lab01_Data/inputs/mmmc_files/captable/cln65lp_1p09m+alrdl_top2_rcbest.captable ...
+[08/11 01:50:27     26s] Importing multi-corner RC tables ... 
+[08/11 01:50:27     26s] Summary of Active RC-Corners : 
+[08/11 01:50:27     26s]  
+[08/11 01:50:27     26s]  Analysis View: view_func_setup
+[08/11 01:50:27     26s]     RC-Corner Name        : rc_worst
+[08/11 01:50:27     26s]     RC-Corner Index       : 0
+[08/11 01:50:27     26s]     RC-Corner Temperature : 125 Celsius
+[08/11 01:50:27     26s]     RC-Corner Cap Table   : '/home/cc/Documents/Abdullah/Lab01_Materials/Lab01_Data/inputs/mmmc_files/captable/cln65lp_1p09m+alrdl_top2_rcworst.captable'
+[08/11 01:50:27     26s]     RC-Corner PostRoute Res Factor        : 1
+[08/11 01:50:27     26s]     RC-Corner PostRoute Cap Factor        : 1
+[08/11 01:50:27     26s]     RC-Corner PostRoute XCap Factor       : 1
+[08/11 01:50:27     26s]  
+[08/11 01:50:27     26s]  Analysis View: view_func_hold
+[08/11 01:50:27     26s]     RC-Corner Name        : rc_best
+[08/11 01:50:27     26s]     RC-Corner Index       : 1
+[08/11 01:50:27     26s]     RC-Corner Temperature : -40 Celsius
+[08/11 01:50:27     26s]     RC-Corner Cap Table   : '/home/cc/Documents/Abdullah/Lab01_Materials/Lab01_Data/inputs/mmmc_files/captable/cln65lp_1p09m+alrdl_top2_rcbest.captable'
+[08/11 01:50:27     26s]     RC-Corner PostRoute Res Factor        : 1
+[08/11 01:50:27     26s]     RC-Corner PostRoute Cap Factor        : 1
+[08/11 01:50:27     26s]     RC-Corner PostRoute XCap Factor       : 1
+[08/11 01:50:27     26s] set_analysis_view/update_rc_corner called to change MMMC setup. New set of RC Corners are a subset of previous MMMC setup and the RC setup information for the new set has remained same. Therefore, parasitic data in the tool brought as per previous MMMC setup is being maintained.
+[08/11 01:50:27     26s] Lumped Parasitic Loading Started (total cpu=0:00:00.0, real=0:00:00.0, current mem=2536.625M)
+[08/11 01:50:27     26s] Opening parasitic data file '/tmp/ssv_tmpdir_5164_Nlh5Hd/counter_5164_xGkMH1.rcdb.d/counter.rcdb.d' for reading (mem: 2536.625M)
+[08/11 01:50:27     26s] Closing parasitic data file '/tmp/ssv_tmpdir_5164_Nlh5Hd/counter_5164_xGkMH1.rcdb.d/counter.rcdb.d': 0 access done (mem: 2536.625M)
+[08/11 01:50:27     26s] Lumped Parasitic Loading Completed (total cpu=0:00:00.0, real=0:00:00.0, current mem=2536.625M)
+[08/11 01:50:27     26s] eee: RC Grid memory freed = 480 (2 X 2 X 10 X 12b)
+[08/11 01:50:27     26s] eee: RC Grid memory allocated = 480 (2 X 2 X 10 X 12b)
+[08/11 01:50:27     26s] eee: pegSigSF=1.070000
+[08/11 01:50:27     26s] Initializing multi-corner capacitance tables ... 
+[08/11 01:50:27     26s] Initializing multi-corner resistance tables ...
+[08/11 01:50:27     26s] eee: Grid unit RC data computation started
+[08/11 01:50:27     26s] eee: Grid unit RC data computation completed
+[08/11 01:50:27     26s] eee: l=1 avDens=0.000000 usedTrk=0.000000 availTrk=0.000000 sigTrk=0.000000
+[08/11 01:50:27     26s] eee: l=2 avDens=0.000000 usedTrk=0.000000 availTrk=0.000000 sigTrk=0.000000
+[08/11 01:50:27     26s] eee: l=3 avDens=0.000000 usedTrk=0.000000 availTrk=0.000000 sigTrk=0.000000
+[08/11 01:50:27     26s] eee: l=4 avDens=0.000000 usedTrk=0.000000 availTrk=0.000000 sigTrk=0.000000
+[08/11 01:50:27     26s] eee: l=5 avDens=0.000000 usedTrk=0.000000 availTrk=0.000000 sigTrk=0.000000
+[08/11 01:50:27     26s] eee: l=6 avDens=0.000000 usedTrk=0.000000 availTrk=0.000000 sigTrk=0.000000
+[08/11 01:50:27     26s] eee: l=7 avDens=0.000000 usedTrk=0.000000 availTrk=0.000000 sigTrk=0.000000
+[08/11 01:50:27     26s] eee: l=8 avDens=0.000000 usedTrk=0.000000 availTrk=0.000000 sigTrk=0.000000
+[08/11 01:50:27     26s] eee: l=9 avDens=0.000000 usedTrk=0.000000 availTrk=0.000000 sigTrk=0.000000
+[08/11 01:50:27     26s] eee: l=10 avDens=0.000000 usedTrk=0.000000 availTrk=0.000000 sigTrk=0.000000
+[08/11 01:50:27     26s] eee: LAM-FP: thresh=1 ; dimX=48.875000 ; dimY=45.000000 ; multX=1.000000 ; multY=1.000000 ; minP=400 ; fpMult=1.000000 ;
+[08/11 01:50:27     26s] eee: LAM: n=40 LLS=2-3 HLS=3-5 rDens=0.000000 uaWl=0.000000 uaWlH=0.000000 aWlH=0.000000 lMod=0 pMax=0.850000 pMod=82 pModAss=50 wcR=0.693800 crit=0.000000 siPrev=0 newSi=0.000000 wHLS=1.734500 viaL=0.000000 shortMod=0.000000 fModUnas=0.000000 fModAs=0.000000 pDens=0.500000 
+[08/11 01:50:27     26s] eee: NetCapCache creation started. (Current Mem: 2196.625M) 
+[08/11 01:50:27     26s] eee: NetCapCache completed. (CPU Time: 0:00:00.0  Real Time: 0:00:00.0  Curr Mem: 2196.625M) 
+[08/11 01:50:27     26s] eee: dbu = 2000, Design = [ll(0.000000, 0.000000) ur(9.775000, 9.000000)], Layers = [f(10) b(0)], Grid size = 18.000000 um, Grid Dim = (1 X 1)
+[08/11 01:50:27     26s] eee: Metal Layers Info:
+[08/11 01:50:27     26s] eee: +----------+-----+---------+---------+---------+--------+--------+---+---+----+
+[08/11 01:50:27     26s] eee: |   Layer  |  Id |    W    |    S    |    P    |   uC   |   uR   | D | T | wS |
+[08/11 01:50:27     26s] eee: +----------+-----+---------+---------+---------+--------+--------+---+---+----+
+[08/11 01:50:27     26s] eee: |       M1 |   1 |   0.090 |   0.090 |   0.200 |  0.199 |   2.16 | H | 0 |  4 |
+[08/11 01:50:27     26s] eee: |       M2 |   2 |   0.100 |   0.100 |   0.200 |  0.212 |   1.83 | V | 0 |  4 |
+[08/11 01:50:27     26s] eee: |       M3 |   3 |   0.100 |   0.100 |   0.200 |  0.212 |   1.83 | H | 0 |  4 |
+[08/11 01:50:27     26s] eee: |       M4 |   4 |   0.100 |   0.100 |   0.200 |  0.212 |   1.83 | V | 0 |  4 |
+[08/11 01:50:27     26s] eee: |       M5 |   5 |   0.100 |   0.100 |   0.200 |  0.212 |   1.83 | H | 0 |  4 |
+[08/11 01:50:27     26s] eee: |       M6 |   6 |   0.100 |   0.100 |   0.200 |  0.212 |   1.83 | V | 0 |  4 |
+[08/11 01:50:27     26s] eee: |       M7 |   7 |   0.100 |   0.100 |   0.200 |  0.211 |   1.83 | H | 0 |  4 |
+[08/11 01:50:27     26s] eee: |       M8 |   8 |   0.400 |   0.400 |   0.800 |  0.333 |   0.07 | V | 0 |  4 |
+[08/11 01:50:27     26s] eee: |       M9 |   9 |   0.400 |   0.400 |   0.800 |  0.322 |   0.07 | H | 0 |  4 |
+[08/11 01:50:27     26s] eee: |       AP |  10 |   3.000 |   2.000 |   6.500 |  0.287 |   0.01 | V | 0 |  2 |
+[08/11 01:50:27     26s] eee: +----------+-----+---------+---------+---------+--------+--------+---+---+----+
+[08/11 01:50:27     26s] eee: uC/uR for corner rc_worst, min-width/min-spacing, 30 perc over/under densities.
+[08/11 01:50:28     26s] Ending "SetAnalysisView" (total cpu=0:00:00.0, real=0:00:01.0, peak res=2378.9M, current mem=1952.0M)
+[08/11 01:50:28     26s] Reading timing constraints file '/home/cc/Documents/Abdullah/Lab01_Materials/Lab01_Data/inputs/new_counter.sdc' ...
+[08/11 01:50:28     26s] Current (total cpu=0:00:26.9, real=0:07:01, peak res=2391.3M, current mem=2349.0M)
+[08/11 01:50:28     26s] INFO (CTE): Constraints read successfully.
+[08/11 01:50:28     26s] Ending "Constraint file reading stats" (total cpu=0:00:00.0, real=0:00:00.0, peak res=2362.1M, current mem=2362.1M)
+[08/11 01:50:28     26s] Current (total cpu=0:00:27.0, real=0:07:01, peak res=2391.3M, current mem=2362.1M)
+[08/11 01:50:28     26s] Tech dependent Parameter, Build TLibAnalyzer for: cellAreaConsiderPadding
+[08/11 01:50:28     26s] 
+[08/11 01:50:28     26s] TimeStamp Creating Cell Server ...(0, 1, 1, 1) Begin ...
+[08/11 01:50:28     27s] Summary for sequential cells identification: 
+[08/11 01:50:28     27s]   Identified SBFF number: 199
+[08/11 01:50:28     27s]   Identified MBFF number: 0
+[08/11 01:50:28     27s]   Identified SB Latch number: 0
+[08/11 01:50:28     27s]   Identified MB Latch number: 0
+[08/11 01:50:28     27s]   Not identified SBFF number: 0
+[08/11 01:50:28     27s]   Not identified MBFF number: 0
+[08/11 01:50:28     27s]   Not identified SB Latch number: 0
+[08/11 01:50:28     27s]   Not identified MB Latch number: 0
+[08/11 01:50:28     27s]   Number of sequential cells which are not FFs: 104
+[08/11 01:50:28     27s] Total number of combinational cells: 483
+[08/11 01:50:28     27s] Total number of sequential cells: 303
+[08/11 01:50:28     27s] Total number of tristate cells: 11
+[08/11 01:50:28     27s] Total number of level shifter cells: 0
+[08/11 01:50:28     27s] Total number of power gating cells: 0
+[08/11 01:50:28     27s] Total number of isolation cells: 0
+[08/11 01:50:28     27s] Total number of power switch cells: 0
+[08/11 01:50:28     27s] Total number of pulse generator cells: 0
+[08/11 01:50:28     27s] Total number of always on buffers: 0
+[08/11 01:50:28     27s] Total number of retention cells: 0
+[08/11 01:50:28     27s] Total number of physical cells: 19
+[08/11 01:50:28     27s] List of usable buffers: BUFFD1 BUFFD0 BUFFD2 BUFFD12 BUFFD16 BUFFD3 BUFFD4 BUFFD6 BUFFD8 CKBD1 CKBD0 CKBD2 CKBD12 CKBD16 CKBD3 CKBD4 CKBD6 CKBD8
+[08/11 01:50:28     27s] Total number of usable buffers: 18
+[08/11 01:50:28     27s] List of unusable buffers: BUFFD20 BUFFD24 CKBD20 CKBD24 GBUFFD1 GBUFFD3 GBUFFD2 GBUFFD4 GBUFFD8
+[08/11 01:50:28     27s] Total number of unusable buffers: 9
+[08/11 01:50:28     27s] List of usable inverters: CKND1 CKND0 CKND2 CKND12 CKND16 CKND3 CKND4 CKND6 CKND8 INVD1 INVD0 INVD2 INVD12 INVD16 INVD3 INVD4 INVD6 INVD8
+[08/11 01:50:28     27s] Total number of usable inverters: 18
+[08/11 01:50:28     27s] List of unusable inverters: CKND20 CKND24 GINVD2 GINVD1 GINVD4 GINVD3 GINVD8 INVD20 INVD24
+[08/11 01:50:28     27s] Total number of unusable inverters: 9
+[08/11 01:50:28     27s] List of identified usable delay cells: DEL0 DEL005 DEL01 DEL015 DEL02 DEL1 DEL2 DEL3 DEL4
+[08/11 01:50:28     27s] Total number of identified usable delay cells: 9
+[08/11 01:50:28     27s] List of identified unusable delay cells:[08/11 01:50:28     27s] 
+[08/11 01:50:28     27s] TimeStamp Creating Cell Server ...(0, 1, 1, 1) End ...
+
+[08/11 01:50:28     27s] Total number of identified unusable delay cells: 0
+[08/11 01:50:28     27s] 
+[08/11 01:50:28     27s] TimeStamp Deleting Cell Server Begin ...
+[08/11 01:50:28     27s] 
+[08/11 01:50:28     27s] TimeStamp Deleting Cell Server End ...
+[08/11 01:50:28     27s] @tempus 41> update_timing -full
+
+[08/11 01:51:01     27s] AAE_INFO: opIsDesignInPostRouteState() is 0
+[08/11 01:51:02     28s] AAE DB initialization (MEM=2607.27 CPU=0:00:00.0 REAL=0:00:00.0) 
+[08/11 01:51:02     28s] AAE_INFO: resetNetProps viewIdx 0 
+[08/11 01:51:02     28s] AAE_INFO: resetNetProps viewIdx 1 
+[08/11 01:51:02     28s] Starting SI iteration 1 using Infinite Timing Windows
+[08/11 01:51:02     28s] Start slew iteration 
+[08/11 01:51:02     28s] #################################################################################
+[08/11 01:51:02     28s] # Design Name: counter
+[08/11 01:51:02     28s] # Design Mode: 65nm
+[08/11 01:51:02     28s] # Analysis Mode: MMMC OCV 
+[08/11 01:51:02     28s] # Parasitics Mode: SPEF/RCDB 
+[08/11 01:51:02     28s] # Signoff Settings: SI On 
+[08/11 01:51:02     28s] #################################################################################
+[08/11 01:51:02     28s] AAE_INFO: 1 threads acquired from CTE.
+[08/11 01:51:02     28s] Opening parasitic data file '/tmp/ssv_tmpdir_5164_Nlh5Hd/counter_5164_xGkMH1.rcdb.d/counter.rcdb.d' for reading (mem: 2624.086M)
+[08/11 01:51:02     28s] Start delay calculation (fullDC) (1 T). (MEM=2624.09)
+[08/11 01:51:02     28s] **ERROR: (IMPESI-2016):	There is no coupling capacitance found in the design. Use 'set_db delaycal_enable_si false' to perform base delay analysis. SI analysis requires the SPEF to contain coupling capacitance. To perform SI analysis, load a SPEF with coupling capacitance and re-run.
+[08/11 01:51:02     28s] RC Database In Completed (CPU Time= 0:00:00.0  Real Time=0:00:00.0  MEM= 2626.1M)
+[08/11 01:51:02     28s] Start AAE Lib Loading. (MEM=2626.09)
+[08/11 01:51:02     28s] End AAE Lib Loading. (MEM=2827.09 CPU=0:00:00.0 Real=0:00:00.0)
+[08/11 01:51:02     28s] End AAE Lib Interpolated Model. (MEM=2827.09 CPU Time=0:00:00.0, Real Time=0:00:00.0)
+[08/11 01:51:02     28s] RC Database In Completed (CPU Time= 0:00:00.0  Real Time=0:00:00.0  MEM= 3027.9M)
+[08/11 01:51:02     28s] End delay calculation. (MEM=3054.97 CPU=0:00:00.0 REAL=0:00:00.0)
+[08/11 01:51:02     28s] End delay calculation (fullDC). (MEM=3054.97 CPU=0:00:00.1 REAL=0:00:00.0)
+[08/11 01:51:02     28s] update aggressor slew in non distributed run
+[08/11 01:51:02     28s] End Slew iteration 
+[08/11 01:51:02     28s] Setting infinite Tws ...
+[08/11 01:51:02     28s] First Iteration Infinite Tw... 
+[08/11 01:51:02     28s] Start delay calculation (fullDC) (1 T). (MEM=3054.97)
+[08/11 01:51:02     28s] **ERROR: (IMPESI-2016):	There is no coupling capacitance found in the design. Use 'set_db delaycal_enable_si false' to perform base delay analysis. SI analysis requires the SPEF to contain coupling capacitance. To perform SI analysis, load a SPEF with coupling capacitance and re-run.
+[08/11 01:51:02     28s] End AAE Lib Interpolated Model. (MEM=3054.97 CPU Time=0:00:00.0, Real Time=0:00:00.0)
+[08/11 01:51:02     28s] RC Database In Completed (CPU Time= 0:00:00.0  Real Time=0:00:00.0  MEM= 3063.0M)
+[08/11 01:51:02     28s] AAE_INFO-618: Total number of nets in the design is 17,  100.0 percent of the nets selected for SI analysis
+[08/11 01:51:02     28s] RC Database In Completed (CPU Time= 0:00:00.0  Real Time=0:00:00.0  MEM= 3081.5M)
+[08/11 01:51:02     28s] AAE_INFO-618: Total number of nets in the design is 17,  100.0 percent of the nets selected for SI analysis
+[08/11 01:51:02     28s] End Timing Check Calculation. (CPU Time=0:00:00.0, Real Time=0:00:00.0)
+[08/11 01:51:02     28s] End Timing Check Calculation. (CPU Time=0:00:00.0, Real Time=0:00:00.0)
+[08/11 01:51:02     28s] End delay calculation. (MEM=3106.07 CPU=0:00:00.0 REAL=0:00:00.0)
+[08/11 01:51:02     28s] End delay calculation (fullDC). (MEM=3106.07 CPU=0:00:00.0 REAL=0:00:00.0)
+[08/11 01:51:02     28s] *** CDM Built up (cpu=0:00:00.2  real=0:00:00.0  mem= 3104.1M) ***
+[08/11 01:51:02     28s] Loading CTE timing window with TwFlowType 0...(CPU = 0:00:00.0, REAL = 0:00:00.0, MEM = 3088.1M)
+[08/11 01:51:02     28s] Loading CTE timing window is completed (CPU = 0:00:00.0, REAL = 0:00:00.0, MEM = 3088.1M)
+[08/11 01:51:02     28s] Starting SI iteration 2
+[08/11 01:51:02     28s] Start delay calculation (fullDC) (1 T). (MEM=3052.31)
+[08/11 01:51:02     28s] **ERROR: (IMPESI-2016):	There is no coupling capacitance found in the design. Use 'set_db delaycal_enable_si false' to perform base delay analysis. SI analysis requires the SPEF to contain coupling capacitance. To perform SI analysis, load a SPEF with coupling capacitance and re-run.
+[08/11 01:51:02     28s] End AAE Lib Interpolated Model. (MEM=3052.31 CPU Time=0:00:00.0, Real Time=0:00:00.0)
+[08/11 01:51:02     28s] RC Database In Completed (CPU Time= 0:00:00.0  Real Time=0:00:00.0  MEM= 3054.3M)
+[08/11 01:51:02     28s] AAE_INFO-618: Total number of nets in the design is 17,  5.9 percent of the nets selected for SI analysis
+[08/11 01:51:02     28s] RC Database In Completed (CPU Time= 0:00:00.0  Real Time=0:00:00.0  MEM= 3116.5M)
+[08/11 01:51:02     28s] AAE_INFO-618: Total number of nets in the design is 17,  5.9 percent of the nets selected for SI analysis
+[08/11 01:51:02     28s] End delay calculation. (MEM=3135.56 CPU=0:00:00.0 REAL=0:00:00.0)
+[08/11 01:51:02     28s] End delay calculation (fullDC). (MEM=3135.56 CPU=0:00:00.0 REAL=0:00:00.0)
+[08/11 01:51:03     28s] *** CDM Built up (cpu=0:00:00.0  real=0:00:01.0  mem= 3133.6M) ***
+[08/11 01:51:03     28s] 0
+[08/11 01:51:03     28s] @tempus 42> @tempus 42> report_timing_summary > ${TEMPUS_RPT_DIR}/summary.rpt
+@tempus 43> 
+
+[08/11 01:51:10     29s] @tempus 43> # 2. Detailed Setup Report (Top 10 Critical Paths)
+# 2. Detailed Setup Report (Top 10 Critical Paths)
+[08/11 01:51:10     29s] @tempus 44> # report_timing -late: Extracts the worst-case (longest) paths to en [1Gsure data arrives safely before the clock edge.
+# report_timing -late: Extracts the worst-case (longest) paths to ensure data arrives safely before the clock edge.
+[08/11 01:51:10     29s] @tempus 45> report_timing -late  -max_paths 10 > ${TEMPUS_RPT_DIR}/setup_paths.rreport_timing -late  -max_paths 10 > ${TEMPUS_RPT_DIR}/setup_paths.rpt
+ [1Gpt
+[08/11 01:51:10     29s] @tempus 46> 
+
+[08/11 01:51:10     29s] @tempus 46> # 3. Detailed Hold Report (Top 10 Critical Paths)
+# 3. Detailed Hold Report (Top 10 Critical Paths)
+[08/11 01:51:10     29s] @tempus 47> # report_timing -early: Extracts the best-case (shortest) paths to e [1Gnsure data doesn't overwrite the previous cycle too quickly.
+# report_timing -early: Extracts the best-case (shortest) paths to ensure data doesn't overwrite the previous cycle too quickly.
+[08/11 01:51:10     29s] @tempus 48> report_timing -early -max_paths 10 > ${TEMPUS_RPT_DIR}/hold_paths.rp [1Gt
+report_timing -early -max_paths 10 > ${TEMPUS_RPT_DIR}/hold_paths.rpt
+[08/11 01:51:10     29s] @tempus 49> 
+
+[08/11 01:51:10     29s] @tempus 49> # 4. Design Rule Violations (Max Cap/Tran/Fanout# 4. Design Rule Violations (Max Cap/Tran/Fanout)
+)
+[08/11 01:51:10     29s] @tempus 50> # report_constraint: Explicitly audits electrical rules (DRVs). Even [1G if setup/hold pass, 
+# report_constraint: Explicitly audits electrical rules (DRVs). Even if setup/hold pass, 
+[08/11 01:51:10     29s] @tempus 51> # a chip can fail if a wire has too much capacitance or a signal tra [1Gnsitions too slowly.
+# a chip can fail if a wire has too much capacitance or a signal transitions too slowly.
+[08/11 01:51:10     29s] @tempus 52> report_constraint -drv_violation_type {max_capacitance max_transitio [1Gn max_fanout} > ${TEMPUS_RPT_DIR}/drv.rptreport_constraint -drv_violation_type {max_capacitance max_transition max_fanout} > ${TEMPUS_RPT_DIR}/drv.rpt
+@tempus 53> **INFO (INTERRUPT): One more Ctrl-C to exit Tempus Timing Solution ...
+[08/11 02:22:23     78s] 
+[08/11 02:22:23     78s] --------------------------------------------------------------------------------
+[08/11 02:22:23     78s] Exiting Tempus Timing Solution on Tue Aug 11 02:22:23 2026
+[08/11 02:22:23     78s]   Total CPU time:     0:01:18
+[08/11 02:22:23     78s]   Total real time:    0:39:04
+[08/11 02:22:23     78s]   Peak memory (main): 2487.50MB
+[08/11 02:22:23     78s] 
+[08/11 02:22:23     78s] 
+[08/11 02:22:23     78s] *** Memory Usage v#3 (Current mem = 3139.562M, initial mem = 656.645M) ***
+[08/11 02:22:23     78s] 
+[08/11 02:22:23     78s] *** Summary of all messages that are not suppressed in this session:
+[08/11 02:22:23     78s] Severity  ID               Count  Summary                                  
+[08/11 02:22:23     78s] WARNING   IMPLF-200            1  Pin '%s' in macro '%s' has no ANTENNAGAT...
+[08/11 02:22:23     78s] WARNING   IMPFP-3961           2  The techSite '%s' has no related standar...
+[08/11 02:22:23     78s] ERROR     IMPESI-2016          3  There is no coupling capacitance found i...
+[08/11 02:22:23     78s] ERROR     IMPIMEX-10           1  Specified file cannot be found: %s.      
+[08/11 02:22:23     78s] WARNING   TECHLIB-302         30  No function defined for cell '%s'. The c...
+[08/11 02:22:23     78s] *** Message Summary: 33 warning(s), 4 error(s)
+[08/11 02:22:23     78s] 
+[08/11 02:22:23     78s] --- Ending "Tempus Timing Solution" (totcpu=0:01:18, real=0:38:56, mem=3139.6M) ---

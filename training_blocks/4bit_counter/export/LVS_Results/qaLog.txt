@@ -1,0 +1,135 @@
+08/11/2026 08:31:55 (879529-1961174080 pvs): Initialization started (21.01-s003)...
+08/11/2026 08:31:55 (879529-1961174080): FLEXnet version 11.16.4.0 build 252457
+08/11/2026 08:31:55 (879529-1961174080): Process ID 44332
+08/11/2026 08:31:55 (879529-1961174080): Creating a new job ...
+08/11/2026 08:31:55 (879529-1961174080): Validating server path: 
+08/11/2026 08:31:55 (879529-1961174080): Server path validation status: 0
+08/11/2026 08:31:55 (879529-1961174080):   Configuration of license path is '5280@10.19.32.90'.
+08/11/2026 08:31:55 (879529-1961174080):   Configuration of recheck interval minimum is 290.
+08/11/2026 08:31:55 (879529-1961174080):   Configuration of 2000000000 maximum retry calls.
+08/11/2026 08:31:55 (879529-1961174080):   Configuration of sleep time value of 0.
+08/11/2026 08:31:55 (879529-1961174080):   Configuration of display specification is ':0'.
+08/11/2026 08:31:55 (879529-1961174080):   Licenses will be checked out using cc@ncdc-0137(:0).
+08/11/2026 08:31:55 (879529-1961174080):   (System spec would have been cc@ncdc-0137(/dev/pts/0) )
+08/11/2026 08:31:55 (879529-1961174080): Job creation completed with status 0 (time 0).
+08/11/2026 08:31:55 (879529-1961174080): Creating a new job ...
+08/11/2026 08:31:55 (879529-1961174080):   Configuration of license path is '5280@10.19.32.90'.
+08/11/2026 08:31:55 (879529-1961174080):   Configuration of recheck interval minimum is 290.
+08/11/2026 08:31:55 (879529-1961174080):   Configuration of 2000000000 maximum retry calls.
+08/11/2026 08:31:55 (879529-1961174080):   Configuration of sleep time value of 0.
+08/11/2026 08:31:55 (879529-1961174080):   Configuration of display specification is ':0'.
+08/11/2026 08:31:55 (879529-1961174080):   Licenses will be checked out using cc@ncdc-0137(:0).
+08/11/2026 08:31:55 (879529-1961174080):   (System spec would have been cc@ncdc-0137(/dev/pts/0) )
+08/11/2026 08:31:55 (879529-1961174080): Job creation completed with status 0 (time 0).
+08/11/2026 08:31:55 (879529-1961174080): Creating a new job ...
+08/11/2026 08:31:55 (879529-1961174080):   Configuration of license path is '5280@10.19.32.90'.
+08/11/2026 08:31:55 (879529-1961174080):   Configuration of recheck interval minimum is 290.
+08/11/2026 08:31:55 (879529-1961174080):   Configuration of 2000000000 maximum retry calls.
+08/11/2026 08:31:55 (879529-1961174080):   Configuration of sleep time value of 0.
+08/11/2026 08:31:55 (879529-1961174080):   Configuration of display specification is ':0'.
+08/11/2026 08:31:55 (879529-1961174080):   Licenses will be checked out using cc@ncdc-0137(:0).
+08/11/2026 08:31:55 (879529-1961174080):   (System spec would have been cc@ncdc-0137(/dev/pts/0) )
+08/11/2026 08:31:55 (879529-1961174080): Job creation completed with status 0 (time 0).
+08/11/2026 08:31:55 (879529-1961174080): Creating a new job ...
+08/11/2026 08:31:55 (879529-1961174080):   Configuration of license path is '5280@10.19.32.90'.
+08/11/2026 08:31:55 (879529-1961174080):   Configuration of recheck interval minimum is 290.
+08/11/2026 08:31:55 (879529-1961174080):   Configuration of 2000000000 maximum retry calls.
+08/11/2026 08:31:55 (879529-1961174080):   Configuration of sleep time value of 0.
+08/11/2026 08:31:55 (879529-1961174080):   Configuration of display specification is ':0'.
+08/11/2026 08:31:55 (879529-1961174080):   Licenses will be checked out using cc@ncdc-0137(:0).
+08/11/2026 08:31:55 (879529-1961174080):   (System spec would have been cc@ncdc-0137(/dev/pts/0) )
+08/11/2026 08:31:55 (879529-1961174080): Job creation completed with status 0 (time 0).
+08/11/2026 08:31:55 (879529-1961174080): Initialization completed with status 0 (time 0).
+08/11/2026 08:31:55 (879529-1961174080): Exit started ....
+08/11/2026 08:31:55 (879529-1961174080): Exit completed with status 0 (time 0).
+08/11/2026 08:35:07 (584442-1197696064 pvs): Initialization started (21.01-s003)...
+08/11/2026 08:35:07 (584442-1197696064): FLEXnet version 11.16.4.0 build 252457
+08/11/2026 08:35:07 (584442-1197696064): Process ID 44509
+08/11/2026 08:35:07 (584442-1197696064): Creating a new job ...
+08/11/2026 08:35:07 (584442-1197696064): Validating server path: 
+08/11/2026 08:35:07 (584442-1197696064): Server path validation status: 0
+08/11/2026 08:35:07 (584442-1197696064):   Configuration of license path is '5280@10.19.32.90'.
+08/11/2026 08:35:07 (584442-1197696064):   Configuration of recheck interval minimum is 290.
+08/11/2026 08:35:07 (584442-1197696064):   Configuration of 2000000000 maximum retry calls.
+08/11/2026 08:35:07 (584442-1197696064):   Configuration of sleep time value of 0.
+08/11/2026 08:35:07 (584442-1197696064):   Configuration of display specification is ':0'.
+08/11/2026 08:35:07 (584442-1197696064):   Licenses will be checked out using cc@ncdc-0137(:0).
+08/11/2026 08:35:07 (584442-1197696064):   (System spec would have been cc@ncdc-0137(/dev/pts/0) )
+08/11/2026 08:35:07 (584442-1197696064): Job creation completed with status 0 (time 0).
+08/11/2026 08:35:07 (584442-1197696064): Creating a new job ...
+08/11/2026 08:35:07 (584442-1197696064):   Configuration of license path is '5280@10.19.32.90'.
+08/11/2026 08:35:07 (584442-1197696064):   Configuration of recheck interval minimum is 290.
+08/11/2026 08:35:07 (584442-1197696064):   Configuration of 2000000000 maximum retry calls.
+08/11/2026 08:35:07 (584442-1197696064):   Configuration of sleep time value of 0.
+08/11/2026 08:35:07 (584442-1197696064):   Configuration of display specification is ':0'.
+08/11/2026 08:35:07 (584442-1197696064):   Licenses will be checked out using cc@ncdc-0137(:0).
+08/11/2026 08:35:07 (584442-1197696064):   (System spec would have been cc@ncdc-0137(/dev/pts/0) )
+08/11/2026 08:35:07 (584442-1197696064): Job creation completed with status 0 (time 0).
+08/11/2026 08:35:07 (584442-1197696064): Creating a new job ...
+08/11/2026 08:35:07 (584442-1197696064):   Configuration of license path is '5280@10.19.32.90'.
+08/11/2026 08:35:07 (584442-1197696064):   Configuration of recheck interval minimum is 290.
+08/11/2026 08:35:07 (584442-1197696064):   Configuration of 2000000000 maximum retry calls.
+08/11/2026 08:35:07 (584442-1197696064):   Configuration of sleep time value of 0.
+08/11/2026 08:35:07 (584442-1197696064):   Configuration of display specification is ':0'.
+08/11/2026 08:35:07 (584442-1197696064):   Licenses will be checked out using cc@ncdc-0137(:0).
+08/11/2026 08:35:07 (584442-1197696064):   (System spec would have been cc@ncdc-0137(/dev/pts/0) )
+08/11/2026 08:35:07 (584442-1197696064): Job creation completed with status 0 (time 0).
+08/11/2026 08:35:07 (584442-1197696064): Creating a new job ...
+08/11/2026 08:35:07 (584442-1197696064):   Configuration of license path is '5280@10.19.32.90'.
+08/11/2026 08:35:07 (584442-1197696064):   Configuration of recheck interval minimum is 290.
+08/11/2026 08:35:07 (584442-1197696064):   Configuration of 2000000000 maximum retry calls.
+08/11/2026 08:35:07 (584442-1197696064):   Configuration of sleep time value of 0.
+08/11/2026 08:35:07 (584442-1197696064):   Configuration of display specification is ':0'.
+08/11/2026 08:35:07 (584442-1197696064):   Licenses will be checked out using cc@ncdc-0137(:0).
+08/11/2026 08:35:07 (584442-1197696064):   (System spec would have been cc@ncdc-0137(/dev/pts/0) )
+08/11/2026 08:35:07 (584442-1197696064): Job creation completed with status 0 (time 0).
+08/11/2026 08:35:07 (584442-1197696064): Initialization completed with status 0 (time 0).
+08/11/2026 08:35:08 (584442-1197696064): FeatureExists started ....
+08/11/2026 08:35:08 (584442-1197696064): Check-out started ....
+08/11/2026 08:35:08 (584442-1197696064): Testing only for the validity of feature Pegasus_CPU_Accel 23.100...
+08/11/2026 08:35:08 (584442-1197696064): Validity test completed with status -5.
+08/11/2026 08:35:08 (584442-1197696064): Check-out completed with status -5 (time 0).
+08/11/2026 08:35:08 (584442-1197696064): FeatureExists of Pegasus_CPU_Accel completed with status -5 (time 0).
+08/11/2026 08:35:08 (584442-1197696064): FeatureExists started ....
+08/11/2026 08:35:08 (584442-1197696064): Check-out started ....
+08/11/2026 08:35:08 (584442-1197696064): Testing only for the validity of feature Pegasus_LVS_SP 22.200...
+08/11/2026 08:35:08 (584442-1197696064): Validity test completed with status -5.
+08/11/2026 08:35:08 (584442-1197696064): Check-out completed with status -5 (time 0).
+08/11/2026 08:35:08 (584442-1197696064): FeatureExists of Pegasus_LVS_SP completed with status -5 (time 0).
+08/11/2026 08:35:08 (584442-1197696064): Check-out (Increment) started ....
+08/11/2026 08:35:08 (584442-1197696064): Checking out 1 license(s) for Phys_Ver_Sys_LVS_XL 23.100...
+08/11/2026 08:35:09 (584442-1197696064):   (Checked out from file '5280@10.19.32.90',
+             line '24.1 14-apr-2027 80 EF2ACDF97FBB714B8B80 ')
+08/11/2026 08:35:09 (584442-1197696064): Check-out (Increment) completed with status 0 (time 1).
+08/11/2026 08:35:09 (584442-1197696064): FeatureExists started ....
+08/11/2026 08:35:09 (584442-1197696064): Check-out started ....
+08/11/2026 08:35:09 (584442-1197696064): Testing only for the validity of feature Virtuoso_DRC_Opt 23.100...
+08/11/2026 08:35:09 (584442-1197696064): Validity test completed with status -5.
+08/11/2026 08:35:09 (584442-1197696064): Check-out completed with status -5 (time 0).
+08/11/2026 08:35:09 (584442-1197696064): FeatureExists of Virtuoso_DRC_Opt completed with status -5 (time 0).
+08/11/2026 08:35:10 (584442-1197696064): FeatureExists started ....
+08/11/2026 08:35:10 (584442-1197696064): Check-out started ....
+08/11/2026 08:35:10 (584442-1197696064): Testing only for the validity of feature Phys_Ver_Sys_Design_Ana 23.100...
+08/11/2026 08:35:10 (584442-1197696064): Validity test completed with status -5.
+08/11/2026 08:35:10 (584442-1197696064): Check-out completed with status -5 (time 0).
+08/11/2026 08:35:10 (584442-1197696064): FeatureExists of Phys_Ver_Sys_Design_Ana completed with status -5 (time 0).
+08/11/2026 08:35:10 (584442-1197696064): FeatureExists started ....
+08/11/2026 08:35:10 (584442-1197696064): Check-out started ....
+08/11/2026 08:35:10 (584442-1197696064): Testing only for the validity of feature Pegasus_RV 23.100...
+08/11/2026 08:35:11 (584442-1197696064): Validity test completed with status -5.
+08/11/2026 08:35:11 (584442-1197696064): Check-out completed with status -5 (time 1).
+08/11/2026 08:35:11 (584442-1197696064): FeatureExists of Pegasus_RV completed with status -5 (time 1).
+08/11/2026 08:35:11 (584442-1197696064): Exit started ....
+08/11/2026 08:35:11 (584442-1197696064): Creating a new job ...
+08/11/2026 08:35:11 (584442-1197696064): Validating server path: 5280@10.19.32.90
+08/11/2026 08:35:11 (584442-1197696064): Server path validation status: 0
+08/11/2026 08:35:11 (584442-1197696064):   Configuration of license path is '5280@10.19.32.90'.
+08/11/2026 08:35:11 (584442-1197696064):   Configuration of recheck interval minimum is 290.
+08/11/2026 08:35:11 (584442-1197696064):   Configuration of 2000000000 maximum retry calls.
+08/11/2026 08:35:11 (584442-1197696064):   Configuration of sleep time value of 0.
+08/11/2026 08:35:11 (584442-1197696064):   Configuration of display specification is ':0'.
+08/11/2026 08:35:11 (584442-1197696064):   Licenses will be checked out using cc@ncdc-0137(:0).
+08/11/2026 08:35:11 (584442-1197696064):   (System spec would have been cc@ncdc-0137(/dev/pts/0) )
+08/11/2026 08:35:11 (584442-1197696064): Job creation completed with status 0 (time 0).
+08/11/2026 08:35:11 (584442-1197696064): Check-in (Increment) of Phys_Ver_Sys_LVS_XL completed with status 0 (time 0).
+08/11/2026 08:35:11 (584442-1197696064): Exit completed with status 0 (time 0).

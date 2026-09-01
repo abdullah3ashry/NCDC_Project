@@ -1,0 +1,50 @@
+			*****************************************************
+			**                                                 **
+			**                L V S  R E P O R T               **
+			**                                                 **
+			*****************************************************
+
+
+Report File Name         : lvs.rep
+ERC Summary File         : erc.sum
+LVS Comparison Report    : lvs.rep.cls
+LVS Softchk Report       : counter.softchk
+LVS Find Shorts Report   : lvs.rep.shorts
+Layout Name              : /home/cc/Documents/Abdullah/Lab01_Materials/Lab01_Data/export/Innovus_Data/outputs/pnr/counter.gds ("counter")
+User Name                : cc
+Creation Time            : Tue Aug 11 08:35:09 2026
+Current directory        : /home/cc/Documents/Abdullah/Lab01_Materials/Lab01_Data/export/LVS_Results
+PVS Version              : 23.11-s036 Wed Jan 17 18:11:41 PST 2024
+
+
+			*****************************************************
+			**                                                 **
+			**            D E V E X T  R E P O R T             **
+			**                                                 **
+			*****************************************************
+
+
+    LVS_FIND_SHORTS  -cell primary
+    LVS_FIND_SHORTS result file "lvs.rep.shorts"
+
+    LVS_SOFTCHK DNW -TYPE CONTACT   Total Result        0 (       0)
+    LVS_SOFTCHK PROBEM1_T -TYPE CONTACT   Total Result        0 (       0)
+    LVS_SOFTCHK PROBEM2_T -TYPE CONTACT   Total Result        0 (       0)
+    LVS_SOFTCHK PROBEM3_T -TYPE CONTACT   Total Result        0 (       0)
+    LVS_SOFTCHK PROBEM4_T -TYPE CONTACT   Total Result        0 (       0)
+    LVS_SOFTCHK PROBEM5_T -TYPE CONTACT   Total Result        0 (       0)
+    LVS_SOFTCHK PROBEM6_T -TYPE CONTACT   Total Result        0 (       0)
+    LVS_SOFTCHK PROBEM7_T -TYPE CONTACT   Total Result        0 (       0)
+    LVS_SOFTCHK poly_term -TYPE CONTACT   Total Result        0 (       0)
+    LVS_SOFTCHK RFDMY_hia_psub -TYPE CONTACT   Total Result        0 (       0)
+    LVS_SOFTCHK rfdmy56 -TYPE CONTACT   Total Result        0 (       0)
+    LVS_SOFTCHK HVNW -TYPE CONTACT   Total Result        0 (       0)
+    LVS_SOFTCHK nxwell -TYPE CONTACT   Total Result        0 (       0)
+    LVS_SOFTCHK HVPSUB -TYPE CONTACT   Total Result        0 (       0)
+    LVS_SOFTCHK HVPW -TYPE CONTACT   Total Result        0 (       0)
+    LVS_SOFTCHK RFDMY_hia -TYPE CONTACT   Total Result        0 (       0)
+    LVS_SOFTCHK coll1 -TYPE CONTACT   Total Result        0 (       0)
+    LVS_SOFTCHK n_psub -TYPE CONTACT   Total Result        0 (       0)
+    LVS_SOFTCHK psub -TYPE CONTACT   Total Result        0 (       0)
+    LVS_SOFTCHK psub_term -TYPE CONTACT   Total Result        0 (       0)
+    LVS_SOFTCHK rwel -TYPE CONTACT   Total Result        0 (       0)

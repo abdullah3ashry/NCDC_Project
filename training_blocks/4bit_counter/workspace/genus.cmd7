@@ -1,0 +1,71 @@
+# Cadence Genus(TM) Synthesis Solution, Version 21.18-s082_1, built Jul 18 2023 13:08:41
+
+# Date: Thu Jul 30 06:47:45 2026
+# Host: ncdc-0137 (x86_64 w/Linux 7.1.4-1.el8.elrepo.x86_64) (16cores*24cpus*1physical cpu*13th Gen Intel(R) Core(TM) i7-13700 30720KB)
+# OS:   Red Hat Enterprise Linux release 8.6 (Ootpa)
+
+set FLOW_TYPE    "logical"
+set INCLUDE_DFT  "true"
+set start_time [clock seconds]
+set DESIGN       "counter"
+set GEN_EFF      "high"      ;# Effort level for generic boolean optimization
+set MAP_OPT_EFF  "high"      ;# Effort level for technology mapping and timing cleanup
+IMPORTANT: UPDATE THIS DIRECTORY PATH FOR YOUR SPECIFIC PC #
+set WORK_DIR     "/home/cc/Documents/Abdullah/Lab01_Materials/Lab01_Data"
+set RTL_DIR      "${WORK_DIR}/sourcecode/rtl"
+set PDK_DIR      "${WORK_DIR}/libraries"
+set MMMC_FILE    "${WORK_DIR}/inputs/mmmc_master.view"
+set LEF_FILES    "${PDK_DIR}/lef/tcbn65lp_9lmT2.lef"
+set SYN_DATA_DIR "${WORK_DIR}/export/Synthesis_Data"
+set RPT_DIR      "${SYN_DATA_DIR}/reports"
+set OUT_DIR      "${SYN_DATA_DIR}/outputs"
+set NETLIST_DIR  "${SYN_DATA_DIR}/netlists"
+set DB_DIR       "${SYN_DATA_DIR}/db"
+file mkdir $SYN_DATA_DIR $RPT_DIR $OUT_DIR $NETLIST_DIR $DB_DIR
+puts "INFO: Starting $FLOW_TYPE Synthesis Flow (DFT: $INCLUDE_DFT) for $DESIGN"
+read_mmmc $MMMC_FILE
+read_physical -lef $LEF_FILES
+read_hdl -v2001 ${RTL_DIR}/${DESIGN}.v
+elaborate $DESIGN
+check_design -unresolved
+init_design
+check_timing_intent -verbose > ${RPT_DIR}/check_timing_intent.rpt
+set_db dft_scan_style muxed_scan
+define_shift_enable -name SE -active high -create_port SE
+check_dft_rules
+set_db syn_generic_effort $GEN_EFF
+set_db syn_map_effort     $MAP_OPT_EFF
+set_db syn_opt_effort     $MAP_OPT_EFF
+syn_generic -physical -create_floorplan
+    
+syn_map -physical
+    
+write_do_lec -revised_design fv_map -logfile ${RPT_DIR}/lec_rtl_to_mapped.log > ${OUT_DIR}/rtl_to_mappedDFT.do
+    
+exec sed -i "/exit -f/d" ${OUT_DIR}/rtl_to_mappedDFT.do
+    
+syn_opt
+    
+write_do_lec -golden_design fv_map -revised_design fv_opt -logfile ${RPT_DIR}/lec_mapped_to_opt.log > ${OUT_DIR}/mapped_to_optDFT.do
+    
+exec sed -i "/read_design/s| fv_opt| ${NETLIST_DIR}/${DESIGN}_${FLOW_TYPE}_synth.v|g" ${OUT_DIR}/mapped_to_optDFT.do
+exec sed -i "/exit -f/d" ${OUT_DIR}/mapped_to_optDFT.do
+define_scan_chain -name top_chain -sdi scan_in -sdo scan_out -create_ports
+connect_scan_chains -auto_create_chains
+syn_opt -incr
+puts "INFO: Generating Comprehensive Synthesis Reports..."
+report_timing -full_pin_names  -max_paths 10 > ${RPT_DIR}/${DESIGN}_${FLOW_TYPE}_timingDFT.rpt
+report_area > ${RPT_DIR}/${DESIGN}_${FLOW_TYPE}_areaDFT.rpt
+report_gates > ${RPT_DIR}/${DESIGN}_${FLOW_TYPE}_gatesDFT.rpt
+report_power > ${RPT_DIR}/${DESIGN}_${FLOW_TYPE}_powerDFT.rpt
+report_qor -levels_of_logic > ${RPT_DIR}/${DESIGN}_${FLOW_TYPE}_qorDFT.rpt
+report_scan_chains > ${RPT_DIR}/${DESIGN}_${FLOW_TYPE}_scan_chainsDFT.rpt
+puts "INFO: Exporting Netlist, SDF, and Physical Database..."
+write_hdl $DESIGN -mapped > ${NETLIST_DIR}/${DESIGN}_${FLOW_TYPE}_synthDFT.v
+write_sdf -setuphold merge_always -recrem merge_always -design $DESIGN > ${OUT_DIR}/${DESIGN}_${FLOW_TYPE}_synthDFT.sdf
+write_db ${DB_DIR}/${DESIGN}_synthDFT.db
+set total_time [expr {[clock seconds] - $start_time}]
+puts "INFO: Flow Completed Successfully in $total_time seconds!"
+gui_show
+exity
+exit

@@ -1,0 +1,547 @@
+
+Cadence Tempus(TM) Timing Solution.
+Copyright 2022 Cadence Design Systems, Inc. All rights reserved worldwide.
+
+Version:	v22.15-s092_1, built Fri Mar 1 14:05:47 PST 2024
+Options:	-stylus 
+Date:		Wed Aug 12 09:40:09 2026
+Host:		ncdc-0137 (x86_64 w/Linux 7.1.4-1.el8.elrepo.x86_64) (16cores*24cpus*13th Gen Intel(R) Core(TM) i7-13700 30720KB)
+OS:		Red Hat Enterprise Linux 8.6 (Ootpa)
+
+License:
+		[09:40:09.217009] Configured Lic search path (22.01-s003): 5280@10.19.32.90
+
+		tpsxl	Tempus Timing Signoff Solution XL	22.1	checkout succeeded
+		16 CPU jobs allowed with the current license(s). Use set_multi_cpu_usage to set your required CPU count.
+
+
+Change the soft stacksize limit to 0.2%RAM (127 mbytes). Set global soft_stack_size_limit to change the value.
+environment variable TMPDIR is '/tmp/ssv_tmpdir_73671_GAns24'.
+#@ Processing -execute option
+@tempus 1> 
+@tempus 1> clear
+
+[3J[H[2J@tempus 2> ################################################################################
+##################################################################### [1G###########
+@tempus 3> # CADENCE TEMPUS: STANDALONE MASTER SIGNOFF STA SCRIPT
+# CADENCE TEMPUS: STANDALONE MASTER SIGNOFF STA SCRIPT
+@tempus 4> # Design: counter (65nm)
+# Design: counter (65nm)
+@tempus 5> ##################################################################### [1G###########
+################################################################################
+@tempus 6> puts "INFO: Starting Tempus Signoff Flow..."
+puts "INFO: Starting Tempus Signoff Flow..."
+INFO: Starting Tempus Signoff Flow...
+@tempus 7>
+ 
+@tempus 7> # =================================================================== [1G===========
+# ==============================================================================
+@tempus 8> # 1. ENGINE CONFIGURATION
+# 1. ENGINE CONFIGURATION
+@tempus 9> # =================================================================== [1G===========
+# ==============================================================================
+@tempus 10> # Enable On-Chip Variation (OCV) to simulate manufacturing tolerance [1Gs
+# Enable On-Chip Variation (OCV) to simulate manufacturing tolerances
+@tempus 11> set_db timing_analysis_type ocv
+set_db timing_analysis_type ocv
+1 ocv
+@tempus 12> 
+
+@tempus 12> # Enable Clock Path Pessimism Removal (CPPR) to remove common-path a [1Grtificial delay# Enable Clock Path Pessimism Removal (CPPR) to remove common-path artificial delays
+s
+@tempus 13> set_db timing_analysis_cppr botset_db timing_analysis_cppr both
+h
+1 both
+@tempus 14>
+ 
+@tempus 14> # Enable Signal Integrity (SI) to account for Crosstalk delays betwe [1Gen wires
+# Enable Signal Integrity (SI) to account for Crosstalk delays between wires
+@tempus 15> set_db delaycal_enable_si false
+set_db delaycal_enable_si false
+1 false
+@tempus 16> 
+
+@tempus 16> # ================================================================== [1G============
+# ==============================================================================
+@tempus 17> # 2. LOAD DESIGN DATA
+# 2. LOAD DESIGN DATA
+@tempus 18> # ================================================================== [1G============
+# ==============================================================================
+@tempus 19> # A. Load the MMMC View Definition (Links .libs to .sdcs)
+# A. Load the MMMC View Definition (Links .libs to .sdcs)
+@tempus 20> puts "INFO: Loading MMMC View Definitions..."
+puts "INFO: Loading MMMC View Definitions..."
+INFO: Loading MMMC View Definitions...
+@tempus 21> read_mmmc /home/cc/Documents/Abdullah/RISCV_synthesis/inputs/mmmc_ma [1Gster.viewread_mmmc /home/cc/Documents/Abdullah/RISCV_synthesis/inputs/mmmc_master.view
+
+#@ Begin verbose source (pre): 
+@file 1: # ==============================================================================
+@file 2: # CADENCE MMMC (Multi-Mode Multi-Corner) SETUP FILE
+@file 3: # ==============================================================================
+@file 4:
+@file 5: if {![info exists INCLUDE_DFT]} {
+@file 6: set INCLUDE_DFT "false"
+@file 7: }
+@file 8:
+@file 9: # --- Project Path ---
+@file 10: set WORK_DIR "/home/cc/Documents/Abdullah/RISCV_synthesis"
+@file 11:
+@file 12: # --- SDC Files ---
+@file 13: set SDC_FUNC_FILE "${WORK_DIR}/inputs/riscv_baseline.sdc"
+@file 14: set SDC_TEST_FILE "${WORK_DIR}/inputs/riscv_dft.sdc"
+@file 15:
+@file 16: # --- Libraries ---
+@file 17: set LIB_TC        "${WORK_DIR}/libraries/libs/tcbn65lptc.lib"
+@file 18: set LIB_WC        "${WORK_DIR}/libraries/libs/tcbn65lpwc.lib"
+@file 19: set LIB_BC        "${WORK_DIR}/libraries/libs/tcbn65lpbc.lib"
+@file 20:
+@file 21: # --- Cap Tables ---
+@file 22: set CAPTABLE_TC   "${WORK_DIR}/inputs/mmmc_files/captable/cln65lp_1p09m+alrdl_top2_typical.captable"
+@file 23: set CAPTABLE_WC   "${WORK_DIR}/inputs/mmmc_files/captable/cln65lp_1p09m+alrdl_top2_rcworst.captable"
+@file 24: set CAPTABLE_BC   "${WORK_DIR}/inputs/mmmc_files/captable/cln65lp_1p09m+alrdl_top2_rcbest.captable"
+@file 25:
+@file 26: # ------------------------------------------------------------------------------
+@file 27: # 1. LIBRARY SETS
+@file 28: # ------------------------------------------------------------------------------
+@@file 29: create_library_set -name tc_libset -timing $LIB_TC
+@@file 30: create_library_set -name wc_libset -timing $LIB_WC
+@@file 31: create_library_set -name bc_libset -timing $LIB_BC
+@file 32:
+@file 33: # ------------------------------------------------------------------------------
+@file 34: # 2. TIMING CONDITIONS
+@file 35: # ------------------------------------------------------------------------------
+@@file 36: create_timing_condition -name tc_cond -library_sets {tc_libset}
+@@file 37: create_timing_condition -name wc_cond -library_sets {wc_libset}
+@@file 38: create_timing_condition -name bc_cond -library_sets {bc_libset}
+@file 39:
+@file 40: # ------------------------------------------------------------------------------
+@file 41: # 3. RC CORNERS
+@file 42: # ------------------------------------------------------------------------------
+@@file 43: create_rc_corner -name rc_typical -temperature 25  -cap_table $CAPTABLE_TC
+@@file 44: create_rc_corner -name rc_worst   -temperature 125 -cap_table $CAPTABLE_WC
+@@file 45: create_rc_corner -name rc_best    -temperature -40 -cap_table $CAPTABLE_BC
+@file 46:
+@file 47: # ------------------------------------------------------------------------------
+@file 48: # 4. CONSTRAINT MODES
+@file 49: # ------------------------------------------------------------------------------
+@@file 50: create_constraint_mode -name func_mode -sdc_files $SDC_FUNC_FILE
+@file 51:
+@file 52: if {$INCLUDE_DFT == "true"} {...}
+@file 55:
+@file 56: # ------------------------------------------------------------------------------
+@file 57: # 5. DELAY CORNERS
+@file 58: # ------------------------------------------------------------------------------
+@@file 59: create_delay_corner -name dc_typical -timing_condition {tc_cond} -rc_corner {rc_typical}
+@@file 60: create_delay_corner -name dc_worst   -timing_condition {wc_cond} -rc_corner {rc_worst}
+@@file 61: create_delay_corner -name dc_best    -timing_condition {bc_cond} -rc_corner {rc_best}
+@file 62:
+@file 63: # ------------------------------------------------------------------------------
+@file 64: # 6. ANALYSIS VIEWS
+@file 65: # ------------------------------------------------------------------------------
+@@file 66: create_analysis_view -name view_func_typical -constraint_mode {func_mode} -delay_corner {dc_typical}
+@@file 67: create_analysis_view -name view_func_setup   -constraint_mode {func_mode} -delay_corner {dc_worst}
+@@file 68: create_analysis_view -name view_func_hold    -constraint_mode {func_mode} -delay_corner {dc_best}
+@file 69:
+@file 70: if {$INCLUDE_DFT == "true"} {...}
+@file 75:
+@file 76: # ------------------------------------------------------------------------------
+@file 77: # 7. SET ACTIVE VIEWS
+@file 78: # ------------------------------------------------------------------------------
+@file 79: if {$INCLUDE_DFT == "true"} {...
+@file 85: } else {
+@@file 86: set_analysis_view  -setup   {view_func_setup}  -hold    {view_func_hold}  -leakage {view_func_typical}  -dynamic {view_func_typical}
+Number of views requested 1 are allowed with the current licenses... continuing with set_analysis_view.
+@file 87: }
+#@ End verbose source: /home/cc/Documents/Abdullah/RISCV_synthesis/inputs/mmmc_master.view
+Reading wc_libset timing library '/home/cc/Documents/Abdullah/RISCV_synthesis/libraries/libs/tcbn65lpwc.lib' ...
+**WARN: (TECHLIB-302):	No function defined for cell 'OD25DCAP64'. The cell will only be used for analysis. (File /home/cc/Documents/Abdullah/RISCV_synthesis/libraries/libs/tcbn65lpwc.lib)
+**WARN: (TECHLIB-302):	No function defined for cell 'OD25DCAP32'. The cell will only be used for analysis. (File /home/cc/Documents/Abdullah/RISCV_synthesis/libraries/libs/tcbn65lpwc.lib)
+**WARN: (TECHLIB-302):	No function defined for cell 'OD25DCAP16'. The cell will only be used for analysis. (File /home/cc/Documents/Abdullah/RISCV_synthesis/libraries/libs/tcbn65lpwc.lib)
+**WARN: (TECHLIB-302):	No function defined for cell 'DCAP8'. The cell will only be used for analysis. (File /home/cc/Documents/Abdullah/RISCV_synthesis/libraries/libs/tcbn65lpwc.lib)
+**WARN: (TECHLIB-302):	No function defined for cell 'DCAP64'. The cell will only be used for analysis. (File /home/cc/Documents/Abdullah/RISCV_synthesis/libraries/libs/tcbn65lpwc.lib)
+**WARN: (TECHLIB-302):	No function defined for cell 'DCAP4'. The cell will only be used for analysis. (File /home/cc/Documents/Abdullah/RISCV_synthesis/libraries/libs/tcbn65lpwc.lib)
+**WARN: (TECHLIB-302):	No function defined for cell 'DCAP32'. The cell will only be used for analysis. (File /home/cc/Documents/Abdullah/RISCV_synthesis/libraries/libs/tcbn65lpwc.lib)
+**WARN: (TECHLIB-302):	No function defined for cell 'DCAP16'. The cell will only be used for analysis. (File /home/cc/Documents/Abdullah/RISCV_synthesis/libraries/libs/tcbn65lpwc.lib)
+**WARN: (TECHLIB-302):	No function defined for cell 'DCAP'. The cell will only be used for analysis. (File /home/cc/Documents/Abdullah/RISCV_synthesis/libraries/libs/tcbn65lpwc.lib)
+**WARN: (TECHLIB-302):	No function defined for cell 'ANTENNA'. The cell will only be used for analysis. (File /home/cc/Documents/Abdullah/RISCV_synthesis/libraries/libs/tcbn65lpwc.lib)
+Read 816 cells in library 'tcbn65lpwc' 
+Reading bc_libset timing library '/home/cc/Documents/Abdullah/RISCV_synthesis/libraries/libs/tcbn65lpbc.lib' ...
+**WARN: (TECHLIB-302):	No function defined for cell 'OD25DCAP64'. The cell will only be used for analysis. (File /home/cc/Documents/Abdullah/RISCV_synthesis/libraries/libs/tcbn65lpbc.lib)
+**WARN: (TECHLIB-302):	No function defined for cell 'OD25DCAP32'. The cell will only be used for analysis. (File /home/cc/Documents/Abdullah/RISCV_synthesis/libraries/libs/tcbn65lpbc.lib)
+**WARN: (TECHLIB-302):	No function defined for cell 'OD25DCAP16'. The cell will only be used for analysis. (File /home/cc/Documents/Abdullah/RISCV_synthesis/libraries/libs/tcbn65lpbc.lib)
+**WARN: (TECHLIB-302):	No function defined for cell 'DCAP8'. The cell will only be used for analysis. (File /home/cc/Documents/Abdullah/RISCV_synthesis/libraries/libs/tcbn65lpbc.lib)
+**WARN: (TECHLIB-302):	No function defined for cell 'DCAP64'. The cell will only be used for analysis. (File /home/cc/Documents/Abdullah/RISCV_synthesis/libraries/libs/tcbn65lpbc.lib)
+**WARN: (TECHLIB-302):	No function defined for cell 'DCAP4'. The cell will only be used for analysis. (File /home/cc/Documents/Abdullah/RISCV_synthesis/libraries/libs/tcbn65lpbc.lib)
+**WARN: (TECHLIB-302):	No function defined for cell 'DCAP32'. The cell will only be used for analysis. (File /home/cc/Documents/Abdullah/RISCV_synthesis/libraries/libs/tcbn65lpbc.lib)
+**WARN: (TECHLIB-302):	No function defined for cell 'DCAP16'. The cell will only be used for analysis. (File /home/cc/Documents/Abdullah/RISCV_synthesis/libraries/libs/tcbn65lpbc.lib)
+**WARN: (TECHLIB-302):	No function defined for cell 'DCAP'. The cell will only be used for analysis. (File /home/cc/Documents/Abdullah/RISCV_synthesis/libraries/libs/tcbn65lpbc.lib)
+**WARN: (TECHLIB-302):	No function defined for cell 'ANTENNA'. The cell will only be used for analysis. (File /home/cc/Documents/Abdullah/RISCV_synthesis/libraries/libs/tcbn65lpbc.lib)
+Read 816 cells in library 'tcbn65lpbc' 
+timing_initialized
+@tempus 22> 
+
+@tempus 22> # B. Load Technology LEFs (Crucial for RC Extraction awareness)
+# B. Load Technology LEFs (Crucial for RC Extraction awareness)
+@tempus 23> puts "INFO: Reading Technology LEFs..."
+puts "INFO: Reading Technology LEFs..."
+INFO: Reading Technology LEFs...
+@tempus 24> read_physical -lef /home/cc/Documents/Abdullah/RISCV_synthesis/libra [1Gries/lef/tcbn65lp_9lmT2.lef
+read_physical -lef /home/cc/Documents/Abdullah/RISCV_synthesis/libraries/lef/tcbn65lp_9lmT2.lef
+
+Loading LEF file /home/cc/Documents/Abdullah/RISCV_synthesis/libraries/lef/tcbn65lp_9lmT2.lef ...
+Set DBUPerIGU to M2 pitch 400.
+**WARN: (IMPLF-200):	Pin 'I' in macro 'ANTENNA' has no ANTENNAGATEAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+
+##  Check design process and node:  
+##  Both design process and tech node are not set.
+
+
+0
+@tempus 25> 
+# C. Load the Final Routed Netlist from Innovus
+@tempus 25> # C. Load the Final Routed Netlist from Innovus
+@tempus 26> puts "INFO: Reading Post-Route Netlist..."
+puts "INFO: Reading Post-Route Netlist..."
+INFO: Reading Post-Route Netlist...
+@tempus 27> read_netlist /home/cc/Documents/Abdullah/RISCV_synthesis/export/Inno [1Gvus_Data/outputs/pnr/riscv_core.final.v
+read_netlist /home/cc/Documents/Abdullah/RISCV_synthesis/export/Innovus_Data/outputs/pnr/riscv_core.final.v
+#% Begin Load netlist data ... (date=08/12 09:40:42, mem=1516.9M)
+*** Begin netlist parsing (mem=1521.9M) ***
+Reading verilog netlist '/home/cc/Documents/Abdullah/RISCV_synthesis/export/Innovus_Data/outputs/pnr/riscv_core.final.v'
+
+*** Memory Usage v#3 (Current mem = 1673.891M, initial mem = 656.645M) ***
+*** End netlist parsing (cpu=0:00:00.0, real=0:00:00.0, mem=1673.9M) ***
+#% End Load netlist data ... (date=08/12 09:40:43, total cpu=0:00:00.2, real=0:00:01.0, peak res=1647.5M, current mem=1638.8M)
+Top level cell is riscv_core.
+Building hierarchical netlist for Cell riscv_core ...
+***** UseNewTieNetMode *****.
+*** Netlist is unique.
+** info: there are 1672 modules.
+** info: there are 10623 stdCell insts.
+** info: there are 10623 stdCell insts with at least one signal pin.
+
+*** Memory Usage v#3 (Current mem = 2035.836M, initial mem = 656.645M) ***
+@tempus 28> 
+
+@tempus 28> # D. Initialize the Timing Graph
+# D. Initialize the Timing Graph
+@tempus 29> # This builds the logic connectivity in memory
+# This builds the logic connectivity in memory
+@tempus 30> puts "INFO: Initializing Design Database..."
+puts "INFO: Initializing Design Database..."
+INFO: Initializing Design Database...
+@tempus 31> init_design
+init_design
+Set Default Input Pin Transition as 0.1 ps.
+**WARN: (IMPFP-3961):	The techSite 'dcore' has no related standard cells in the LEF/OA library. The calculations for this site type cannot be made unless standard cell models of this type exist in the LEF/OA library. Ignore this warning if the SITE is not used by the library. Alternatively, remove the SITE definition for the LEF/OA library to avoid this message.
+**WARN: (IMPFP-3961):	The techSite 'ccore' has no related standard cells in the LEF/OA library. The calculations for this site type cannot be made unless standard cell models of this type exist in the LEF/OA library. Ignore this warning if the SITE is not used by the library. Alternatively, remove the SITE definition for the LEF/OA library to avoid this message.
+Start create_tracks
+Extraction setup Started 
+/home/cc/Documents/Abdullah/RISCV_synthesis/inputs/riscv_baseline.sdc
+Reading Capacitance Table File /home/cc/Documents/Abdullah/RISCV_synthesis/inputs/mmmc_files/captable/cln65lp_1p09m+alrdl_top2_rcworst.captable ...
+Reading Capacitance Table File /home/cc/Documents/Abdullah/RISCV_synthesis/inputs/mmmc_files/captable/cln65lp_1p09m+alrdl_top2_typical.captable ...
+Reading Capacitance Table File /home/cc/Documents/Abdullah/RISCV_synthesis/inputs/mmmc_files/captable/cln65lp_1p09m+alrdl_top2_rcbest.captable ...
+Importing multi-corner RC tables ... 
+Summary of Active RC-Corners : 
+ 
+ Analysis View: view_func_setup
+    RC-Corner Name        : rc_worst
+    RC-Corner Index       : 0
+    RC-Corner Temperature : 125 Celsius
+    RC-Corner Cap Table   : '/home/cc/Documents/Abdullah/RISCV_synthesis/inputs/mmmc_files/captable/cln65lp_1p09m+alrdl_top2_rcworst.captable'
+    RC-Corner PostRoute Res Factor        : 1
+    RC-Corner PostRoute Cap Factor        : 1
+    RC-Corner PostRoute XCap Factor       : 1
+ 
+ Analysis View: view_func_typical
+    RC-Corner Name        : rc_typical
+    RC-Corner Index       : 1
+    RC-Corner Temperature : 25 Celsius
+    RC-Corner Cap Table   : '/home/cc/Documents/Abdullah/RISCV_synthesis/inputs/mmmc_files/captable/cln65lp_1p09m+alrdl_top2_typical.captable'
+    RC-Corner PostRoute Res Factor        : 1
+    RC-Corner PostRoute Cap Factor        : 1
+    RC-Corner PostRoute XCap Factor       : 1
+ 
+ Analysis View: view_func_hold
+    RC-Corner Name        : rc_best
+    RC-Corner Index       : 2
+    RC-Corner Temperature : -40 Celsius
+    RC-Corner Cap Table   : '/home/cc/Documents/Abdullah/RISCV_synthesis/inputs/mmmc_files/captable/cln65lp_1p09m+alrdl_top2_rcbest.captable'
+    RC-Corner PostRoute Res Factor        : 1
+    RC-Corner PostRoute Cap Factor        : 1
+    RC-Corner PostRoute XCap Factor       : 1
+Initializing multi-corner capacitance tables ... 
+Initializing multi-corner resistance tables ...
+Reading tc_libset timing library '/home/cc/Documents/Abdullah/RISCV_synthesis/libraries/libs/tcbn65lptc.lib' ...
+Message <TECHLIB-302> has exceeded the message display limit of '20'. Use 'set_message -no_limit -id list_of_msgIDs' to reset the message limit.
+Read 816 cells in library 'tcbn65lptc' 
+Reading timing constraints file '/home/cc/Documents/Abdullah/RISCV_synthesis/inputs/riscv_baseline.sdc' ...
+Current (total cpu=0:00:16.0, real=0:00:36.0, peak res=2367.8M, current mem=2367.8M)
+**WARN: (TCLNL-330):	set_input_delay on clock root 'clk' is not supported. You should use the -source option to set_clock_latency to provide this offset. You can also use the global timing_allow_input_delay_on_clock_source to allow set_input_delay assertion to have an effect on clock source paths beginning at this clock root. (File /home/cc/Documents/Abdullah/RISCV_synthesis/inputs/riscv_baseline.sdc, Line 53).
+
+INFO (CTE): Reading of timing constraints file /home/cc/Documents/Abdullah/RISCV_synthesis/inputs/riscv_baseline.sdc completed, with 1 WARNING
+Ending "Constraint file reading stats" (total cpu=0:00:00.0, real=0:00:00.0, peak res=2383.1M, current mem=2383.1M)
+Current (total cpu=0:00:16.1, real=0:00:36.0, peak res=2383.1M, current mem=2383.1M)
+Total number of combinational cells: 483
+Total number of sequential cells: 303
+Total number of tristate cells: 11
+Total number of level shifter cells: 0
+Total number of power gating cells: 0
+Total number of isolation cells: 0
+Total number of power switch cells: 0
+Total number of pulse generator cells: 0
+Total number of always on buffers: 0
+Total number of retention cells: 0
+Total number of physical cells: 19
+List of usable buffers: BUFFD1 BUFFD0 BUFFD2 BUFFD12 BUFFD16 BUFFD3 BUFFD4 BUFFD6 BUFFD8 CKBD1 CKBD0 CKBD2 CKBD12 CKBD16 CKBD3 CKBD4 CKBD6 CKBD8
+Total number of usable buffers: 18
+List of unusable buffers: BUFFD20 BUFFD24 CKBD20 CKBD24 GBUFFD1 GBUFFD3 GBUFFD2 GBUFFD4 GBUFFD8
+Total number of unusable buffers: 9
+List of usable inverters: CKND1 CKND0 CKND2 CKND12 CKND16 CKND3 CKND4 CKND6 CKND8 INVD1 INVD0 INVD2 INVD12 INVD16 INVD3 INVD4 INVD6 INVD8
+Total number of usable inverters: 18
+List of unusable inverters: CKND20 CKND24 GINVD2 GINVD1 GINVD4 GINVD3 GINVD8 INVD20 INVD24
+Total number of unusable inverters: 9
+List of identified usable delay cells: DEL0 DEL005 DEL01 DEL015 DEL02 DEL1 DEL2 DEL3 DEL4
+Total number of identified usable delay cells: 9
+List of identified unusable delay cells:
+Total number of identified unusable delay cells: 0
+
+@tempus 32> 
+# ==============================================================================
+@tempus 32> # ================================================================== [1G============
+# 3. LOAD PHYSICAL PARASITICS (SPEF)
+# ==============================================================================
+@tempus 33> # 3. LOAD PHYSICAL PARASITICS (SPEF)
+@tempus 34> # ================================================================== [1G============
+# We map the physical copper delays to their respective timing corners
+@tempus 35> # We map the physical copper delays to their respective timing corne [1Grs
+@tempus 36> set spef_file "/home/cc/Documents/Abdullah/RISCV_synthesis/export/In [1Gnovus_Data/outputs/pnr/riscv_core.spefset spef_file "/home/cc/Documents/Abdullah/RISCV_synthesis/export/Innovus_Data/outputs/pnr/riscv_core.spef"
+"
+/home/cc/Documents/Abdullah/RISCV_synthesis/export/Innovus_Data/outputs/pnr/riscv_core.spef
+@tempus 37> 
+
+@tempus 37> puts "INFO: Mapping SPEF parasitics to RC Corners..."
+puts "INFO: Mapping SPEF parasitics to RC Corners..."
+INFO: Mapping SPEF parasitics to RC Corners...
+@tempus 38> 
+
+@tempus 38> # Worst-Case (Setup) Corner
+# Worst-Case (Setup) Corner
+@tempus 39> read_spef -rc_corner rc_worst $spef_fileread_spef -rc_corner rc_worst $spef_file
+
+
+# Best-Case (Hold) Corner
+@tempus 40> 
+@tempus 40> # Best-Case (Hold) Corner
+read_spef -rc_corner rc_best $spef_file
+@tempus 41> read_spef -rc_corner rc_best $spef_file
+
+# Typical Corner (Optional)
+@tempus 42> 
+@tempus 42> # Typical Corner (Optional)
+read_spef -rc_corner rc_typical $spef_file
+@tempus 43> read_spef -rc_corner rc_typical $spef_file
+
+SPEF files for RC Corner rc_worst:
+Top-level spef file '/home/cc/Documents/Abdullah/RISCV_synthesis/export/Innovus_Data/outputs/pnr/riscv_core.spef'.
+
+SPEF files for RC Corner rc_typical:
+Top-level spef file '/home/cc/Documents/Abdullah/RISCV_synthesis/export/Innovus_Data/outputs/pnr/riscv_core.spef'.
+
+SPEF files for RC Corner rc_best:
+Top-level spef file '/home/cc/Documents/Abdullah/RISCV_synthesis/export/Innovus_Data/outputs/pnr/riscv_core.spef'.
+Start spef parsing (MEM=2530.55).
+Spef file '/home/cc/Documents/Abdullah/RISCV_synthesis/export/Innovus_Data/outputs/pnr/riscv_core.spef' reading completed:: 10 %
+Spef file '/home/cc/Documents/Abdullah/RISCV_synthesis/export/Innovus_Data/outputs/pnr/riscv_core.spef' reading completed:: 20 %
+Spef file '/home/cc/Documents/Abdullah/RISCV_synthesis/export/Innovus_Data/outputs/pnr/riscv_core.spef' reading completed:: 30 %
+Spef file '/home/cc/Documents/Abdullah/RISCV_synthesis/export/Innovus_Data/outputs/pnr/riscv_core.spef' reading completed:: 40 %
+Spef file '/home/cc/Documents/Abdullah/RISCV_synthesis/export/Innovus_Data/outputs/pnr/riscv_core.spef' reading completed:: 50 %
+Spef file '/home/cc/Documents/Abdullah/RISCV_synthesis/export/Innovus_Data/outputs/pnr/riscv_core.spef' reading completed:: 60 %
+Spef file '/home/cc/Documents/Abdullah/RISCV_synthesis/export/Innovus_Data/outputs/pnr/riscv_core.spef' reading completed:: 70 %
+Spef file '/home/cc/Documents/Abdullah/RISCV_synthesis/export/Innovus_Data/outputs/pnr/riscv_core.spef' reading completed:: 80 %
+Spef file '/home/cc/Documents/Abdullah/RISCV_synthesis/export/Innovus_Data/outputs/pnr/riscv_core.spef' reading completed:: 90 %
+The SPEF file, '/home/cc/Documents/Abdullah/RISCV_synthesis/export/Innovus_Data/outputs/pnr/riscv_core.spef', has encountered the error/warning message(s) during its reading.
+**WARN: (SPEF-1152):	Net 'alu_result[8] ( having pins FE_OCPC1692_alu_result_8/I FE_RC_3406_0/ZN alu_result[8] )' is not fully specified as per its connectivity in design netlist. Missing ports have been added to the net using low RC values. The timing accuracy is not reliable for such nets.
+**WARN: (SPEF-1152):	Net 'formatted_dmem_write[4] ( having pins g178206/ZN formatted_dmem_write[4] )' is not fully specified as per its connectivity in design netlist. Missing ports have been added to the net using low RC values. The timing accuracy is not reliable for such nets.
+**WARN: (SPEF-1152):	Net 'formatted_dmem_write[1] ( having pins FE_OFC446_FE_OFN134_formatted_dmem_write_1/Z formatted_dmem_write[1] )' is not fully specified as per its connectivity in design netlist. Missing ports have been added to the net using low RC values. The timing accuracy is not reliable for such nets.
+SPEF file /home/cc/Documents/Abdullah/RISCV_synthesis/export/Innovus_Data/outputs/pnr/riscv_core.spef.
+Number of Resistors     : 211416
+Number of Ground Caps   : 205166
+Number of Coupling Caps : 23624
+
+Spef file '/home/cc/Documents/Abdullah/RISCV_synthesis/export/Innovus_Data/outputs/pnr/riscv_core.spef' reading completed:: 10 %
+Spef file '/home/cc/Documents/Abdullah/RISCV_synthesis/export/Innovus_Data/outputs/pnr/riscv_core.spef' reading completed:: 20 %
+Spef file '/home/cc/Documents/Abdullah/RISCV_synthesis/export/Innovus_Data/outputs/pnr/riscv_core.spef' reading completed:: 30 %
+Spef file '/home/cc/Documents/Abdullah/RISCV_synthesis/export/Innovus_Data/outputs/pnr/riscv_core.spef' reading completed:: 40 %
+Spef file '/home/cc/Documents/Abdullah/RISCV_synthesis/export/Innovus_Data/outputs/pnr/riscv_core.spef' reading completed:: 50 %
+Spef file '/home/cc/Documents/Abdullah/RISCV_synthesis/export/Innovus_Data/outputs/pnr/riscv_core.spef' reading completed:: 60 %
+Spef file '/home/cc/Documents/Abdullah/RISCV_synthesis/export/Innovus_Data/outputs/pnr/riscv_core.spef' reading completed:: 70 %
+Spef file '/home/cc/Documents/Abdullah/RISCV_synthesis/export/Innovus_Data/outputs/pnr/riscv_core.spef' reading completed:: 80 %
+Spef file '/home/cc/Documents/Abdullah/RISCV_synthesis/export/Innovus_Data/outputs/pnr/riscv_core.spef' reading completed:: 90 %
+The SPEF file, '/home/cc/Documents/Abdullah/RISCV_synthesis/export/Innovus_Data/outputs/pnr/riscv_core.spef', has encountered the error/warning message(s) during its reading.
+**WARN: (SPEF-1152):	Net 'alu_result[8] ( having pins FE_OCPC1692_alu_result_8/I FE_RC_3406_0/ZN alu_result[8] )' is not fully specified as per its connectivity in design netlist. Missing ports have been added to the net using low RC values. The timing accuracy is not reliable for such nets.
+**WARN: (SPEF-1152):	Net 'formatted_dmem_write[4] ( having pins g178206/ZN formatted_dmem_write[4] )' is not fully specified as per its connectivity in design netlist. Missing ports have been added to the net using low RC values. The timing accuracy is not reliable for such nets.
+**WARN: (SPEF-1152):	Net 'formatted_dmem_write[1] ( having pins FE_OFC446_FE_OFN134_formatted_dmem_write_1/Z formatted_dmem_write[1] )' is not fully specified as per its connectivity in design netlist. Missing ports have been added to the net using low RC values. The timing accuracy is not reliable for such nets.
+SPEF file /home/cc/Documents/Abdullah/RISCV_synthesis/export/Innovus_Data/outputs/pnr/riscv_core.spef.
+Number of Resistors     : 211416
+Number of Ground Caps   : 205166
+Number of Coupling Caps : 23624
+
+Spef file '/home/cc/Documents/Abdullah/RISCV_synthesis/export/Innovus_Data/outputs/pnr/riscv_core.spef' reading completed:: 10 %
+Spef file '/home/cc/Documents/Abdullah/RISCV_synthesis/export/Innovus_Data/outputs/pnr/riscv_core.spef' reading completed:: 20 %
+Spef file '/home/cc/Documents/Abdullah/RISCV_synthesis/export/Innovus_Data/outputs/pnr/riscv_core.spef' reading completed:: 30 %
+Spef file '/home/cc/Documents/Abdullah/RISCV_synthesis/export/Innovus_Data/outputs/pnr/riscv_core.spef' reading completed:: 40 %
+Spef file '/home/cc/Documents/Abdullah/RISCV_synthesis/export/Innovus_Data/outputs/pnr/riscv_core.spef' reading completed:: 50 %
+Spef file '/home/cc/Documents/Abdullah/RISCV_synthesis/export/Innovus_Data/outputs/pnr/riscv_core.spef' reading completed:: 60 %
+Spef file '/home/cc/Documents/Abdullah/RISCV_synthesis/export/Innovus_Data/outputs/pnr/riscv_core.spef' reading completed:: 70 %
+Spef file '/home/cc/Documents/Abdullah/RISCV_synthesis/export/Innovus_Data/outputs/pnr/riscv_core.spef' reading completed:: 80 %
+Spef file '/home/cc/Documents/Abdullah/RISCV_synthesis/export/Innovus_Data/outputs/pnr/riscv_core.spef' reading completed:: 90 %
+The SPEF file, '/home/cc/Documents/Abdullah/RISCV_synthesis/export/Innovus_Data/outputs/pnr/riscv_core.spef', has encountered the error/warning message(s) during its reading.
+**WARN: (SPEF-1152):	Net 'alu_result[8] ( having pins FE_OCPC1692_alu_result_8/I FE_RC_3406_0/ZN alu_result[8] )' is not fully specified as per its connectivity in design netlist. Missing ports have been added to the net using low RC values. The timing accuracy is not reliable for such nets.
+**WARN: (SPEF-1152):	Net 'formatted_dmem_write[4] ( having pins g178206/ZN formatted_dmem_write[4] )' is not fully specified as per its connectivity in design netlist. Missing ports have been added to the net using low RC values. The timing accuracy is not reliable for such nets.
+**WARN: (SPEF-1152):	Net 'formatted_dmem_write[1] ( having pins FE_OFC446_FE_OFN134_formatted_dmem_write_1/Z formatted_dmem_write[1] )' is not fully specified as per its connectivity in design netlist. Missing ports have been added to the net using low RC values. The timing accuracy is not reliable for such nets.
+SPEF file /home/cc/Documents/Abdullah/RISCV_synthesis/export/Innovus_Data/outputs/pnr/riscv_core.spef.
+Number of Resistors     : 211416
+Number of Ground Caps   : 205166
+Number of Coupling Caps : 23624
+
+End spef parsing (MEM=2550.55 CPU=0:00:01.7 REAL=0:00:01.0).
+83 nets are missing in SPEF file. The names of these nets are saved in ./rc_worst.missing_nets.rpt.
+83 nets are missing in SPEF file. The names of these nets are saved in ./rc_typical.missing_nets.rpt.
+83 nets are missing in SPEF file. The names of these nets are saved in ./rc_best.missing_nets.rpt.
+
+@tempus 44> 
+@tempus 44> # ================================================================== [1G============
+# ==============================================================================
+# 4. ANALYSIS & REPORTING
+@tempus 45> # 4. ANALYSIS & REPORTING
+@tempus 46> # ================================================================== [1G============
+# ==============================================================================
+# Define which views to use for Setup and Hold auditing
+@tempus 47> # Define which views to use for Setup and Hold auditing
+set_analysis_view -setup {view_func_setup} -hold {view_func_hold}
+@tempus 48> set_analysis_view -setup {view_func_setup} -hold {view_func_hold}
+Number of views requested 1 are allowed with the current licenses... continuing with set_analysis_view.
+Extraction setup Started 
+/home/cc/Documents/Abdullah/RISCV_synthesis/inputs/riscv_baseline.sdc
+Reading Capacitance Table File /home/cc/Documents/Abdullah/RISCV_synthesis/inputs/mmmc_files/captable/cln65lp_1p09m+alrdl_top2_rcworst.captable ...
+Reading Capacitance Table File /home/cc/Documents/Abdullah/RISCV_synthesis/inputs/mmmc_files/captable/cln65lp_1p09m+alrdl_top2_rcbest.captable ...
+Importing multi-corner RC tables ... 
+Summary of Active RC-Corners : 
+ 
+ Analysis View: view_func_setup
+    RC-Corner Name        : rc_worst
+    RC-Corner Index       : 0
+    RC-Corner Temperature : 125 Celsius
+    RC-Corner Cap Table   : '/home/cc/Documents/Abdullah/RISCV_synthesis/inputs/mmmc_files/captable/cln65lp_1p09m+alrdl_top2_rcworst.captable'
+    RC-Corner PostRoute Res Factor        : 1
+    RC-Corner PostRoute Cap Factor        : 1
+    RC-Corner PostRoute XCap Factor       : 1
+ 
+ Analysis View: view_func_hold
+    RC-Corner Name        : rc_best
+    RC-Corner Index       : 1
+    RC-Corner Temperature : -40 Celsius
+    RC-Corner Cap Table   : '/home/cc/Documents/Abdullah/RISCV_synthesis/inputs/mmmc_files/captable/cln65lp_1p09m+alrdl_top2_rcbest.captable'
+    RC-Corner PostRoute Res Factor        : 1
+    RC-Corner PostRoute Cap Factor        : 1
+    RC-Corner PostRoute XCap Factor       : 1
+set_analysis_view/update_rc_corner called to change MMMC setup. New set of RC Corners are a subset of previous MMMC setup and the RC setup information for the new set has remained same. Therefore, parasitic data in the tool brought as per previous MMMC setup is being maintained.
+Initializing multi-corner capacitance tables ... 
+Initializing multi-corner resistance tables ...
+Reading timing constraints file '/home/cc/Documents/Abdullah/RISCV_synthesis/inputs/riscv_baseline.sdc' ...
+Current (total cpu=0:00:18.7, real=0:00:37.0, peak res=2423.7M, current mem=2361.1M)
+**WARN: (TCLNL-330):	set_input_delay on clock root 'clk' is not supported. You should use the -source option to set_clock_latency to provide this offset. You can also use the global timing_allow_input_delay_on_clock_source to allow set_input_delay assertion to have an effect on clock source paths beginning at this clock root. (File /home/cc/Documents/Abdullah/RISCV_synthesis/inputs/riscv_baseline.sdc, Line 53).
+
+INFO (CTE): Reading of timing constraints file /home/cc/Documents/Abdullah/RISCV_synthesis/inputs/riscv_baseline.sdc completed, with 1 WARNING
+Ending "Constraint file reading stats" (total cpu=0:00:00.0, real=0:00:00.0, peak res=2374.2M, current mem=2374.2M)
+Current (total cpu=0:00:18.7, real=0:00:37.0, peak res=2423.7M, current mem=2374.2M)
+Total number of combinational cells: 483
+Total number of sequential cells: 303
+Total number of tristate cells: 11
+Total number of level shifter cells: 0
+Total number of power gating cells: 0
+Total number of isolation cells: 0
+Total number of power switch cells: 0
+Total number of pulse generator cells: 0
+Total number of always on buffers: 0
+Total number of retention cells: 0
+Total number of physical cells: 19
+List of usable buffers: BUFFD1 BUFFD0 BUFFD2 BUFFD12 BUFFD16 BUFFD3 BUFFD4 BUFFD6 BUFFD8 CKBD1 CKBD0 CKBD2 CKBD12 CKBD16 CKBD3 CKBD4 CKBD6 CKBD8
+Total number of usable buffers: 18
+List of unusable buffers: BUFFD20 BUFFD24 CKBD20 CKBD24 GBUFFD1 GBUFFD3 GBUFFD2 GBUFFD4 GBUFFD8
+Total number of unusable buffers: 9
+List of usable inverters: CKND1 CKND0 CKND2 CKND12 CKND16 CKND3 CKND4 CKND6 CKND8 INVD1 INVD0 INVD2 INVD12 INVD16 INVD3 INVD4 INVD6 INVD8
+Total number of usable inverters: 18
+List of unusable inverters: CKND20 CKND24 GINVD2 GINVD1 GINVD4 GINVD3 GINVD8 INVD20 INVD24
+Total number of unusable inverters: 9
+List of identified usable delay cells: DEL0 DEL005 DEL01 DEL015 DEL02 DEL1 DEL2 DEL3 DEL4
+Total number of identified usable delay cells: 9
+List of identified unusable delay cells:
+Total number of identified unusable delay cells: 0
+
+@tempus 49> 
+@tempus 49> # Force a full timing update to propagate parasitics through the gra [1Gph
+# Force a full timing update to propagate parasitics through the graph
+puts "INFO: Building final timing graph with parasitics..."
+@tempus 50> puts "INFO: Building final timing graph with parasitics..."
+INFO: Building final timing graph with parasitics...
+update_timing -full
+@tempus 51> update_timing -full
+AAE_INFO: opIsDesignInPostRouteState() is 0
+AAE DB initialization (MEM=2602.9 CPU=0:00:00.0 REAL=0:00:00.0) 
+#################################################################################
+# Design Name: riscv_core
+# Design Mode: 65nm
+# Analysis Mode: MMMC OCV 
+# Parasitics Mode: SPEF/RCDB 
+# Signoff Settings: SI Off 
+#################################################################################
+Start delay calculation (fullDC) (1 T). (MEM=2629.93)
+End delay calculation. (MEM=3136.47 CPU=0:00:01.0 REAL=0:00:01.0)
+/home/cc/Documents/Abdullah/RISCV_synthesis/inputs/riscv_baseline.sdc
+End delay calculation (fullDC). (MEM=3136.47 CPU=0:00:01.2 REAL=0:00:01.0)
+
+0
+@tempus 52> 
+# Create report directory
+@tempus 52> # Create report directory
+file mkdir /home/cc/Documents/Abdullah/RISCV_synthesis/export/Tempus_Data/reports/tempus_signoff
+@tempus 53> file mkdir /home/cc/Documents/Abdullah/RISCV_synthesis/export/Tempus [1G_Data/reports/tempus_signoff
+
+@tempus 54> 
+@tempus 54> # --- Generate Signoff Reports ---
+# --- Generate Signoff Reports ---
+puts "INFO: Generating Signoff Scorecards..."
+
+@tempus 55> puts "INFO: Generating Signoff Scorecards..."
+INFO: Generating Signoff Scorecards...
+@tempus 56> 
+# 1. Global Summary (Check TNS/WNS here)
+@tempus 56> # 1. Global Summary (Check TNS/WNS here)
+report_timing_summary > /home/cc/Documents/Abdullah/RISCV_synthesis/export/Tempus_Data/reports/tempus_signoff/summary.rpt
+@tempus 57> report_timing_summary > /home/cc/Documents/Abdullah/RISCV_synthesis/ [1Gexport/Tempus_Data/reports/tempus_signoff/summary.rpt
+
+@tempus 58> 
+@tempus 58> # 2. Detailed Setup Report (Top 10 Critical Paths)# 2. Detailed Setup Report (Top 10 Critical Paths)
+
+@tempus 59> report_timing -late -max_paths 10 > /home/cc/Documents/Abdullah/RISC [1GV_synthesis/export/Tempus_Data/reports/tempus_signoff/setup_paths.rpt
+report_timing -late -max_paths 10 > /home/cc/Documents/Abdullah/RISCV_synthesis/export/Tempus_Data/reports/tempus_signoff/setup_paths.rpt
+
+# 3. Detailed Hold Report (Top 10 Critical Paths)
+@tempus 60> 
+@tempus 60> # 3. Detailed Hold Report (Top 10 Critical Paths)
+report_timing -early -max_paths 10 > /home/cc/Documents/Abdullah/RISCV_synthesis/export/Tempus_Data/reports/tempus_signoff/hold_paths.rpt
+@tempus 61> report_timing -early -max_paths 10 > /home/cc/Documents/Abdullah/RIS [1GCV_synthesis/export/Tempus_Data/reports/tempus_signoff/hold_paths.rpt
+
+# 4. Design Rule Violations (Max Cap/Tran/Fanout)
+@tempus 62> 
+@tempus 62> # 4. Design Rule Violations (Max Cap/Tran/Fanout)
+# In Stylus, we explicitly list the DRV types we want to audit
+@tempus 63> # In Stylus, we explicitly list the DRV types we want to audit
+report_constraint -drv_violation_type {max_capacitance max_transition max_fanout} > /home/cc/Documents/Abdullah/RISCV_synthesis/export/Tempus_Data/reports/tempus_signoff/drv.rpt
+@tempus 64> report_constraint -drv_violation_type {max_capacitance max_transitio [1Gn max_fanout} > /home/cc/Documents/Abdullah/RISCV_synthesis/export/Tempus_Data/r [1Geports/tempus_signoff/drv.rpt
+
+@tempus 65> 
+@tempus 65> puts "INFO: Tempus Signoff Script Completed Successfully!"@tempus 65> puts "INFO: Tempus Signoff Script Completed Successfully!"Loading  (riscv_core)
+Traverse HInst (riscv_core)

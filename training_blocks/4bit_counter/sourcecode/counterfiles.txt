@@ -1,0 +1,2 @@
+/home/cc/Fawad_PD/example/workspace/netlists/counter_synth.v
+/home/cc/Fawad_PD/example/sourcecode/tb/counter_tb.v

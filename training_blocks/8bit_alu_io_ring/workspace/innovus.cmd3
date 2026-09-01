@@ -1,0 +1,36 @@
+#######################################################
+#                                                     
+#  Innovus Command Logging File                     
+#  Created on Wed Aug 12 04:01:38 2026                
+#                                                     
+#######################################################
+
+#@(#)CDS: Innovus v21.18-s099_1 (64bit) 07/18/2023 13:03 (Linux 3.10.0-693.el7.x86_64)
+#@(#)CDS: NanoRoute 21.18-s099_1 NR230707-1955/21_18-UB (database version 18.20.605) {superthreading v2.17}
+#@(#)CDS: AAE 21.18-s017 (64bit) 07/18/2023 (Linux 3.10.0-693.el7.x86_64)
+#@(#)CDS: CTE 21.18-s022_1 () Jul 11 2023 23:10:24 ( )
+#@(#)CDS: SYNTECH 21.18-s010_1 () Jul  5 2023 06:32:03 ( )
+#@(#)CDS: CPE v21.18-s053
+#@(#)CDS: IQuantus/TQuantus 21.1.1-s966 (64bit) Wed Mar 8 10:22:20 PST 2023 (Linux 3.10.0-693.el7.x86_64)
+
+gui_select -next -point {0.101 -0.013}
+>set WORK_DIR           "/home/cc/Documents/Abdullah/Lab_04_Data"
+set design(TOPLEVEL)   "top_wrapper"
+set INNOVUS_DATA_DIR   "${WORK_DIR}/export/Innovus_Data"
+set DB_FILE            "${INNOVUS_DATA_DIR}/outputs/pnr/${design(TOPLEVEL)}_routed_final.db"
+puts "INFO: Loading database checkpoint from ${DB_FILE}..."
+read_db $DB_FILE
+clear
+set WORK_DIR           "/home/cc/Documents/Abdullah/Lab_04_Data"
+set design(TOPLEVEL)   "top_wrapper"
+set DB_FILE            "${WORK_DIR}/export/Innovus_Data/outputs/pnr/${design(TOPLEVEL)}_routed_final.db"
+puts "INFO: Restoring physical database from: $DB_FILE"
+read_db $DB_FILE
+set WORK_DIR "/home/cc/Documents/Abdullah/Lab_04_Data"
+set design(TOPLEVEL) "top_wrapper"
+set design(export_dir) "${WORK_DIR}/export/Innovus_Data/outputs"
+write_stream ${design(export_dir)}/pnr/${design(TOPLEVEL)}.gds \
+  -unit 1000 \
+  -mode ALL \
+  -merge "${WORK_DIR}/libraries/gds/tcbn65lp.gds /home/cc/Documents/Abdullah/Lab_04_Data/libraries/gds/tpzn65lpgv2od3.gds" \
+  -map_file "${WORK_DIR}/libraries/map/PRTF_EDI_N65_gdsout_6X1Z1U.24a.map" 

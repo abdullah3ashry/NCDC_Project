@@ -1,0 +1,141 @@
+<SDF annotation statistics>
+
+Instance fullname= counter_tb.uut.\count_reg[3]  -- lib="tcbn65lp" cell="DFCNQD1" view="v"
+
+    List of Unannotated Timing Checks: 
+
+	($setuphold (CP (edge= posedge) (cond= CDN_SDFCHK)  , (D (edge= posedge)))
+	($setuphold (CP (edge= posedge) (cond= D_DEFCHK)  , (D (edge= posedge)))
+	($setuphold (CP (edge= posedge) (cond= CDN_SDFCHK)  , (D (edge= negedge)))
+	($setuphold (CP (edge= posedge) (cond= D_DEFCHK)  , (D (edge= negedge)))
+	($hold (CP (edge= posedge) , (CDN (edge= posedge)))
+	($hold (CP (edge= posedge) (cond= D_SDFCHK)  , (CDN (edge= posedge)))
+	($width (CP (edge= posedge) (cond= CDN_D_SDFCHK) ))
+	($width (CP (edge= posedge) (cond= CDN_nD_SDFCHK) ))
+	($width (CP (edge= posedge) (cond= CP_DEFCHK) ))
+	($width (CP (edge= negedge) (cond= CDN_D_SDFCHK) ))
+	($width (CP (edge= negedge) (cond= CDN_nD_SDFCHK) ))
+	($width (CP (edge= negedge) (cond= CP_DEFCHK) ))
+	($width (CDN (edge= negedge)))
+	($width (CDN (edge= negedge) (cond= CP_D_SDFCHK) ))
+	($width (CDN (edge= negedge) (cond= CP_nD_SDFCHK) ))
+	($width (CDN (edge= negedge) (cond= nCP_D_SDFCHK) ))
+	($width (CDN (edge= negedge) (cond= nCP_nD_SDFCHK) ))
+	($recovery (CDN (edge= posedge) , (CP (edge= posedge)))
+	($recovery (CDN (edge= posedge) (cond= D_SDFCHK)  , (CP (edge= posedge) (cond= D_SDFCHK)))
+
+Instance fullname= counter_tb.uut.g81__2398 -- lib="tcbn65lp" cell="XOR2D1" view="v"
+
+    List of Unannotated Paths: 
+
+	<cond (A1==1)> (A2-->Z)
+	<cond (A1==0)> (A2-->Z)
+	(A2-->Z)
+	<cond (A2==1)> (A1-->Z)
+	<cond (A2==0)> (A1-->Z)
+	(A1-->Z)
+
+Instance fullname= counter_tb.uut.\count_reg[2]  -- lib="tcbn65lp" cell="DFCNQD1" view="v"
+
+    List of Unannotated Timing Checks: 
+
+	($setuphold (CP (edge= posedge) (cond= CDN_SDFCHK)  , (D (edge= posedge)))
+	($setuphold (CP (edge= posedge) (cond= D_DEFCHK)  , (D (edge= posedge)))
+	($setuphold (CP (edge= posedge) (cond= CDN_SDFCHK)  , (D (edge= negedge)))
+	($setuphold (CP (edge= posedge) (cond= D_DEFCHK)  , (D (edge= negedge)))
+	($hold (CP (edge= posedge) , (CDN (edge= posedge)))
+	($hold (CP (edge= posedge) (cond= D_SDFCHK)  , (CDN (edge= posedge)))
+	($width (CP (edge= posedge) (cond= CDN_D_SDFCHK) ))
+	($width (CP (edge= posedge) (cond= CDN_nD_SDFCHK) ))
+	($width (CP (edge= posedge) (cond= CP_DEFCHK) ))
+	($width (CP (edge= negedge) (cond= CDN_D_SDFCHK) ))
+	($width (CP (edge= negedge) (cond= CDN_nD_SDFCHK) ))
+	($width (CP (edge= negedge) (cond= CP_DEFCHK) ))
+	($width (CDN (edge= negedge)))
+	($width (CDN (edge= negedge) (cond= CP_D_SDFCHK) ))
+	($width (CDN (edge= negedge) (cond= CP_nD_SDFCHK) ))
+	($width (CDN (edge= negedge) (cond= nCP_D_SDFCHK) ))
+	($width (CDN (edge= negedge) (cond= nCP_nD_SDFCHK) ))
+	($recovery (CDN (edge= posedge) , (CP (edge= posedge)))
+	($recovery (CDN (edge= posedge) (cond= D_SDFCHK)  , (CP (edge= posedge) (cond= D_SDFCHK)))
+
+Instance fullname= counter_tb.uut.g83__5107 -- lib="tcbn65lp" cell="HA1D0" view="v"
+
+    List of Unannotated Paths: 
+
+	<cond (A==1)> (B-->S)
+	<cond (A==0)> (B-->S)
+	(B-->S)
+	<cond (B==1)> (A-->S)
+	<cond (B==0)> (A-->S)
+	(A-->S)
+	(B-->CO)
+	(A-->CO)
+
+Instance fullname= counter_tb.uut.\count_reg[1]  -- lib="tcbn65lp" cell="DFCNQD1" view="v"
+
+    List of Unannotated Timing Checks: 
+
+	($setuphold (CP (edge= posedge) (cond= CDN_SDFCHK)  , (D (edge= posedge)))
+	($setuphold (CP (edge= posedge) (cond= D_DEFCHK)  , (D (edge= posedge)))
+	($setuphold (CP (edge= posedge) (cond= CDN_SDFCHK)  , (D (edge= negedge)))
+	($setuphold (CP (edge= posedge) (cond= D_DEFCHK)  , (D (edge= negedge)))
+	($hold (CP (edge= posedge) , (CDN (edge= posedge)))
+	($hold (CP (edge= posedge) (cond= D_SDFCHK)  , (CDN (edge= posedge)))
+	($width (CP (edge= posedge) (cond= CDN_D_SDFCHK) ))
+	($width (CP (edge= posedge) (cond= CDN_nD_SDFCHK) ))
+	($width (CP (edge= posedge) (cond= CP_DEFCHK) ))
+	($width (CP (edge= negedge) (cond= CDN_D_SDFCHK) ))
+	($width (CP (edge= negedge) (cond= CDN_nD_SDFCHK) ))
+	($width (CP (edge= negedge) (cond= CP_DEFCHK) ))
+	($width (CDN (edge= negedge)))
+	($width (CDN (edge= negedge) (cond= CP_D_SDFCHK) ))
+	($width (CDN (edge= negedge) (cond= CP_nD_SDFCHK) ))
+	($width (CDN (edge= negedge) (cond= nCP_D_SDFCHK) ))
+	($width (CDN (edge= negedge) (cond= nCP_nD_SDFCHK) ))
+	($recovery (CDN (edge= posedge) , (CP (edge= posedge)))
+	($recovery (CDN (edge= posedge) (cond= D_SDFCHK)  , (CP (edge= posedge) (cond= D_SDFCHK)))
+
+Instance fullname= counter_tb.uut.g85__6260 -- lib="tcbn65lp" cell="HA1D0" view="v"
+
+    List of Unannotated Paths: 
+
+	<cond (A==1)> (B-->S)
+	<cond (A==0)> (B-->S)
+	(B-->S)
+	<cond (B==1)> (A-->S)
+	<cond (B==0)> (A-->S)
+	(A-->S)
+	(B-->CO)
+	(A-->CO)
+
+Instance fullname= counter_tb.uut.g87 -- lib="tcbn65lp" cell="CKND0" view="v"
+
+    List of Unannotated Paths: 
+
+	(I-->ZN)
+
+Instance fullname= counter_tb.uut.\count_reg[0]  -- lib="tcbn65lp" cell="DFCND1" view="v"
+
+    List of Unannotated Timing Checks: 
+
+	($setuphold (CP (edge= posedge) (cond= CDN_SDFCHK)  , (D (edge= posedge)))
+	($setuphold (CP (edge= posedge) (cond= D_DEFCHK)  , (D (edge= posedge)))
+	($setuphold (CP (edge= posedge) (cond= CDN_SDFCHK)  , (D (edge= negedge)))
+	($setuphold (CP (edge= posedge) (cond= D_DEFCHK)  , (D (edge= negedge)))
+	($hold (CP (edge= posedge) , (CDN (edge= posedge)))
+	($hold (CP (edge= posedge) (cond= D_SDFCHK)  , (CDN (edge= posedge)))
+	($width (CP (edge= posedge) (cond= CDN_D_SDFCHK) ))
+	($width (CP (edge= posedge) (cond= CDN_nD_SDFCHK) ))
+	($width (CP (edge= posedge) (cond= CP_DEFCHK) ))
+	($width (CP (edge= negedge) (cond= CDN_D_SDFCHK) ))
+	($width (CP (edge= negedge) (cond= CDN_nD_SDFCHK) ))
+	($width (CP (edge= negedge) (cond= CP_DEFCHK) ))
+	($width (CDN (edge= negedge)))
+	($width (CDN (edge= negedge) (cond= CP_D_SDFCHK) ))
+	($width (CDN (edge= negedge) (cond= CP_nD_SDFCHK) ))
+	($width (CDN (edge= negedge) (cond= nCP_D_SDFCHK) ))
+	($width (CDN (edge= negedge) (cond= nCP_nD_SDFCHK) ))
+	($recovery (CDN (edge= posedge) , (CP (edge= posedge)))
+	($recovery (CDN (edge= posedge) (cond= D_SDFCHK)  , (CP (edge= posedge) (cond= D_SDFCHK)))
+

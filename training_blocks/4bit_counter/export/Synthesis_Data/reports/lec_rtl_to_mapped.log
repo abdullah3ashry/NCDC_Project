@@ -1,0 +1,633 @@
+                          CONFORMAL (R)
+                   Version 23.10-s300 (30-Aug-2023) (64 bit executable)
+   Copyright (c) Cadence Design Systems, Inc., 1997-2023. All Rights Reserved
+
+
+This program is proprietary and confidential information belonging to
+Cadence Design Systems, Inc., and may be used and disclosed only as authorized
+in a license agreement controlling such use and disclosure.
+
+// Warning: This version is 1064 days old. You can download the latest version from http://downloads.cadence.com.
+
+0
+// Command: usage -auto -elapse
+CPU time     : 0.08    seconds
+Elapse time  : 0       seconds
+Memory usage : 84.39   M bytes
+0
+// Command: set_mapping_method -sensitive
+0
+// Command: set_verification_information rtl_fv_map_db
+// Note: Verification information rtl_fv_map_db does not exist. New directory created.
+// Verification information is set to /home/cc/Documents/Abdullah/Lab01_Materials/Lab01_Data/workspace/rtl_fv_map_db.
+0
+// Command: read_implementation_information fv/counter -revised fv_map
+// Reading implementation information from fv/counter ...
+// Note: Implementation information 'fv_map.fv.json' will be used
+================================================================================
+          Information Category                         Count
+--------------------------------------------------------------------------------
+     Sequential instance phase                             4
+       Sequential optimization                             0
+        Sequential duplication                             0
+         Boundary optimization                             0
+            Synthesis equation                             0
+    Combinational loop breaker                             0
+                       Mapping                             0
+================================================================================
+// Note: Read implementation information successfully.
+0
+// Command: set_parallel_option -threads 1,4 -norelease_license
+// Number of threads is set to 1,4.
+0
+// Command: set_compare_options -threads 1,4
+Set computing threads of compare to 1,4.
+0
+// Command: set env(RC_VERSION)     "21.18-s082_1"
+21.18-s082_1
+// Command: set env(CDN_SYNTH_ROOT) "/home/cc/mnt/GENUS211/tools.lnx86"
+/home/cc/mnt/GENUS211/tools.lnx86
+// Command: set CDN_SYNTH_ROOT      "/home/cc/mnt/GENUS211/tools.lnx86"
+/home/cc/mnt/GENUS211/tools.lnx86
+// Command: set env(CW_DIR) "/home/cc/mnt/GENUS211/tools.lnx86/lib/chipware"
+/home/cc/mnt/GENUS211/tools.lnx86/lib/chipware
+// Command: set CW_DIR      "/home/cc/mnt/GENUS211/tools.lnx86/lib/chipware"
+/home/cc/mnt/GENUS211/tools.lnx86/lib/chipware
+// Command: set lec_version_required "21.20249"
+21.20249
+// Command: if { ($lec_version < $lec_version_required) &&
+//              [file exists /home/cc/mnt/GENUS211/tools.lnx86/lib/chipware/old_encrypt_sim]} {
+//              set env(CW_DIR_SIM) "/home/cc/mnt/GENUS211/tools.lnx86/lib/chipware/old_encrypt_sim"
+//              set CW_DIR_SIM      "/home/cc/mnt/GENUS211/tools.lnx86/lib/chipware/old_encrypt_sim"
+//          } else {
+//              set env(CW_DIR_SIM) "/home/cc/mnt/GENUS211/tools.lnx86/lib/chipware/sim"
+//              set CW_DIR_SIM      "/home/cc/mnt/GENUS211/tools.lnx86/lib/chipware/sim"
+//          }
+/home/cc/mnt/GENUS211/tools.lnx86/lib/chipware/sim
+// Command: set_multiplier_implementation boothrca -both
+0
+// Command: set_undefined_cell black_box -noascend -both
+0
+// Command: add_search_path . /home/cc/mnt/GENUS211/tools.lnx86/lib/tech -library -both
+0
+// Command: read_library -liberty -both \
+//              /home/cc/Documents/Abdullah/Lab01_Materials/Lab01_Data/libraries/libs/tcbn65lptc.lib \
+//              /home/cc/Documents/Abdullah/Lab01_Materials/Lab01_Data/libraries/libs/tcbn65lpwc.lib
+// Parsing file /home/cc/Documents/Abdullah/Lab01_Materials/Lab01_Data/libraries/libs/tcbn65lptc.lib ...
+// Parsing file /home/cc/Documents/Abdullah/Lab01_Materials/Lab01_Data/libraries/libs/tcbn65lpwc.lib ...
+// Warning: (RTL9.17) Cell doesn't have any output pins or all output pins are undriven (blackboxed) (occurrence:40)
+// Note: (RTL9.26) Liberty pin with internal_node use default input_map (occurrence:40)
+// Warning: (IGN3.2) Duplicate modules/entities are detected. Subsequent modules/entities are ignored (occurrence:816)
+// Note: Read Liberty library successfully
+0
+CPU time     : 1.12    seconds
+Elapse time  : 5       seconds
+Memory usage : 147.75  M bytes
+// Command: set_undriven_signal 0 -golden
+0
+// Command: set lec_version_required "16.20100"
+16.20100
+// Command: if {$lec_version >= $lec_version_required} {
+//              set_naming_style genus -golden
+//          } else {
+//              set_naming_style rc -golden
+//          }
+// Command: set_naming_style genus -golden
+0
+// Command: set_naming_rule "%s\[%d\]" -instance_array -golden
+0
+// Command: set_naming_rule "%s_reg" -register -golden
+0
+// Command: set_naming_rule "%L.%s" "%L\[%d\].%s" "%s" -instance -golden
+0
+// Command: set_naming_rule "%L.%s" "%L\[%d\].%s" "%s" -variable -golden
+0
+// Command: set lec_version_required "17.10200"
+17.10200
+// Command: if {$lec_version >= $lec_version_required} {
+//              set_naming_rule -ungroup_separator {_} -golden
+//          }
+// Command: set_naming_rule -ungroup_separator _ -golden
+0
+// Command: set lec_version_required "17.20301"
+17.20301
+// Command: if {$lec_version >= $lec_version_required} {
+//              set_hdl_options -const_port_extend
+//          }
+// Command: set_hdl_options -const_port_extend
+0
+// Command: set_hdl_options -unsigned_conversion_overflow on
+0
+// Command: set_hdl_option -v_to_vd on
+// Command: set_hdl_options -v_to_vd on
+// Note: '-v' to '-vd' option is 'ON'
+0
+// Command: set lec_version_required "20.20226"
+20.20226
+// Command: if {$lec_version >= $lec_version_required} {
+//              set_hdl_options -VERILOG_INCLUDE_DIR "sep:src"
+//          } else {
+//              set_hdl_options -VERILOG_INCLUDE_DIR "sep:src:cwd"
+//          }
+// Command: set_hdl_options -VERILOG_INCLUDE_DIR sep:src
+0
+// Command: add_search_path . -design -golden
+0
+// Command: read_design  -define SYNTHESIS  -merge bbox -golden -lastmod -noelab  -verilog2k /home/cc/Documents/Abdullah/Lab01_Materials/Lab01_Data/sourcecode/rtl/counter.v
+// Parsing file /home/cc/Documents/Abdullah/Lab01_Materials/Lab01_Data/sourcecode/rtl/counter.v ...
+0
+// Command: elaborate_design -golden -root {counter} -rootonly 
+// Golden root module is set to 'counter'
+// Warning: (RTL1.5b) Potential loss of RHS msb or carry-out bit (occurrence:1)
+// Note: (VLG9.2) The `define macro is used (occurrence:1)
+// Warning: (DIR6.1) Ignored compiler directive is detected (occurrence:1)
+0
+// Command: read_design -verilog95   -revised -lastmod -noelab fv/counter/fv_map.v.gz
+// Parsing file fv/counter/fv_map.v.gz ...
+0
+// Command: elaborate_design -revised -root {counter}
+// Revised root module is set to 'counter'
+0
+// Command: uniquify -all -nolib -golden
+Uniquified 0 module(s)
+0
+// Command: report_design_data
+============================================
+Summary           Golden         Revised
+============================================
+Design-modules         1               1
+Library-cells          1               9
+============================================
+Primitives      Golden              Revised
+============================================
+INPUT                2                    2
+OUTPUT               4                    4
+--------------------------------------------
+AND                  2                    2
+DFF                  4                    4
+INV        *         1                    6
+XOR                  3                    3
+------ word-level --------------------------
+ADD        *         1                    0
+--------------------------------------------
+Total               10                   15
+
+0
+// Command: report_black_box
+0
+// Command: set_flatten_model -seq_constant
+0
+// Command: set_flatten_model -seq_constant_x_to 0
+0
+// Command: set_flatten_model -nodff_to_dlat_zero
+0
+// Command: set_flatten_model -nodff_to_dlat_feedback
+0
+// Command: set_flatten_model -hier_seq_merge
+0
+// Command: set_flatten_model -balanced_modeling
+0
+// Command: set lec_version_required "20.10100"
+20.10100
+// Command: if {$lec_version >= $lec_version_required} {
+//              check_verification_information
+//          }
+// Command: check_verification_information
+Checking Sequential constant...
+Checking Sequential merge...
+Checking Synthesis equation...
+================================================================================
+Implementation Information Check Summary: 
+--------------------------------------------------------------------------------
+Total Sequential Constants:     0
+  Name Collision:               0
+  Name Ambiguous:               0
+  Name not Found:               0
+--------------------------------------------------------------------------------
+Total Sequential Merges:        0
+  Name Collision:               0
+  Name Ambiguous:               0
+  Name not Found:               0
+  Merge Target:
+    Name Ambiguous:             0
+    Name not Found:             0
+--------------------------------------------------------------------------------
+Total Synthesis Equations:      0
+  Module not Found:             0
+  Equation Conflict:            0
+  Equation Syntax Error:        0
+No Equation Modules:            0
+================================================================================
+0
+// Command: set_analyze_option -auto -report_map
+0
+// Command: write_hier_compare_dofile hier_tmp2.lec.do -verbose -noexact_pin_match -constraint -usage \
+//          -replace -balanced_extraction -input_output_pin_equivalence \
+//          -prepend_string "report_design_data; report_unmapped_points -summary; report_unmapped_points -notmapped; analyze_datapath -module -verbose; eval analyze_datapath $DATAPATH_SOLVER_OPTION -verbose"
+// The following settings are used for hierarchical dofile generation:
+// Modeling Options:
+    Auto setup disabled
+    GATED_Clock modeling enabled
+// Mapping Method:
+    Name Only
+--------------------------------------------------------------------------------
+// Flattening Golden and Revised designs ...
+--------------------------------------------------------------------------------
+// Processing Golden ...
+// Modeling Golden ...
+// Processing Revised ...
+// Modeling Revised ...
+// Balanced modeling mapped 8 out of 8 DFF/DLATs
+// Warning: Automatic key point mapping is skipped
+// Command: MAP KEy Points
+// Mapping key points ...
+================================================================================
+Mapped points: SYSTEM class
+--------------------------------------------------------------------------------
+Mapped points     PI     PO     DFF       Total   
+--------------------------------------------------------------------------------
+Golden            2      4      4         10      
+--------------------------------------------------------------------------------
+Revised           2      4      4         10      
+================================================================================
+--------------------------------------------------------------------------------
+// Starting hierarchical dofile generation ...
+--------------------------------------------------------------------------------
+// Total Matching Module Instance Pairs =  1
+// Module Instantiation Ratio in Golden = 1.00
+// Module Instantiation Ratio in Revised = 1.00
+// Gathering Instance Boundary Information ...
+// Extracting Constraints in Golden ...
+// Extracting Constraints in Revised ...
+// Extracting logic-cone properties of pins ...
+// Balancing Constraints ...
+// boundary_change values use the revised names to match.
+// Resolving Constraints ...
+// Writing hierarchical dofile ...
+1 module pairs are written for hierarchical comparison
+// Command: report mapped point -summary -method
+================================================================================
+Mapped points: SYSTEM class
+--------------------------------------------------------------------------------
+Mapped points     PI     PO     DFF       Total   
+--------------------------------------------------------------------------------
+Golden            2      4      4         10      
+--------------------------------------------------------------------------------
+Revised           2      4      4         10      
+================================================================================
+================================================================================
+Mapping method    PI     PO     DFF    Total 
+--------------------------------------------------------------------------------
+Name              2      4      4      10    
+================================================================================
+// Command: report unmapped point -summary
+There is no unmapped point
+0
+// Command: run_hier_compare hier_tmp2.lec.do -dynamic_hierarchy
+// Running Module counter and counter
+// Command: set_root_module counter -Golden
+// Warning: Golden root module is already at 'counter'
+0
+// Command: set_root_module counter -Revised
+// Warning: Revised root module is already at 'counter'
+0
+// Command: set_module_property -instance / -Golden
+0
+// Command: set_module_property -instance / -Revised
+0
+// Command: report_black_box -NOHidden
+0
+// Command: set_system_mode lec
+// Processing Golden ...
+// Modeling Golden ...
+// Processing Revised ...
+// Modeling Revised ...
+// Balanced modeling mapped 8 out of 8 DFF/DLATs
+// Mapping key points ...
+================================================================================
+Mapped points: SYSTEM class
+--------------------------------------------------------------------------------
+Mapped points     PI     PO     DFF       Total   
+--------------------------------------------------------------------------------
+Golden            2      4      4         10      
+--------------------------------------------------------------------------------
+Revised           2      4      4         10      
+================================================================================
+// Running automatic setup...
+================================================================================
+Mapped points: SYSTEM class
+--------------------------------------------------------------------------------
+Mapped points     PI     PO     DFF       Total   
+--------------------------------------------------------------------------------
+Golden            2      4      4         10      
+--------------------------------------------------------------------------------
+Revised           2      4      4         10      
+================================================================================
+// Automatic setup finished.
+0
+// Command: report_design_data
+============================================
+Summary           Golden         Revised
+============================================
+Design-modules         1               1
+Library-cells          1               9
+============================================
+Primitives      Golden              Revised
+============================================
+INPUT                2                    2
+OUTPUT               4                    4
+--------------------------------------------
+AND                  2                    2
+DFF                  4                    4
+INV        *         1                    6
+XOR                  3                    3
+------ word-level --------------------------
+ADD        *         1                    0
+--------------------------------------------
+Total               10                   15
+
+// Command: report_unmapped_points -summary
+There is no unmapped point
+// Command: report_unmapped_points -notmapped
+There is no unmapped point
+// Command: analyze_datapath -module -verbose
+// Note: Multithreaded module datapath analysis (MDP) is enabled
+// Warning: No eligible datapath module in the design. Skip ...
+// Command: analyze_datapath -flowgraph -verbose
+0
+// Command: add_compared_points -all
+// 8 compared points added to compare list
+0
+// Command: compare -noneq_stop 1  -threads 1,4
+// Compare will stop on the 1st non-equivalent point
+// Warning: Checking out 3 next licenses (Conformal_Low_Power) in the license list, configurable by 'set parallel option -license'.
+================================================================================
+Compared points      PO     DFF       Total   
+--------------------------------------------------------------------------------
+Equivalent           4      4         8       
+================================================================================
+CPU time     : 1.40    seconds
+Elapse time  : 7       seconds
+Memory usage : 198.56  M bytes
+// Command: analyze abort -compare
+There is no abort/specified point to be analyzed.
+// Command: save_hier_compare_result
+0
+// Command: set_system_mode setup
+0
+// Command: usage
+CPU time     : 1.40    seconds
+Memory usage : 206.66  M bytes
+0
+Processed 1 out of 1 module pairs	EQ: 1	NEQ: 0	ABORT: 0
+
+================================================================================
+Module Comparison Results
+--------------------------------------------------------------------------------
+Equivalent                     1
+--------------------------------------------------------------------------------
+Total                          1
+--------------------------------------------------------------------------------
+Hierarchical compare : Equivalent 
+================================================================================
+0
+// Command: report_hier_compare_result -dynamicflattened
+0
+// Command: report_verification -hier -verbose
+================================================================================
+                            Verification Report
+--------------------------------------------------------------------------------
+Category                                                                  Count
+--------------------------------------------------------------------------------
+1. Non-standard modeling options used:                                      1
+     Tri-stated output:                                        checked
+     Revised X signals set to E:                               yes
+     Floating signals tied to Z:                               no *
+     Command "add clock" for clock-gating:                     not used
+--------------------------------------------------------------------------------
+2. Incomplete verification:                                                 0
+     All primary outputs are mapped:                           yes
+     Not-mapped DFF/DLAT is detected:                          no
+     All mapped points are added as compare points:            yes
+     All compared points are compared:                         yes
+     User added black box:                                     no
+     Black box mapped with different module name:              no
+     Empty module is not black boxed:                          no
+     Command "add ignore outputs" used:                        no
+     Always false constraints detected:                        no
+--------------------------------------------------------------------------------
+3. User modification to design:                                             0
+     Change gate type:                                         no
+     Change wire:                                              no
+     Primary input added by user:                              no
+--------------------------------------------------------------------------------
+4. Conformal Constraint Designer clock domain crossing checks recommended:  0
+     Multiple clocks in the design:                            no
+--------------------------------------------------------------------------------
+5. Design ambiguity:                                                        1
+     Duplicate module definition:                              yes *
+     Black box due to undefined cells:                         no
+     Golden design has abnormal ratio of unreachable gates:    no
+     Ratio of golden unreachable gates:                        0%
+     Revised design has abnormal ratio of unreachable gates:   no
+     Ratio of revised unreachable gates:                       0%
+     All primary input bus ordering is consistent:             yes
+     All primary output bus ordering is consistent:            yes
+     DFF/DLAT not compared due to disabled clock port(s):        0
+     Always X compared point is detected:                      not checked
+--------------------------------------------------------------------------------
+6. Compare Results:                                                        PASS
+     Number of EQ compare points:                              8
+     Number of NON-EQ compare points:                          0
+     Number of Aborted compare points:                         0
+     Number of Uncompared compare points :                     0
+================================================================================
+pass
+// Command: set_system_mode lec
+0
+// Command: write_compared_points noneq.compared_points.counter.rtl.fv_map.tcl -class noneq -tclmode -replace
+0
+// Command: set lec_version_required "21.10100"
+21.10100
+// Command: if {$lec_version >= $lec_version_required} {
+//              analyze_nonequivalent -source_diagnosis
+//              report_nonequivalent_analysis > noneq.source_diag.counter.rtl.fv_map.rpt
+//          }
+// Command: analyze_nonequivalent -source_diagnosis
+// Warning: Non-equivalent points do not exist.
+// Command: report_nonequivalent_analysis > noneq.source_diag.counter.rtl.fv_map.rpt
+0
+// Command: report_test_vector -noneq > noneq.test_vector.counter.rtl.fv_map.rpt
+0
+// Command: set_system_mode setup
+0
+// Command: write_verification_information
+// Verification information is written to rtl_fv_map_db.
+0
+// Command: report_verification_information
+// Generating reports on verification information at /home/cc/Documents/Abdullah/Lab01_Materials/Lab01_Data/workspace/rtl_fv_map_db...
+LEC run scores:
+================================================================================
+Step                Score     Range          
+--------------------------------------------------------------------------------
+result_status       10        10             
+runtime             10        10             
+mapping             10        10             
+sequential_constant 5         10             
+sequential_merge    5         10             
+sequential_phase    10        10             
+datapath_analysis   5         10             
+combinational_loop  5         10             
+mismatch_detection  5         10             
+overall             65        90             
+================================================================================
+LEC results versus attributes:
+================================================================================
+Attribute           Total     Inconsistency  Combined Table                
+--------------------------------------------------------------------------------
+sequential_constant 0         0                                            
+sequential_merge    0         0                                            
+sequential_phase    4         0              sequential_phase.json         
+================================================================================
+The tables can be viewed directly using web interface.
+// Done with reporting verification information.
+0
+// Command: set lec_version_required "18.20330"
+18.20330
+// Command: if {$lec_version >= $lec_version_required} {
+//              report_implementation_information
+//          }
+// Command: report_implementation_information
+// Reporting implementation information...
+// Information summary:
+================================================================================
+        Information Category     Total      Used    Unused  Rejected     Abort
+--------------------------------------------------------------------------------
+   Sequential instance phase         4         4         0         0         0
+               Phase mapping         0         0         0         0         0
+         Sequential constant         0         0         0         0         0
+            Sequential merge         0         0         0         0         0
+      Sequential unreachable         0         0         0         0         0
+      Sequential duplication         0         0         0         0         0
+       Boundary optimization         0         0         0         0         0
+          Synthesis equation         0         0         0         0         0
+  Combinational loop breaker         0         0         0         0         0
+================================================================================
+0
+// Command: set_system_mode lec
+0
+// Command: puts "No of compare points = [get_compare_points -count]"
+// Command: get_compare_points -count
+No of compare points = 8
+// Command: puts "No of diff points    = [get_compare_points -NONequivalent -count]"
+// Command: get_compare_points -NONequivalent -count
+No of diff points    = 0
+// Command: puts "No of abort points   = [get_compare_points -abort -count]"
+// Command: get_compare_points -abort -count
+No of abort points   = 0
+// Command: puts "No of unknown points = [get_compare_points -unknown -count]"
+// Command: get_compare_points -unknown -count
+No of unknown points = 0
+// Command: if {[get_compare_points -count] == 0} {
+//              puts "---------------------------------"
+//              puts "ERROR: No compare points detected"
+//              puts "---------------------------------"
+//          }
+// Command: get_compare_points -count
+// Command: if {[get_compare_points -NONequivalent -count] > 0} {
+//              puts "------------------------------------"
+//              puts "ERROR: Different Key Points detected"
+//              puts "------------------------------------"
+//          }
+// Command: get_compare_points -NONequivalent -count
+// Command: if {[get_compare_points -abort -count] > 0} {
+//              puts "-----------------------------"
+//              puts "ERROR: Abort Points detected "
+//              puts "-----------------------------"
+//          }
+// Command: get_compare_points -abort -count
+// Command: if {[get_compare_points -unknown -count] > 0} {
+//              puts "----------------------------------"
+//              puts "ERROR: Unknown Key Points detected"
+//              puts "----------------------------------"
+//          }
+// Command: get_compare_points -unknown -count
+// Command: set lec_version_required "19.10100"
+19.10100
+// Command: if {$lec_version >= $lec_version_required} {
+//              analyze_results -logfiles $logfile
+//          }
+// Command: analyze_results -logfiles /home/cc/Documents/Abdullah/Lab01_Materials/Lab01_Data/export/Synthesis_Data/reports/lec_rtl_to_mapped.log
+// Analyzing logfile '/home/cc/Documents/Abdullah/Lab01_Materials/Lab01_Data/export/Synthesis_Data/reports/lec_rtl_to_mapped.log'
+// Warning: Analyze results collects information from the log file but does not
+//          qualify the execution or completeness of the run.
+// Logfile Results
+================================================================================
+|                  Conformal Version |23.10-s300 
+|                        Root Module |counter 
+|                           CPU Time |1 sec
+|                       Elapsed Time |7 sec
+|                             Memory |206.66 MB
+|              Power Grid Comparison |N/A 
+|               Power Intent Compare |N/A 
+|           Supply Power Consistency |N/A 
+|        Retention Power Consistency |N/A 
+|             Compare Power Crossing |N/A 
+|                     LEC Comparison |PASS 
+|                 Flatten Comparison |N/A 
+|            Hierarchical Comparison |PASS 
+|                      Logfile Lines |561 
+|                       Logfile Name |lec_rtl_to_mapped.log 
+|              Logfile Modified Time |Thu Jul 30 06:09:24 2026 
+|         Implementation Information |fv/counter 
+|       Set Verification Information |/home/cc/Documents/Abdullah/Lab01_Materials/Lab01_Data/workspace/rtl_fv_map_db 
+|      Read Verification Information |N/A 
+|                   Analysis Elapsed |0.1 sec
+|                    Runtime / #Gate |0.28 sec
+|Matched back-to-back isolation cell |N/A 
+|            Time-consuming commands | 1. read library: 5s(71.43%) (execute 1 time(s))
+|                                    | 2. compare: 2s(28.57%) (execute 1 time(s))
+================================================================================
+           
+// Usage Breakdown Summary
+================================================================================
+|Command                   |  Total Elapse Time|  Total CPU Time|    Peak Memory
+--------------------------------------------------------------------------------
+|read library              |                5 s|             1 s|      147.75 MB
+|read design -golden       |                0 s|             0 s|        0.00 MB
+|read design -revised      |                0 s|             0 s|        0.00 MB
+|write hier_compare dofile |                0 s|             0 s|        0.00 MB
+|run hier_compare          |                0 s|             0 s|      206.66 MB
+           
+// Hierarchical Comparison Information
+--------------------------------------------------------------------------------
+// Hierarchical Run #1
+             
+// Write Dofile Command          : write_hier_compare_dofile hier_tmp2.lec.do -verbose -noexact_pin_match -constraint -usage -replace -balanced_extraction -input_output_pin_equivalence -prepend_string "report_design_data; report_unmapped_points -summary; report_unmapped_points -notmapped; analyze_datapath -module -verbose; eval analyze_datapath $DATAPATH_SOLVER_OPTION -verbose" (line: 224)
+// Run Hier_compare Command      : run_hier_compare hier_tmp2.lec.do -dynamic_hierarchy (line: 286)
+// Hierarchical Compare Result   : Equivalent
+// Smart instance selection      : Disable
+           
+// Hierarchical Comparison Statistics
+================================================================================
+|     Modules|       Total|         Max|         Min|         Avg
+--------------------------------------------------------------------------------
+|           1|           2|           2|           2|           2
+================================================================================
+  Modules: Total number of modules.
+  Total: Sum of all module runtimes(sec).
+  Max: Runtime of module with longest runtime.
+  Min: Runtime of module with shortest runtime.
+  Avg: Average runtime of all modules.
+           
+// Bottleneck Modules: 
+// Note: Report skipped due to brief overall runtime
+ 
+// Smart LEC Parallel Hierarchical Comparison Analysis
+// Note: Analysis is skipped due to brief overall runtime
+--------------------------------------------------------------------------------
+               
+// Resource usages of analysis: Cpu=0.09s Mem=156MB
+0
+// Command: vpxmode
+// Command: exit

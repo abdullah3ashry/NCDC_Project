@@ -1,0 +1,1 @@
+s1(22Jul2026:11:00:37):  xrun counter.v counter_tb.v -top counter_tb -access +rwc -timescale 1ns/1ps -l xrun.log 

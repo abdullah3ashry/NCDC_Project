@@ -1,0 +1,100 @@
+xrun(64): 23.09-s006: (c) Copyright 1995-2024 Cadence Design Systems, Inc.
+TOOL:	xrun(64)	23.09-s006: Started on Jul 30, 2026 at 05:56:39 EDT
+xrun
+	-timescale 1ns/1ps
+	/home/cc/Documents/Abdullah/Lab01_Materials/Lab01_Data/export/Synthesis_Data/netlists/counter_physical_synth.v
+	/home/cc/Documents/Abdullah/Lab01_Materials/Lab01_Data/sourcecode/tb/counter_tb.v
+	-v /home/cc/Documents/Abdullah/Lab01_Materials/Lab01_Data/libraries/v/tcbn65lp.v
+	-access +rwc
+	-define SDF_TEST
+	+sdf_verbose
+	-sdfstats /home/cc/Documents/Abdullah/Lab01_Materials/Lab01_Data/export/Synthesis_Data/reports/sdf_statistics.rpt
+	-maxdelay
+	-notimingchecks
+	+pulse_r/0
+	+pulse_e/0
+	-run
+file: /home/cc/Documents/Abdullah/Lab01_Materials/Lab01_Data/export/Synthesis_Data/netlists/counter_physical_synth.v
+	module worklib.counter:v
+		errors: 0, warnings: 0
+file: /home/cc/Documents/Abdullah/Lab^C
+xcelium> ...Regained control from SimVision
+-------------------------------------
+TOOL:	xrun(64)	23.09-s006: Exiting on Jul 30, 2026 at 06:40:54 EDT  (total: 02:54:04)
+65lp' ....... Done
+		Caching library 'worklib' ....... Done
+	Elaborating the design hierarchy:
+	Top level design units:
+		counter_tb
+	Reading SDF file from location "/home/cc/Documents/Abdullah/Lab01_Materials/Lab01_Data/export/Synthesis_Data/outputs/counter_logical_synth.sdf"
+	Annotating SDF timing data:
+		Compiled SDF file:     counter_logical_synth.sdf.X
+		Log file:              counter_logical_synth.sdf.X_sdf_annotation.log
+		Backannotation scope:  counter_tb.uut
+		Configuration file:    
+		MTM control:           
+		Scale factors:         
+		Scale type:            
+xmelab: *W,SDFCTE: Module XOR2D1 of instance counter_tb.uut.g81__2398 does not match SDF celltype of MOAI22D1, skipping annotation <../export/Synthesis_Data/outputs/counter_logical_synth.sdf, line 65>.
+xmelab: *W,SDFDSM: Attempt to annotate interconnect delay to non-existent load B1 at scope counter_tb.uut.g81__2398 <../export/Synthesis_Data/outputs/counter_logical_synth.sdf, line 70>.
+xmelab: *W,SDFDSM: Attempt to annotate interconnect delay to non-existent load B2 at scope counter_tb.uut.g81__2398 <../export/Synthesis_Data/outputs/counter_logical_synth.sdf, line 71>.
+xmelab: *W,SDFCTE: Module HA1D0 of instance counter_tb.uut.g83__5107 does not match SDF celltype of OA21D1, skipping annotation <../export/Synthesis_Data/outputs/counter_logical_synth.sdf, line 118>.
+xmelab: *W,SDFDSM: Attempt to annotate interconnect delay to non-existent load A1 at scope counter_tb.uut.g83__5107 <../export/Synthesis_Data/outputs/counter_logical_synth.sdf, line 121>.
+xmelab: *W,SDFDSM: Attempt to annotate interconnect delay to non-existent load A2 at scope counter_tb.uut.g83__5107 <../export/Synthesis_Data/outputs/counter_logical_synth.sdf, line 122>.
+xmelab: *W,SDFCTE: Module HA1D0 of instance counter_tb.uut.g85__6260 does not match SDF celltype of ND2D1, skipping annotation <../export/Synthesis_Data/outputs/counter_logical_synth.sdf, line 135>.
+xmelab: *W,SDFDSM: Attempt to annotate interconnect delay to non-existent load A1 at scope counter_tb.uut.g85__6260 <../export/Synthesis_Data/outputs/counter_logical_synth.sdf, li^C
+xcelium> ...Regained control from SimVision
+-------------------------------------
+TOOL:	xrun(64)	23.09-s006: Exiting on Jul 30, 2026 at 06:40:54 EDT  (total: 02:55:07)
+cal_synth.sdf, line 139>.
+xmelab: *W,SDFINF: Instance g86__4319 not found at scope level <top-level> <../export/Synthesis_Data/outputs/counter_logical_synth.sdf, line 147>.
+xmelab: *W,SDFINF: Instance g86__4319 not found at scope level <top-level> <../export/Synthesis_Data/outputs/counter_logical_synth.sdf, line 147>.
+xmelab: *W,SDFINF: Instance g88__8428 not found at scope level <top-level> <../export/Synthesis_Data/outputs/counter_logical_synth.sdf, line 164>.
+xmelab: *W,SDFINF: Instance g88__8428 not found at scope level <top-level> <../export/Synthesis_Data/outputs/counter_logical_synth.sdf, line 164>.
+xmelab: *W,SDFINF: Instance g89 not found at scope level <top-level> <../export/Synthesis_Data/outputs/counter_logical_synth.sdf, line 176>.
+xmelab: *W,SDFINF: Instance g89 not found at scope level <top-level> <../export/Synthesis_Data/outputs/counter_logical_synth.sdf, line 176>.
+	Annotation completed with 0 Errors and 15 Warnings
+	SDF statistics: 
+		 No. of Pathdelays = 53      	 No. of Disabled Pathdelays = 0        Annotated = 56.60% (30/53) 
+		 No. of Tchecks    = 76      	 No. of Disabled Tchecks    = 76       Annotated = 0.00% (0/0) 
+	Building instance overlay tables: .................... Done
+	Generating native compiled code:
+		tcbn65lp.HA1D0:v <0x50a43de4>
+			streams:   0, words:     0
+		tcbn65lp.XOR2D1:v <0x259e128b>
+			streams:   0, words:     0
+	Building instance specific data structures.
+	Loading native compiled code:     .................... Done
+	Design hierarchy summary:
+		                 Instances  Unique
+		Modules:                10       7
+		UDPs:                   44       2
+		Primitives:             59       5
+		Timing outputs:         11       7
+		Registers:               7       6
+		Scalar wires:           26       -
+		Always blocks:           3       3
+		Initial blocks:          3       3
+		Pseudo assignments:      2       -
+		Timing checks:          92       -
+		Interconnect:           15       -
+		Simulation timescale:  1ps
+	Writing initial simulation snapshot: worklib.counter_tb:v
+Loading snapshot worklib.counter_tb:v .................... Done
+xcelium> source /home/cc/mnt/XCELIUM2309/tools/xcelium/files/xmsimrc
+xcelium> run
+xmsim: *F,INTERR: INTERNAL EXCEPTION
+Observed simulation time : 0 FS + 0
+-----------------------------------------------------------------
+The tool has encountered an unexpected condition and must exit.
+Contact Cadence Design Systems customer support about this
+problem and provide enough information to help us reproduce it,
+including the logfile that contains this error message.
+  TOOL:	xmsim(64)	23.09-s006 (CL: 587028 )
+  HOSTNAME: ncdc-0137
+  OPERATING SYSTEM: Linux 7.1.4-1.el8.elrepo.x86_64 #1 SMP PREEMPT_DYNAMIC Sat Jul 18 15:34:32 EDT 2026 x86_64
+  MESSAGE: T(0): sv_seghandler - trapno -1 addr(0x2898670c)
+	Stream rts_xfer
+-----------------------------------------------------------------
+csi-xmsim - CSI: Cadence Support Investigation, sending details to /home/cc/Documents/Abdullah/Lab01_Materials/Lab01_Data/workspace/xmsim_89027.err
+csi-xmsim - CSI: investigation complete, send /home/cc/Documents/Abdullah/Lab01_Materials/Lab01_Data/workspace/xmsim_89027.err to Cadence Support

@@ -1,0 +1,483 @@
+
+Cadence Innovus(TM) Implementation System.
+Copyright 2021 Cadence Design Systems, Inc. All rights reserved worldwide.
+
+Version:	v21.18-s099_1, built Tue Jul 18 13:03:50 PDT 2023
+Options:	-stylus 
+Date:		Wed Aug 12 07:27:31 2026
+Host:		ncdc-0137 (x86_64 w/Linux 7.1.4-1.el8.elrepo.x86_64) (16cores*24cpus*13th Gen Intel(R) Core(TM) i7-13700 30720KB)
+OS:		Red Hat Enterprise Linux 8.6 (Ootpa)
+
+License:
+		[07:27:32.301481] Configured Lic search path (21.01-s002): 5280@10.19.32.90
+
+		invs	Innovus Implementation System	21.1	checkout succeeded
+		8 CPU jobs allowed with the current license(s). Use set_multi_cpu_usage to set your required CPU count.
+
+
+Create and set the environment variable TMPDIR to /tmp/innovus_temp_51812_ncdc-0137_cc_899jhD.
+
+Change the soft stacksize limit to 0.2%RAM (127 mbytes). Set global soft_stack_size_limit to change the value.
+[INFO] Loading Pegasus 23.13 fill procedures
+
+**INFO:  MMMC transition support version v31-84 
+
+@innovus 1> set WORK_DIR                  "/home/cc/Documents/Abdullah/RISCV_synthesis"
+/home/cc/Documents/Abdullah/RISCV_synthesis
+@innovus 2> set design(TOPLEVEL)          "riscv_core"
+set design(TOPLEVEL)          "riscv_core"
+riscv_core
+@innovus 3> 
+
+@innovus 3> # --- Output Infrastructure & Directory Creation ---
+# --- Output Infrastructure & Directory Creation ---
+@innovus 4> set INNOVUS_DATA_DIR          "${WORK_DIR}/export/Innovus_Dataset INNOVUS_DATA_DIR          "${WORK_DIR}/export/Innovus_Data"
+"
+/home/cc/Documents/Abdullah/RISCV_synthesis/export/Innovus_Data
+@innovus 5> set design(export_dir)        "${INNOVUS_DATA_DIR}/outputs"
+set design(export_dir)        "${INNOVUS_DATA_DIR}/outputs"
+/home/cc/Documents/Abdullah/RISCV_synthesis/export/Innovus_Data/outputs
+@innovus 6> set design(reports_dir)       "${INNOVUS_DATA_DIR}/reports"
+set design(reports_dir)       "${INNOVUS_DATA_DIR}/reports"
+/home/cc/Documents/Abdullah/RISCV_synthesis/export/Innovus_Data/reports
+@innovus 7> 
+
+@innovus 7> file mkdir $INNOVUS_DATA_DIR \
++            ${design(export_dir)}/pnr \
++            ${design(reports_dir)}/verify \
++            ${design(reports_dir)}/signoff \
++            ${design(reports_dir)}/placement \
++            ${design(reports_dir)}/opt \
++            ${design(reports_dir)}/cts \
++            ${design(reports_dir)}/route
+file mkdir $INNOVUS_DATA_DIR \
+           ${design(export_dir)}/pnr \
+           ${design(reports_dir)}/verify \
+           ${design(reports_dir)}/signoff \
+           ${design(reports_dir)}/placement \
+           ${design(reports_dir)}/opt \
+           ${design(reports_dir)}/cts \
+           ${design(reports_dir)}/route
+@innovus 8> 
+
+@innovus 8> # --- Inputs ---
+# --- Inputs ---
+@innovus 9> set design(postsyn_netlist)   "${WORK_DIR}/export/Synthesis_Data/net [1Glists/${design(TOPLEVEL)}_physical_synth.vset design(postsyn_netlist)   "${WORK_DIR}/export/Synthesis_Data/netlists/${design(TOPLEVEL)}_physical_synth.v"
+"
+/home/cc/Documents/Abdullah/RISCV_synthesis/export/Synthesis_Data/netlists/riscv_core_physical_synth.v
+@innovus 10> set design(mmmc_view_file)    "${WORK_DIR}/inputs/mmmc_master.viewset design(mmmc_view_file)    "${WORK_DIR}/inputs/mmmc_master.view"
+" [1G
+/home/cc/Documents/Abdullah/RISCV_synthesis/inputs/mmmc_master.view
+@innovus 11> 
+
+@innovus 11> # Core LEF only (No IO Pads)
+# Core LEF only (No IO Pads)
+@innovus 12> set tech(ALL_LEFS)            [list "${WORK_DIR}/libraries/lef/tcbn [1G65lp_9lmT2.lef"]set tech(ALL_LEFS)            [list "${WORK_DIR}/libraries/lef/tcbn65lp_9lmT2.lef"]
+
+/home/cc/Documents/Abdullah/RISCV_synthesis/libraries/lef/tcbn65lp_9lmT2.lef
+@innovus 13> 
+
+@innovus 13> # --- Cell Library Definitions ---
+# --- Cell Library Definitions ---
+@innovus 14> set tech(STANDARD_CELL_VDD)   "VDD"
+set tech(STANDARD_CELL_VDD)   "VDD"
+VDD
+@innovus 15> set tech(STANDARD_CELL_GND)   "VSS"
+set tech(STANDARD_CELL_GND)   "VSS"
+VSS
+@innovus 16> set tech(ENDCAPS_right)       "DCAP"    
+set tech(ENDCAPS_right)       "DCAP"    
+DCAP
+@innovus 17> set tech(ENDCAPS_left)        "DCAP"
+set tech(ENDCAPS_left)        "DCAP"
+DCAP
+@innovus 18> set tech(TIEHI)               "TIEH"
+set tech(TIEHI)               "TIEH"
+TIEH
+@innovus 19> set tech(TIELO)               "TIEL"set tech(TIELO)               "TIEL"
+
+TIEL
+@innovus 20> set tech(TIE_MAX_FANOUT)      10
+set tech(TIE_MAX_FANOUT)      10
+10
+@innovus 21> set tech(DECAP)               "DCAP64 DCAP32 DCAP16 DCAP8 DCAP4 DCA [1GP"
+set tech(DECAP)               "DCAP64 DCAP32 DCAP16 DCAP8 DCAP4 DCAP"
+DCAP64 DCAP32 DCAP16 DCAP8 DCAP4 DCAP
+@innovus 22> set tech(FILLERS)             "FILL64 FILL32 FILL16 FILL8 FILL4 FIL [1GL2 FILL1"
+set tech(FILLERS)             "FILL64 FILL32 FILL16 FILL8 FILL4 FILL2 FILL1"
+FILL64 FILL32 FILL16 FILL8 FILL4 FILL2 FILL1
+@innovus 23> 
+
+@innovus 23> # --- Global Net Definitions ---
+# --- Global Net Definitions ---
+@innovus 24> set design(digital_gnd)       "VSS"
+set design(digital_gnd)       "VSS"
+VSS
+@innovus 25> set design(digital_vdd)       "VDD"set design(digital_vdd)       "VDD"
+
+VDD
+@innovus 26> set design(all_ground_nets)   $design(digital_gnd)set design(all_ground_nets)   $design(digital_gnd)
+
+VSS
+@innovus 27> set design(all_power_nets)    $design(digital_vdd)
+set design(all_power_nets)    $design(digital_vdd)
+VDD
+@innovus 28> set design(core_ring_nets)    "$design(digital_gnd) $design(digital [1G_vdd)"
+set design(core_ring_nets)    "$design(digital_gnd) $design(digital_vdd)"
+VSS VDD
+@innovus 29> 
+
+@innovus 29> # =================================================================# ==============================================================================
+ [1G=============
+@innovus 30> # 2. TOOL SETTINGS & INITIALIZATION
+# 2. TOOL SETTINGS & INITIALIZATION
+@innovus 31> # ================================================================= [1G=============
+# ==============================================================================
+@innovus 32> puts "INFO: Starting Stage - Initialization"
+puts "INFO: Starting Stage - Initialization"
+INFO: Starting Stage - Initialization
+@innovus 33>
+ 
+@innovus 33> set_library_unit -time 1ns -cap 1pf
+set_library_unit -time 1ns -cap 1pf
+@innovus 34> set_db timing_analysis_type ocv
+set_db timing_analysis_type ocv
+1 ocv
+@innovus 35> set_db timing_analysis_cppr both
+set_db timing_analysis_cppr both
+1 both
+@innovus 36> set_db timing_report_unconstrained_paths true
+set_db timing_report_unconstrained_paths true
+1 true
+@innovus 37>
+ 
+@innovus 37> set_db init_ground_nets $design(all_ground_nets)set_db init_ground_nets $design(all_ground_nets)
+
+1 VSS
+@innovus 38> set_db init_power_nets  $design(all_power_netsset_db init_power_nets  $design(all_power_nets)
+)
+1 VDD
+@innovus 39> 
+
+@innovus 39> read_mmmc $design(mmmc_view_file) read_mmmc $design(mmmc_view_file) 
+
+#@ Begin verbose source (pre): 
+@file 1: # ==============================================================================
+@file 2: # CADENCE MMMC (Multi-Mode Multi-Corner) SETUP FILE
+@file 3: # ==============================================================================
+@file 4:
+@file 5: if {![info exists INCLUDE_DFT]} {
+@file 6: set INCLUDE_DFT "false"
+@file 7: }
+@file 8:
+@file 9: # --- Project Path ---
+@file 10: set WORK_DIR "/home/cc/Documents/Abdullah/RISCV_synthesis"
+@file 11:
+@file 12: # --- SDC Files ---
+@file 13: set SDC_FUNC_FILE "${WORK_DIR}/inputs/riscv_baseline.sdc"
+@file 14: set SDC_TEST_FILE "${WORK_DIR}/inputs/riscv_dft.sdc"
+@file 15:
+@file 16: # --- Libraries ---
+@file 17: set LIB_TC        "${WORK_DIR}/libraries/libs/tcbn65lptc.lib"
+@file 18: set LIB_WC        "${WORK_DIR}/libraries/libs/tcbn65lpwc.lib"
+@file 19: set LIB_BC        "${WORK_DIR}/libraries/libs/tcbn65lpbc.lib"
+@file 20:
+@file 21: # --- Cap Tables ---
+@file 22: set CAPTABLE_TC   "${WORK_DIR}/inputs/mmmc_files/captable/cln65lp_1p09m+alrdl_top2_typical.captable"
+@file 23: set CAPTABLE_WC   "${WORK_DIR}/inputs/mmmc_files/captable/cln65lp_1p09m+alrdl_top2_rcworst.captable"
+@file 24: set CAPTABLE_BC   "${WORK_DIR}/inputs/mmmc_files/captable/cln65lp_1p09m+alrdl_top2_rcbest.captable"
+@file 25:
+@file 26: # ------------------------------------------------------------------------------
+@file 27: # 1. LIBRARY SETS
+@file 28: # ------------------------------------------------------------------------------
+@@file 29: create_library_set -name tc_libset -timing $LIB_TC
+@@file 30: create_library_set -name wc_libset -timing $LIB_WC
+@@file 31: create_library_set -name bc_libset -timing $LIB_BC
+@file 32:
+@file 33: # ------------------------------------------------------------------------------
+@file 34: # 2. TIMING CONDITIONS
+@file 35: # ------------------------------------------------------------------------------
+@@file 36: create_timing_condition -name tc_cond -library_sets {tc_libset}
+@@file 37: create_timing_condition -name wc_cond -library_sets {wc_libset}
+@@file 38: create_timing_condition -name bc_cond -library_sets {bc_libset}
+@file 39:
+@file 40: # ------------------------------------------------------------------------------
+@file 41: # 3. RC CORNERS
+@file 42: # ------------------------------------------------------------------------------
+@@file 43: create_rc_corner -name rc_typical -temperature 25  -cap_table $CAPTABLE_TC
+@@file 44: create_rc_corner -name rc_worst   -temperature 125 -cap_table $CAPTABLE_WC
+@@file 45: create_rc_corner -name rc_best    -temperature -40 -cap_table $CAPTABLE_BC
+@file 46:
+@file 47: # ------------------------------------------------------------------------------
+@file 48: # 4. CONSTRAINT MODES
+@file 49: # ------------------------------------------------------------------------------
+@@file 50: create_constraint_mode -name func_mode -sdc_files $SDC_FUNC_FILE
+@file 51:
+@file 52: if {$INCLUDE_DFT == "true"} {...}
+@file 55:
+@file 56: # ------------------------------------------------------------------------------
+@file 57: # 5. DELAY CORNERS
+@file 58: # ------------------------------------------------------------------------------
+@@file 59: create_delay_corner -name dc_typical -timing_condition {tc_cond} -rc_corner {rc_typical}
+@@file 60: create_delay_corner -name dc_worst   -timing_condition {wc_cond} -rc_corner {rc_worst}
+@@file 61: create_delay_corner -name dc_best    -timing_condition {bc_cond} -rc_corner {rc_best}
+@file 62:
+@file 63: # ------------------------------------------------------------------------------
+@file 64: # 6. ANALYSIS VIEWS
+@file 65: # ------------------------------------------------------------------------------
+@@file 66: create_analysis_view -name view_func_typical -constraint_mode {func_mode} -delay_corner {dc_typical}
+@@file 67: create_analysis_view -name view_func_setup   -constraint_mode {func_mode} -delay_corner {dc_worst}
+@@file 68: create_analysis_view -name view_func_hold    -constraint_mode {func_mode} -delay_corner {dc_best}
+@file 69:
+@file 70: if {$INCLUDE_DFT == "true"} {...}
+@file 75:
+@file 76: # ------------------------------------------------------------------------------
+@file 77: # 7. SET ACTIVE VIEWS
+@file 78: # ------------------------------------------------------------------------------
+@file 79: if {$INCLUDE_DFT == "true"} {...
+@file 85: } else {
+@@file 86: set_analysis_view  -setup   {view_func_setup}  -hold    {view_func_hold}  -leakage {view_func_typical}  -dynamic {view_func_typical}
+@file 87: }
+#@ End verbose source: /home/cc/Documents/Abdullah/RISCV_synthesis/inputs/mmmc_master.view
+Reading wc_libset timing library '/home/cc/Documents/Abdullah/RISCV_synthesis/libraries/libs/tcbn65lpwc.lib' ...
+**WARN: (TECHLIB-302):	No function defined for cell 'OD25DCAP64'. The cell will only be used for analysis. (File /home/cc/Documents/Abdullah/RISCV_synthesis/libraries/libs/tcbn65lpwc.lib)
+**WARN: (TECHLIB-302):	No function defined for cell 'OD25DCAP32'. The cell will only be used for analysis. (File /home/cc/Documents/Abdullah/RISCV_synthesis/libraries/libs/tcbn65lpwc.lib)
+**WARN: (TECHLIB-302):	No function defined for cell 'OD25DCAP16'. The cell will only be used for analysis. (File /home/cc/Documents/Abdullah/RISCV_synthesis/libraries/libs/tcbn65lpwc.lib)
+**WARN: (TECHLIB-302):	No function defined for cell 'DCAP8'. The cell will only be used for analysis. (File /home/cc/Documents/Abdullah/RISCV_synthesis/libraries/libs/tcbn65lpwc.lib)
+**WARN: (TECHLIB-302):	No function defined for cell 'DCAP64'. The cell will only be used for analysis. (File /home/cc/Documents/Abdullah/RISCV_synthesis/libraries/libs/tcbn65lpwc.lib)
+**WARN: (TECHLIB-302):	No function defined for cell 'DCAP4'. The cell will only be used for analysis. (File /home/cc/Documents/Abdullah/RISCV_synthesis/libraries/libs/tcbn65lpwc.lib)
+**WARN: (TECHLIB-302):	No function defined for cell 'DCAP32'. The cell will only be used for analysis. (File /home/cc/Documents/Abdullah/RISCV_synthesis/libraries/libs/tcbn65lpwc.lib)
+**WARN: (TECHLIB-302):	No function defined for cell 'DCAP16'. The cell will only be used for analysis. (File /home/cc/Documents/Abdullah/RISCV_synthesis/libraries/libs/tcbn65lpwc.lib)
+**WARN: (TECHLIB-302):	No function defined for cell 'DCAP'. The cell will only be used for analysis. (File /home/cc/Documents/Abdullah/RISCV_synthesis/libraries/libs/tcbn65lpwc.lib)
+**WARN: (TECHLIB-302):	No function defined for cell 'ANTENNA'. The cell will only be used for analysis. (File /home/cc/Documents/Abdullah/RISCV_synthesis/libraries/libs/tcbn65lpwc.lib)
+Read 816 cells in library 'tcbn65lpwc' 
+Reading bc_libset timing library '/home/cc/Documents/Abdullah/RISCV_synthesis/libraries/libs/tcbn65lpbc.lib' ...
+**WARN: (TECHLIB-302):	No function defined for cell 'OD25DCAP64'. The cell will only be used for analysis. (File /home/cc/Documents/Abdullah/RISCV_synthesis/libraries/libs/tcbn65lpbc.lib)
+**WARN: (TECHLIB-302):	No function defined for cell 'OD25DCAP32'. The cell will only be used for analysis. (File /home/cc/Documents/Abdullah/RISCV_synthesis/libraries/libs/tcbn65lpbc.lib)
+**WARN: (TECHLIB-302):	No function defined for cell 'OD25DCAP16'. The cell will only be used for analysis. (File /home/cc/Documents/Abdullah/RISCV_synthesis/libraries/libs/tcbn65lpbc.lib)
+**WARN: (TECHLIB-302):	No function defined for cell 'DCAP8'. The cell will only be used for analysis. (File /home/cc/Documents/Abdullah/RISCV_synthesis/libraries/libs/tcbn65lpbc.lib)
+**WARN: (TECHLIB-302):	No function defined for cell 'DCAP64'. The cell will only be used for analysis. (File /home/cc/Documents/Abdullah/RISCV_synthesis/libraries/libs/tcbn65lpbc.lib)
+**WARN: (TECHLIB-302):	No function defined for cell 'DCAP4'. The cell will only be used for analysis. (File /home/cc/Documents/Abdullah/RISCV_synthesis/libraries/libs/tcbn65lpbc.lib)
+**WARN: (TECHLIB-302):	No function defined for cell 'DCAP32'. The cell will only be used for analysis. (File /home/cc/Documents/Abdullah/RISCV_synthesis/libraries/libs/tcbn65lpbc.lib)
+**WARN: (TECHLIB-302):	No function defined for cell 'DCAP16'. The cell will only be used for analysis. (File /home/cc/Documents/Abdullah/RISCV_synthesis/libraries/libs/tcbn65lpbc.lib)
+**WARN: (TECHLIB-302):	No function defined for cell 'DCAP'. The cell will only be used for analysis. (File /home/cc/Documents/Abdullah/RISCV_synthesis/libraries/libs/tcbn65lpbc.lib)
+**WARN: (TECHLIB-302):	No function defined for cell 'ANTENNA'. The cell will only be used for analysis. (File /home/cc/Documents/Abdullah/RISCV_synthesis/libraries/libs/tcbn65lpbc.lib)
+Read 816 cells in library 'tcbn65lpbc' 
+timing_initialized
+@innovus 40> read_physical -lef $tech(ALL_LEFS)
+read_physical -lef $tech(ALL_LEFS)
+
+Loading LEF file /home/cc/Documents/Abdullah/RISCV_synthesis/libraries/lef/tcbn65lp_9lmT2.lef ...
+Set DBUPerIGU to M2 pitch 400.
+**WARN: (IMPLF-200):	Pin 'I' in macro 'ANTENNA' has no ANTENNAGATEAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+Type 'man IMPLF-200' for more detail.
+
+##  Check design process and node:  
+##  Both design process and tech node are not set.
+
+0
+@innovus 41> read_netlist $design(postsyn_netlist)
+read_netlist $design(postsyn_netlist)
+#% Begin Load netlist data ... (date=08/12 07:27:51, mem=1095.6M)
+*** Begin netlist parsing (mem=1186.3M) ***
+Created 816 new cells from 2 timing libraries.
+Reading netlist ...
+Backslashed names will retain backslash and a trailing blank character.
+Reading verilog netlist '/home/cc/Documents/Abdullah/RISCV_synthesis/export/Synthesis_Data/netlists/riscv_core_physical_synth.v'
+
+*** Memory Usage v#1 (Current mem = 1186.258M, initial mem = 494.957M) ***
+*** End netlist parsing (cpu=0:00:00.0, real=0:00:00.0, mem=1186.3M) ***
+#% End Load netlist data ... (date=08/12 07:27:51, total cpu=0:00:00.0, real=0:00:00.0, peak res=1180.3M, current mem=1180.3M)
+Top level cell is riscv_core.
+Hooked 1632 DB cells to tlib cells.
+Starting recursive module instantiation check.
+No recursion found.
+Building hierarchical netlist for Cell riscv_core ...
+*** Netlist is unique.
+** info: there are 1672 modules.
+** info: there are 8954 stdCell insts.
+
+*** Memory Usage v#1 (Current mem = 1269.672M, initial mem = 494.957M) ***
+0
+@innovus 42> 
+
+@innovus 42> init_design
+init_design
+**WARN: (IMPFP-3961):	The techSite 'dcore' has no related standard cells in the LEF/OA library. The calculations for this site type cannot be made unless standard cell models of this type exist in the LEF/OA library. Ignore this warning if the SITE is not used by the library. Alternatively, remove the SITE definition for the LEF/OA library to avoid this message.
+Type 'man IMPFP-3961' for more detail.
+**WARN: (IMPFP-3961):	The techSite 'ccore' has no related standard cells in the LEF/OA library. The calculations for this site type cannot be made unless standard cell models of this type exist in the LEF/OA library. Ignore this warning if the SITE is not used by the library. Alternatively, remove the SITE definition for the LEF/OA library to avoid this message.
+Type 'man IMPFP-3961' for more detail.
+Start create_tracks
+Extraction setup Started 
+Initializing multi-corner RC extraction with 3 active RC Corners ...
+Reading Capacitance Table File /home/cc/Documents/Abdullah/RISCV_synthesis/inputs/mmmc_files/captable/cln65lp_1p09m+alrdl_top2_rcworst.captable ...
+Reading Capacitance Table File /home/cc/Documents/Abdullah/RISCV_synthesis/inputs/mmmc_files/captable/cln65lp_1p09m+alrdl_top2_typical.captable ...
+Reading Capacitance Table File /home/cc/Documents/Abdullah/RISCV_synthesis/inputs/mmmc_files/captable/cln65lp_1p09m+alrdl_top2_rcbest.captable ...
+Importing multi-corner RC tables ... 
+Summary of Active RC-Corners : 
+ 
+ Analysis View: view_func_setup
+    RC-Corner Name        : rc_worst
+    RC-Corner Index       : 0
+    RC-Corner Temperature : 125 Celsius
+    RC-Corner Cap Table   : '/home/cc/Documents/Abdullah/RISCV_synthesis/inputs/mmmc_files/captable/cln65lp_1p09m+alrdl_top2_rcworst.captable'
+    RC-Corner PreRoute Res Factor         : 1
+    RC-Corner PreRoute Cap Factor         : 1
+    RC-Corner PostRoute Res Factor        : 1 {1 1 1}
+    RC-Corner PostRoute Cap Factor        : 1 {1 1 1}
+    RC-Corner PostRoute XCap Factor       : 1 {1 1 1}
+    RC-Corner PreRoute Clock Res Factor   : 1	[Derived from postRoute_res (effortLevel low)]
+    RC-Corner PreRoute Clock Cap Factor   : 1	[Derived from postRoute_cap (effortLevel low)]
+    RC-Corner PostRoute Clock Cap Factor  : 1 {1 1 1} 	[Derived from postRoute_cap (effortLevel low)]
+    RC-Corner PostRoute Clock Res Factor  : 1 {1 1 1} 	[Derived from postRoute_res (effortLevel low)]
+    RC-Corner PostRoute Clock coupling capacitance Factor : 1 {1 1 1} 
+ 
+ Analysis View: view_func_typical
+    RC-Corner Name        : rc_typical
+    RC-Corner Index       : 1
+    RC-Corner Temperature : 25 Celsius
+    RC-Corner Cap Table   : '/home/cc/Documents/Abdullah/RISCV_synthesis/inputs/mmmc_files/captable/cln65lp_1p09m+alrdl_top2_typical.captable'
+    RC-Corner PreRoute Res Factor         : 1
+    RC-Corner PreRoute Cap Factor         : 1
+    RC-Corner PostRoute Res Factor        : 1 {1 1 1}
+    RC-Corner PostRoute Cap Factor        : 1 {1 1 1}
+    RC-Corner PostRoute XCap Factor       : 1 {1 1 1}
+    RC-Corner PreRoute Clock Res Factor   : 1	[Derived from postRoute_res (effortLevel low)]
+    RC-Corner PreRoute Clock Cap Factor   : 1	[Derived from postRoute_cap (effortLevel low)]
+    RC-Corner PostRoute Clock Cap Factor  : 1 {1 1 1} 	[Derived from postRoute_cap (effortLevel low)]
+    RC-Corner PostRoute Clock Res Factor  : 1 {1 1 1} 	[Derived from postRoute_res (effortLevel low)]
+    RC-Corner PostRoute Clock coupling capacitance Factor : 1 {1 1 1} 
+ 
+ Analysis View: view_func_hold
+    RC-Corner Name        : rc_best
+    RC-Corner Index       : 2
+    RC-Corner Temperature : -40 Celsius
+    RC-Corner Cap Table   : '/home/cc/Documents/Abdullah/RISCV_synthesis/inputs/mmmc_files/captable/cln65lp_1p09m+alrdl_top2_rcbest.captable'
+    RC-Corner PreRoute Res Factor         : 1
+    RC-Corner PreRoute Cap Factor         : 1
+    RC-Corner PostRoute Res Factor        : 1 {1 1 1}
+    RC-Corner PostRoute Cap Factor        : 1 {1 1 1}
+    RC-Corner PostRoute XCap Factor       : 1 {1 1 1}
+    RC-Corner PreRoute Clock Res Factor   : 1	[Derived from postRoute_res (effortLevel low)]
+    RC-Corner PreRoute Clock Cap Factor   : 1	[Derived from postRoute_cap (effortLevel low)]
+    RC-Corner PostRoute Clock Cap Factor  : 1 {1 1 1} 	[Derived from postRoute_cap (effortLevel low)]
+    RC-Corner PostRoute Clock Res Factor  : 1 {1 1 1} 	[Derived from postRoute_res (effortLevel low)]
+    RC-Corner PostRoute Clock coupling capacitance Factor : 1 {1 1 1} 
+Updating RC grid for preRoute extraction ...
+Initializing multi-corner capacitance tables ... 
+Initializing multi-corner resistance tables ...
+*Info: initialize multi-corner CTS.
+Reading tc_libset timing library '/home/cc/Documents/Abdullah/RISCV_synthesis/libraries/libs/tcbn65lptc.lib' ...
+Message <TECHLIB-302> has exceeded the message display limit of '20'. Use 'set_message -no_limit -id list_of_msgIDs' to reset the message limit.
+Read 816 cells in library 'tcbn65lptc' 
+Reading timing constraints file '/home/cc/Documents/Abdullah/RISCV_synthesis/inputs/riscv_baseline.sdc' ...
+Current (total cpu=0:00:16.0, real=0:00:22.0, peak res=1618.7M, current mem=1618.7M)
+**WARN: (TCLNL-330):	set_input_delay on clock root 'clk' is not supported. You should use the -source option to set_clock_latency to provide this offset. You can also use the global timing_allow_input_delay_on_clock_source to allow set_input_delay assertion to have an effect on clock source paths beginning at this clock root. (File /home/cc/Documents/Abdullah/RISCV_synthesis/inputs/riscv_baseline.sdc, Line 53).
+
+INFO (CTE): Reading of timing constraints file /home/cc/Documents/Abdullah/RISCV_synthesis/inputs/riscv_baseline.sdc completed, with 1 WARNING
+Ending "Constraint file reading stats" (total cpu=0:00:00.0, real=0:00:00.0, peak res=1639.1M, current mem=1639.1M)
+Current (total cpu=0:00:16.1, real=0:00:22.0, peak res=1639.1M, current mem=1639.1M)
+Total number of combinational cells: 483
+Total number of sequential cells: 303
+Total number of tristate cells: 11
+Total number of level shifter cells: 0
+Total number of power gating cells: 0
+Total number of isolation cells: 0
+Total number of power switch cells: 0
+Total number of pulse generator cells: 0
+Total number of always on buffers: 0
+Total number of retention cells: 0
+Total number of physical cells: 19
+List of usable buffers: BUFFD1 BUFFD0 BUFFD2 BUFFD12 BUFFD16 BUFFD3 BUFFD4 BUFFD6 BUFFD8 CKBD1 CKBD0 CKBD2 CKBD12 CKBD16 CKBD3 CKBD4 CKBD6 CKBD8
+Total number of usable buffers: 18
+List of unusable buffers: BUFFD20 BUFFD24 CKBD20 CKBD24 GBUFFD1 GBUFFD3 GBUFFD2 GBUFFD4 GBUFFD8
+Total number of unusable buffers: 9
+List of usable inverters: CKND1 CKND0 CKND2 CKND12 CKND16 CKND3 CKND4 CKND6 CKND8 INVD1 INVD0 INVD2 INVD12 INVD16 INVD3 INVD4 INVD6 INVD8
+Total number of usable inverters: 18
+List of unusable inverters: CKND20 CKND24 GINVD2 GINVD1 GINVD4 GINVD3 GINVD8 INVD20 INVD24
+Total number of unusable inverters: 9
+List of identified usable delay cells: DEL0 DEL005 DEL01 DEL015 DEL02 DEL1 DEL2 DEL3 DEL4
+Total number of identified usable delay cells: 9
+List of identified unusable delay cells:
+Total number of identified unusable delay cells: 0
+
+@innovus 43> 
+@innovus 43> connect_global_net $design(digital_gnd) -pin $tech(STANDARD_CELL_GN [1GD) -all -verbose
+connect_global_net $design(digital_gnd) -pin $tech(STANDARD_CELL_GND) -all -verbose
+8954 new gnd-pin connections were made to global net 'VSS'.
+@innovus 44> connect_global_net $design(digital_vdd) -pin $tech(STANDARD_CELL_VD [1GD) -all -verbose
+connect_global_net $design(digital_vdd) -pin $tech(STANDARD_CELL_VDD) -all -verbose
+8954 new pwr-pin connections were made to global net 'VDD'.
+@innovus 45> connect_global_net $design(digital_vdd) -type tiehi -all -verbose
+connect_global_net $design(digital_vdd) -type tiehi -all -verbose
+@innovus 46> connect_global_net $design(digital_gnd) -type tielo -all -verbose
+connect_global_net $design(digital_gnd) -type tielo -all -verbose
+@innovus 47> 
+
+@innovus 47> # ================================================================= [1G============# ==============================================================================
+=
+@innovus 48> # 3. FLOORPLANNING & PIN PLACEMENT
+# 3. FLOORPLANNING & PIN PLACEMENT
+@innovus 49> # ================================================================= [1G=============
+# ==============================================================================
+@innovus 50> puts "INFO: Starting Stage - Floorplanning"
+puts "INFO: Starting Stage - Floorplanning"
+INFO: Starting Stage - Floorplanning
+@innovus 51> 
+
+@innovus 51> # Calculate margins relative to the DIE since there are no IO pads
+# Calculate margins relative to the DIE since there are no IO pads
+@innovus 52> create_floorplan -core_size {350.0 350.0 20.0 20.0 20.0 20.0} \
++                  -core_margins_by die \
++                  -floorplan_origin center \
++                  -site core \
++                  -match_to_site \
++                  -flip create_floorplan -core_size {350.0 350.0 20.0 20.0 20.0 20.0} \
+                 -core_margins_by die \
+                 -floorplan_origin center \
+                 -site core \
+                 -match_to_site \
+                 -flip s
+s
+**WARN: (IMPFP-3961):	The techSite 'dcore' has no related standard cells in the LEF/OA library. The calculations for this site type cannot be made unless standard cell models of this type exist in the LEF/OA library. Ignore this warning if the SITE is not used by the library. Alternatively, remove the SITE definition for the LEF/OA library to avoid this message.
+Type 'man IMPFP-3961' for more detail.
+**WARN: (IMPFP-3961):	The techSite 'ccore' has no related standard cells in the LEF/OA library. The calculations for this site type cannot be made unless standard cell models of this type exist in the LEF/OA library. Ignore this warning if the SITE is not used by the library. Alternatively, remove the SITE definition for the LEF/OA library to avoid this message.
+Type 'man IMPFP-3961' for more detail.
+Start create_tracks
+**WARN: (IMPFP-325):	Floorplan of the design is resized. All current create_floorplan objects are automatically derived based on specified new create_floorplan. This may change blocks, fixed standard cells, existing routes and blockages.
+@innovus 53> 
+
+@innovus 53> # Automatically distribute pins around the die boundary
+# Automatically distribute pins around the die boundary
+@innovus 54> edit_pin -fixed_pin -assign { * } \
++          -pin_spacing 2 \
++          -layer M3 \
++          -spread_type center \
++          -spread_direction clockwise \
++          -edge { top bottom left right }
+edit_pin -fixed_pin -assign { * } \
+         -pin_spacing 2 \
+         -layer M3 \
+         -spread_type center \
+         -spread_direction clockwise \
+         -edge { top bottom left right }
+
+Usage: edit_pin [-help] [-end {x y}] [-fixed_pin] [-global_location]
+                [-include_rectilinear_edge] [-master_clone_aware]
+                [-offset_end <float>] [-offset_start <float>]
+                -pin {pinName | pinNameList} [-pin_depth <float>]
+                [-pin_width <float>] [-quiet] [-skip_wrapping_pins]
+                [-snap {track usergrid mgrid}]
+                [-spread_direction {clockwise counterclockwise both}]
+                [-start { x y}] [-use <string>] [ { -layer {layerId | layerIdList} | {[-layer_horizontal <layerId>] [-layer_vertical <layerId>]} } [-layer_priority ] [-assign {x y} | -pattern {fill_track fill_layer fill_optimised fill_diagonal fill_sinusoidal fill_checkerboard}]] [ -side <string> | -edge <integer> ] [ -cell <string> | {-hinst <hinstName> [-ref_master ]} ] [ -fix_overlap  [ -honor_constraint  ]] [ -pattern {fill_track fill_layer fill_optimised fill_diagonal fill_sinusoidal fill_checkerboard} [ -reverse_alternate  ]] [ -spacing <string> [ -unit {micron track} ]] [ -assign {x y} | -spread_type {start center side edge range} | -pattern {fill_track fill_layer fill_optimised fill_diagonal fill_sinusoidal fill_checkerboard}]
+
+**ERROR: (IMPTCM-48):	"-pin_spacing" is not a legal option for command "edit_pin". Either the current option or an option prior to it is not specified correctly.
+
+
+@innovus 55> exit
+
+
+*** Memory Usage v#1 (Current mem = 1676.922M, initial mem = 494.957M) ***
+*** Message Summary: 37 warning(s), 1 error(s)
+
+--- Ending "Innovus" (totcpu=0:00:18.2, real=0:01:38, mem=1676.9M) ---

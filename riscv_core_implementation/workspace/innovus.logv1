@@ -1,0 +1,567 @@
+[08/12 07:17:52      0s] 
+[08/12 07:17:52      0s] Cadence Innovus(TM) Implementation System.
+[08/12 07:17:52      0s] Copyright 2021 Cadence Design Systems, Inc. All rights reserved worldwide.
+[08/12 07:17:52      0s] 
+[08/12 07:17:52      0s] Version:	v21.18-s099_1, built Tue Jul 18 13:03:50 PDT 2023
+[08/12 07:17:52      0s] Options:	-stylus 
+[08/12 07:17:52      0s] Date:		Wed Aug 12 07:17:52 2026
+[08/12 07:17:52      0s] Host:		ncdc-0137 (x86_64 w/Linux 7.1.4-1.el8.elrepo.x86_64) (16cores*24cpus*13th Gen Intel(R) Core(TM) i7-13700 30720KB)
+[08/12 07:17:52      0s] OS:		Red Hat Enterprise Linux 8.6 (Ootpa)
+[08/12 07:17:52      0s] 
+[08/12 07:17:52      0s] License:
+[08/12 07:17:52      0s] 		[07:17:52.301489] Configured Lic search path (21.01-s002): 5280@10.19.32.90
+[08/12 07:17:52      0s] 
+[08/12 07:17:52      0s] 		invs	Innovus Implementation System	21.1	checkout succeeded
+[08/12 07:17:52      0s] 		8 CPU jobs allowed with the current license(s). Use set_multi_cpu_usage to set your required CPU count.
+[08/12 07:17:57      4s] 
+[08/12 07:17:57      4s] 
+[08/12 07:17:59      6s] Reset Parastics called with the command setExtractRCMode -reset@(#)CDS: Innovus v21.18-s099_1 (64bit) 07/18/2023 13:03 (Linux 3.10.0-693.el7.x86_64)
+[08/12 07:18:00      7s] @(#)CDS: NanoRoute 21.18-s099_1 NR230707-1955/21_18-UB (database version 18.20.605) {superthreading v2.17}
+[08/12 07:18:00      7s] @(#)CDS: AAE 21.18-s017 (64bit) 07/18/2023 (Linux 3.10.0-693.el7.x86_64)
+[08/12 07:18:00      7s] @(#)CDS: CTE 21.18-s022_1 () Jul 11 2023 23:10:24 ( )
+[08/12 07:18:00      7s] @(#)CDS: SYNTECH 21.18-s010_1 () Jul  5 2023 06:32:03 ( )
+[08/12 07:18:00      7s] @(#)CDS: CPE v21.18-s053
+[08/12 07:18:00      7s] @(#)CDS: IQuantus/TQuantus 21.1.1-s966 (64bit) Wed Mar 8 10:22:20 PST 2023 (Linux 3.10.0-693.el7.x86_64)
+[08/12 07:18:00      7s] @(#)CDS: OA 22.60-p087 Thu Feb  9 09:35:26 2023
+[08/12 07:18:00      7s] @(#)CDS: SGN 20.10-d001 (01-Jun-2020) (64 bit executable, Qt5.9.0)
+[08/12 07:18:00      7s] @(#)CDS: RCDB 11.15.0
+[08/12 07:18:00      7s] @(#)CDS: STYLUS 21.12-s019_1 (12/20/2022 05:13 PST)
+[08/12 07:18:00      7s] @(#)CDS: SystemPlanner-21.18-10439 (21.18) (2023-03-01 15:40:03+0800)
+[08/12 07:18:00      7s] Create and set the environment variable TMPDIR to /tmp/innovus_temp_50735_ncdc-0137_cc_pVIgOS.
+
+[08/12 07:18:00      7s] Create and set the environment variable TMPDIR to /tmp/innovus_temp_50735_ncdc-0137_cc_pVIgOS.
+[08/12 07:18:00      7s] 
+[08/12 07:18:00      7s] Change the soft stacksize limit to 0.2%RAM (127 mbytes). Set global soft_stack_size_limit to change the value.
+[08/12 07:18:01      7s] [INFO] Loading Pegasus 23.13 fill procedures
+[08/12 07:18:02      8s] 
+[08/12 07:18:02      8s] **INFO:  MMMC transition support version v31-84 
+[08/12 07:18:02      8s] 
+[08/12 07:18:03     10s] @innovus 1> set WORK_DIR                  "/home/cc/Documents/Abdullah/RISCV_synthesis"
+set WORK_DIR                  "/home/cc/Documents/Abdullah/RISCV_syn [1Gthesis"
+[08/12 07:18:22     10s] /home/cc/Documents/Abdullah/RISCV_synthesis
+[08/12 07:18:22     10s] @innovus 2> set design(TOPLEVEL)          "riscv_core"
+set design(TOPLEVEL)          "riscv_core"
+[08/12 07:18:22     10s] riscv_core
+[08/12 07:18:22     10s] @innovus 3> 
+
+[08/12 07:18:22     10s] @innovus 3> # --- Output Infrastructure & Directory Creation ---
+# --- Output Infrastructure & Directory Creation ---
+[08/12 07:18:22     10s] @innovus 4> set INNOVUS_DATA_DIR          "${WORK_DIR}/export/Innovus_Data"
+set INNOVUS_DATA_DIR          "${WORK_DIR}/export/Innovus_Data"
+[08/12 07:18:22     10s] /home/cc/Documents/Abdullah/RISCV_synthesis/export/Innovus_Data
+[08/12 07:18:22     10s] @innovus 5> set design(export_dir)        "${INNOVUS_DATA_DIR}/outputs"
+set design(export_dir)        "${INNOVUS_DATA_DIR}/outputs"
+[08/12 07:18:22     10s] /home/cc/Documents/Abdullah/RISCV_synthesis/export/Innovus_Data/outputs
+set design(reports_dir)       "${INNOVUS_DATA_DIR}/reports"
+[08/12 07:18:22     10s] @innovus 6> set design(reports_dir)       "${INNOVUS_DATA_DIR}/reports"
+[08/12 07:18:22     10s] /home/cc/Documents/Abdullah/RISCV_synthesis/export/Innovus_Data/reports
+[08/12 07:18:22     10s] @innovus 7> 
+
+[08/12 07:18:22     10s] @innovus 7> file mkdir $INNOVUS_DATA_DIR \
+[08/12 07:18:22     10s] +            ${design(export_dir)}/pnr \
+[08/12 07:18:22     10s] +            ${design(reports_dir)}/verify \
+[08/12 07:18:22     10s] +            ${design(reports_dir)}/signoff \
+[08/12 07:18:22     10s] +            ${design(reports_dir)}/placement \
+[08/12 07:18:22     10s] +            ${design(reports_dir)}/opt \
+[08/12 07:18:22     10s] +            ${design(reports_dir)}/cts \
+[08/12 07:18:22     10s] +            ${design(reports_dir)}/routfile mkdir $INNOVUS_DATA_DIR \
+           ${design(export_dir)}/pnr \
+           ${design(reports_dir)}/verify \
+           ${design(reports_dir)}/signoff \
+           ${design(reports_dir)}/placement \
+           ${design(reports_dir)}/opt \
+           ${design(reports_dir)}/cts \
+           ${design(reports_dir)}/route
+e
+[08/12 07:18:22     10s] @innovus 8>
+ 
+[08/12 07:18:22     10s] @innovus 8> # --- Inputs ---# --- Inputs ---
+
+[08/12 07:18:22     10s] @innovus 9> set design(postsyn_netlist)   "${WORK_DIR}/export/Synthesis_Data/net [1Glists/${design(TOPLEVEL)}_physical_synth.v"
+set design(postsyn_netlist)   "${WORK_DIR}/export/Synthesis_Data/netlists/${design(TOPLEVEL)}_physical_synth.v"
+[08/12 07:18:22     10s] /home/cc/Documents/Abdullah/RISCV_synthesis/export/Synthesis_Data/netlists/riscv_core_physical_synth.v
+[08/12 07:18:22     10s] @innovus 10> set design(mmmc_view_file)    "${WORK_DIR}/inputs/mmmc_master.view"set design(mmmc_view_file)    "${WORK_DIR}/inputs/mmmc_master.view"
+ [1G
+[08/12 07:18:22     10s] /home/cc/Documents/Abdullah/RISCV_synthesis/inputs/mmmc_master.view
+[08/12 07:18:22     10s] @innovus 11> 
+
+[08/12 07:18:22     10s] @innovus 11> # Core LEF only (No IO Pads)
+# Core LEF only (No IO Pads)
+[08/12 07:18:22     10s] @innovus 12> set tech(ALL_LEFS)            [list "${WORK_DIR}/libraries/lef/tcbn [1G65lp_9lmT2.lef"]
+set tech(ALL_LEFS)            [list "${WORK_DIR}/libraries/lef/tcbn65lp_9lmT2.lef"]
+[08/12 07:18:22     10s] /home/cc/Documents/Abdullah/RISCV_synthesis/libraries/lef/tcbn65lp_9lmT2.lef
+[08/12 07:18:22     10s] @innovus 13> 
+
+[08/12 07:18:22     10s] @innovus 13> # --- Cell Library Definitions ---
+# --- Cell Library Definitions ---
+[08/12 07:18:22     10s] @innovus 14> set tech(STANDARD_CELL_VDD)   "VDD"
+set tech(STANDARD_CELL_VDD)   "VDD"
+[08/12 07:18:22     10s] VDD
+[08/12 07:18:22     10s] @innovus 15> set tech(STANDARD_CELL_GND)   "VSS"
+set tech(STANDARD_CELL_GND)   "VSS"
+[08/12 07:18:22     10s] VSS
+[08/12 07:18:22     10s] @innovus 16> set tech(ENDCAPS_right)       "DCAP"    
+set tech(ENDCAPS_right)       "DCAP"    
+[08/12 07:18:22     10s] DCAP
+[08/12 07:18:22     10s] @innovus 17> set tech(ENDCAPS_left)        "DCAP"
+set tech(ENDCAPS_left)        "DCAP"
+[08/12 07:18:22     10s] DCAP
+[08/12 07:18:22     10s] @innovus 18> set tech(TIEHI)               "TIEH"
+set tech(TIEHI)               "TIEH"
+[08/12 07:18:22     10s] TIEH
+[08/12 07:18:22     10s] @innovus 19> set tech(TIELO)               "TIEL"
+set tech(TIELO)               "TIEL"
+[08/12 07:18:22     10s] TIEL
+[08/12 07:18:22     10s] @innovus 20> set tech(TIE_MAX_FANOUT)      10
+set tech(TIE_MAX_FANOUT)      10
+[08/12 07:18:22     10s] 10
+[08/12 07:18:22     10s] @innovus 21> set tech(DECAP)               "DCAP64 DCAP32 DCAP16 DCAP8 DCAP4 DCA [1GP"
+set tech(DECAP)               "DCAP64 DCAP32 DCAP16 DCAP8 DCAP4 DCAP"
+[08/12 07:18:22     10s] DCAP64 DCAP32 DCAP16 DCAP8 DCAP4 DCAP
+[08/12 07:18:22     10s] @innovus 22> set tech(FILLERS)             "FILL64 FILL32 FILL16 FILL8 FILL4 FILset tech(FILLERS)             "FILL64 FILL32 FILL16 FILL8 FILL4 FILL2 FILL1"
+ [1GL2 FILL1"
+[08/12 07:18:22     10s] FILL64 FILL32 FILL16 FILL8 FILL4 FILL2 FILL1
+[08/12 07:18:22     10s] @innovus 23> 
+
+[08/12 07:18:22     10s] @innovus 23> # --- Global Net Definitions ---
+# --- Global Net Definitions ---
+[08/12 07:18:22     10s] @innovus 24> set design(digital_gnd)       "VSS"
+set design(digital_gnd)       "VSS"
+[08/12 07:18:22     10s] VSS
+[08/12 07:18:22     10s] @innovus 25> set design(digital_vdd)       "VDD"
+set design(digital_vdd)       "VDD"
+[08/12 07:18:22     10s] VDD
+[08/12 07:18:22     10s] @innovus 26> set design(all_ground_nets)   $design(digital_gnd)set design(all_ground_nets)   $design(digital_gnd)
+
+[08/12 07:18:22     10s] VSS
+[08/12 07:18:22     10s] @innovus 27> set design(all_power_nets)    $design(digital_vdd)set design(all_power_nets)    $design(digital_vdd)
+
+[08/12 07:18:22     10s] VDD
+[08/12 07:18:22     10s] @innovus 28> set design(core_ring_nets)    "$design(digital_gnd) $design(digital [1G_vdd)"
+set design(core_ring_nets)    "$design(digital_gnd) $design(digital_vdd)"
+[08/12 07:18:22     10s] VSS VDD
+[08/12 07:18:22     10s] @innovus 29> 
+
+[08/12 07:18:22     10s] @innovus 29> # ================================================================= [1G=============
+# ==============================================================================
+[08/12 07:18:22     10s] @innovus 30> # 2. TOOL SETTINGS & INITIALIZATION
+# 2. TOOL SETTINGS & INITIALIZATION
+[08/12 07:18:22     10s] @innovus 31> # ================================================================= [1G=============
+# ==============================================================================
+[08/12 07:18:22     10s] @innovus 32> puts "INFO: Starting Stage - Initialization"
+puts "INFO: Starting Stage - Initialization"
+[08/12 07:18:22     10s] INFO: Starting Stage - Initialization
+[08/12 07:18:22     10s] @innovus 33> 
+
+[08/12 07:18:22     10s] @innovus 33> set_library_unit -time 1ns -cap 1pf
+set_library_unit -time 1ns -cap 1pf
+[08/12 07:18:22     10s] @innovus 34> set_db timing_analysis_type ocv
+set_db timing_analysis_type ocv
+[08/12 07:18:22     10s] 1 ocv
+[08/12 07:18:22     10s] @innovus 35> set_db timing_analysis_cppr both
+set_db timing_analysis_cppr both
+[08/12 07:18:22     10s] 1 both
+[08/12 07:18:22     10s] @innovus 36> set_db timing_report_unconstrained_paths truset_db timing_report_unconstrained_paths true
+e
+[08/12 07:18:22     10s] 1 true
+[08/12 07:18:22     10s] @innovus 37> 
+
+[08/12 07:18:22     10s] @innovus 37> set_db init_ground_nets $design(all_ground_nets)
+set_db init_ground_nets $design(all_ground_nets)
+[08/12 07:18:22     10s] 1 VSS
+[08/12 07:18:22     10s] @innovus 38> set_db init_power_nets  $design(all_power_nets)
+set_db init_power_nets  $design(all_power_nets)
+[08/12 07:18:22     10s] 1 VDD
+[08/12 07:18:22     10s] @innovus 39> 
+
+[08/12 07:18:22     10s] @innovus 39> read_mmmc $design(mmmc_view_file) 
+read_mmmc $design(mmmc_view_file) 
+[08/12 07:18:22     10s] #@ Begin verbose source (pre): 
+[08/12 07:18:22     10s] @file 1: # ==============================================================================
+[08/12 07:18:22     10s] @file 2: # CADENCE MMMC (Multi-Mode Multi-Corner) SETUP FILE
+[08/12 07:18:22     10s] @file 3: # ==============================================================================
+[08/12 07:18:22     10s] @file 4:
+[08/12 07:18:22     10s] @file 5: if {![info exists INCLUDE_DFT]} {
+[08/12 07:18:22     10s] @file 6: set INCLUDE_DFT "false"
+[08/12 07:18:22     10s] @file 7: }
+[08/12 07:18:22     10s] @file 8:
+[08/12 07:18:22     10s] @file 9: # --- Project Path ---
+[08/12 07:18:22     10s] @file 10: set WORK_DIR "/home/cc/Documents/Abdullah/RISCV_synthesis"
+[08/12 07:18:22     10s] @file 11:
+[08/12 07:18:22     10s] @file 12: # --- SDC Files ---
+[08/12 07:18:22     10s] @file 13: set SDC_FUNC_FILE "${WORK_DIR}/inputs/riscv_baseline.sdc"
+[08/12 07:18:22     10s] @file 14: set SDC_TEST_FILE "${WORK_DIR}/inputs/riscv_dft.sdc"
+[08/12 07:18:22     10s] @file 15:
+[08/12 07:18:22     10s] @file 16: # --- Libraries ---
+[08/12 07:18:22     10s] @file 17: set LIB_TC        "${WORK_DIR}/libraries/libs/tcbn65lptc.lib"
+[08/12 07:18:22     10s] @file 18: set LIB_WC        "${WORK_DIR}/libraries/libs/tcbn65lpwc.lib"
+[08/12 07:18:22     10s] @file 19: set LIB_BC        "${WORK_DIR}/libraries/libs/tcbn65lpbc.lib"
+[08/12 07:18:22     10s] @file 20:
+[08/12 07:18:22     10s] @file 21: # --- Cap Tables ---
+[08/12 07:18:22     10s] @file 22: set CAPTABLE_TC   "${WORK_DIR}/inputs/mmmc_files/captable/cln65lp_1p09m+alrdl_top2_typical.captable"
+[08/12 07:18:22     10s] @file 23: set CAPTABLE_WC   "${WORK_DIR}/inputs/mmmc_files/captable/cln65lp_1p09m+alrdl_top2_rcworst.captable"
+[08/12 07:18:22     10s] @file 24: set CAPTABLE_BC   "${WORK_DIR}/inputs/mmmc_files/captable/cln65lp_1p09m+alrdl_top2_rcbest.captable"
+[08/12 07:18:22     10s] @file 25:
+[08/12 07:18:22     10s] @file 26: # ------------------------------------------------------------------------------
+[08/12 07:18:22     10s] @file 27: # 1. LIBRARY SETS
+[08/12 07:18:22     10s] @file 28: # ------------------------------------------------------------------------------
+[08/12 07:18:22     10s] @@file 29: create_library_set -name tc_libset -timing $LIB_TC
+[08/12 07:18:22     10s] @@file 30: create_library_set -name wc_libset -timing $LIB_WC
+[08/12 07:18:22     10s] @@file 31: create_library_set -name bc_libset -timing $LIB_BC
+[08/12 07:18:22     10s] @file 32:
+[08/12 07:18:22     10s] @file 33: # ------------------------------------------------------------------------------
+[08/12 07:18:22     10s] @file 34: # 2. TIMING CONDITIONS
+[08/12 07:18:22     10s] @file 35: # ------------------------------------------------------------------------------
+[08/12 07:18:22     10s] @@file 36: create_timing_condition -name tc_cond -library_sets {tc_libset}
+[08/12 07:18:22     10s] @@file 37: create_timing_condition -name wc_cond -library_sets {wc_libset}
+[08/12 07:18:22     10s] @@file 38: create_timing_condition -name bc_cond -library_sets {bc_libset}
+[08/12 07:18:22     10s] @file 39:
+[08/12 07:18:22     10s] @file 40: # ------------------------------------------------------------------------------
+[08/12 07:18:22     10s] @file 41: # 3. RC CORNERS
+[08/12 07:18:22     10s] @file 42: # ------------------------------------------------------------------------------
+[08/12 07:18:22     10s] @@file 43: create_rc_corner -name rc_typical -temperature 25  -cap_table $CAPTABLE_TC
+[08/12 07:18:22     10s] @@file 44: create_rc_corner -name rc_worst   -temperature 125 -cap_table $CAPTABLE_WC
+[08/12 07:18:22     10s] @@file 45: create_rc_corner -name rc_best    -temperature -40 -cap_table $CAPTABLE_BC
+[08/12 07:18:22     10s] @file 46:
+[08/12 07:18:22     10s] @file 47: # ------------------------------------------------------------------------------
+[08/12 07:18:22     10s] @file 48: # 4. CONSTRAINT MODES
+[08/12 07:18:22     10s] @file 49: # ------------------------------------------------------------------------------
+[08/12 07:18:22     10s] @@file 50: create_constraint_mode -name func_mode -sdc_files $SDC_FUNC_FILE
+[08/12 07:18:22     10s] @file 51:
+[08/12 07:18:22     10s] @file 52: if {$INCLUDE_DFT == "true"} {...}
+[08/12 07:18:22     10s] @file 55:
+[08/12 07:18:22     10s] @file 56: # ------------------------------------------------------------------------------
+[08/12 07:18:22     10s] @file 57: # 5. DELAY CORNERS
+[08/12 07:18:22     10s] @file 58: # ------------------------------------------------------------------------------
+[08/12 07:18:22     10s] @@file 59: create_delay_corner -name dc_typical -timing_condition {tc_cond} -rc_corner {rc_typical}
+[08/12 07:18:22     10s] @@file 60: create_delay_corner -name dc_worst   -timing_condition {wc_cond} -rc_corner {rc_worst}
+[08/12 07:18:22     10s] @@file 61: create_delay_corner -name dc_best    -timing_condition {bc_cond} -rc_corner {rc_best}
+[08/12 07:18:22     10s] @file 62:
+[08/12 07:18:22     10s] @file 63: # ------------------------------------------------------------------------------
+[08/12 07:18:22     10s] @file 64: # 6. ANALYSIS VIEWS
+[08/12 07:18:22     10s] @file 65: # ------------------------------------------------------------------------------
+[08/12 07:18:22     10s] @@file 66: create_analysis_view -name view_func_typical -constraint_mode {func_mode} -delay_corner {dc_typical}
+[08/12 07:18:22     10s] @@file 67: create_analysis_view -name view_func_setup   -constraint_mode {func_mode} -delay_corner {dc_worst}
+[08/12 07:18:22     10s] @@file 68: create_analysis_view -name view_func_hold    -constraint_mode {func_mode} -delay_corner {dc_best}
+[08/12 07:18:22     10s] @file 69:
+[08/12 07:18:22     10s] @file 70: if {$INCLUDE_DFT == "true"} {...}
+[08/12 07:18:22     10s] @file 75:
+[08/12 07:18:22     10s] @file 76: # ------------------------------------------------------------------------------
+[08/12 07:18:22     10s] @file 77: # 7. SET ACTIVE VIEWS
+[08/12 07:18:22     10s] @file 78: # ------------------------------------------------------------------------------
+[08/12 07:18:22     10s] @file 79: if {$INCLUDE_DFT == "true"} {...
+[08/12 07:18:22     10s] @file 85: } else {
+[08/12 07:18:22     10s] @@file 86: set_analysis_view  -setup   {view_func_setup}  -hold    {view_func_hold}  -leakage {view_func_typical}  -dynamic {view_func_typical}
+[08/12 07:18:22     10s] @file 87: }
+[08/12 07:18:22     10s] #@ End verbose source: /home/cc/Documents/Abdullah/RISCV_synthesis/inputs/mmmc_master.view
+[08/12 07:18:22     10s] Reading wc_libset timing library '/home/cc/Documents/Abdullah/RISCV_synthesis/libraries/libs/tcbn65lpwc.lib' ...
+[08/12 07:18:23     12s] **WARN: (TECHLIB-302):	No function defined for cell 'OD25DCAP64'. The cell will only be used for analysis. (File /home/cc/Documents/Abdullah/RISCV_synthesis/libraries/libs/tcbn65lpwc.lib)
+[08/12 07:18:23     12s] **WARN: (TECHLIB-302):	No function defined for cell 'OD25DCAP32'. The cell will only be used for analysis. (File /home/cc/Documents/Abdullah/RISCV_synthesis/libraries/libs/tcbn65lpwc.lib)
+[08/12 07:18:23     12s] **WARN: (TECHLIB-302):	No function defined for cell 'OD25DCAP16'. The cell will only be used for analysis. (File /home/cc/Documents/Abdullah/RISCV_synthesis/libraries/libs/tcbn65lpwc.lib)
+[08/12 07:18:23     12s] **WARN: (TECHLIB-302):	No function defined for cell 'DCAP8'. The cell will only be used for analysis. (File /home/cc/Documents/Abdullah/RISCV_synthesis/libraries/libs/tcbn65lpwc.lib)
+[08/12 07:18:23     12s] **WARN: (TECHLIB-302):	No function defined for cell 'DCAP64'. The cell will only be used for analysis. (File /home/cc/Documents/Abdullah/RISCV_synthesis/libraries/libs/tcbn65lpwc.lib)
+[08/12 07:18:23     12s] **WARN: (TECHLIB-302):	No function defined for cell 'DCAP4'. The cell will only be used for analysis. (File /home/cc/Documents/Abdullah/RISCV_synthesis/libraries/libs/tcbn65lpwc.lib)
+[08/12 07:18:23     12s] **WARN: (TECHLIB-302):	No function defined for cell 'DCAP32'. The cell will only be used for analysis. (File /home/cc/Documents/Abdullah/RISCV_synthesis/libraries/libs/tcbn65lpwc.lib)
+[08/12 07:18:23     12s] **WARN: (TECHLIB-302):	No function defined for cell 'DCAP16'. The cell will only be used for analysis. (File /home/cc/Documents/Abdullah/RISCV_synthesis/libraries/libs/tcbn65lpwc.lib)
+[08/12 07:18:23     12s] **WARN: (TECHLIB-302):	No function defined for cell 'DCAP'. The cell will only be used for analysis. (File /home/cc/Documents/Abdullah/RISCV_synthesis/libraries/libs/tcbn65lpwc.lib)
+[08/12 07:18:23     12s] **WARN: (TECHLIB-302):	No function defined for cell 'ANTENNA'. The cell will only be used for analysis. (File /home/cc/Documents/Abdullah/RISCV_synthesis/libraries/libs/tcbn65lpwc.lib)
+[08/12 07:18:23     12s] Read 816 cells in library 'tcbn65lpwc' 
+[08/12 07:18:23     12s] Reading bc_libset timing library '/home/cc/Documents/Abdullah/RISCV_synthesis/libraries/libs/tcbn65lpbc.lib' ...
+[08/12 07:18:24     13s] **WARN: (TECHLIB-302):	No function defined for cell 'OD25DCAP64'. The cell will only be used for analysis. (File /home/cc/Documents/Abdullah/RISCV_synthesis/libraries/libs/tcbn65lpbc.lib)
+[08/12 07:18:24     13s] **WARN: (TECHLIB-302):	No function defined for cell 'OD25DCAP32'. The cell will only be used for analysis. (File /home/cc/Documents/Abdullah/RISCV_synthesis/libraries/libs/tcbn65lpbc.lib)
+[08/12 07:18:24     13s] **WARN: (TECHLIB-302):	No function defined for cell 'OD25DCAP16'. The cell will only be used for analysis. (File /home/cc/Documents/Abdullah/RISCV_synthesis/libraries/libs/tcbn65lpbc.lib)
+[08/12 07:18:24     13s] **WARN: (TECHLIB-302):	No function defined for cell 'DCAP8'. The cell will only be used for analysis. (File /home/cc/Documents/Abdullah/RISCV_synthesis/libraries/libs/tcbn65lpbc.lib)
+[08/12 07:18:24     13s] **WARN: (TECHLIB-302):	No function defined for cell 'DCAP64'. The cell will only be used for analysis. (File /home/cc/Documents/Abdullah/RISCV_synthesis/libraries/libs/tcbn65lpbc.lib)
+[08/12 07:18:24     13s] **WARN: (TECHLIB-302):	No function defined for cell 'DCAP4'. The cell will only be used for analysis. (File /home/cc/Documents/Abdullah/RISCV_synthesis/libraries/libs/tcbn65lpbc.lib)
+[08/12 07:18:24     13s] **WARN: (TECHLIB-302):	No function defined for cell 'DCAP32'. The cell will only be used for analysis. (File /home/cc/Documents/Abdullah/RISCV_synthesis/libraries/libs/tcbn65lpbc.lib)
+[08/12 07:18:24     13s] **WARN: (TECHLIB-302):	No function defined for cell 'DCAP16'. The cell will only be used for analysis. (File /home/cc/Documents/Abdullah/RISCV_synthesis/libraries/libs/tcbn65lpbc.lib)
+[08/12 07:18:24     13s] **WARN: (TECHLIB-302):	No function defined for cell 'DCAP'. The cell will only be used for analysis. (File /home/cc/Documents/Abdullah/RISCV_synthesis/libraries/libs/tcbn65lpbc.lib)
+[08/12 07:18:24     13s] **WARN: (TECHLIB-302):	No function defined for cell 'ANTENNA'. The cell will only be used for analysis. (File /home/cc/Documents/Abdullah/RISCV_synthesis/libraries/libs/tcbn65lpbc.lib)
+[08/12 07:18:24     13s] Read 816 cells in library 'tcbn65lpbc' 
+[08/12 07:18:24     13s] Ending "PreSetAnalysisView" (total cpu=0:00:02.8, real=0:00:02.0, peak res=1291.9M, current mem=1087.3M)
+[08/12 07:18:24     13s] timing_initialized
+[08/12 07:18:24     13s] @innovus 40> read_physical -lef $tech(ALL_LEFS)
+read_physical -lef $tech(ALL_LEFS)
+[08/12 07:18:24     13s] 
+[08/12 07:18:24     13s] Loading LEF file /home/cc/Documents/Abdullah/RISCV_synthesis/libraries/lef/tcbn65lp_9lmT2.lef ...
+[08/12 07:18:24     13s] Set DBUPerIGU to M2 pitch 400.
+[08/12 07:18:24     13s] **WARN: (IMPLF-200):	Pin 'I' in macro 'ANTENNA' has no ANTENNAGATEAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+[08/12 07:18:24     13s] Type 'man IMPLF-200' for more detail.
+[08/12 07:18:24     13s] 
+[08/12 07:18:24     13s] ##  Check design process and node:  
+[08/12 07:18:24     13s] ##  Both design process and tech node are not set.
+[08/12 07:18:24     13s] 
+[08/12 07:18:24     13s] 0
+[08/12 07:18:24     13s] @innovus 41> read_netlist $design(postsyn_netlist)
+read_netlist $design(postsyn_netlist)
+[08/12 07:18:24     13s] #% Begin Load netlist data ... (date=08/12 07:18:24, mem=1096.3M)
+[08/12 07:18:24     13s] *** Begin netlist parsing (mem=1189.3M) ***
+[08/12 07:18:24     13s] Created 816 new cells from 2 timing libraries.
+[08/12 07:18:24     13s] Reading netlist ...
+[08/12 07:18:24     13s] Backslashed names will retain backslash and a trailing blank character.
+[08/12 07:18:24     13s] Reading verilog netlist '/home/cc/Documents/Abdullah/RISCV_synthesis/export/Synthesis_Data/netlists/riscv_core_physical_synth.v'
+[08/12 07:18:24     13s] 
+[08/12 07:18:24     13s] *** Memory Usage v#1 (Current mem = 1189.258M, initial mem = 494.957M) ***
+[08/12 07:18:24     13s] *** End netlist parsing (cpu=0:00:00.0, real=0:00:00.0, mem=1189.3M) ***
+[08/12 07:18:24     13s] #% End Load netlist data ... (date=08/12 07:18:24, total cpu=0:00:00.0, real=0:00:00.0, peak res=1181.0M, current mem=1181.0M)
+[08/12 07:18:24     13s] Top level cell is riscv_core.
+[08/12 07:18:25     14s] Hooked 1632 DB cells to tlib cells.
+[08/12 07:18:25     14s] Ending "BindLib:" (total cpu=0:00:00.2, real=0:00:00.0, peak res=1225.0M, current mem=1225.0M)
+[08/12 07:18:25     14s] Starting recursive module instantiation check.
+[08/12 07:18:25     14s] No recursion found.
+[08/12 07:18:25     14s] Building hierarchical netlist for Cell riscv_core ...
+[08/12 07:18:25     14s] *** Netlist is unique.
+[08/12 07:18:25     14s] Setting Std. cell height to 3600 DBU (smallest netlist inst).
+[08/12 07:18:25     14s] ** info: there are 1672 modules.
+[08/12 07:18:25     14s] ** info: there are 8954 stdCell insts.
+[08/12 07:18:25     14s] 
+[08/12 07:18:25     14s] *** Memory Usage v#1 (Current mem = 1268.672M, initial mem = 494.957M) ***
+[08/12 07:18:25     14s] 0
+[08/12 07:18:25     14s] @innovus 42> 
+
+[08/12 07:18:25     14s] @innovus 42> init_design
+init_design
+[08/12 07:18:25     14s] **WARN: (IMPFP-3961):	The techSite 'dcore' has no related standard cells in the LEF/OA library. The calculations for this site type cannot be made unless standard cell models of this type exist in the LEF/OA library. Ignore this warning if the SITE is not used by the library. Alternatively, remove the SITE definition for the LEF/OA library to avoid this message.
+[08/12 07:18:25     14s] Type 'man IMPFP-3961' for more detail.
+[08/12 07:18:25     14s] **WARN: (IMPFP-3961):	The techSite 'ccore' has no related standard cells in the LEF/OA library. The calculations for this site type cannot be made unless standard cell models of this type exist in the LEF/OA library. Ignore this warning if the SITE is not used by the library. Alternatively, remove the SITE definition for the LEF/OA library to avoid this message.
+[08/12 07:18:25     14s] Type 'man IMPFP-3961' for more detail.
+[08/12 07:18:25     14s] Start create_tracks
+[08/12 07:18:25     14s] Extraction setup Started 
+[08/12 07:18:25     14s] 
+[08/12 07:18:25     14s] Trim Metal Layers:
+[08/12 07:18:25     14s] Initializing multi-corner RC extraction with 3 active RC Corners ...
+[08/12 07:18:25     14s] Reading Capacitance Table File /home/cc/Documents/Abdullah/RISCV_synthesis/inputs/mmmc_files/captable/cln65lp_1p09m+alrdl_top2_rcworst.captable ...
+[08/12 07:18:25     14s] Reading Capacitance Table File /home/cc/Documents/Abdullah/RISCV_synthesis/inputs/mmmc_files/captable/cln65lp_1p09m+alrdl_top2_typical.captable ...
+[08/12 07:18:25     14s] Reading Capacitance Table File /home/cc/Documents/Abdullah/RISCV_synthesis/inputs/mmmc_files/captable/cln65lp_1p09m+alrdl_top2_rcbest.captable ...
+[08/12 07:18:25     14s] Importing multi-corner RC tables ... 
+[08/12 07:18:25     14s] Summary of Active RC-Corners : 
+[08/12 07:18:25     14s]  
+[08/12 07:18:25     14s]  Analysis View: view_func_setup
+[08/12 07:18:25     14s]     RC-Corner Name        : rc_worst
+[08/12 07:18:25     14s]     RC-Corner Index       : 0
+[08/12 07:18:25     14s]     RC-Corner Temperature : 125 Celsius
+[08/12 07:18:25     14s]     RC-Corner Cap Table   : '/home/cc/Documents/Abdullah/RISCV_synthesis/inputs/mmmc_files/captable/cln65lp_1p09m+alrdl_top2_rcworst.captable'
+[08/12 07:18:25     14s]     RC-Corner PreRoute Res Factor         : 1
+[08/12 07:18:25     14s]     RC-Corner PreRoute Cap Factor         : 1
+[08/12 07:18:25     14s]     RC-Corner PostRoute Res Factor        : 1 {1 1 1}
+[08/12 07:18:25     14s]     RC-Corner PostRoute Cap Factor        : 1 {1 1 1}
+[08/12 07:18:25     14s]     RC-Corner PostRoute XCap Factor       : 1 {1 1 1}
+[08/12 07:18:25     14s]     RC-Corner PreRoute Clock Res Factor   : 1	[Derived from postRoute_res (effortLevel low)]
+[08/12 07:18:25     14s]     RC-Corner PreRoute Clock Cap Factor   : 1	[Derived from postRoute_cap (effortLevel low)]
+[08/12 07:18:25     14s]     RC-Corner PostRoute Clock Cap Factor  : 1 {1 1 1} 	[Derived from postRoute_cap (effortLevel low)]
+[08/12 07:18:25     14s]     RC-Corner PostRoute Clock Res Factor  : 1 {1 1 1} 	[Derived from postRoute_res (effortLevel low)]
+[08/12 07:18:25     14s]     RC-Corner PostRoute Clock coupling capacitance Factor : 1 {1 1 1} 
+[08/12 07:18:25     14s]  
+[08/12 07:18:25     14s]  Analysis View: view_func_typical
+[08/12 07:18:25     14s]     RC-Corner Name        : rc_typical
+[08/12 07:18:25     14s]     RC-Corner Index       : 1
+[08/12 07:18:25     14s]     RC-Corner Temperature : 25 Celsius
+[08/12 07:18:25     14s]     RC-Corner Cap Table   : '/home/cc/Documents/Abdullah/RISCV_synthesis/inputs/mmmc_files/captable/cln65lp_1p09m+alrdl_top2_typical.captable'
+[08/12 07:18:25     14s]     RC-Corner PreRoute Res Factor         : 1
+[08/12 07:18:25     14s]     RC-Corner PreRoute Cap Factor         : 1
+[08/12 07:18:25     14s]     RC-Corner PostRoute Res Factor        : 1 {1 1 1}
+[08/12 07:18:25     14s]     RC-Corner PostRoute Cap Factor        : 1 {1 1 1}
+[08/12 07:18:25     14s]     RC-Corner PostRoute XCap Factor       : 1 {1 1 1}
+[08/12 07:18:25     14s]     RC-Corner PreRoute Clock Res Factor   : 1	[Derived from postRoute_res (effortLevel low)]
+[08/12 07:18:25     14s]     RC-Corner PreRoute Clock Cap Factor   : 1	[Derived from postRoute_cap (effortLevel low)]
+[08/12 07:18:25     14s]     RC-Corner PostRoute Clock Cap Factor  : 1 {1 1 1} 	[Derived from postRoute_cap (effortLevel low)]
+[08/12 07:18:25     14s]     RC-Corner PostRoute Clock Res Factor  : 1 {1 1 1} 	[Derived from postRoute_res (effortLevel low)]
+[08/12 07:18:25     14s]     RC-Corner PostRoute Clock coupling capacitance Factor : 1 {1 1 1} 
+[08/12 07:18:25     14s]  
+[08/12 07:18:25     14s]  Analysis View: view_func_hold
+[08/12 07:18:25     14s]     RC-Corner Name        : rc_best
+[08/12 07:18:25     14s]     RC-Corner Index       : 2
+[08/12 07:18:25     14s]     RC-Corner Temperature : -40 Celsius
+[08/12 07:18:25     14s]     RC-Corner Cap Table   : '/home/cc/Documents/Abdullah/RISCV_synthesis/inputs/mmmc_files/captable/cln65lp_1p09m+alrdl_top2_rcbest.captable'
+[08/12 07:18:25     14s]     RC-Corner PreRoute Res Factor         : 1
+[08/12 07:18:25     14s]     RC-Corner PreRoute Cap Factor         : 1
+[08/12 07:18:25     14s]     RC-Corner PostRoute Res Factor        : 1 {1 1 1}
+[08/12 07:18:25     14s]     RC-Corner PostRoute Cap Factor        : 1 {1 1 1}
+[08/12 07:18:25     14s]     RC-Corner PostRoute XCap Factor       : 1 {1 1 1}
+[08/12 07:18:25     14s]     RC-Corner PreRoute Clock Res Factor   : 1	[Derived from postRoute_res (effortLevel low)]
+[08/12 07:18:25     14s]     RC-Corner PreRoute Clock Cap Factor   : 1	[Derived from postRoute_cap (effortLevel low)]
+[08/12 07:18:25     14s]     RC-Corner PostRoute Clock Cap Factor  : 1 {1 1 1} 	[Derived from postRoute_cap (effortLevel low)]
+[08/12 07:18:25     14s]     RC-Corner PostRoute Clock Res Factor  : 1 {1 1 1} 	[Derived from postRoute_res (effortLevel low)]
+[08/12 07:18:25     14s]     RC-Corner PostRoute Clock coupling capacitance Factor : 1 {1 1 1} 
+[08/12 07:18:25     14s] 
+[08/12 07:18:25     14s] Trim Metal Layers:
+[08/12 07:18:25     14s] LayerId::1 widthSet size::4
+[08/12 07:18:25     14s] LayerId::2 widthSet size::4
+[08/12 07:18:25     14s] LayerId::3 widthSet size::4
+[08/12 07:18:25     14s] LayerId::4 widthSet size::4
+[08/12 07:18:25     14s] LayerId::5 widthSet size::4
+[08/12 07:18:25     14s] LayerId::6 widthSet size::4
+[08/12 07:18:25     14s] LayerId::7 widthSet size::4
+[08/12 07:18:25     14s] LayerId::8 widthSet size::4
+[08/12 07:18:25     14s] LayerId::9 widthSet size::4
+[08/12 07:18:25     14s] LayerId::10 widthSet size::2
+[08/12 07:18:25     14s] eee: pegSigSF::1.070000
+[08/12 07:18:25     14s] Updating RC grid for preRoute extraction ...
+[08/12 07:18:25     14s] Initializing multi-corner capacitance tables ... 
+[08/12 07:18:25     14s] Initializing multi-corner resistance tables ...
+[08/12 07:18:25     14s] eee: l::1 avDens::0.000000 usedTrk::0.000000 availTrk::0.000000 sigTrk::0.000000
+[08/12 07:18:25     14s] eee: l::2 avDens::0.000000 usedTrk::0.000000 availTrk::0.000000 sigTrk::0.000000
+[08/12 07:18:25     14s] eee: l::3 avDens::0.000000 usedTrk::0.000000 availTrk::0.000000 sigTrk::0.000000
+[08/12 07:18:25     14s] eee: l::4 avDens::0.000000 usedTrk::0.000000 availTrk::0.000000 sigTrk::0.000000
+[08/12 07:18:25     14s] eee: l::5 avDens::0.000000 usedTrk::0.000000 availTrk::0.000000 sigTrk::0.000000
+[08/12 07:18:25     14s] eee: l::6 avDens::0.000000 usedTrk::0.000000 availTrk::0.000000 sigTrk::0.000000
+[08/12 07:18:25     14s] eee: l::7 avDens::0.000000 usedTrk::0.000000 availTrk::0.000000 sigTrk::0.000000
+[08/12 07:18:25     14s] eee: l::8 avDens::0.000000 usedTrk::0.000000 availTrk::0.000000 sigTrk::0.000000
+[08/12 07:18:25     14s] eee: l::9 avDens::0.000000 usedTrk::0.000000 availTrk::0.000000 sigTrk::0.000000
+[08/12 07:18:25     14s] eee: l::10 avDens::0.000000 usedTrk::0.000000 availTrk::0.000000 sigTrk::0.000000
+[08/12 07:18:25     14s] {RT rc_worst 0 10 10 {8 0} {9 0} 2}
+[08/12 07:18:25     14s] eee: LAM: n=40 LLS=2-3 HLS=3-5 rDens=0.000000 uaWl=0.000000 uaWlH=0.000000 aWlH=0.000000 lMod=0 pMax=0.850000 pMod=82 wcR=0.693800 newSi=0.000000 wHLS=1.734500 siPrev=0 viaL=0.000000 crit=0.000000 shortMod=0.000000 fMod=0.000000 
+[08/12 07:18:25     14s] *Info: initialize multi-corner CTS.
+[08/12 07:18:25     14s] Reading tc_libset timing library '/home/cc/Documents/Abdullah/RISCV_synthesis/libraries/libs/tcbn65lptc.lib' ...
+[08/12 07:18:26     15s] Message <TECHLIB-302> has exceeded the message display limit of '20'. Use 'set_message -no_limit -id list_of_msgIDs' to reset the message limit.
+[08/12 07:18:27     15s] Read 816 cells in library 'tcbn65lptc' 
+[08/12 07:18:27     15s] Ending "SetAnalysisView" (total cpu=0:00:01.5, real=0:00:02.0, peak res=1508.2M, current mem=1234.9M)
+[08/12 07:18:27     16s] Reading timing constraints file '/home/cc/Documents/Abdullah/RISCV_synthesis/inputs/riscv_baseline.sdc' ...
+[08/12 07:18:27     16s] Current (total cpu=0:00:16.1, real=0:00:35.0, peak res=1614.7M, current mem=1614.7M)
+[08/12 07:18:27     16s] **WARN: (TCLNL-330):	set_input_delay on clock root 'clk' is not supported. You should use the -source option to set_clock_latency to provide this offset. You can also use the global timing_allow_input_delay_on_clock_source to allow set_input_delay assertion to have an effect on clock source paths beginning at this clock root. (File /home/cc/Documents/Abdullah/RISCV_synthesis/inputs/riscv_baseline.sdc, Line 53).
+[08/12 07:18:27     16s] 
+[08/12 07:18:27     16s] INFO (CTE): Reading of timing constraints file /home/cc/Documents/Abdullah/RISCV_synthesis/inputs/riscv_baseline.sdc completed, with 1 WARNING
+[08/12 07:18:27     16s] Ending "Constraint file reading stats" (total cpu=0:00:00.0, real=0:00:00.0, peak res=1635.6M, current mem=1635.6M)
+[08/12 07:18:27     16s] Current (total cpu=0:00:16.1, real=0:00:35.0, peak res=1635.6M, current mem=1635.6M)
+[08/12 07:18:27     16s] Tech dependent Parameter, Build TLibAnalyzer for: cellAreaConsiderPadding
+[08/12 07:18:27     16s] 
+[08/12 07:18:27     16s] TimeStamp Creating Cell Server ...(0, 1, 1, 1) Begin ...
+[08/12 07:18:27     16s] Summary for sequential cells identification: 
+[08/12 07:18:27     16s]   Identified SBFF number: 199
+[08/12 07:18:27     16s]   Identified MBFF number: 0
+[08/12 07:18:27     16s]   Identified SB Latch number: 0
+[08/12 07:18:27     16s]   Identified MB Latch number: 0
+[08/12 07:18:27     16s]   Not identified SBFF number: 0
+[08/12 07:18:27     16s]   Not identified MBFF number: 0
+[08/12 07:18:27     16s]   Not identified SB Latch number: 0
+[08/12 07:18:27     16s]   Not identified MB Latch number: 0
+[08/12 07:18:27     16s]   Number of sequential cells which are not FFs: 104
+[08/12 07:18:27     16s] 
+[08/12 07:18:27     16s] TimeStamp Creating Cell Server ...(0, 1, 1, 1) End ...
+[08/12 07:18:27     16s] Total number of combinational cells: 483
+[08/12 07:18:27     16s] Total number of sequential cells: 303
+[08/12 07:18:27     16s] Total number of tristate cells: 11
+[08/12 07:18:27     16s] Total number of level shifter cells: 0
+[08/12 07:18:27     16s] Total number of power gating cells: 0
+[08/12 07:18:27     16s] Total number of isolation cells: 0
+[08/12 07:18:27     16s] Total number of power switch cells: 0
+[08/12 07:18:27     16s] Total number of pulse generator cells: 0
+[08/12 07:18:27     16s] Total number of always on buffers: 0
+[08/12 07:18:27     16s] Total number of retention cells: 0
+[08/12 07:18:27     16s] Total number of physical cells: 19
+[08/12 07:18:27     16s] List of usable buffers: BUFFD1 BUFFD0 BUFFD2 BUFFD12 BUFFD16 BUFFD3 BUFFD4 BUFFD6 BUFFD8 CKBD1 CKBD0 CKBD2 CKBD12 CKBD16 CKBD3 CKBD4 CKBD6 CKBD8
+[08/12 07:18:27     16s] Total number of usable buffers: 18
+[08/12 07:18:27     16s] List of unusable buffers: BUFFD20 BUFFD24 CKBD20 CKBD24 GBUFFD1 GBUFFD3 GBUFFD2 GBUFFD4 GBUFFD8
+[08/12 07:18:27     16s] Total number of unusable buffers: 9
+[08/12 07:18:27     16s] List of usable inverters: CKND1 CKND0 CKND2 CKND12 CKND16 CKND3 CKND4 CKND6 CKND8 INVD1 INVD0 INVD2 INVD12 INVD16 INVD3 INVD4 INVD6 INVD8
+[08/12 07:18:27     16s] Total number of usable inverters: 18
+[08/12 07:18:27     16s] List of unusable inverters: CKND20 CKND24 GINVD2 GINVD1 GINVD4 GINVD3 GINVD8 INVD20 INVD24
+[08/12 07:18:27     16s] Total number of unusable inverters: 9
+[08/12 07:18:27     16s] List of identified usable delay cells: DEL0 DEL005 DEL01 DEL015 DEL02 DEL1 DEL2 DEL3 DEL4
+[08/12 07:18:27     16s] Total number of identified usable delay cells: 9
+[08/12 07:18:27     16s] List of identified unusable delay cells:
+[08/12 07:18:27     16s] Total number of identified unusable delay cells: 0
+[08/12 07:18:27     16s] 
+[08/12 07:18:27     16s] TimeStamp Deleting Cell Server Begin ...
+[08/12 07:18:27     16s] 
+[08/12 07:18:27     16s] TimeStamp Deleting Cell Server End ...
+[08/12 07:18:27     16s] Ending "Cell type marking" (total cpu=0:00:00.0, real=0:00:00.0, peak res=1662.0M, current mem=1657.0M)
+[08/12 07:18:27     16s] 
+[08/12 07:18:27     16s] TimeStamp Creating Cell Server ...(0, 0, 0, 0) Begin ...
+[08/12 07:18:27     16s] Summary for sequential cells identification: 
+[08/12 07:18:27     16s]   Identified SBFF number: 199
+[08/12 07:18:27     16s]   Identified MBFF number: 0
+[08/12 07:18:27     16s]   Identified SB Latch number: 0
+[08/12 07:18:27     16s]   Identified MB Latch number: 0
+[08/12 07:18:27     16s]   Not identified SBFF number: 0
+[08/12 07:18:27     16s]   Not identified MBFF number: 0
+[08/12 07:18:27     16s]   Not identified SB Latch number: 0
+[08/12 07:18:27     16s]   Not identified MB Latch number: 0
+[08/12 07:18:27     16s]   Number of sequential cells which are not FFs: 104
+[08/12 07:18:27     16s]  Visiting view : view_func_setup
+[08/12 07:18:27     16s]    : PowerDomain = none : Weighted F : unweighted  = 25.60 (1.000) with rcCorner = 0
+[08/12 07:18:27     16s]    : PowerDomain = none : Weighted F : unweighted  = 21.10 (1.000) with rcCorner = -1
+[08/12 07:18:27     16s]  Visiting view : view_func_hold
+[08/12 07:18:27     16s]    : PowerDomain = none : Weighted F : unweighted  = 11.00 (1.000) with rcCorner = 2
+[08/12 07:18:27     16s]    : PowerDomain = none : Weighted F : unweighted  = 9.70 (1.000) with rcCorner = -1
+[08/12 07:18:27     16s] TLC MultiMap info (StdDelay):
+[08/12 07:18:27     16s]   : dc_best + bc_libset + 1 + no RcCorner := 9.7ps
+[08/12 07:18:27     16s]   : dc_best + bc_libset + 1 + rc_best := 11ps
+[08/12 07:18:27     16s]   : dc_worst + wc_libset + 1 + no RcCorner := 21.1ps
+[08/12 07:18:27     16s]   : dc_worst + wc_libset + 1 + rc_worst := 25.6ps
+[08/12 07:18:27     16s]  Setting StdDelay to: 25.6ps
+[08/12 07:18:27     16s] 
+[08/12 07:18:27     16s] TimeStamp Creating Cell Server ...(0, 0, 0, 0) End ...
+[08/12 07:18:27     16s] 
+[08/12 07:18:27     16s] TimeStamp Deleting Cell Server Begin ...
+[08/12 07:18:27     16s] 
+[08/12 07:18:27     16s] TimeStamp Deleting Cell Server End ...
+
+[08/12 07:18:27     16s] @innovus 43> 
+connect_global_net $design(digital_gnd) -pin $tech(STANDARD_CELL_GND) -all -verbose
+[08/12 07:18:27     16s] @innovus 43> connect_global_net $design(digital_gnd) -pin $tech(STANDARD_CELL_GN [1GD) -all -verbose
+[08/12 07:18:27     16s] 8954 new gnd-pin connections were made to global net 'VSS'.
+[08/12 07:18:27     16s] @innovus 44> connect_global_net $design(digital_vdd) -pin $tech(STANDARD_CELL_VD [1GD) -all -verbose
+connect_global_net $design(digital_vdd) -pin $tech(STANDARD_CELL_VDD) -all -verbose
+[08/12 07:18:27     16s] 8954 new pwr-pin connections were made to global net 'VDD'.
+connect_global_net $design(digital_vdd) -type tiehi -all -verbose
+[08/12 07:18:27     16s] @innovus 45> connect_global_net $design(digital_vdd) -type tiehi -all -verbose
+connect_global_net $design(digital_gnd) -type tielo -all -verbose
+[08/12 07:18:27     16s] @innovus 46> connect_global_net $design(digital_gnd) -type tielo -all -verbose
+
+[08/12 07:18:27     16s] @innovus 47> 
+# ==============================================================================
+[08/12 07:18:27     16s] @innovus 47> # ================================================================= [1G=============
+# 3. FLOORPLANNING & PIN PLACEMENT
+[08/12 07:18:27     16s] @innovus 48> # 3. FLOORPLANNING & PIN PLACEMENT
+[08/12 07:18:27     16s] @innovus 49> # ================================================================= [1G=============
+# ==============================================================================
+[08/12 07:18:27     16s] @innovus 50> puts "INFO: Starting Stage - Floorplanningputs "INFO: Starting Stage - Floorplanning"
+"
+[08/12 07:18:27     16s] INFO: Starting Stage - Floorplanning
+[08/12 07:18:27     16s] @innovus 51> 
+
+[08/12 07:18:27     16s] @innovus 51> # Calculate margins relative to the DIE since there are no IO pads
+# Calculate margins relative to the DIE since there are no IO pads
+[08/12 07:18:27     16s] @innovus 52> create_floorplan -core_size {350.0 350.0 20.0 20.0 20.0 20.0} \
+[08/12 07:18:27     16s] +                  -core_margins_by die \
+[08/12 07:18:27     16s] +                  -floorplan_origin center \
+[08/12 07:18:27     16s] +                  -site core \
+[08/12 07:18:27     16s] +                  -match_to_site \
+[08/12 07:18:27     16s] +                  -flip s
+create_floorplan -core_size {350.0 350.0 20.0 20.0 20.0 20.0} \
+                 -core_margins_by die \
+                 -floorplan_origin center \
+                 -site core \
+                 -match_to_site \
+                 -flip s
+[08/12 07:18:27     16s] **WARN: (IMPFP-3961):	The techSite 'dcore' has no related standard cells in the LEF/OA library. The calculations for this site type cannot be made unless standard cell models of this type exist in the LEF/OA library. Ignore this warning if the SITE is not used by the library. Alternatively, remove the SITE definition for the LEF/OA library to avoid this message.
+[08/12 07:18:27     16s] Type 'man IMPFP-3961' for more detail.
+[08/12 07:18:27     16s] **WARN: (IMPFP-3961):	The techSite 'ccore' has no related standard cells in the LEF/OA library. The calculations for this site type cannot be made unless standard cell models of this type exist in the LEF/OA library. Ignore this warning if the SITE is not used by the library. Alternatively, remove the SITE definition for the LEF/OA library to avoid this message.
+[08/12 07:18:27     16s] Type 'man IMPFP-3961' for more detail.
+[08/12 07:18:27     16s] Start create_tracks
+[08/12 07:18:27     16s] **WARN: (IMPFP-325):	Floorplan of the design is resized. All current create_floorplan objects are automatically derived based on specified new create_floorplan. This may change blocks, fixed standard cells, existing routes and blockages.
+
+[08/12 07:18:27     16s] @innovus 53> 
+[08/12 07:18:27     16s] @innovus 53> # Automatically distribute pins around the die boundar# Automatically distribute pins around the die boundary
+y
+[08/12 07:18:27     16s] @innovus 54> editPin -fixOverlap 1 -unit TRACK -spreadDirection clockwise -side  [1GTop -layer M3 -spreadType center -pin *
+editPin -fixOverlap 1 -unit TRACK -spreadDirection clockwise -side Top -layer M3 -spreadType center -pin *
+[08/12 07:18:27     16s] invalid command name "editPin"
+[08/12 07:18:27     16s] invalid command name "editPin"
+[08/12 07:18:27     16s] @innovus 55> gui_select -point {0.03400 0.03700}
+[08/12 07:20:34     19s] @innovus 56> exit
+
+[08/12 07:27:15     30s] 
+[08/12 07:27:15     30s] *** Memory Usage v#1 (Current mem = 1900.492M, initial mem = 494.957M) ***
+[08/12 07:27:15     30s] 
+[08/12 07:27:15     30s] *** Summary of all messages that are not suppressed in this session:
+[08/12 07:27:15     30s] Severity  ID               Count  Summary                                  
+[08/12 07:27:15     30s] WARNING   IMPLF-200            1  Pin '%s' in macro '%s' has no ANTENNAGAT...
+[08/12 07:27:15     30s] WARNING   IMPFP-325            1  Floorplan of the design is resized. All ...
+[08/12 07:27:15     30s] WARNING   IMPFP-3961           4  The techSite '%s' has no related standar...
+[08/12 07:27:15     30s] WARNING   TCLNL-330            1  set_input_delay on clock root '%s' is no...
+[08/12 07:27:15     30s] WARNING   TECHLIB-302         30  No function defined for cell '%s'. The c...
+[08/12 07:27:15     30s] *** Message Summary: 37 warning(s), 0 error(s)
+[08/12 07:27:15     30s] 
+[08/12 07:27:15     30s] --- Ending "Innovus" (totcpu=0:00:30.3, real=0:09:23, mem=1900.5M) ---

@@ -1,0 +1,13 @@
+-timescale 1ns/1ps
+/home/cc/Fawad_PD/example/workspace/netlists/counter_physical_synth.v
+/home/cc/Fawad_PD/example/sourcecode/tb/counter_tb.v
+#/home/cc/Fawad_PD/example/sourcecode/tb/counter_dft_tb.v
+-v
+/home/cc/Fawad_PD/example/libraries/tcbn65lp.v
+-access
++rwc
+-define SDF_TEST
++sdf_verbose
+-sdfstats /home/cc/Fawad_PD/example/workspace/reports/sdf_statistics.rpt
+-maxdelay
+-gui

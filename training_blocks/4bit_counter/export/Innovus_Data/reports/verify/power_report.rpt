@@ -1,0 +1,81 @@
+*----------------------------------------------------------------------------------------
+*	Innovus 21.18-s099_1 (64bit) 07/18/2023 13:03 (Linux 3.10.0-693.el7.x86_64)
+*	
+*
+* 	Date & Time:	2026-Aug-07 05:57:56 (2026-Aug-07 09:57:56 GMT)
+*
+*----------------------------------------------------------------------------------------
+*
+*	Design: counter
+*
+*	Liberty Libraries used: 
+*	        /home/cc/Documents/Abdullah/Lab01_Materials/Lab01_Data/libraries/libs/tcbn65lptc.lib
+*	        /home/cc/Documents/Abdullah/Lab01_Materials/Lab01_Data/libraries/libs/tcbn65lpbc.lib
+*	        /home/cc/Documents/Abdullah/Lab01_Materials/Lab01_Data/libraries/libs/tcbn65lpwc.lib
+*
+*	Power Domain used: 
+*              Rail:        VDD      Voltage:        1.2 
+*
+*       Dynamic View: view_func_typical
+*
+*       Leakage View: view_func_typical
+*
+*       User-Defined Activity : N.A.
+*
+*       Activity File: N.A.
+*
+*       Hierarchical Global Activity: N.A.
+*
+*       Global Activity: N.A.
+*
+*       Sequential Element Activity: N.A.
+*
+*       Primary Input Activity: 0.200000
+*
+*       Default icg ratio: N.A.
+*
+*       Global Comb ClockGate Ratio: N.A.
+*
+*	Power Units = 1mW
+*
+*	Time Units = 1e-09 secs 
+*
+*       Temperature = 25 
+*
+*       report_power -outfile /home/cc/Documents/Abdullah/Lab01_Materials/Lab01_Data/export/Innovus_Data/reports/verify/power_report.rpt -rail_analysis_format VS
+*
+-----------------------------------------------------------------------------------------
+Cell                            Internal   Switching       Total     Leakage   Cell
+                                   Power       Power       Power       Power   Name
+--------------------------------------------------------------------------------------
+FE_OFC0_count_3                0.0001511    0.001418    0.001569    3.71e-07  CKBD4
+FE_OFC1_count_2                  0.00015    0.001396    0.001547    3.71e-07  CKBD4
+FE_OFC2_count_1                0.0001494     0.00139     0.00154    3.71e-07  CKBD4
+count_reg[1]                    0.001238   7.384e-05    0.001312    2.89e-07  DFCNQD1
+count_reg[0]                    0.001272   3.893e-05    0.001311     3.7e-07  DFCND1
+count_reg[2]                    0.001237   5.862e-05    0.001296    2.89e-07  DFCNQD1
+count_reg[3]                    0.001237   3.378e-05    0.001271    2.89e-07  DFCNQD1
+FE_OFC3_count_0                 9.64e-05   0.0009077    0.001005    3.71e-07  CKBD4
+g85__6260                      0.0001513   6.375e-05   0.0002154   3.595e-07  HA1D0
+g83__5107                      0.0001524   4.589e-05   0.0001987   3.699e-07  HA1D0
+g87                            1.314e-05    0.000134   0.0001471   2.502e-08  CKND0
+g81__2398                      0.0001196   2.628e-05   0.0001461   2.789e-07  XOR2D1
+FILLDECAP_T_1_9                        0           0   8.028e-09   8.028e-09  DCAP
+FILLDECAP_T_1_7                        0           0   1.846e-08   1.846e-08  DCAP4
+ENDCAP_3                               0           0   8.028e-09   8.028e-09  DCAP
+ENDCAP_1                               0           0   8.028e-09   8.028e-09  DCAP
+ENDCAP_10                              0           0   8.028e-09   8.028e-09  DCAP
+ENDCAP_4                               0           0   8.028e-09   8.028e-09  DCAP
+ENDCAP_2                               0           0   8.028e-09   8.028e-09  DCAP
+FILLDECAP_T_1_3                        0           0   1.846e-08   1.846e-08  DCAP4
+ENDCAP_5                               0           0   8.028e-09   8.028e-09  DCAP
+ENDCAP_6                               0           0   8.028e-09   8.028e-09  DCAP
+ENDCAP_7                               0           0   8.028e-09   8.028e-09  DCAP
+ENDCAP_8                               0           0   8.028e-09   8.028e-09  DCAP
+ENDCAP_9                               0           0   8.028e-09   8.028e-09  DCAP
+
+---------------------------------------------------------------------------------------
+
+Total (     25 of     25  )     0.005967    0.005587    0.01156    3.88e-06
+Total Capacitance                4.529e-13 F
+Power Density                   *** No Die Area ***

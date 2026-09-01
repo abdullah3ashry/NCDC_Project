@@ -1,0 +1,43 @@
+##############################################################################################################
+#####  
+#####                                         PVS LVS COMPARISON
+#####  
+#####  Version                       :   23.11-s036
+#####  NVN Run Start                 :   Wed Aug 12 04:14:16 2026
+#####  ERC Summary File              :   erc.sum
+#####  Extraction Report File        :   lvs.rep
+#####  Comparison Report File        :   lvs.rep.cls
+#####  
+#####                                :      @     @     
+#####                                :       @   @      
+#####                                :        @ @       
+#####  Run Result                    :     LVS ABORT
+#####                                :        @ @       
+#####                                :       @   @      
+#####                                :      @     @     
+#####  
+#####  Run Summary                   :   [ERROR] Extraction Errors (refer to Extraction Report File)
+#####                                :   [ERROR] Comparison Aborted
+#####                                :   [INFO]  ERC Results: Empty, non-executed ERC operations exist (refer to ERC Summary File)
+#####  
+#####  Layout Design                 :   /home/cc/Documents/Abdullah/Lab_04_Data/export/Innovus_Data/outputs/pnr/top_wrapper.gds (gdsii)
+#####  Layout File                   :   top_wrapper.net (cdl)
+#####  Schematic File                :   /home/cc/Documents/Abdullah/Lab_04_Data/export/Innovus_Data/outputs/pnr/top_wrapper.final.v (verilog)
+#####  Schematic File                :   /home/cc/Documents/Abdullah/Lab_04_Data/libraries/spi/tcbn65lp_200a.spi (cdl)
+#####  Schematic File                :   /home/cc/Documents/Abdullah/Lab_04_Data/libraries/spi/tpzn65lpgv2od3_3.spi (cdl)
+#####  Rules File                    :   /home/cc/Documents/Abdullah/Lab_04_Data/inputs/lvs.pvl
+#####  Pin Swap File                 :   lvs.rep.cps
+#####  
+#####  Extraction CPU Time           :   0h 0m 11s - (11s)
+#####  Extraction Exec Time          :   0h 0m 12s - (12s)
+#####  Extraction Peak Memory Usage  :   141.00MB
+#####  NVN CPU Time                  :   0h 0m 0s - (0s)                 
+#####  NVN Exec Time                 :   0h 0m 1s - (1s)                 
+#####  NVN Peak Memory Usage         :   415.84MB
+#####  LVS Total CPU Time            :   0h 0m 11s - (11s)               
+#####  LVS Total Exec Time           :   0h 0m 13s - (13s)               
+#####  LVS Total Peak Memory Usage   :   415.84MB
+#####  
+##############################################################################################################
+
+

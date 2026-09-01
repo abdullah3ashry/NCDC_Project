@@ -1,0 +1,777 @@
+Cadence Genus(TM) Synthesis Solution.
+Copyright 2023 Cadence Design Systems, Inc. All rights reserved worldwide.
+Cadence and the Cadence logo are registered trademarks and Genus is a trademark
+of Cadence Design Systems, Inc. in the United States and other countries.
+
+[02:38:38.301505] Configured Lic search path (21.01-s002): 5280@10.19.32.90
+
+Version: 21.18-s082_1, built Tue Jul 18 10:08:41 PDT 2023
+Options: 
+Date:    Fri Jul 31 02:38:38 2026
+Host:    ncdc-0137 (x86_64 w/Linux 7.1.4-1.el8.elrepo.x86_64) (16cores*24cpus*1physical cpu*13th Gen Intel(R) Core(TM) i7-13700 30720KB) (65319316KB)
+PID:     8663
+OS:      Red Hat Enterprise Linux release 8.6 (Ootpa)
+
+
+[02:38:38.271200] Periodic Lic check successful
+[02:38:38.271208] Feature usage summary:
+[02:38:38.271208] Genus_Synthesis
+Checking out license: Genus_Synthesis
+
+
+***********************************************************************************************************
+***********************************************************************************************************
+
+
+
+Loading tool scripts...
+Finished loading tool scripts (8 seconds elapsed).
+
+WARNING: This version of the tool is 1108 days old.
+@genus:root: 1> ################################################################################
+@genus:root: 2> # CADENCE GENUS: UNIFIED SYNTHESIS FLOW (LOGICAL, PHYSICAL & DFT)
+@genus:root: 3> ################################################################################
+@genus:root: 4> 
+@genus:root: 4> # ==============================================================================
+@genus:root: 5> # 1. FLOW TOGGLES & DIRECTORY SETUP
+@genus:root: 6> # ==============================================================================
+@genus:root: 7> set FLOW_TYPE    "physical"
+physical
+@genus:root: 8> set INCLUDE_DFT  "false"
+false
+@genus:root: 9> 
+@genus:root: 9> set start_time [clock seconds]
+1785479936
+@genus:root: 10> 
+@genus:root: 10> # --- Project Identifiers ---
+@genus:root: 11> set DESIGN       "riscv_core"
+riscv_core
+@genus:root: 12> set GEN_EFF      "high"
+high
+@genus:root: 13> set MAP_OPT_EFF  "high"
+high
+@genus:root: 14> 
+@genus:root: 14> # --- Project Path ---
+@genus:root: 15> set WORK_DIR     "/home/cc/Documents/Abdullah/RISCV_synthesis"
+/home/cc/Documents/Abdullah/RISCV_synthesis
+@genus:root: 16> 
+@genus:root: 16> # --- Auto-Generated Sub-Paths ---
+@genus:root: 17> set RTL_DIR      "${WORK_DIR}/sourcecode/rtl"
+/home/cc/Documents/Abdullah/RISCV_synthesis/sourcecode/rtl
+@genus:root: 18> set PDK_DIR      "${WORK_DIR}/libraries"
+/home/cc/Documents/Abdullah/RISCV_synthesis/libraries
+@genus:root: 19> set MMMC_FILE    "${WORK_DIR}/inputs/mmmc_master.view"
+/home/cc/Documents/Abdullah/RISCV_synthesis/inputs/mmmc_master.view
+@genus:root: 20> set LEF_FILES    "${PDK_DIR}/lef/tcbn65lp_9lmT2.lef"
+/home/cc/Documents/Abdullah/RISCV_synthesis/libraries/lef/tcbn65lp_9lmT2.lef
+@genus:root: 21> 
+@genus:root: 21> # --- Create Output Infrastructure ---
+@genus:root: 22> set SYN_DATA_DIR "${WORK_DIR}/export/Synthesis_Data"
+/home/cc/Documents/Abdullah/RISCV_synthesis/export/Synthesis_Data
+@genus:root: 23> set RPT_DIR      "${SYN_DATA_DIR}/reports"
+/home/cc/Documents/Abdullah/RISCV_synthesis/export/Synthesis_Data/reports
+@genus:root: 24> set OUT_DIR      "${SYN_DATA_DIR}/outputs"
+/home/cc/Documents/Abdullah/RISCV_synthesis/export/Synthesis_Data/outputs
+@genus:root: 25> set NETLIST_DIR  "${SYN_DATA_DIR}/netlists"
+/home/cc/Documents/Abdullah/RISCV_synthesis/export/Synthesis_Data/netlists
+@genus:root: 26> set DB_DIR       "${SYN_DATA_DIR}/db"
+/home/cc/Documents/Abdullah/RISCV_synthesis/export/Synthesis_Data/db
+@genus:root: 27> 
+@genus:root: 27> file mkdir $SYN_DATA_DIR $RPT_DIR $OUT_DIR $NETLIST_DIR $DB_DIR
+@genus:root: 28> 
+@genus:root: 28> puts "INFO: Starting $FLOW_TYPE Synthesis Flow (DFT: $INCLUDE_DFT) for $DESIGN"
+INFO: Starting physical Synthesis Flow (DFT: false) for riscv_core
+@genus:root: 29> 
+@genus:root: 29> # ==============================================================================
+@genus:root: 30> # 2. LOAD TECHNOLOGY & DESIGN
+@genus:root: 31> # ==============================================================================
+@genus:root: 32> if {$FLOW_TYPE == "physical"} {
+    read_mmmc $MMMC_FILE
+    read_physical -lef $LEF_FILES
+} else {
+    set_db init_lib_search_path "$PDK_DIR/libs"
+    read_libs {tcbn65lptc.lib}
+}
+  Setting attribute of root '/': 'is_read_mmmc_flow' = true
+Sourcing '/home/cc/Documents/Abdullah/RISCV_synthesis/inputs/mmmc_master.view' (Fri Jul 31 02:38:56 EDT 2026)...
+#@ Begin verbose source /home/cc/Documents/Abdullah/RISCV_synthesis/inputs/mmmc_master.view
+@file(mmmc_master.view) 5: if {![info exists INCLUDE_DFT]} {
+    set INCLUDE_DFT "false"
+}
+@file(mmmc_master.view) 10: set WORK_DIR "/home/cc/Documents/Abdullah/RISCV_synthesis"
+@file(mmmc_master.view) 13: set SDC_FUNC_FILE "${WORK_DIR}/inputs/riscv_baseline.sdc"
+@file(mmmc_master.view) 14: set SDC_TEST_FILE "${WORK_DIR}/inputs/riscv_dft.sdc"
+@file(mmmc_master.view) 17: set LIB_TC        "${WORK_DIR}/libraries/libs/tcbn65lptc.lib"
+@file(mmmc_master.view) 18: set LIB_WC        "${WORK_DIR}/libraries/libs/tcbn65lpwc.lib"
+@file(mmmc_master.view) 19: set LIB_BC        "${WORK_DIR}/libraries/libs/tcbn65lpbc.lib"
+@file(mmmc_master.view) 22: set CAPTABLE_TC   "${WORK_DIR}/inputs/mmmc_files/captable/cln65lp_1p09m+alrdl_top2_typical.captable"
+@file(mmmc_master.view) 23: set CAPTABLE_WC   "${WORK_DIR}/inputs/mmmc_files/captable/cln65lp_1p09m+alrdl_top2_rcworst.captable"
+@file(mmmc_master.view) 24: set CAPTABLE_BC   "${WORK_DIR}/inputs/mmmc_files/captable/cln65lp_1p09m+alrdl_top2_rcbest.captable"
+@file(mmmc_master.view) 29: create_library_set -name tc_libset -timing $LIB_TC
+@file(mmmc_master.view) 30: create_library_set -name wc_libset -timing $LIB_WC
+@file(mmmc_master.view) 31: create_library_set -name bc_libset -timing $LIB_BC
+@file(mmmc_master.view) 36: create_timing_condition -name tc_cond -library_sets {tc_libset}
+@file(mmmc_master.view) 37: create_timing_condition -name wc_cond -library_sets {wc_libset}
+@file(mmmc_master.view) 38: create_timing_condition -name bc_cond -library_sets {bc_libset}
+@file(mmmc_master.view) 43: create_rc_corner -name rc_typical -temperature 25  -cap_table $CAPTABLE_TC
+@file(mmmc_master.view) 44: create_rc_corner -name rc_worst   -temperature 125 -cap_table $CAPTABLE_WC
+@file(mmmc_master.view) 45: create_rc_corner -name rc_best    -temperature -40 -cap_table $CAPTABLE_BC
+@file(mmmc_master.view) 50: create_constraint_mode -name func_mode -sdc_files $SDC_FUNC_FILE
+@file(mmmc_master.view) 52: if {$INCLUDE_DFT == "true"} {
+    create_constraint_mode -name test_mode -sdc_files $SDC_TEST_FILE
+}
+@file(mmmc_master.view) 59: create_delay_corner -name dc_typical -timing_condition {tc_cond} -rc_corner {rc_typical}
+@file(mmmc_master.view) 60: create_delay_corner -name dc_worst   -timing_condition {wc_cond} -rc_corner {rc_worst}
+@file(mmmc_master.view) 61: create_delay_corner -name dc_best    -timing_condition {bc_cond} -rc_corner {rc_best}
+@file(mmmc_master.view) 66: create_analysis_view -name view_func_typical -constraint_mode {func_mode} -delay_corner {dc_typical}
+@file(mmmc_master.view) 67: create_analysis_view -name view_func_setup   -constraint_mode {func_mode} -delay_corner {dc_worst}
+@file(mmmc_master.view) 68: create_analysis_view -name view_func_hold    -constraint_mode {func_mode} -delay_corner {dc_best}
+@file(mmmc_master.view) 70: if {$INCLUDE_DFT == "true"} {
+    create_analysis_view -name view_test_typical -constraint_mode {test_mode} -delay_corner {dc_typical}
+    create_analysis_view -name view_test_setup   -constraint_mode {test_mode} -delay_corner {dc_worst}
+    create_analysis_view -name view_test_hold    -constraint_mode {test_mode} -delay_corner {dc_best}
+}
+@file(mmmc_master.view) 79: if {$INCLUDE_DFT == "true"} {
+    set_analysis_view \
+        -setup   {view_func_setup view_test_setup} \
+        -hold    {view_func_hold view_test_hold} \
+        -leakage {view_func_typical} \
+        -dynamic {view_func_typical}
+} else {
+    set_analysis_view \
+        -setup   {view_func_setup} \
+        -hold    {view_func_hold} \
+        -leakage {view_func_typical} \
+        -dynamic {view_func_typical}
+}
+
+Threads Configured:3
+
+  Message Summary for Library tcbn65lpwc.lib:
+  *******************************************
+  Missing a function attribute in the output pin definition. [LBR-518]: 1
+  An unsupported construct was detected in this library. [LBR-40]: 1
+  *******************************************
+ 
+Info    : Created nominal operating condition. [LBR-412]
+        : Operating condition '_nominal_' was created for the PVT values (1.000000, 1.080000, 125.000000) in library 'tcbn65lpwc.lib'.
+        : The nominal operating condition is represented, either by the nominal PVT values specified in the library source (via nom_process,nom_voltage and nom_temperature respectively), or by the default PVT values (1.0,1.0,1.0).
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'ANTENNA' must have an output pin.
+        : Add the missing output pin(s), then reload the library. Else the library cell will be marked as timing model i.e. unusable. Timing_model means that the cell does not have any defined function. If there is no output pin, Genus will mark library cell as unusable i.e. the attribute 'usable' will be marked to 'false' on the libcell. Therefore, the cell is not used for mapping and it will not be picked up from the library for synthesis. If you query the attribute 'unusable_reason' on the libcell; result will be: 'Library cell has no output pins.'Note: The message LBR-9 is only for the logical pins and not for the power_ground pins. Genus will depend upon the output function defined in the pin group (output pin) of the cell, to use it for mapping. The pg_pin will not have any function defined.
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'ANTENNA' must have an output pin.
+Warning : Unusable clock gating integrated cell found at the time of loading libraries. This warning happens because a particular library cell is defined as 'clock_gating_integrated_cell', but 'dont_use' attribute is defined as true in the liberty library. To make Genus use this cell for clock gating insertion, 'dont_use' attribute should be set to false. [LBR-101]
+        : Clock gating integrated cell name: 'CKLHQD20'
+        : To make the cell usable, change the value of 'dont_use' attribute to false.
+Warning : Unusable clock gating integrated cell found at the time of loading libraries. This warning happens because a particular library cell is defined as 'clock_gating_integrated_cell', but 'dont_use' attribute is defined as true in the liberty library. To make Genus use this cell for clock gating insertion, 'dont_use' attribute should be set to false. [LBR-101]
+        : Clock gating integrated cell name: 'CKLHQD24'
+Warning : Unusable clock gating integrated cell found at the time of loading libraries. This warning happens because a particular library cell is defined as 'clock_gating_integrated_cell', but 'dont_use' attribute is defined as true in the liberty library. To make Genus use this cell for clock gating insertion, 'dont_use' attribute should be set to false. [LBR-101]
+        : Clock gating integrated cell name: 'CKLNQD20'
+Warning : Unusable clock gating integrated cell found at the time of loading libraries. This warning happens because a particular library cell is defined as 'clock_gating_integrated_cell', but 'dont_use' attribute is defined as true in the liberty library. To make Genus use this cell for clock gating insertion, 'dont_use' attribute should be set to false. [LBR-101]
+        : Clock gating integrated cell name: 'CKLNQD24'
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'DCAP' must have an output pin.
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'DCAP' must have an output pin.
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'DCAP16' must have an output pin.
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'DCAP16' must have an output pin.
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'DCAP32' must have an output pin.
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'DCAP32' must have an output pin.
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'DCAP4' must have an output pin.
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'DCAP4' must have an output pin.
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'DCAP64' must have an output pin.
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'DCAP64' must have an output pin.
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'DCAP8' must have an output pin.
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'DCAP8' must have an output pin.
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'GDCAP' must have an output pin.
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'GDCAP' must have an output pin.
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'GDCAP10' must have an output pin.
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'GDCAP10' must have an output pin.
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'GDCAP2' must have an output pin.
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'GDCAP2' must have an output pin.
+Warning : Maximum message print count reached. [MESG-11]
+        : Maximum print count of '20' reached for message 'LBR-9'.
+Info    : Set default library domain. [LBR-109]
+        : The default library domain is 'library_domain:wc_cond'.
+#@ End verbose source /home/cc/Documents/Abdullah/RISCV_synthesis/inputs/mmmc_master.view
+
+  According to lef_library, there are total 10 routing layers [ V(5) / H(5) ]
+
+Warning : The variant range of wire parameters is too large. An example of wire parameters are, a WIDTH for layer, PITCH for layer, MINSPACING for layers, etc. [PHYS-12]
+        : The variant range (0.09, 3) of 'WIDTH' for layers 'M1' and 'AP' is too large.
+        : Check the consistency of the parameters, and see if you can ignore this message or you're using different LEF file with wrong parameters.
+Warning : The variant range of wire parameters is too large. An example of wire parameters are, a WIDTH for layer, PITCH for layer, MINSPACING for layers, etc. [PHYS-12]
+        : The variant range (0.2, 6.5) of 'PITCH' for layers 'M6' and 'AP' is too large.
+Warning : The variant range of wire parameters is too large. An example of wire parameters are, a WIDTH for layer, PITCH for layer, MINSPACING for layers, etc. [PHYS-12]
+        : The variant range (0.09, 2) of 'MINSPACING' for layers 'M1' and 'AP' is too large.
+  Library has 441 usable logic and 280 usable sequential lib-cells.
+Warning : Physical cell not defined in library. [PHYS-279]
+        : The physical (LEF) cell FILL1 cannot be found in library.
+        : Ensure that the proper library files are available and have been imported.
+Warning : Physical cell not defined in library. [PHYS-279]
+        : The physical (LEF) cell FILL16 cannot be found in library.
+Warning : Physical cell not defined in library. [PHYS-279]
+        : The physical (LEF) cell FILL1_LL cannot be found in library.
+Warning : Physical cell not defined in library. [PHYS-279]
+        : The physical (LEF) cell FILL2 cannot be found in library.
+Warning : Physical cell not defined in library. [PHYS-279]
+        : The physical (LEF) cell FILL32 cannot be found in library.
+Warning : Physical cell not defined in library. [PHYS-279]
+        : The physical (LEF) cell FILL4 cannot be found in library.
+Warning : Physical cell not defined in library. [PHYS-279]
+        : The physical (LEF) cell FILL64 cannot be found in library.
+Warning : Physical cell not defined in library. [PHYS-279]
+        : The physical (LEF) cell FILL8 cannot be found in library.
+Warning : Physical cell not defined in library. [PHYS-279]
+        : The physical (LEF) cell FILL_NW_FA_LL cannot be found in library.
+Warning : Physical cell not defined in library. [PHYS-279]
+        : The physical (LEF) cell FILL_NW_HH cannot be found in library.
+Warning : Physical cell not defined in library. [PHYS-279]
+        : The physical (LEF) cell FILL_NW_LL cannot be found in library.
+Warning : Physical cell not defined in library. [PHYS-279]
+        : The physical (LEF) cell ISOHID1 cannot be found in library.
+Warning : Physical cell not defined in library. [PHYS-279]
+        : The physical (LEF) cell ISOHID2 cannot be found in library.
+Warning : Physical cell not defined in library. [PHYS-279]
+        : The physical (LEF) cell ISOHID4 cannot be found in library.
+Warning : Physical cell not defined in library. [PHYS-279]
+        : The physical (LEF) cell ISOHID8 cannot be found in library.
+Warning : Physical cell not defined in library. [PHYS-279]
+        : The physical (LEF) cell ISOLOD1 cannot be found in library.
+Warning : Physical cell not defined in library. [PHYS-279]
+        : The physical (LEF) cell ISOLOD2 cannot be found in library.
+Warning : Physical cell not defined in library. [PHYS-279]
+        : The physical (LEF) cell ISOLOD4 cannot be found in library.
+Warning : Physical cell not defined in library. [PHYS-279]
+        : The physical (LEF) cell ISOLOD8 cannot be found in library.
+Warning : Physical cell not defined in library. [PHYS-279]
+        : The physical (LEF) cell LVLHLD1 cannot be found in library.
+Warning : Maximum message print count reached. [MESG-11]
+        : Maximum print count of '20' reached for message 'PHYS-279'.
+@genus:root: 33> 
+@genus:root: 33> # --- Parsing Multiple SystemVerilog Files ---
+@genus:root: 34> read_hdl -sv [glob ${RTL_DIR}/*.sv]
+  initial begin
+        |
+Warning : Ignoring unsynthesizable construct. [VLOGPT-37]
+        : Initial in file '/home/cc/Documents/Abdullah/RISCV_synthesis/sourcecode/rtl/data_mem.sv' on line 15, column 9.
+        : For example, the following constructs will be ignored:
+    - initial block
+    - final block
+    - program block
+    - property block
+    - sequence block
+    - covergroup
+    - checker block
+    - gate drive strength
+    - system task enable
+    - reg declaration with initial value
+    - specify block.
+    initial begin
+          |
+Warning : Ignoring unsynthesizable construct. [VLOGPT-37]
+        : Initial in file '/home/cc/Documents/Abdullah/RISCV_synthesis/sourcecode/rtl/i_mem.sv' on line 10, column 11.
+module riscv_top (
+               |
+Warning : Replacing previously read Verilog description. [VLOGPT-6]
+        : Replacing Verilog description 'riscv_top' with Verilog module in file '/home/cc/Documents/Abdullah/RISCV_synthesis/sourcecode/rtl/riscv_core.sv' on line 3, column 16.
+        : A Verilog description is replaced when a new description of the same name and same library is read again.
+    Verilog descriptions are:
+       module
+       macromodule
+       configuration
+    SystemVerilog adds the following descriptions:
+       interface
+       program
+       package.
+@genus:root: 35> 
+@genus:root: 35> elaborate $DESIGN
+Error   : Could not find an HDL design. [CDFG-210] [elaborate]
+        : The design is 'riscv_core'.
+        : This error may happen if you read a set of files, and you try to elaborate a design which description is not part of the files read. To fix this, check the name of the design you want to elaborate, or check if you have read all the expected RTL files.
+UM:   flow.cputime  flow.realtime  timing.setup.tns  timing.setup.wns  snapshot
+UM:*                                                                   elaborate
+1
+@genus:root: 36> check_design -unresolved
+
+
+ 	 Check Design Report (c)
+	 ------------------- 
+
+  Unresolved References & Empty Modules
+  ------------------------------------- 
+No unresolved references in design '__default_mmmc_spec'
+
+design '__default_mmmc_spec' has the following empty module(s)
+
+Total number of empty modules in design '__default_mmmc_spec' : 1
+
+  Done Checking the design.
+@genus:root: 37> 
+@genus:root: 37> if {$FLOW_TYPE == "physical"} {
+    init_design
+} else {
+    read_sdc ${WORK_DIR}/inputs/riscv_baseline.sdc
+}
+
+Threads Configured:3
+
+  Message Summary for Library tcbn65lptc.lib:
+  *******************************************
+  Missing a function attribute in the output pin definition. [LBR-518]: 1
+  An unsupported construct was detected in this library. [LBR-40]: 1
+  *******************************************
+ 
+Info    : Created nominal operating condition. [LBR-412]
+        : Operating condition '_nominal_' was created for the PVT values (1.000000, 1.200000, 25.000000) in library 'tcbn65lptc.lib'.
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'ANTENNA' must have an output pin.
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'ANTENNA' must have an output pin.
+Warning : Unusable clock gating integrated cell found at the time of loading libraries. This warning happens because a particular library cell is defined as 'clock_gating_integrated_cell', but 'dont_use' attribute is defined as true in the liberty library. To make Genus use this cell for clock gating insertion, 'dont_use' attribute should be set to false. [LBR-101]
+        : Clock gating integrated cell name: 'CKLHQD20'
+Warning : Unusable clock gating integrated cell found at the time of loading libraries. This warning happens because a particular library cell is defined as 'clock_gating_integrated_cell', but 'dont_use' attribute is defined as true in the liberty library. To make Genus use this cell for clock gating insertion, 'dont_use' attribute should be set to false. [LBR-101]
+        : Clock gating integrated cell name: 'CKLHQD24'
+Warning : Unusable clock gating integrated cell found at the time of loading libraries. This warning happens because a particular library cell is defined as 'clock_gating_integrated_cell', but 'dont_use' attribute is defined as true in the liberty library. To make Genus use this cell for clock gating insertion, 'dont_use' attribute should be set to false. [LBR-101]
+        : Clock gating integrated cell name: 'CKLNQD20'
+Warning : Unusable clock gating integrated cell found at the time of loading libraries. This warning happens because a particular library cell is defined as 'clock_gating_integrated_cell', but 'dont_use' attribute is defined as true in the liberty library. To make Genus use this cell for clock gating insertion, 'dont_use' attribute should be set to false. [LBR-101]
+        : Clock gating integrated cell name: 'CKLNQD24'
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'DCAP' must have an output pin.
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'DCAP' must have an output pin.
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'DCAP16' must have an output pin.
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'DCAP16' must have an output pin.
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'DCAP32' must have an output pin.
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'DCAP32' must have an output pin.
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'DCAP4' must have an output pin.
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'DCAP4' must have an output pin.
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'DCAP64' must have an output pin.
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'DCAP64' must have an output pin.
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'DCAP8' must have an output pin.
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'DCAP8' must have an output pin.
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'GDCAP' must have an output pin.
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'GDCAP' must have an output pin.
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'GDCAP10' must have an output pin.
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'GDCAP10' must have an output pin.
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'GDCAP2' must have an output pin.
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'GDCAP2' must have an output pin.
+  Library has 441 usable logic and 280 usable sequential lib-cells.
+Warning : Inconsistency detected among the units specified in the timing libraries being used. [LBR-714]
+        : Libraries with inconsistent time/capacitance units were loaded.
+        : Default system time/capacitance unit will be used.
+Started checking and loading power intent for design __default_mmmc_spec...
+===========================================================================
+No power intent for design '__default_mmmc_spec'.
+Completed checking and loading power intent for design __default_mmmc_spec (runtime:0.00s memory_usage:0.00M peak_memory:0.00M).
+================================================================================================================================
+#
+# Reading SDC /home/cc/Documents/Abdullah/RISCV_synthesis/inputs/riscv_baseline.sdc for view:view_func_setup (constraint_mode:func_mode)
+#
+Warning : Could not find requested search value. [SDC-208] [get_ports]
+        : The 'get_ports' command on line '5' of the SDC file '/home/cc/Documents/Abdullah/RISCV_synthesis/inputs/riscv_baseline.sdc'  cannot find any ports named 'clk'
+        : Use get_* commands to find the objects along with a wild card entry in the name of the object to check if the object is existing with different naming style.
+Error   : A required object parameter could not be found. [TUI-61] [create_clock]
+        : An object of type 'port|pin|hpin' named '' could not be found.
+        : Check to make sure that the object exists and is of the correct type.  The 'what_is' command can be used to determine the type of an object.
+Error   : Could not interpret SDC command. [SDC-202] [read_sdc]
+        : The 'read_sdc' command encountered an error while processing this command on line '5' of the SDC file '/home/cc/Documents/Abdullah/RISCV_synthesis/inputs/riscv_baseline.sdc': create_clock -name clk -period 10.0 -waveform {0 5} [get_ports 'clk'].
+        : The 'read_sdc' command encountered a problem while trying to evaluate an SDC command. This SDC command will be added to the Tcl variable $::dc::sdc_failed_commands.
+Warning : Could not find requested search value. [SDC-208] [get_ports]
+        : The 'get_ports' command on line '8' of the SDC file '/home/cc/Documents/Abdullah/RISCV_synthesis/inputs/riscv_baseline.sdc'  cannot find any ports named 'clk'
+Error   : Invalid SDC command option combination. [SDC-204] [set_ideal_network]
+        : The set_ideal_network command does not accept empty object lists
+        : This option is not valid for the indicated SDC command. Check the SDC command and contact Cadence customer support if you believe this option combination should be supported.
+Error   : Could not interpret SDC command. [SDC-202] [read_sdc]
+        : The 'read_sdc' command encountered an error while processing this command on line '8' of the SDC file '/home/cc/Documents/Abdullah/RISCV_synthesis/inputs/riscv_baseline.sdc': set_ideal_network [get_ports 'clk'].
+Warning : Could not find requested search value. [SDC-208] [get_ports]
+        : The 'get_ports' command on line '9' of the SDC file '/home/cc/Documents/Abdullah/RISCV_synthesis/inputs/riscv_baseline.sdc'  cannot find any ports named 'rst'
+Error   : Could not interpret SDC command. [SDC-202] [read_sdc]
+        : The 'read_sdc' command encountered an error while processing this command on line '9' of the SDC file '/home/cc/Documents/Abdullah/RISCV_synthesis/inputs/riscv_baseline.sdc': set_ideal_network [get_ports 'rst'].
+Warning : Could not find requested search value. [SDC-208] [get_clocks]
+        : The 'get_clocks' command on line '25' of the SDC file '/home/cc/Documents/Abdullah/RISCV_synthesis/inputs/riscv_baseline.sdc'  cannot find any clocks named 'clk'
+Error   : Option missing for SDC command. [SDC-203] [set_clock_uncertainty]
+        : The set_clock_uncertainty command requires '-from', '-to', '-rise_from', '-fall_from', '-rise_to', '-fall_to', or list of objects option.
+        : This SDC command requires the indicated options.  Check the SDC command and contact Cadence customer support if you believe this option combination should be supported.
+Error   : Could not interpret SDC command. [SDC-202] [read_sdc]
+        : The 'read_sdc' command encountered an error while processing this command on line '25' of the SDC file '/home/cc/Documents/Abdullah/RISCV_synthesis/inputs/riscv_baseline.sdc': set_clock_uncertainty -setup 0.15 [get_clocks 'clk'].
+Warning : Could not find requested search value. [SDC-208] [get_clocks]
+        : The 'get_clocks' command on line '26' of the SDC file '/home/cc/Documents/Abdullah/RISCV_synthesis/inputs/riscv_baseline.sdc'  cannot find any clocks named 'clk'
+Error   : Could not interpret SDC command. [SDC-202] [read_sdc]
+        : The 'read_sdc' command encountered an error while processing this command on line '26' of the SDC file '/home/cc/Documents/Abdullah/RISCV_synthesis/inputs/riscv_baseline.sdc': set_clock_uncertainty -hold  0.05 [get_clocks 'clk'].
+Error   : A required object parameter could not be found. [TUI-61] [parse_options]
+        : An object of type 'port' named '' could not be found.
+Error   : Could not interpret SDC command. [SDC-202] [read_sdc]
+        : The 'read_sdc' command encountered an error while processing this command on line '35' of the SDC file '/home/cc/Documents/Abdullah/RISCV_synthesis/inputs/riscv_baseline.sdc': set_input_transition 0.1 [all_inputs].
+Warning : Could not find requested search value. [SDC-208] [get_clocks]
+        : The 'get_clocks' command on line '45' of the SDC file '/home/cc/Documents/Abdullah/RISCV_synthesis/inputs/riscv_baseline.sdc'  cannot find any clocks named 'clk'
+Warning : Maximum message print count reached. [MESG-11] [get_ports]
+        : Maximum print count of '6' reached for message 'SDC-208'.
+Error   : Invalid SDC command option combination. [SDC-204] [set_io_delay]
+        : The set_io_delay command does not accept empty ports lists
+Warning : Suppressed remaining 'SDC-208' warnings. [SDC-236]
+        : The line '45' of the SDC file '/home/cc/Documents/Abdullah/RISCV_synthesis/inputs/riscv_baseline.sdc' had total 2 failures.
+        : Use the attribute 'collapse_sdc_msg' to control printing of warning 'SDC-208'.
+Error   : Could not interpret SDC command. [SDC-202] [read_sdc]
+        : The 'read_sdc' command encountered an error while processing this command on line '45' of the SDC file '/home/cc/Documents/Abdullah/RISCV_synthesis/inputs/riscv_baseline.sdc': set_input_delay -max 2.0 -clock [get_clocks 'clk'] [get_ports 'instructions'].
+Warning : Could not find requested search value. [SDC-208] [get_clocks]
+        : The 'get_clocks' command on line '47' of the SDC file '/home/cc/Documents/Abdullah/RISCV_synthesis/inputs/riscv_baseline.sdc'  cannot find any clocks named 'clk'
+Warning : Suppressed remaining 'SDC-208' warnings. [SDC-236]
+        : The line '47' of the SDC file '/home/cc/Documents/Abdullah/RISCV_synthesis/inputs/riscv_baseline.sdc' had total 2 failures.
+Error   : Could not interpret SDC command. [SDC-202] [read_sdc]
+        : The 'read_sdc' command encountered an error while processing this command on line '47' of the SDC file '/home/cc/Documents/Abdullah/RISCV_synthesis/inputs/riscv_baseline.sdc': set_input_delay -max 2.0 -clock [get_clocks 'clk'] [get_ports 'raw_dmem_read'].
+Warning : Could not find requested search value. [SDC-208] [get_clocks]
+        : The 'get_clocks' command on line '49' of the SDC file '/home/cc/Documents/Abdullah/RISCV_synthesis/inputs/riscv_baseline.sdc'  cannot find any clocks named 'clk'
+Warning : Suppressed remaining 'SDC-208' warnings. [SDC-236]
+        : The line '49' of the SDC file '/home/cc/Documents/Abdullah/RISCV_synthesis/inputs/riscv_baseline.sdc' had total 2 failures.
+Error   : Could not interpret SDC command. [SDC-202] [read_sdc]
+        : The 'read_sdc' command encountered an error while processing this command on line '49' of the SDC file '/home/cc/Documents/Abdullah/RISCV_synthesis/inputs/riscv_baseline.sdc': set_input_delay -max 1.0 -clock [get_clocks 'clk'] [get_ports 'rst'].
+Warning : Could not find requested search value. [SDC-208] [get_clocks]
+        : The 'get_clocks' command on line '53' of the SDC file '/home/cc/Documents/Abdullah/RISCV_synthesis/inputs/riscv_baseline.sdc'  cannot find any clocks named 'clk'
+Error   : Could not interpret SDC command. [SDC-202] [read_sdc]
+        : The 'read_sdc' command encountered an error while processing this command on line '53' of the SDC file '/home/cc/Documents/Abdullah/RISCV_synthesis/inputs/riscv_baseline.sdc': set_input_delay -min 0.1 -clock [get_clocks 'clk'] [all_inputs].
+Warning : Could not find requested search value. [SDC-208] [get_clocks]
+        : The 'get_clocks' command on line '59' of the SDC file '/home/cc/Documents/Abdullah/RISCV_synthesis/inputs/riscv_baseline.sdc'  cannot find any clocks named 'clk'
+Warning : Suppressed remaining 'SDC-208' warnings. [SDC-236]
+        : The line '59' of the SDC file '/home/cc/Documents/Abdullah/RISCV_synthesis/inputs/riscv_baseline.sdc' had total 2 failures.
+Error   : Could not interpret SDC command. [SDC-202] [read_sdc]
+        : The 'read_sdc' command encountered an error while processing this command on line '59' of the SDC file '/home/cc/Documents/Abdullah/RISCV_synthesis/inputs/riscv_baseline.sdc': set_output_delay -max 2.0 -clock [get_clocks 'clk'] [get_ports 'pc_current'].
+Warning : Could not find requested search value. [SDC-208] [get_clocks]
+        : The 'get_clocks' command on line '61' of the SDC file '/home/cc/Documents/Abdullah/RISCV_synthesis/inputs/riscv_baseline.sdc'  cannot find any clocks named 'clk'
+Warning : Suppressed remaining 'SDC-208' warnings. [SDC-236]
+        : The line '61' of the SDC file '/home/cc/Documents/Abdullah/RISCV_synthesis/inputs/riscv_baseline.sdc' had total 2 failures.
+Error   : Could not interpret SDC command. [SDC-202] [read_sdc]
+        : The 'read_sdc' command encountered an error while processing this command on line '61' of the SDC file '/home/cc/Documents/Abdullah/RISCV_synthesis/inputs/riscv_baseline.sdc': set_output_delay -max 2.0 -clock [get_clocks 'clk'] [get_ports 'alu_results'].
+Warning : Could not find requested search value. [SDC-208] [get_clocks]
+        : The 'get_clocks' command on line '62' of the SDC file '/home/cc/Documents/Abdullah/RISCV_synthesis/inputs/riscv_baseline.sdc'  cannot find any clocks named 'clk'
+Warning : Suppressed remaining 'SDC-208' warnings. [SDC-236]
+        : The line '62' of the SDC file '/home/cc/Documents/Abdullah/RISCV_synthesis/inputs/riscv_baseline.sdc' had total 2 failures.
+Error   : Could not interpret SDC command. [SDC-202] [read_sdc]
+        : The 'read_sdc' command encountered an error while processing this command on line '62' of the SDC file '/home/cc/Documents/Abdullah/RISCV_synthesis/inputs/riscv_baseline.sdc': set_output_delay -max 2.0 -clock [get_clocks 'clk'] [get_ports 'formatted_dmem_write'].
+Warning : Could not find requested search value. [SDC-208] [get_clocks]
+        : The 'get_clocks' command on line '63' of the SDC file '/home/cc/Documents/Abdullah/RISCV_synthesis/inputs/riscv_baseline.sdc'  cannot find any clocks named 'clk'
+Warning : Suppressed remaining 'SDC-208' warnings. [SDC-236]
+        : The line '63' of the SDC file '/home/cc/Documents/Abdullah/RISCV_synthesis/inputs/riscv_baseline.sdc' had total 2 failures.
+Error   : Could not interpret SDC command. [SDC-202] [read_sdc]
+        : The 'read_sdc' command encountered an error while processing this command on line '63' of the SDC file '/home/cc/Documents/Abdullah/RISCV_synthesis/inputs/riscv_baseline.sdc': set_output_delay -max 2.0 -clock [get_clocks 'clk'] [get_ports 'dmem_write_mask'].
+Warning : Could not find requested search value. [SDC-208] [get_clocks]
+        : The 'get_clocks' command on line '64' of the SDC file '/home/cc/Documents/Abdullah/RISCV_synthesis/inputs/riscv_baseline.sdc'  cannot find any clocks named 'clk'
+Warning : Suppressed remaining 'SDC-208' warnings. [SDC-236]
+        : The line '64' of the SDC file '/home/cc/Documents/Abdullah/RISCV_synthesis/inputs/riscv_baseline.sdc' had total 2 failures.
+Error   : Could not interpret SDC command. [SDC-202] [read_sdc]
+        : The 'read_sdc' command encountered an error while processing this command on line '64' of the SDC file '/home/cc/Documents/Abdullah/RISCV_synthesis/inputs/riscv_baseline.sdc': set_output_delay -max 2.0 -clock [get_clocks 'clk'] [get_ports 'mem_read'].
+Warning : Could not find requested search value. [SDC-208] [get_clocks]
+        : The 'get_clocks' command on line '65' of the SDC file '/home/cc/Documents/Abdullah/RISCV_synthesis/inputs/riscv_baseline.sdc'  cannot find any clocks named 'clk'
+Warning : Suppressed remaining 'SDC-208' warnings. [SDC-236]
+        : The line '65' of the SDC file '/home/cc/Documents/Abdullah/RISCV_synthesis/inputs/riscv_baseline.sdc' had total 2 failures.
+Error   : Could not interpret SDC command. [SDC-202] [read_sdc]
+        : The 'read_sdc' command encountered an error while processing this command on line '65' of the SDC file '/home/cc/Documents/Abdullah/RISCV_synthesis/inputs/riscv_baseline.sdc': set_output_delay -max 2.0 -clock [get_clocks 'clk'] [get_ports 'mem_write'].
+Warning : Could not find requested search value. [SDC-208] [get_clocks]
+        : The 'get_clocks' command on line '68' of the SDC file '/home/cc/Documents/Abdullah/RISCV_synthesis/inputs/riscv_baseline.sdc'  cannot find any clocks named 'clk'
+Error   : Could not interpret SDC command. [SDC-202] [read_sdc]
+        : The 'read_sdc' command encountered an error while processing this command on line '68' of the SDC file '/home/cc/Documents/Abdullah/RISCV_synthesis/inputs/riscv_baseline.sdc': set_output_delay -min 0.1 -clock [get_clocks 'clk'] [all_outputs].
+Statistics for commands executed by read_sdc:
+ "all_inputs"               - successful      3 , failed      0 (runtime  0.00)
+ "all_outputs"              - successful      2 , failed      0 (runtime  0.00)
+ "create_clock"             - successful      0 , failed      1 (runtime  0.00)
+ "current_design"           - successful      3 , failed      0 (runtime  0.00)
+ "get_clocks"               - successful      0 , failed     13 (runtime  0.00)
+ "get_ports"                - successful      0 , failed     12 (runtime  0.00)
+ "set_clock_uncertainty"    - successful      0 , failed      2 (runtime  0.00)
+ "set_driving_cell"         - successful      1 , failed      0 (runtime  0.00)
+ "set_ideal_network"        - successful      0 , failed      2 (runtime  0.00)
+ "set_input_delay"          - successful      0 , failed      4 (runtime  0.00)
+ "set_input_transition"     - successful      0 , failed      1 (runtime  0.00)
+ "set_load"                 - successful      1 , failed      0 (runtime  0.00)
+ "set_max_capacitance"      - successful      1 , failed      0 (runtime  0.00)
+ "set_max_fanout"           - successful      1 , failed      0 (runtime  0.00)
+ "set_max_transition"       - successful      1 , failed      0 (runtime  0.60)
+ "set_output_delay"         - successful      0 , failed      7 (runtime  0.00)
+Warning : Total failed commands during read_sdc are 42
+Warning : One or more commands failed when these constraints were applied. [SDC-209]
+        : The 'read_sdc' command encountered a problem while processing commands.
+        : You can examine the failed commands or save them to a file by querying the Tcl variable $::dc::sdc_failed_commands.
+read_sdc completed in 00:00:01 (hh:mm:ss)
+
+  According to cap_table_file, there are total 10 routing layers [ V(5) / H(5) ]
+
+Warning : The variant range of wire parameters is too large. An example of wire parameters are, a WIDTH for layer, PITCH for layer, MINSPACING for layers, etc. [PHYS-12]
+        : The variant range (0.09, 3) of 'WIDTH' for layers 'M1' and 'M10' is too large.
+
+  According to cap_table_file, there are total 10 routing layers [ V(5) / H(5) ]
+
+Warning : The variant range of wire parameters is too large. An example of wire parameters are, a WIDTH for layer, PITCH for layer, MINSPACING for layers, etc. [PHYS-12]
+        : The variant range (0.09, 3) of 'WIDTH' for layers 'M1' and 'M10' is too large.
+
+  According to cap_table_file, there are total 10 routing layers [ V(5) / H(5) ]
+
+Warning : The variant range of wire parameters is too large. An example of wire parameters are, a WIDTH for layer, PITCH for layer, MINSPACING for layers, etc. [PHYS-12]
+        : The variant range (0.09, 3) of 'WIDTH' for layers 'M1' and 'M10' is too large.
+
+  According to cap_table_file, there are total 10 routing layers [ V(5) / H(5) ]
+
+Warning : The variant range of wire parameters is too large. An example of wire parameters are, a WIDTH for layer, PITCH for layer, MINSPACING for layers, etc. [PHYS-12]
+        : The variant range (0.09, 3) of 'WIDTH' for layers 'M1' and 'M10' is too large.
+  Setting attribute of root '/': 'read_qrc_tech_file_rc_corner' = true
+@genus:root: 38> 
+@genus:root: 38> check_timing_intent -verbose > ${RPT_DIR}/check_timing_intent_baseline.rpt
+Info    : Timing analysis will be done for this view. [TUI-744]
+        : View is 'analysis_view:__default_mmmc_spec/view_func_setup'.
+        : Worst paths will be shown in this view.
+@genus:root: 39> 
+@genus:root: 39> # ==============================================================================
+@genus:root: 40> # 3. DFT SETUP (PRE-SYNTHESIS)
+@genus:root: 41> # ==============================================================================
+@genus:root: 42> if {$INCLUDE_DFT == "true"} {
+    set_db dft_scan_style muxed_scan
+    define_shift_enable -name SE -active high -create_port SE
+    check_dft_rules
+}
+@genus:root: 43> 
+@genus:root: 43> # ==============================================================================
+@genus:root: 44> # 4. CORE SYNTHESIS PIPELINE
+@genus:root: 45> # ==============================================================================
+@genus:root: 46> set_db syn_generic_effort $GEN_EFF
+  Setting attribute of root '/': 'syn_generic_effort' = high
+1 high
+@genus:root: 47> set_db syn_map_effort     $MAP_OPT_EFF
+  Setting attribute of root '/': 'syn_map_effort' = high
+1 high
+@genus:root: 48> set_db syn_opt_effort     $MAP_OPT_EFF
+  Setting attribute of root '/': 'syn_opt_effort' = high
+1 high
+@genus:root: 49> 
+@genus:root: 49> if {$FLOW_TYPE == "physical"} {
+    syn_generic -physical -create_floorplan
+    syn_map -physical
+    
+    write_do_lec -revised_design fv_map -logfile ${RPT_DIR}/lec_rtl_to_mapped.log > ${OUT_DIR}/rtl_to_mapped_baseline.do 
+    exec sed -i "/exit -f/d" ${OUT_DIR}/rtl_to_mapped_baseline.do
+    
+    syn_opt
+    
+    write_do_lec -golden_design fv_map -revised_design fv_opt -logfile ${RPT_DIR}/lec_mapped_to_opt.log > ${OUT_DIR}/mapped_to_opt_baseline.do 
+    exec sed -i "/read_design/s| fv_opt| ${NETLIST_DIR}/${DESIGN}_${FLOW_TYPE}_synth.v|g" ${OUT_DIR}/mapped_to_opt_baseline.do
+    exec sed -i "/exit -f/d" ${OUT_DIR}/mapped_to_opt_baseline.do
+    
+} else {
+    syn_generic 
+    syn_map     
+    syn_opt     
+}
+
+[02:39:02.109552] Periodic Lic check successful
+[02:39:02.109563] Feature usage summary:
+[02:39:02.109563] Genus_Synthesis
+[02:39:02.109563] Genus_Physical_Opt
+Checking out license: Genus_Physical_Opt
+ERROR:  no correct CORE or DIE defined for design, exiting.
+TRACKS Y 1600 DO 1 STEP 1600 LAYER  AP ;  
+TRACKS X 13200 DO 1 STEP 13000 LAYER  AP ;  
+TRACKS X 1800 DO 1 STEP 1600 LAYER  M9 ;  
+TRACKS Y 1600 DO 1 STEP 1600 LAYER  M9 ;  
+TRACKS Y 400 DO 1 STEP 400 LAYER  M8 ;  
+TRACKS X 1800 DO 1 STEP 1600 LAYER  M8 ;  
+TRACKS X 200 DO 1 STEP 400 LAYER  M7 ;  
+TRACKS Y 400 DO 1 STEP 400 LAYER  M7 ;  
+TRACKS Y 400 DO 1 STEP 400 LAYER  M6 ;  
+TRACKS X 200 DO 1 STEP 400 LAYER  M6 ;  
+TRACKS X 200 DO 1 STEP 400 LAYER  M5 ;  
+TRACKS Y 400 DO 1 STEP 400 LAYER  M5 ;  
+TRACKS Y 400 DO 1 STEP 400 LAYER  M4 ;  
+TRACKS X 200 DO 1 STEP 400 LAYER  M4 ;  
+TRACKS X 200 DO 1 STEP 400 LAYER  M3 ;  
+TRACKS Y 400 DO 1 STEP 400 LAYER  M3 ;  
+TRACKS Y 400 DO 1 STEP 400 LAYER  M2 ;  
+TRACKS X 200 DO 1 STEP 400 LAYER  M2 ;  
+TRACKS X 200 DO 1 STEP 400 LAYER  M1 ;  
+TRACKS Y 400 DO 1 STEP 400 LAYER  M1 ;  
+The above data based on Genus DBU, might be scaled in DEF
+
+=============================================================================
+  Generated by: Cadence Genus(TM) Synthesis Solution 21.18-s082_1
+  Generated on: Jul 31 2026 02:39:02
+  Module:       __default_mmmc_spec
+=============================================================================
+
+=========================
+  check_floorplan SUMMARY
+=========================
+--------------------------------------------------------------------------------------------------------------
+        Floorplan Object  |  Status  | #Violations |   #Total    |    ID     |  Violation Reason 
+--------------------------------------------------------------------------------------------------------------
+Core/Die Box              |   PASS   |          0  |          1  |           |                                                             
+ROW Definitions           |   FAIL   |          1  |          1  | FPLN-2    | no ROW definitions found                                    
+Sites With No Rows        |   ERROR  |          3  |          3  | FPLN-12   | Site without rows                                           
+--------------------------------------------------------------------------------------------------------------
+
+The checking finds issues of the following type(s):  fatal: 1 error: 1
+Fatal errors must be fixed before proceeding with physical synthesis commands.  Please check your floorplan, and make necessary corrections before proceeding.
+
+Done checking floorplan - Elapsed time 0s, CPU time: 0.00s
+Warning : Errors in floorplan for :__default_mmmc_spec, Please check the above messages and fix before proceeding.
+
+      flow.cputime  flow.realtime  timing.setup.tns  timing.setup.wns  snapshot
+UM:*                                                                   syn_gen_physical
+1
+@genus:root: 50> 
+@genus:root: 50> # ==============================================================================
+@genus:root: 51> # 5. DFT SCAN STITCHING (POST-SYNTHESIS)
+@genus:root: 52> # ==============================================================================
+@genus:root: 53> if {$INCLUDE_DFT == "true"} {
+    define_scan_chain -name top_chain -sdi scan_in -sdo scan_out -create_ports
+    connect_scan_chains -auto_create_chains
+    syn_opt -incr
+}
+@genus:root: 54> 
+@genus:root: 54> # ==============================================================================
+@genus:root: 55> # 6. REPORTING & DATA EXPORT
+@genus:root: 56> # ==============================================================================
+@genus:root: 57> puts "INFO: Generating Comprehensive Synthesis Reports..."
+INFO: Generating Comprehensive Synthesis Reports...
+@genus:root: 58> 
+@genus:root: 58> report_timing -full_pin_names  -max_paths 10 > ${RPT_DIR}/${DESIGN}_${FLOW_TYPE}_timing_baseline.rpt
+@genus:root: 59> report_area > ${RPT_DIR}/${DESIGN}_${FLOW_TYPE}_area_baseline.rpt
+Warning : The details given in report might be incorrect or incomplete. [RPT-80]
+        : The design design:__default_mmmc_spec should be mapped to get accurate area details.
+        : Map the design using syn_map before using the '-detail' option of the 'report_area' command.
+@genus:root: 60> report_gates > ${RPT_DIR}/${DESIGN}_${FLOW_TYPE}_gates_baseline.rpt
+@genus:root: 61> report_power > ${RPT_DIR}/${DESIGN}_${FLOW_TYPE}_power_baseline.rpt
+Info    : Joules engine is used. [RPT-16]
+        : Joules engine is being used for the command report_power.
+Info   : ACTP-0001 [ACTPInfo] Activity propagation started for stim#0 netlist
+       : __default_mmmc_spec
+Info   : ACTP-0001 Activity propagation ended for stim#0
+Info   : PWRA-0001 [PwrInfo] compute_power effective options 
+       : -mode : vectorless
+       : -skip_propagation : 1
+       : -frequency_scaling_factor : 1.0
+       : -use_clock_freq : stim
+       : -stim :/stim#0
+       : -fromGenus : 1
+Info   : ACTP-0001 Timing initialization started
+Info   : ACTP-0001 Timing initialization ended
+Info   : PWRA-0002 [PwrInfo] Skipping activity propagation due to -skip_ap
+       : option....
+Warning: PWRA-0302 [PwrWarn] Frequency scaling is not applicable for vectorless
+       : flow. Ignoring frequency scaling.
+Warning: PWRA-0304 [PwrWarn] -stim option is not applicable with vectorless mode
+       : of power analysis, ignored this option.
+Info   : PWRA-0002 Started 'vectorless' power computation.
+Info   : PWRA-0002 Finished power computation.
+Info   : PWRA-0007 [PwrInfo] Completed successfully.
+       : Info=6, Warn=2, Error=0, Fatal=0
+Output file: /home/cc/Documents/Abdullah/RISCV_synthesis/export/Synthesis_Data/reports/riscv_core_physical_power_baseline.rpt
+@genus:root: 62> report_qor -levels_of_logic > ${RPT_DIR}/${DESIGN}_${FLOW_TYPE}_qor_baseline.rpt
+Warning : No clock. [RPT-10]
+        : There are no clocks in the design.
+        : Clock is not defined.
+can't use non-numeric floating-point value as operand of "*"
+@genus:design:__default_mmmc_spec 63> 
+@genus:design:__default_mmmc_spec 63> if {$INCLUDE_DFT == "true"} {
+    report_scan_chains > ${RPT_DIR}/${DESIGN}_${FLOW_TYPE}_scan_chains_baseline.rpt
+}
+@genus:design:__default_mmmc_spec 64> 
+@genus:design:__default_mmmc_spec 64> # ------------------------------------------------------------------------------
+@genus:design:__default_mmmc_spec 65> # 7. DATA EXPORT (HANDOFF)
+@genus:design:__default_mmmc_spec 66> # ------------------------------------------------------------------------------
+@genus:design:__default_mmmc_spec 67> puts "INFO: Exporting Netlist, SDF, and Physical Database..."
+INFO: Exporting Netlist, SDF, and Physical Database...
+@genus:design:__default_mmmc_spec 68> 
+@genus:design:__default_mmmc_spec 68> write_hdl $DESIGN -mapped > ${NETLIST_DIR}/${DESIGN}_${FLOW_TYPE}_synth_baseline.v
+Error   : A required object parameter could not be found. [TUI-61] [parse_options]
+        : An object of type 'design|module' named 'riscv_core' could not be found.
+  write_netlist: writes out a design or a subdesign in Verilog. It can 
+                 automatically read in or write out a gzip compressed Verilog 
+                 file. 
+
+Usage: write_netlist [-generic] [-suffix <string>] [-abstract]
+           [-depth <integer>] [-equation] [-lec] [-pg] [-exclude_ilm]
+           [-language <string>] [-use_eeq_cell_with_liberty_info]
+           [<design|module>] [> file]
+
+    [-generic]:
+        writes generic (structural) logic 
+    [-suffix <string>]:
+        specifies the string to be appended to the name of all defined modules 
+    [-abstract]:
+        writes an empty top-level Verilog module with port declarations 
+    [-depth <integer>]:
+        specifies the maximum instantiation depth of hierarchies to write out 
+        (should be >= 0) 
+    [-equation]:
+        writes out a logic equation in an assign statement for each Verilog 
+        primitive gate 
+    [-lec]:
+        write out an intermediate netlist for LEC verification 
+    [-pg]:
+        writes out pg netlist 
+    [-exclude_ilm]:
+        skips writing out Verilog for ILM modules 
+    [-language <string>]:
+        specifies the language of output Verilog file, v2001/v1995 
+    [-use_eeq_cell_with_liberty_info]:
+        specifies if Verilog Writer should write the eeq master equivalent 
+    [<design|module>]:
+        the name of the design or subdesign to write out 
+Failed on write_netlist
+@genus:design:__default_mmmc_spec 69> write_sdf -setuphold merge_always -recrem merge_always -design $DESIGN > ${OUT_DIR}/${DESIGN}_${FLOW_TYPE}_synth_baseline.sdf
+Error   : The specified top design does not exist. [WSDF-101] [write_sdf]
+        : Error: Design 'riscv_core' does not exist.
+        : Check specified design name and rerun command.
+@genus:design:__default_mmmc_spec 70> 
+@genus:design:__default_mmmc_spec 70> if {$FLOW_TYPE == "physical"} {
+    write_db ${DB_DIR}/${DESIGN}_synth_baseline.db
+    if {$INCLUDE_DFT == "true"} {
+        write_scandef > ${OUT_DIR}/${DESIGN}_synthDFT_baseline.scandef
+    }
+}
+Finished exporting design database to file '/home/cc/Documents/Abdullah/RISCV_synthesis/export/Synthesis_Data/db/riscv_core_synth_baseline.db' for '__default_mmmc_spec' (command execution time mm:ss cpu = 00:00, real = 00:01).
+@genus:design:__default_mmmc_spec 71> 
+@genus:design:__default_mmmc_spec 71> set total_time [expr {[clock seconds] - $start_time}]
+7
+@genus:design:__default_mmmc_spec 72> puts "INFO: Flow Completed Successfully in $total_time seconds!"
+INFO: Flow Completed Successfully in 7 seconds!
+@genus:design:__default_mmmc_spec 73> gui_show
+@genus:design:__default_mmmc_spec 74> exit
+
+Lic Summary:
+[02:39:56.096649] Cdslmd servers: ncdc-s-cd-01
+[02:39:56.096656] Feature usage summary:
+[02:39:56.096656] Genus_Synthesis
+[02:39:56.096657] Genus_Physical_Opt
+
+Normal exit.

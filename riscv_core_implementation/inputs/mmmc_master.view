@@ -1,0 +1,91 @@
+# ==============================================================================
+# CADENCE MMMC (Multi-Mode Multi-Corner) SETUP FILE
+# ==============================================================================
+
+if {![info exists INCLUDE_DFT]} {
+    set INCLUDE_DFT "false"
+}
+
+# --- Project Path ---
+set WORK_DIR "/home/cc/Documents/Abdullah/RISCV_synthesis"
+
+# --- SDC Files ---
+set SDC_FUNC_FILE "${WORK_DIR}/inputs/riscv_baseline.sdc"
+set SDC_TEST_FILE "${WORK_DIR}/inputs/riscv_dft.sdc"
+
+# --- Libraries ---
+set LIB_TC        "${WORK_DIR}/libraries/libs/tcbn65lptc.lib"
+set LIB_WC        "${WORK_DIR}/libraries/libs/tcbn65lpwc.lib"
+set LIB_BC        "${WORK_DIR}/libraries/libs/tcbn65lpbc.lib"
+
+# --- Cap Tables ---
+set CAPTABLE_TC   "${WORK_DIR}/inputs/mmmc_files/captable/cln65lp_1p09m+alrdl_top2_typical.captable"
+set CAPTABLE_WC   "${WORK_DIR}/inputs/mmmc_files/captable/cln65lp_1p09m+alrdl_top2_rcworst.captable"
+set CAPTABLE_BC   "${WORK_DIR}/inputs/mmmc_files/captable/cln65lp_1p09m+alrdl_top2_rcbest.captable"
+
+# ------------------------------------------------------------------------------
+# 1. LIBRARY SETS
+# ------------------------------------------------------------------------------
+create_library_set -name tc_libset -timing $LIB_TC
+create_library_set -name wc_libset -timing $LIB_WC
+create_library_set -name bc_libset -timing $LIB_BC
+
+# ------------------------------------------------------------------------------
+# 2. TIMING CONDITIONS
+# ------------------------------------------------------------------------------
+create_timing_condition -name tc_cond -library_sets {tc_libset}
+create_timing_condition -name wc_cond -library_sets {wc_libset}
+create_timing_condition -name bc_cond -library_sets {bc_libset}
+
+# ------------------------------------------------------------------------------
+# 3. RC CORNERS
+# ------------------------------------------------------------------------------
+create_rc_corner -name rc_typical -temperature 25  -cap_table $CAPTABLE_TC
+create_rc_corner -name rc_worst   -temperature 125 -cap_table $CAPTABLE_WC
+create_rc_corner -name rc_best    -temperature -40 -cap_table $CAPTABLE_BC
+
+# ------------------------------------------------------------------------------
+# 4. CONSTRAINT MODES
+# ------------------------------------------------------------------------------
+create_constraint_mode -name func_mode -sdc_files $SDC_FUNC_FILE
+
+if {$INCLUDE_DFT == "true"} {
+    create_constraint_mode -name test_mode -sdc_files $SDC_TEST_FILE
+}
+
+# ------------------------------------------------------------------------------
+# 5. DELAY CORNERS
+# ------------------------------------------------------------------------------
+create_delay_corner -name dc_typical -timing_condition {tc_cond} -rc_corner {rc_typical}
+create_delay_corner -name dc_worst   -timing_condition {wc_cond} -rc_corner {rc_worst}
+create_delay_corner -name dc_best    -timing_condition {bc_cond} -rc_corner {rc_best}
+
+# ------------------------------------------------------------------------------
+# 6. ANALYSIS VIEWS
+# ------------------------------------------------------------------------------
+create_analysis_view -name view_func_typical -constraint_mode {func_mode} -delay_corner {dc_typical}
+create_analysis_view -name view_func_setup   -constraint_mode {func_mode} -delay_corner {dc_worst}
+create_analysis_view -name view_func_hold    -constraint_mode {func_mode} -delay_corner {dc_best}
+
+if {$INCLUDE_DFT == "true"} {
+    create_analysis_view -name view_test_typical -constraint_mode {test_mode} -delay_corner {dc_typical}
+    create_analysis_view -name view_test_setup   -constraint_mode {test_mode} -delay_corner {dc_worst}
+    create_analysis_view -name view_test_hold    -constraint_mode {test_mode} -delay_corner {dc_best}
+}
+
+# ------------------------------------------------------------------------------
+# 7. SET ACTIVE VIEWS
+# ------------------------------------------------------------------------------
+if {$INCLUDE_DFT == "true"} {
+    set_analysis_view \
+        -setup   {view_func_setup view_test_setup} \
+        -hold    {view_func_hold view_test_hold} \
+        -leakage {view_func_typical} \
+        -dynamic {view_func_typical}
+} else {
+    set_analysis_view \
+        -setup   {view_func_setup} \
+        -hold    {view_func_hold} \
+        -leakage {view_func_typical} \
+        -dynamic {view_func_typical}
+}

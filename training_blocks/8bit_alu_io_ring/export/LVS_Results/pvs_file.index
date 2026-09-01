@@ -1,0 +1,35 @@
+# This PVS File Index Registry was created automatically
+# Do not attempt to modify this file as any change may lead
+# to PVS Debug Environment malfunction.
+# 
+"PVS Job Mode" internal none lvs
+"Rule File" input text /home/cc/Documents/Abdullah/Lab_04_Data/inputs/lvs.pvl
+"Comparison Report" output cls /home/cc/Documents/Abdullah/Lab_04_Data/export/LVS_Results/lvs.rep.cls
+"Extraction Report" output erc /home/cc/Documents/Abdullah/Lab_04_Data/export/LVS_Results/lvs.rep
+"Layout GDSII" input none /home/cc/Documents/Abdullah/Lab_04_Data/export/Innovus_Data/outputs/pnr/top_wrapper.gds
+"LVS Report Options" internal none S
+"Schematic Top Cell" internal none top_wrapper
+"Layout Top Cell" internal none top_wrapper
+"Find Shorts RDB" output rdb /home/cc/Documents/Abdullah/Lab_04_Data/export/LVS_Results/lvs.rep.shorts
+"SCONNECT RDB" output rdb /home/cc/Documents/Abdullah/Lab_04_Data/export/LVS_Results/top_wrapper.softchk
+"ERC Summary" output text /home/cc/Documents/Abdullah/Lab_04_Data/export/LVS_Results/erc.sum
+"Extraction Result" internal none ERRORS
+"ERC Result" internal none EMPTY_NOEXEC
+"Run Directory" internal none /home/cc/Documents/Abdullah/Lab_04_Data/export/LVS_Results/
+"Virtual Connection Colon" internal none ENABLED
+"Virtual Connection Semicolon" internal none ENABLED
+"PVS Mode Info" internal none DEODJPIJIPHIBGJLJMDBBAONLFFEBOCB
+"Report MaxResults" internal none 1000
+"PVS Version" internal none 23.11-s036
+"Binary Name" internal none pvs
+"PVS Build Date" internal none "Wed Jan 17 18:11:41 PST 2024"
+"PVS Job Time" internal none 1786522444
+"Schematic Netlist" input text /home/cc/Documents/Abdullah/Lab_04_Data/export/Innovus_Data/outputs/pnr/top_wrapper.final.v
+"Schematic Netlist" input text /home/cc/Documents/Abdullah/Lab_04_Data/libraries/spi/tcbn65lp_200a.spi
+"Schematic Netlist" input text /home/cc/Documents/Abdullah/Lab_04_Data/libraries/spi/tpzn65lpgv2od3_3.spi
+"Comparison Result" internal none REPORT INCOMPLETE, PVSNVN ABORTED BEFORE COMPLETION
+"LVS Run Name" internal none lvs.rep
+"PVS Version" internal none 23.11-s036
+"Binary Name" internal none pvsnvn
+"PVS Build Date" internal none "Wed Jan 17 18:11:41 PST 2024"
+"PVS Job Time" internal none 1786522456

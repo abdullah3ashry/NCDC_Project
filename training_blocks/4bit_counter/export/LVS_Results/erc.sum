@@ -1,0 +1,260 @@
+********************************************************************************
+*** PVS HERC SUMMARY
+***
+Execute on Date/Time    : Tue Aug 11 08:35:07 2026
+PVS HERC VERSION        : 23.11-s036 Wed Jan 17 18:11:41 PST 2024
+Rule Deck Path          : /home/cc/Documents/Abdullah/Lab01_Materials/Lab01_Data/inputs/lvs.pvl
+Rule Deck Title         :
+Layout System           : GDSII
+Layout Path             : /home/cc/Documents/Abdullah/Lab01_Materials/Lab01_Data/export/Innovus_Data/outputs/pnr/counter.gds
+Current Directory       : /home/cc/Documents/Abdullah/Lab01_Materials/Lab01_Data/export/LVS_Results
+User Name:              : cc
+Maximum Results         : 1000
+Maximum Result Vertices : 4096
+Layout Depth            : ALL
+Text Depth              : 0
+Summary File            : erc.sum
+Geometry Flagging       : ACUTE = NO  ANGLED = NO  SKEW = YES  OFFGRID = YES
+                          NONSIMPLE POLYGON = NO  NONSIMPLE PATH = NO
+Keep Empty Checks       : YES
+Excluded Cells          : 
+Layout Primary Cell     : counter
+LVS Softchk Report      : counter.softchk
+ASCII ERC Error Report  :
+ERC Results Database    : erc.db
+--------------------------------------------------------------------------------
+--- RUNNING TIME WARNINGS
+---
+--------------------------------------------------------------------------------
+--- ORIGINAL LAYER STATISTICS
+---
+LAYER ODI ........................ Total Original Geometry:       36 (     104)
+LAYER DNW ........................ Total Original Geometry:        0 (       0)
+LAYER NW ......................... Total Original Geometry:       11 (      31)
+LAYER NT_Ni ...................... Total Original Geometry:        0 (       0)
+LAYER OD33 ....................... Total Original Geometry:        0 (       0)
+LAYER OD18 ....................... Total Original Geometry:        0 (       0)
+LAYER POI ........................ Total Original Geometry:       53 (     121)
+LAYER PP ......................... Total Original Geometry:       22 (      62)
+LAYER NP ......................... Total Original Geometry:       22 (      62)
+LAYER OD1T ....................... Total Original Geometry:        0 (       0)
+LAYER RPO ........................ Total Original Geometry:        0 (       0)
+LAYER CO ......................... Total Original Geometry:      361 (     848)
+LAYER M1 ......................... Total Original Geometry:      117 (     278)
+LAYER M2 ......................... Total Original Geometry:       85 (     188)
+LAYER M3 ......................... Total Original Geometry:       26 (      93)
+LAYER M4 ......................... Total Original Geometry:       15 (      56)
+LAYER M5 ......................... Total Original Geometry:       12 (      47)
+LAYER M6 ......................... Total Original Geometry:       16 (      44)
+LAYER M7 ......................... Total Original Geometry:       10 (      21)
+LAYER M8 ......................... Total Original Geometry:        0 (       0)
+LAYER M9 ......................... Total Original Geometry:        0 (       0)
+LAYER RODMY ...................... Total Original Geometry:        0 (       0)
+LAYER VIA1i ...................... Total Original Geometry:       65 (     714)
+LAYER VIA2i ...................... Total Original Geometry:       62 (     700)
+LAYER VIA3i ...................... Total Original Geometry:       58 (     654)
+LAYER VIA4i ...................... Total Original Geometry:      146 (    1324)
+LAYER VIA5i ...................... Total Original Geometry:      194 (    1228)
+LAYER VIA6i ...................... Total Original Geometry:     1420 (    5428)
+LAYER VIA7i ...................... Total Original Geometry:        0 (       0)
+LAYER VIA8i ...................... Total Original Geometry:        0 (       0)
+LAYER VTH_N ...................... Total Original Geometry:        0 (       0)
+LAYER VTH_P ...................... Total Original Geometry:        0 (       0)
+LAYER CB ......................... Total Original Geometry:        0 (       0)
+LAYER ctm ........................ Total Original Geometry:        0 (       0)
+LAYER CAP1TDMY ................... Total Original Geometry:        0 (       0)
+LAYER RV ......................... Total Original Geometry:        0 (       0)
+LAYER cbm ........................ Total Original Geometry:        0 (       0)
+LAYER blc ........................ Total Original Geometry:        0 (       0)
+LAYER crown ...................... Total Original Geometry:        0 (       0)
+LAYER p3 ......................... Total Original Geometry:        0 (       0)
+LAYER PSUB2 ...................... Total Original Geometry:        0 (       0)
+LAYER RH ......................... Total Original Geometry:        0 (       0)
+LAYER DIODMY ..................... Total Original Geometry:        0 (       0)
+LAYER ESD3 ....................... Total Original Geometry:        0 (       0)
+LAYER RFDMY ...................... Total Original Geometry:        0 (       0)
+LAYER CBD ........................ Total Original Geometry:        0 (       0)
+LAYER MAC ........................ Total Original Geometry:        0 (       0)
+LAYER RDKDMY ..................... Total Original Geometry:        0 (       0)
+LAYER DOD ........................ Total Original Geometry:        0 (       0)
+LAYER VTL_N ...................... Total Original Geometry:        0 (       0)
+LAYER VTL_P ...................... Total Original Geometry:        0 (       0)
+LAYER DPO ........................ Total Original Geometry:        0 (       0)
+LAYER ILVT ....................... Total Original Geometry:        0 (       0)
+LAYER OD25 ....................... Total Original Geometry:        0 (       0)
+LAYER OD25_33 .................... Total Original Geometry:        0 (       0)
+LAYER OD25_18 .................... Total Original Geometry:        0 (       0)
+LAYER OD25_28 .................... Total Original Geometry:        0 (       0)
+LAYER EDRAM_DECAP ................ Total Original Geometry:        0 (       0)
+LAYER DUM1 ....................... Total Original Geometry:        0 (       0)
+LAYER DUM2 ....................... Total Original Geometry:        0 (       0)
+LAYER DUM3 ....................... Total Original Geometry:        0 (       0)
+LAYER DUM4 ....................... Total Original Geometry:        0 (       0)
+LAYER DUM5 ....................... Total Original Geometry:        0 (       0)
+LAYER DUM6 ....................... Total Original Geometry:        0 (       0)
+LAYER DUM7 ....................... Total Original Geometry:        0 (       0)
+LAYER DUM8 ....................... Total Original Geometry:        0 (       0)
+LAYER DUM9 ....................... Total Original Geometry:        0 (       0)
+LAYER SRM ........................ Total Original Geometry:        0 (       0)
+LAYER SRM10 ...................... Total Original Geometry:        0 (       0)
+LAYER SRM11 ...................... Total Original Geometry:        0 (       0)
+LAYER SRM12 ...................... Total Original Geometry:        0 (       0)
+LAYER SRM13 ...................... Total Original Geometry:        0 (       0)
+LAYER SRM14 ...................... Total Original Geometry:        0 (       0)
+LAYER SRM16 ...................... Total Original Geometry:        0 (       0)
+LAYER SRM17 ...................... Total Original Geometry:        0 (       0)
+LAYER SRM_ULL .................... Total Original Geometry:        0 (       0)
+LAYER VAR ........................ Total Original Geometry:        0 (       0)
+LAYER SBDDMY ..................... Total Original Geometry:        0 (       0)
+LAYER SBD3TDMY ................... Total Original Geometry:        0 (       0)
+LAYER CB2 ........................ Total Original Geometry:        0 (       0)
+LAYER AP ......................... Total Original Geometry:        0 (       0)
+LAYER DAP ........................ Total Original Geometry:        0 (       0)
+LAYER OD5 ........................ Total Original Geometry:        0 (       0)
+LAYER OD6 ........................ Total Original Geometry:        0 (       0)
+LAYER HVNWi ...................... Total Original Geometry:        0 (       0)
+LAYER HVPWi ...................... Total Original Geometry:        0 (       0)
+LAYER HVPSUB ..................... Total Original Geometry:        0 (       0)
+LAYER VTUL_N ..................... Total Original Geometry:        0 (       0)
+LAYER VTUL_P ..................... Total Original Geometry:        0 (       0)
+LAYER HVD_P ...................... Total Original Geometry:        0 (       0)
+LAYER HVD_NW ..................... Total Original Geometry:        0 (       0)
+LAYER HVD_DPW .................... Total Original Geometry:        0 (       0)
+LAYER UHVT_N ..................... Total Original Geometry:        0 (       0)
+LAYER UHVT_P ..................... Total Original Geometry:        0 (       0)
+LAYER EHVT_N ..................... Total Original Geometry:        0 (       0)
+LAYER EHVT_P ..................... Total Original Geometry:        0 (       0)
+LAYER ELVT_N ..................... Total Original Geometry:        0 (       0)
+LAYER ELVT_P ..................... Total Original Geometry:        0 (       0)
+LAYER BJTDMY ..................... Total Original Geometry:        0 (       0)
+LAYER BJTDMY1 .................... Total Original Geometry:        0 (       0)
+LAYER BJT4TDMY ................... Total Original Geometry:        0 (       0)
+LAYER NWDMYi ..................... Total Original Geometry:        0 (       0)
+LAYER NWDMY1 ..................... Total Original Geometry:        0 (       0)
+LAYER RPDMYi ..................... Total Original Geometry:        0 (       0)
+LAYER RPDMY1 ..................... Total Original Geometry:        0 (       0)
+LAYER DIO3TDMY ................... Total Original Geometry:        0 (       0)
+LAYER MOMDMY0 .................... Total Original Geometry:        0 (       0)
+LAYER MOMDMY1 .................... Total Original Geometry:        0 (       0)
+LAYER MOMDMY2 .................... Total Original Geometry:        0 (       0)
+LAYER MOMDMY3 .................... Total Original Geometry:        0 (       0)
+LAYER MOMDMY4 .................... Total Original Geometry:        0 (       0)
+LAYER MOMDMY5 .................... Total Original Geometry:        0 (       0)
+LAYER MOMDMY6 .................... Total Original Geometry:        0 (       0)
+LAYER MOMDMY7 .................... Total Original Geometry:        0 (       0)
+LAYER MOMDMY_2T .................. Total Original Geometry:        0 (       0)
+LAYER MOMDMY22 ................... Total Original Geometry:        0 (       0)
+LAYER MOMDMY23 ................... Total Original Geometry:        0 (       0)
+LAYER MOMDMY24 ................... Total Original Geometry:        0 (       0)
+LAYER MOMDMY25 ................... Total Original Geometry:        0 (       0)
+LAYER RFDMY5T .................... Total Original Geometry:        0 (       0)
+LAYER RFDMY6T .................... Total Original Geometry:        0 (       0)
+LAYER RFDMYUD .................... Total Original Geometry:        0 (       0)
+LAYER RMDMY1 ..................... Total Original Geometry:        0 (       0)
+LAYER RMDMY2 ..................... Total Original Geometry:        0 (       0)
+LAYER RMDMY3 ..................... Total Original Geometry:        0 (       0)
+LAYER RMDMY4 ..................... Total Original Geometry:        0 (       0)
+LAYER RMDMY5 ..................... Total Original Geometry:        0 (       0)
+LAYER RMDMY6 ..................... Total Original Geometry:        0 (       0)
+LAYER RMDMY7 ..................... Total Original Geometry:        0 (       0)
+LAYER RMDMY8 ..................... Total Original Geometry:        0 (       0)
+LAYER RMDMY9 ..................... Total Original Geometry:        0 (       0)
+LAYER RMDMYAP .................... Total Original Geometry:        0 (       0)
+LAYER SRAMPSGT ................... Total Original Geometry:        0 (       0)
+LAYER SRAMTIMER .................. Total Original Geometry:        0 (       0)
+LAYER IND_STD .................... Total Original Geometry:        0 (       0)
+LAYER IND_SYM .................... Total Original Geometry:        0 (       0)
+LAYER IND_CT ..................... Total Original Geometry:        0 (       0)
+LAYER IND_STD_MUA ................ Total Original Geometry:        0 (       0)
+LAYER IND_SYM_MUA ................ Total Original Geometry:        0 (       0)
+LAYER IND_CT_MUA ................. Total Original Geometry:        0 (       0)
+LAYER IND_RADi ................... Total Original Geometry:        0 (       0)
+LAYER IND_GDIS ................... Total Original Geometry:        0 (       0)
+LAYER IND_NR ..................... Total Original Geometry:        0 (       0)
+LAYER IND_MP ..................... Total Original Geometry:        0 (       0)
+LAYER IND_D4 ..................... Total Original Geometry:        0 (       0)
+LAYER IND_S ...................... Total Original Geometry:        0 (       0)
+LAYER TLDMY ...................... Total Original Geometry:        0 (       0)
+LAYER DRAIN ...................... Total Original Geometry:        0 (       0)
+LAYER CAP1P5 ..................... Total Original Geometry:        0 (       0)
+LAYER CAP2P0 ..................... Total Original Geometry:        0 (       0)
+LAYER CAP1P0 ..................... Total Original Geometry:        0 (       0)
+LAYER MIM_3TDMY .................. Total Original Geometry:        0 (       0)
+LAYER CTMDMYUD ................... Total Original Geometry:        0 (       0)
+LAYER PROBEM1 .................... Total Original Geometry:        0 (       0)
+LAYER PROBEM2 .................... Total Original Geometry:        0 (       0)
+LAYER PROBEM3 .................... Total Original Geometry:        0 (       0)
+LAYER PROBEM4 .................... Total Original Geometry:        0 (       0)
+LAYER PROBEM5 .................... Total Original Geometry:        0 (       0)
+LAYER PROBEM6 .................... Total Original Geometry:        0 (       0)
+LAYER PROBEM7 .................... Total Original Geometry:        0 (       0)
+LAYER DCO ........................ Total Original Geometry:        0 (       0)
+LAYER TCDDMY ..................... Total Original Geometry:        0 (       0)
+LAYER VTDN ....................... Total Original Geometry:        0 (       0)
+LAYER RFPADDMY ................... Total Original Geometry:        0 (       0)
+LAYER RFPADDMY1 .................. Total Original Geometry:        0 (       0)
+LAYER RFPADDMY2 .................. Total Original Geometry:        0 (       0)
+LAYER RFPADDMY3 .................. Total Original Geometry:        0 (       0)
+LAYER HIADMY ..................... Total Original Geometry:        0 (       0)
+LAYER CAP_IMP .................... Total Original Geometry:        0 (       0)
+LAYER CELLM ...................... Total Original Geometry:        0 (       0)
+LAYER MEDP ....................... Total Original Geometry:        0 (       0)
+LAYER RBCDMY ..................... Total Original Geometry:        0 (       0)
+LAYER DIFRBC ..................... Total Original Geometry:        0 (       0)
+LAYER XCLRBC ..................... Total Original Geometry:        0 (       0)
+LAYER CASRBC ..................... Total Original Geometry:        0 (       0)
+LAYER GTDMY1 ..................... Total Original Geometry:        0 (       0)
+LAYER GTDMY2 ..................... Total Original Geometry:        0 (       0)
+LAYER RFESDMY .................... Total Original Geometry:        0 (       0)
+LAYER IND_TEXT ................... Total Original Geometry:        0 (       0)
+LAYER RBC_TEXT ................... Total Original Geometry:        0 (       0)
+LAYER metal1_text ................ Total Original Geometry:        0 (       0)
+LAYER metal10_text ............... Total Original Geometry:        0 (       0)
+LAYER metal2_text ................ Total Original Geometry:        0 (       0)
+LAYER metal3_text ................ Total Original Geometry:        0 (       0)
+LAYER metal4_text ................ Total Original Geometry:        0 (       0)
+LAYER metal5_text ................ Total Original Geometry:        0 (       0)
+LAYER metal6_text ................ Total Original Geometry:        0 (       0)
+LAYER metal7_text ................ Total Original Geometry:        0 (       0)
+LAYER metal8_text ................ Total Original Geometry:        0 (       0)
+LAYER metal9_text ................ Total Original Geometry:        0 (       0)
+LAYER poly_text .................. Total Original Geometry:        0 (       0)
+LAYER sline_m9m_text ............. Total Original Geometry:        0 (       0)
+LAYER sline_m9p_text ............. Total Original Geometry:        0 (       0)
+--------------------------------------------------------------------------------
+--- WARNINGS FROM FLAG STATEMENT
+---
+--------------------------------------------------------------------------------
+--- RULECHECK RESULTS STATISTICS
+---
+RULECHECK CT_IND_CHECK ............... Not Executed!
+RULECHECK CT_IND_CHECK.1 ............. Not Executed!
+RULECHECK STD_IND_CHECK .............. Not Executed!
+RULECHECK STD_IND_CHECK.1 ............ Not Executed!
+RULECHECK SYM_IND_CHECK .............. Not Executed!
+RULECHECK SYM_IND_CHECK.1 ............ Not Executed!
+RULECHECK floating.nxwell_float ...... Total Result      0 (       0)
+RULECHECK floating.nxwell_hv ......... Total Result      0 (       0)
+RULECHECK floating.psub .............. Total Result      0 (       0)
+RULECHECK mnpg ....................... Total Result      0 (       0)
+RULECHECK mnpg_ldd1 .................. Total Result      0 (       0)
+RULECHECK mppg ....................... Total Result      0 (       0)
+RULECHECK mppg_ldd1 .................. Total Result      0 (       0)
+RULECHECK npvss49 .................... Total Result      0 (       0)
+RULECHECK ppvdd49 .................... Total Result      0 (       0)
+--------------------------------------------------------------------------------
+--- WARNINGS AND ERRORS FROM PATHCHK/ERC_PATHCHK
+---
+ERC operations not executed due to no LVS Power Name or no LVS Ground Name found:
+    PATHCHK nxwell_float -POWER NOT -PORTS_ALSO 
+    PATHCHK nxwell_hv -POWER NOT -PORTS_ALSO 
+    PATHCHK psub -GROUND NOT -PORTS_ALSO 
+--------------------------------------------------------------------------------
+--- SUMMARY
+---
+Total CPU Time                    : 0(s)
+Total Real Time                   : 3(s)
+Peak Memory Used                  : 35(M)
+Total Original Geometry           : 2731 (12003)
+Total ERC RuleChecks              : 9
+Total ERC Results                 : 0 (0)

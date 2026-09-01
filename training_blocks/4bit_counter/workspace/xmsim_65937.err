@@ -1,0 +1,48 @@
+csi-xmsim - CSI: Command line:
+xmsim
+    -f /home/cc/Documents/Abdullah/Lab01_Materials/Lab01_Data/workspace/xcelium.d/run.lnx8664.23.09.d/ncdc-0137_6e16541b-e448-4f84-9192-e14bb27766d3/xmsim.args
+        +sdf_verbose
+        -SDF_VERBOSE
+        -RUN
+        -MESSAGES
+        +EMGRLOG xrun.log
+        -XLSTIME 1785404428
+        -XLKEEP
+        -XLMODE ./xcelium.d/run.lnx8664.23.09.d
+        -RUNMODE
+        -CDSLIB ./xcelium.d/run.lnx8664.23.09.d/cds.lib
+        -HDLVAR ./xcelium.d/run.lnx8664.23.09.d/hdl.var
+        -XLNAME xrun
+        -XLVERSION TOOL:	xrun(64)	23.09-s006
+        -XLNAME ./xcelium.d/run.lnx8664.23.09.d/ncdc-0137_6e16541b-e448-4f84-9192-e14bb27766d3
+    -CHECK_VERSION TOOL:	xrun(64)	23.09-s006
+    -LOG_FD 4
+    -LOG_FD_NAME xrun.log
+    -cmdnopsim
+    -runlock /home/cc/Documents/Abdullah/Lab01_Materials/Lab01_Data/workspace/xcelium.d/run.lnx8664.23.09.d/.xmlib.lock
+    -runscratch /home/cc/Documents/Abdullah/Lab01_Materials/Lab01_Data/workspace/xcelium.d/run.lnx8664.23.09.d/ncdc-0137_6e16541b-e448-4f84-9192-e14bb27766d3
+
+csi-xmsim - CSI: *F,INTERR: INTERNAL EXCEPTION
+Observed simulation time : 0 FS + 0
+-----------------------------------------------------------------
+The tool has encountered an unexpected condition and must exit.
+Contact Cadence Design Systems customer support about this
+problem and provide enough information to help us reproduce it,
+including the logfile that contains this error message.
+  TOOL:	xmsim(64)	23.09-s006 (CL: 587028 )
+  HOSTNAME: ncdc-0137
+  OPERATING SYSTEM: Linux 7.1.4-1.el8.elrepo.x86_64 #1 SMP PREEMPT_DYNAMIC Sat Jul 18 15:34:32 EDT 2026 x86_64
+  MESSAGE: T(0): sv_seghandler - trapno -1 addr(0x3220436c)
+	Stream rts_xfer
+-----------------------------------------------------------------
+
+csi-xmsim - CSI: Cadence Support Investigation, recording details
+External Code in function: <unavailable> offset -65504
+External Code in function: <unavailable> offset -65506
+External Code in function: <unavailable> offset -65536
+Simulator Snap Shot: gd (SSS_GD) in snapshot worklib.counter_tb:v (SSS)
+External Code in function: <unavailable> offset -65532
+External Code in function: <unavailable> offset -65533
+Simulator Snap Shot: dynlib (SSS_DYNLIB) in snapshot worklib.counter_tb:v (SSS)
+External Code in function: <unavailable> offset -64535
+csi-xmsim - CSI: investigation complete took 0.004 secs, send this file to Cadence Support

@@ -1,0 +1,9 @@
+-timescale 1ns/1ps
+/home/cc/Fawad_PD/example/workspace/netlists/counter_synth.v
+/home/cc/Fawad_PD/example/sourcecode/tb/counter_tb.v
+-v
+/home/cc/Fawad_PD/example/libraries/tcbn65lp.v
+-access
++rwc
+-nospecify 
+-gui

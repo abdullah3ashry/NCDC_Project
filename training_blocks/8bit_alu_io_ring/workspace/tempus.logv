@@ -1,0 +1,462 @@
+[08/12 04:24:33      0s] 
+[08/12 04:24:33      0s] Cadence Tempus(TM) Timing Solution.
+[08/12 04:24:33      0s] Copyright 2022 Cadence Design Systems, Inc. All rights reserved worldwide.
+[08/12 04:24:33      0s] 
+[08/12 04:24:33      0s] Version:	v22.15-s092_1, built Fri Mar 1 14:05:47 PST 2024
+[08/12 04:24:33      0s] Options:	-stylus 
+[08/12 04:24:33      0s] Date:		Wed Aug 12 04:24:33 2026
+[08/12 04:24:33      0s] Host:		ncdc-0137 (x86_64 w/Linux 7.1.4-1.el8.elrepo.x86_64) (16cores*24cpus*13th Gen Intel(R) Core(TM) i7-13700 30720KB)
+[08/12 04:24:33      0s] OS:		Red Hat Enterprise Linux 8.6 (Ootpa)
+[08/12 04:24:33      0s] 
+[08/12 04:24:33      0s] License:
+[08/12 04:24:33      0s] 		[04:24:33.216961] Configured Lic search path (22.01-s003): 5280@10.19.32.90
+[08/12 04:24:33      0s] 
+[08/12 04:24:33      0s] 		tpsxl	Tempus Timing Signoff Solution XL	22.1	checkout succeeded
+[08/12 04:24:33      0s] 		16 CPU jobs allowed with the current license(s). Use set_multi_cpu_usage to set your required CPU count.
+[08/12 04:24:38      0s] {{{ isCertus 0,  isCertusOrDistOptClient = 0, isInnovusCertusClient = 0}}}
+[08/12 04:24:44      6s] 
+[08/12 04:24:44      6s] 
+[08/12 04:24:46      6s] Reset Parastics called with the command setExtractRCMode -reset@(#)CDS: Tempus Timing Solution v22.15-s092_1 (64bit) 03/01/2024 14:05 (Linux 3.10.0-693.el7.x86_64)
+[08/12 04:24:52      9s] @(#)CDS: NanoRoute 22.15-s092_1 NR240223-1321/22_15-UB (database version 18.20.620) {superthreading v2.20}
+[08/12 04:24:52      9s] @(#)CDS: AAE 22.15-s036 (64bit) 03/01/2024 (Linux 3.10.0-693.el7.x86_64)
+[08/12 04:24:52      9s] @(#)CDS: CTE 22.15-s038_1 () Mar  1 2024 09:01:33 ( )
+[08/12 04:24:52      9s] @(#)CDS: SYNTECH 22.15-s014_1 () Feb 13 2024 19:37:21 ( )
+[08/12 04:24:52      9s] @(#)CDS: CPE v22.15-s066
+[08/12 04:24:52      9s] @(#)CDS: OA 22.60-s025 Thu Sep 28 14:54:31 2023
+[08/12 04:24:52      9s] @(#)CDS: SGN 22.20-d001 (02-Jan-2023) (64 bit executable, TkQt5.9.1)
+[08/12 04:24:52      9s] @(#)CDS: RCDB 11.15.0
+[08/12 04:24:52      9s] @(#)CDS: STYLUS 22.15-s002_1 (02/05/2024 03:56 PST)
+[08/12 04:24:52      9s] Change the soft stacksize limit to 0.2%RAM (127 mbytes). Set global soft_stack_size_limit to change the value.
+[08/12 04:24:52      9s] **INFO: (TMPDIR-1001): The environment variable TMPDIR is not set.
+Create and set the environment variable TMPDIR to '/tmp/ssv_tmpdir_13044_8s28XU'.
+[08/12 04:24:52      9s] environment variable TMPDIR is '/tmp/ssv_tmpdir_13044_8s28XU'.
+[08/12 04:24:55      9s] #@ Processing -execute option
+[08/12 04:24:55      9s] @tempus 1> 
+[08/12 04:24:56     11s] @tempus 1> pwd
+pwd
+[08/12 04:24:56     11s] /home/cc/Documents/Abdullah/Lab_04_Data/workspace
+[08/12 04:24:56     11s] @tempus 2> **INFO (INTERRUPT): One more Ctrl-C to exit Tempus Timing Solution ...
+
+[08/12 04:25:44     12s] 
+[08/12 04:25:44     12s] @tempus 2> 
+[08/12 04:25:44     12s] @tempus 2> set_db timing_analysis_type ocv
+1 ocv
+[08/12 04:26:52     14s] @tempus 3>
+ 
+[08/12 04:26:52     14s] @tempus 3> # Enable Clock Path Pessimism Removal (CPPR) to remove common-path ar [1Gtificial delays
+# Enable Clock Path Pessimism Removal (CPPR) to remove common-path artificial delays
+[08/12 04:26:52     14s] @tempus 4> set_db timing_analysis_cppr both
+set_db timing_analysis_cppr both
+[08/12 04:26:52     14s] 1 both
+[08/12 04:26:52     14s] @tempus 5> 
+
+[08/12 04:26:52     14s] @tempus 5> # Enable Signal Integrity (SI) to account for Crosstalk delays betwee [1Gn wires
+# Enable Signal Integrity (SI) to account for Crosstalk delays between wires
+[08/12 04:26:52     14s] @tempus 6> set_db delaycal_enable_si trueset_db delaycal_enable_si true
+AAE_INFO: switching -siAware from false to true ...
+[08/12 04:26:53     14s] AAE_INFO: The setting is changed from false to true in setDelayCalMode -SIAware
+[08/12 04:26:53     14s] 1 true
+[08/12 04:26:53     14s] @tempus 7> read_mmmc /home/cc/Documents/Abdullah/Lab_04_Data/inputs/mmmc_master.view
+#@ Begin verbose source (pre): 
+[08/12 04:27:07     14s] @file 1: # ==============================================================================
+[08/12 04:27:07     14s] @file 2: # CADENCE MMMC (Multi-Mode Multi-Corner) SETUP FILE
+[08/12 04:27:07     14s] @file 3: # Project: ALU with I/O Pads
+[08/12 04:27:07     14s] @file 4: # ==============================================================================
+[08/12 04:27:07     14s] @file 5:
+[08/12 04:27:07     14s] @file 6: # ------------------------------------------------------------------------------
+[08/12 04:27:07     14s] @file 7: # 0. SAFETY CHECK & FILE PATH VARIABLES
+[08/12 04:27:07     14s] @file 8: # ------------------------------------------------------------------------------
+[08/12 04:27:07     14s] @file 9: # If this script is run standalone and INCLUDE_DFT isn't set, default to false.
+[08/12 04:27:07     14s] @file 10: if {![info exists INCLUDE_DFT]} {
+[08/12 04:27:07     14s] @file 11: set INCLUDE_DFT "false"
+[08/12 04:27:07     14s] @file 12: }
+[08/12 04:27:07     14s] @file 13:
+[08/12 04:27:07     14s] @file 14: # ------------------------------------------------------------------------------
+[08/12 04:27:07     14s] @file 15: # â ï¸ IMPORTANT: UPDATE THIS DIRECTORY PATH FOR YOUR SPECIFIC PC â ï¸
+[08/12 04:27:07     14s] @file 16: # ------------------------------------------------------------------------------
+[08/12 04:27:07     14s] @file 17: # NOTE FOR USERS: Change the WORK_DIR path below to point to where you saved 
+[08/12 04:27:07     14s] @file 18: # the project folder on your specific computer. 
+[08/12 04:27:07     14s] @file 19: # Example: "/home/your_username/Desktop/Lab01_Data"
+[08/12 04:27:07     14s] @file 20: # Since all other paths are dynamic, this is the ONLY path you need to change!
+[08/12 04:27:07     14s] @file 21:
+[08/12 04:27:07     14s] @file 22: set WORK_DIR "/home/cc/Documents/Abdullah/Lab_04_Data"
+[08/12 04:27:07     14s] @file 23:
+[08/12 04:27:07     14s] @file 24: # ------------------------------------------------------------------------------
+[08/12 04:27:07     14s] @file 25: # --- Auto-Generated Sub-Paths (Do not change these) ---
+[08/12 04:27:07     14s] @file 26: # ------------------------------------------------------------------------------
+[08/12 04:27:07     14s] @file 27:
+[08/12 04:27:07     14s] @file 28: # --- SDC Files ---
+[08/12 04:27:07     14s] @file 29: set SDC_FUNC_FILE "${WORK_DIR}/inputs/ALU.sdc"
+[08/12 04:27:07     14s] @file 30: #set SDC_TEST_FILE "${WORK_DIR}/inputs/alu_dft.sdc"
+[08/12 04:27:07     14s] @file 31:
+[08/12 04:27:07     14s] @file 32: # --- Standard Cell Libraries (Logic) ---
+[08/12 04:27:07     14s] @file 33: set LIB_TC        "${WORK_DIR}/libraries/libs/tcbn65lptc.lib"
+[08/12 04:27:07     14s] @file 34: set LIB_WC        "${WORK_DIR}/libraries/libs/tcbn65lpwc.lib"
+[08/12 04:27:07     14s] @file 35: set LIB_BC        "${WORK_DIR}/libraries/libs/tcbn65lpbc.lib"
+[08/12 04:27:07     14s] @file 36:
+[08/12 04:27:07     14s] @file 37: # --- I/O Pad Libraries (Physical Interface) ---
+[08/12 04:27:07     14s] @file 38: set IO_LIB_TC     "${WORK_DIR}/libraries/libs/tpzn65lpgv2od3tc.lib"
+[08/12 04:27:07     14s] @file 39: set IO_LIB_WC     "${WORK_DIR}/libraries/libs/tpzn65lpgv2od3wc.lib"
+[08/12 04:27:07     14s] @file 40: set IO_LIB_BC     "${WORK_DIR}/libraries/libs/tpzn65lpgv2od3bc.lib"
+[08/12 04:27:07     14s] @file 41:
+[08/12 04:27:07     14s] @file 42: # --- Cap Tables ---
+[08/12 04:27:07     14s] @file 43: set CAPTABLE_TC   "${WORK_DIR}/inputs/mmmc_files/captable/cln65lp_1p09m+alrdl_top2_typical.captable"
+[08/12 04:27:07     14s] @file 44: set CAPTABLE_WC   "${WORK_DIR}/inputs/mmmc_files/captable/cln65lp_1p09m+alrdl_top2_rcworst.captable"
+[08/12 04:27:07     14s] @file 45: set CAPTABLE_BC   "${WORK_DIR}/inputs/mmmc_files/captable/cln65lp_1p09m+alrdl_top2_rcbest.captable"
+[08/12 04:27:07     14s] @file 46:
+[08/12 04:27:07     14s] @file 47: # ------------------------------------------------------------------------------
+[08/12 04:27:07     14s] @file 48: # 1. LIBRARY SETS (Logical Timing & Power)
+[08/12 04:27:07     14s] @file 49: # ------------------------------------------------------------------------------
+[08/12 04:27:07     14s] @file 50: # Merging Core Logic and I/O Timing into single sets for each corner
+[08/12 04:27:07     14s] @@file 51: create_library_set -name tc_libset -timing [list $LIB_TC $IO_LIB_TC]
+[08/12 04:27:07     14s] @@file 52: create_library_set -name wc_libset -timing [list $LIB_WC $IO_LIB_WC]
+[08/12 04:27:07     14s] @@file 53: create_library_set -name bc_libset -timing [list $LIB_BC $IO_LIB_BC]
+[08/12 04:27:07     14s] @file 54:
+[08/12 04:27:07     14s] @file 55: # ------------------------------------------------------------------------------
+[08/12 04:27:07     14s] @file 56: # 2. TIMING CONDITIONS
+[08/12 04:27:07     14s] @file 57: # ------------------------------------------------------------------------------
+[08/12 04:27:07     14s] @@file 58: create_timing_condition -name tc_cond -library_sets {tc_libset}
+[08/12 04:27:07     14s] @@file 59: create_timing_condition -name wc_cond -library_sets {wc_libset}
+[08/12 04:27:07     14s] @@file 60: create_timing_condition -name bc_cond -library_sets {bc_libset}
+[08/12 04:27:07     14s] @file 61:
+[08/12 04:27:07     14s] @file 62: # ------------------------------------------------------------------------------
+[08/12 04:27:07     14s] @file 63: # 3. RC CORNERS (Physical Interconnect Parasitics)
+[08/12 04:27:07     14s] @file 64: # ------------------------------------------------------------------------------
+[08/12 04:27:07     14s] @@file 65: create_rc_corner -name rc_typical -temperature 25  -cap_table $CAPTABLE_TC
+[08/12 04:27:07     14s] @@file 66: create_rc_corner -name rc_worst   -temperature 125 -cap_table $CAPTABLE_WC
+[08/12 04:27:07     14s] @@file 67: create_rc_corner -name rc_best    -temperature -40 -cap_table $CAPTABLE_BC
+[08/12 04:27:07     14s] @file 68:
+[08/12 04:27:07     14s] @file 69: # ------------------------------------------------------------------------------
+[08/12 04:27:07     14s] @file 70: # 4. CONSTRAINT MODES (Design Goals)
+[08/12 04:27:07     14s] @file 71: # ------------------------------------------------------------------------------
+[08/12 04:27:07     14s] @file 72: # Mode 1: Functional (Always Active) - High speed standard operation
+[08/12 04:27:07     14s] @@file 73: create_constraint_mode -name func_mode -sdc_files [list $SDC_FUNC_FILE]
+[08/12 04:27:07     14s] @file 74:
+[08/12 04:27:07     14s] @file 75: # Mode 2: Test (Conditional) - Slow clock, shifting data for scan chains
+[08/12 04:27:07     14s] @file 76: if {$INCLUDE_DFT == "true"} {...}
+[08/12 04:27:07     14s] @file 79:
+[08/12 04:27:07     14s] @file 80: # ------------------------------------------------------------------------------
+[08/12 04:27:07     14s] @file 81: # 5. DELAY CORNERS (Merging Logic and Physics)
+[08/12 04:27:07     14s] @file 82: # ------------------------------------------------------------------------------
+[08/12 04:27:07     14s] @@file 83: create_delay_corner -name dc_typical -timing_condition {tc_cond} -rc_corner {rc_typical}
+[08/12 04:27:07     14s] @@file 84: create_delay_corner -name dc_worst   -timing_condition {wc_cond} -rc_corner {rc_worst}
+[08/12 04:27:07     14s] @@file 85: create_delay_corner -name dc_best    -timing_condition {bc_cond} -rc_corner {rc_best}
+[08/12 04:27:07     14s] @file 86:
+[08/12 04:27:07     14s] @file 87: # ------------------------------------------------------------------------------
+[08/12 04:27:07     14s] @file 88: # 6. ANALYSIS VIEWS (Merging Delays and Constraints)
+[08/12 04:27:07     14s] @file 89: # ------------------------------------------------------------------------------
+[08/12 04:27:07     14s] @file 90: # Create Functional Views
+[08/12 04:27:07     14s] @@file 91: create_analysis_view -name view_func_typical -constraint_mode {func_mode} -delay_corner {dc_typical}
+[08/12 04:27:07     14s] @@file 92: create_analysis_view -name view_func_setup   -constraint_mode {func_mode} -delay_corner {dc_worst}
+[08/12 04:27:07     14s] @@file 93: create_analysis_view -name view_func_hold    -constraint_mode {func_mode} -delay_corner {dc_best}
+[08/12 04:27:07     14s] @file 94:
+[08/12 04:27:07     14s] @file 95: # Create Test Views (If DFT is enabled)
+[08/12 04:27:07     14s] @file 96: if {$INCLUDE_DFT == "true"} {...}
+[08/12 04:27:07     14s] @file 101:
+[08/12 04:27:07     14s] @file 102: # ------------------------------------------------------------------------------
+[08/12 04:27:07     14s] @file 103: # 7. SET ACTIVE VIEWS
+[08/12 04:27:07     14s] @file 104: # ------------------------------------------------------------------------------
+[08/12 04:27:07     14s] @file 105: # If DFT is enabled, we force the tool to balance timing for BOTH modes.
+[08/12 04:27:07     14s] @file 106: # However, Genus requires a single, primary view for power analysis (leakage/dynamic).
+[08/12 04:27:07     14s] @file 107: if {$INCLUDE_DFT == "true"} {...
+[08/12 04:27:07     14s] @file 113: } else {
+[08/12 04:27:07     14s] @@file 114: set_analysis_view  -setup   {view_func_setup}  -hold    {view_func_hold}  -leakage {view_func_typical}  -dynamic {view_func_typical}
+[08/12 04:27:07     14s] Number of views requested 1 are allowed with the current licenses... continuing with set_analysis_view.
+[08/12 04:27:07     14s] @file 115: }
+[08/12 04:27:07     14s] #@ End verbose source: /home/cc/Documents/Abdullah/Lab_04_Data/inputs/mmmc_master.view
+[08/12 04:27:07     14s] Reading wc_libset timing library '/home/cc/Documents/Abdullah/Lab_04_Data/libraries/libs/tcbn65lpwc.lib' ...
+[08/12 04:27:07     15s] **WARN: (TECHLIB-302):	No function defined for cell 'OD25DCAP64'. The cell will only be used for analysis. (File /home/cc/Documents/Abdullah/Lab_04_Data/libraries/libs/tcbn65lpwc.lib)
+[08/12 04:27:07     15s] **WARN: (TECHLIB-302):	No function defined for cell 'OD25DCAP32'. The cell will only be used for analysis. (File /home/cc/Documents/Abdullah/Lab_04_Data/libraries/libs/tcbn65lpwc.lib)
+[08/12 04:27:07     15s] **WARN: (TECHLIB-302):	No function defined for cell 'OD25DCAP16'. The cell will only be used for analysis. (File /home/cc/Documents/Abdullah/Lab_04_Data/libraries/libs/tcbn65lpwc.lib)
+[08/12 04:27:07     15s] **WARN: (TECHLIB-302):	No function defined for cell 'DCAP8'. The cell will only be used for analysis. (File /home/cc/Documents/Abdullah/Lab_04_Data/libraries/libs/tcbn65lpwc.lib)
+[08/12 04:27:07     15s] **WARN: (TECHLIB-302):	No function defined for cell 'DCAP64'. The cell will only be used for analysis. (File /home/cc/Documents/Abdullah/Lab_04_Data/libraries/libs/tcbn65lpwc.lib)
+[08/12 04:27:07     15s] **WARN: (TECHLIB-302):	No function defined for cell 'DCAP4'. The cell will only be used for analysis. (File /home/cc/Documents/Abdullah/Lab_04_Data/libraries/libs/tcbn65lpwc.lib)
+[08/12 04:27:07     15s] **WARN: (TECHLIB-302):	No function defined for cell 'DCAP32'. The cell will only be used for analysis. (File /home/cc/Documents/Abdullah/Lab_04_Data/libraries/libs/tcbn65lpwc.lib)
+[08/12 04:27:07     15s] **WARN: (TECHLIB-302):	No function defined for cell 'DCAP16'. The cell will only be used for analysis. (File /home/cc/Documents/Abdullah/Lab_04_Data/libraries/libs/tcbn65lpwc.lib)
+[08/12 04:27:07     15s] **WARN: (TECHLIB-302):	No function defined for cell 'DCAP'. The cell will only be used for analysis. (File /home/cc/Documents/Abdullah/Lab_04_Data/libraries/libs/tcbn65lpwc.lib)
+[08/12 04:27:07     15s] **WARN: (TECHLIB-302):	No function defined for cell 'ANTENNA'. The cell will only be used for analysis. (File /home/cc/Documents/Abdullah/Lab_04_Data/libraries/libs/tcbn65lpwc.lib)
+[08/12 04:27:08     15s] Read 816 cells in library 'tcbn65lpwc' 
+[08/12 04:27:08     15s] Reading wc_libset timing library '/home/cc/Documents/Abdullah/Lab_04_Data/libraries/libs/tpzn65lpgv2od3wc.lib' ...
+[08/12 04:27:08     15s] **WARN: (TECHLIB-302):	No function defined for cell 'PVSS3DGZ'. The cell will only be used for analysis. (File /home/cc/Documents/Abdullah/Lab_04_Data/libraries/libs/tpzn65lpgv2od3wc.lib)
+[08/12 04:27:08     15s] **WARN: (TECHLIB-302):	No function defined for cell 'PVSS2DGZ'. The cell will only be used for analysis. (File /home/cc/Documents/Abdullah/Lab_04_Data/libraries/libs/tpzn65lpgv2od3wc.lib)
+[08/12 04:27:08     15s] **WARN: (TECHLIB-302):	No function defined for cell 'PVSS2ANA'. The cell will only be used for analysis. (File /home/cc/Documents/Abdullah/Lab_04_Data/libraries/libs/tpzn65lpgv2od3wc.lib)
+[08/12 04:27:08     15s] **WARN: (TECHLIB-302):	No function defined for cell 'PVSS1DGZ'. The cell will only be used for analysis. (File /home/cc/Documents/Abdullah/Lab_04_Data/libraries/libs/tpzn65lpgv2od3wc.lib)
+[08/12 04:27:08     15s] **WARN: (TECHLIB-302):	No function defined for cell 'PVSS1ANA'. The cell will only be used for analysis. (File /home/cc/Documents/Abdullah/Lab_04_Data/libraries/libs/tpzn65lpgv2od3wc.lib)
+[08/12 04:27:08     15s] **WARN: (TECHLIB-302):	No function defined for cell 'PVDD2POC'. The cell will only be used for analysis. (File /home/cc/Documents/Abdullah/Lab_04_Data/libraries/libs/tpzn65lpgv2od3wc.lib)
+[08/12 04:27:08     15s] **WARN: (TECHLIB-302):	No function defined for cell 'PVDD2DGZ'. The cell will only be used for analysis. (File /home/cc/Documents/Abdullah/Lab_04_Data/libraries/libs/tpzn65lpgv2od3wc.lib)
+[08/12 04:27:08     15s] **WARN: (TECHLIB-302):	No function defined for cell 'PVDD2ANA'. The cell will only be used for analysis. (File /home/cc/Documents/Abdullah/Lab_04_Data/libraries/libs/tpzn65lpgv2od3wc.lib)
+[08/12 04:27:08     15s] **WARN: (TECHLIB-302):	No function defined for cell 'PVDD1DGZ'. The cell will only be used for analysis. (File /home/cc/Documents/Abdullah/Lab_04_Data/libraries/libs/tpzn65lpgv2od3wc.lib)
+[08/12 04:27:08     15s] **WARN: (TECHLIB-302):	No function defined for cell 'PVDD1ANA'. The cell will only be used for analysis. (File /home/cc/Documents/Abdullah/Lab_04_Data/libraries/libs/tpzn65lpgv2od3wc.lib)
+[08/12 04:27:08     15s] Message <TECHLIB-302> has exceeded the message display limit of '20'. Use 'set_message -no_limit -id list_of_msgIDs' to reset the message limit.
+[08/12 04:27:08     15s] Read 131 cells in library 'tpzn65lpgv2od3wc' 
+[08/12 04:27:08     15s] Reading bc_libset timing library '/home/cc/Documents/Abdullah/Lab_04_Data/libraries/libs/tcbn65lpbc.lib' ...
+[08/12 04:27:09     16s] Read 816 cells in library 'tcbn65lpbc' 
+[08/12 04:27:09     16s] Reading bc_libset timing library '/home/cc/Documents/Abdullah/Lab_04_Data/libraries/libs/tpzn65lpgv2od3bc.lib' ...
+[08/12 04:27:09     16s] Read 131 cells in library 'tpzn65lpgv2od3bc' 
+Ending "PreSetAnalysisView" (total cpu=0:00:02.2, real=0:00:02.0, peak res=1573.9M, current mem=1446.1M)
+[08/12 04:27:09     16s] timing_initialized
+[08/12 04:27:09     16s] @tempus 8> 
+
+[08/12 04:27:09     16s] @tempus 8> # B. Load Technology LEFs (Crucial for RC Extraction awareness# B. Load Technology LEFs (Crucial for RC Extraction awareness)
+)
+[08/12 04:27:09     16s] @tempus 9> puts "INFO: Reading Technology LEFs..."
+puts "INFO: Reading Technology LEFs..."
+[08/12 04:27:09     16s] INFO: Reading Technology LEFs...
+[08/12 04:27:09     16s] @tempus 10> read_physical -lef /home/cc/Documents/Abdullah/Lab_04_Data/libraries [1G/lef/tcbn65lp_9lmT2.leread_physical -lef /home/cc/Documents/Abdullah/Lab_04_Data/libraries/lef/tcbn65lp_9lmT2.lef
+f
+[08/12 04:27:09     16s] 
+[08/12 04:27:09     16s] Loading LEF file /home/cc/Documents/Abdullah/Lab_04_Data/libraries/lef/tcbn65lp_9lmT2.lef ...
+[08/12 04:27:09     16s] Set DBUPerIGU to M2 pitch 400.
+[08/12 04:27:09     17s] **WARN: (IMPLF-200):	Pin 'I' in macro 'ANTENNA' has no ANTENNAGATEAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+[08/12 04:27:09     17s] 
+[08/12 04:27:09     17s] ##  Check design process and node:  
+[08/12 04:27:09     17s] ##  Both design process and tech node are not set.
+[08/12 04:27:09     17s] 
+[08/12 04:27:09     17s] 0
+[08/12 04:27:09     17s] @tempus 11> 
+
+[08/12 04:27:09     17s] @tempus 11> # C. Load the Final Routed Netlist from Innovus
+# C. Load the Final Routed Netlist from Innovus
+[08/12 04:27:09     17s] @tempus 12> puts "INFO: Reading Post-Route Netlist..."
+puts "INFO: Reading Post-Route Netlist..."
+[08/12 04:27:09     17s] INFO: Reading Post-Route Netlist...
+[08/12 04:27:09     17s] @tempus 13> read_netlist /home/cc/Documents/Abdullah/Lab_04_Data/export/outputs/ [1Gpnr/counter.final.v
+read_netlist /home/cc/Documents/Abdullah/Lab_04_Data/export/outputs/pnr/counter.final.v
+[08/12 04:27:09     17s] **ERROR: (IMPIMEX-10):	Specified file cannot be found: /home/cc/Documents/Abdullah/Lab_04_Data/export/outputs/pnr/counter.final.v.
+[08/12 04:27:09     17s] @tempus 14>
+ 
+[08/12 04:27:09     17s] @tempus 14> # D. Initialize the Timing Graph
+# D. Initialize the Timing Graph
+[08/12 04:27:09     17s] @tempus 15> # This builds the logic connectivity in memory
+# This builds the logic connectivity in memory
+[08/12 04:27:09     17s] @tempus 16> puts "INFO: Initializing Design Database..."
+puts "INFO: Initializing Design Database..."
+[08/12 04:27:09     17s] INFO: Initializing Design Database...
+[08/12 04:27:09     17s] @tempus 17> init_design?62;c?62;c>init_design
+
+[08/12 04:27:16     17s] **ERROR: (IMPIMEX-12):	'init_design' failed. You are missing one or more of the required commands before running init_design.
+[08/12 04:27:16     17s] The MMMC init sequence looks like this: 
+[08/12 04:27:16     17s] read_mmmc top.mmmc 
+[08/12 04:27:16     17s] read_physical -lef {tech.lef stdcell.lef}   #optional in Tempus, required for Innovus 
+[08/12 04:27:16     17s] read_netlist top.v 
+[08/12 04:27:16     17s] read_power_intent -1801 top.1801	    #only for MSV designs 
+[08/12 04:27:16     17s] init_design 
+[08/12 04:27:16     17s] 
+[08/12 04:27:16     17s] Tempus also supports a single-mode timing init sequence with no MMMC file like this: 
+[08/12 04:27:16     17s] read_libs all.lib 
+[08/12 04:27:16     17s] read_netlist top.v 
+[08/12 04:27:16     17s] read_sdc top.sdc 
+[08/12 04:27:16     17s] init_design 
+[08/12 04:27:16     17s] 
+[08/12 04:27:16     17s] See the 'Stylus Common UI Initialization' section in the 'Design Import and Export Capabilities' chapter of the Innovus Stylus 
+[08/12 04:27:16     17s] Common UI User Guide for more details.
+[08/12 04:27:16     17s] 
+[08/12 04:27:16     17s] 
+[08/12 04:27:16     17s] @tempus 18> set spef_file "/home/cc/Documents/Abdullah/Lab_04_Data/export/outputs/pnr/counter.spef"
+/home/cc/Documents/Abdullah/Lab_04_Data/export/outputs/pnr/counter.spef
+[08/12 04:27:33     17s] @tempus 19> 
+
+[08/12 04:27:33     17s] @tempus 19> puts "INFO: Mapping SPEF parasitics to RC Corners...puts "INFO: Mapping SPEF parasitics to RC Corners..."
+"
+[08/12 04:27:33     17s] INFO: Mapping SPEF parasitics to RC Corners...
+[08/12 04:27:33     17s] @tempus 20> 
+
+[08/12 04:27:33     17s] @tempus 20> # Worst-Case (Setup) Corner
+# Worst-Case (Setup) Corner
+[08/12 04:27:33     17s] @tempus 21> read_spef -rc_corner rc_worst $spef_file
+read_spef -rc_corner rc_worst $spef_file
+[08/12 04:27:33     17s] **ERROR: (UI-187):	Cannot open /home/cc/Documents/Abdullah/Lab_04_Data/export/outputs/pnr/counter.spef for reading!
+
+[08/12 04:27:33     17s] **ERROR: (UI-187):	Cannot open /home/cc/Documents/Abdullah/Lab_04_Data/export/outputs/pnr/counter.spef for reading!
+[08/12 04:27:33     17s] 
+[08/12 04:27:33     17s] @tempus 22> 
+
+[08/12 04:27:33     17s] @tempus 22> # Best-Case (Hold) Corner
+# Best-Case (Hold) Corner
+[08/12 04:27:33     17s] @tempus 23> read_spef -rc_corner rc_best $spef_file
+read_spef -rc_corner rc_best $spef_file
+[08/12 04:27:33     17s] **ERROR: (UI-187):	Cannot open /home/cc/Documents/Abdullah/Lab_04_Data/export/outputs/pnr/counter.spef for reading!
+
+[08/12 04:27:33     17s] **ERROR: (UI-187):	Cannot open /home/cc/Documents/Abdullah/Lab_04_Data/export/outputs/pnr/counter.spef for reading!
+[08/12 04:27:33     17s] 
+[08/12 04:27:33     17s] @tempus 24> 
+
+[08/12 04:27:33     17s] @tempus 24> # Typical Corner (Optional)
+# Typical Corner (Optional)
+[08/12 04:27:33     17s] @tempus 25> read_spef -rc_corner rc_typical $spef_fileread_spef -rc_corner rc_typical $spef_file
+
+[08/12 04:27:34     17s] **ERROR: (UI-187):	Cannot open /home/cc/Documents/Abdullah/Lab_04_Data/export/outputs/pnr/counter.spef for reading!
+
+[08/12 04:27:34     17s] **ERROR: (UI-187):	Cannot open /home/cc/Documents/Abdullah/Lab_04_Data/export/outputs/pnr/counter.spef for reading!
+[08/12 04:27:34     17s] 
+[08/12 04:27:34     17s] @tempus 26> set_db timing_analysis_type ocv
+1 ocv
+[08/12 04:28:14     18s] @tempus 27> 
+
+[08/12 04:28:14     18s] @tempus 27> # Enable Clock Path Pessimism Removal (CPPR) to remove common-path a [1Grtificial delays
+# Enable Clock Path Pessimism Removal (CPPR) to remove common-path artificial delays
+[08/12 04:28:14     18s] @tempus 28> set_db timing_analysis_cppr both
+set_db timing_analysis_cppr both
+[08/12 04:28:14     18s] 1 both
+[08/12 04:28:14     18s] @tempus 29> 
+
+[08/12 04:28:14     18s] @tempus 29> # Enable Signal Integrity (SI) to account for Crosstalk delays betwe [1Gen wires
+# Enable Signal Integrity (SI) to account for Crosstalk delays between wires
+[08/12 04:28:14     18s] @tempus 30> set_db delaycal_enable_si true
+set_db delaycal_enable_si true
+[08/12 04:28:14     18s] 1 true
+
+[08/12 04:28:14     18s] @tempus 31> 
+[08/12 04:28:14     18s] @tempus 31> # ================================================================== [1G============
+# ==============================================================================
+[08/12 04:28:14     18s] @tempus 32> # 2. LOAD DESIGN DATA
+# 2. LOAD DESIGN DATA
+[08/12 04:28:14     18s] @tempus 33> # ================================================================== [1G============
+# ==============================================================================
+[08/12 04:28:14     18s] @tempus 34> # A. Load the MMMC View Definition (Links .libs to .sdcs)
+# A. Load the MMMC View Definition (Links .libs to .sdcs)
+[08/12 04:28:14     18s] @tempus 35> puts "INFO: Loading MMMC View Definitions..."
+puts "INFO: Loading MMMC View Definitions..."
+[08/12 04:28:14     18s] INFO: Loading MMMC View Definitions...
+[08/12 04:28:14     18s] @tempus 36> read_mmmc /home/cc/Documents/Abdullah/Lab_04_Data/inputs/mmmc_master [1G.view
+read_mmmc /home/cc/Documents/Abdullah/Lab_04_Data/inputs/mmmc_master.view
+[08/12 04:28:14     18s] **WARN: (TCLCMD-1306):	read_mmmc command should be called once before init_design.
+[08/12 04:28:14     18s] 
+[08/12 04:28:14     18s] 
+[08/12 04:28:14     18s] @tempus 37> 
+
+[08/12 04:28:14     18s] @tempus 37> # B. Load Technology LEFs (Crucial for RC Extraction awareness)
+# B. Load Technology LEFs (Crucial for RC Extraction awareness)
+[08/12 04:28:14     18s] @tempus 38> puts "INFO: Reading Technology LEFs..."
+puts "INFO: Reading Technology LEFs..."
+[08/12 04:28:14     18s] INFO: Reading Technology LEFs...
+[08/12 04:28:14     18s] @tempus 39> read_physical -lef /home/cc/Documents/Abdullah/Lab_04_Data/libraries [1G/lef/tcbn65lp_9lmT2.lef
+read_physical -lef /home/cc/Documents/Abdullah/Lab_04_Data/libraries/lef/tcbn65lp_9lmT2.lef
+[08/12 04:28:14     18s] **ERROR: (IMPIMEX-12):	'init_design' failed. You are missing one or more of the required commands before running init_design.
+[08/12 04:28:14     18s] The MMMC init sequence looks like this: 
+[08/12 04:28:14     18s] read_mmmc top.mmmc 
+[08/12 04:28:14     18s] read_physical -lef {tech.lef stdcell.lef}   #optional in Tempus, required for Innovus 
+[08/12 04:28:14     18s] read_netlist top.v 
+[08/12 04:28:14     18s] read_power_intent -1801 top.1801	    #only for MSV designs 
+[08/12 04:28:14     18s] init_design 
+[08/12 04:28:14     18s] 
+[08/12 04:28:14     18s] Tempus also supports a single-mode timing init sequence with no MMMC file like this: 
+[08/12 04:28:14     18s] read_libs all.lib 
+[08/12 04:28:14     18s] read_netlist top.v 
+[08/12 04:28:14     18s] read_sdc top.sdc 
+[08/12 04:28:14     18s] init_design 
+[08/12 04:28:14     18s] 
+[08/12 04:28:14     18s] See the 'Stylus Common UI Initialization' section in the 'Design Import and Export Capabilities' chapter of the Innovus Stylus 
+[08/12 04:28:14     18s] Common UI User Guide for more details.
+[08/12 04:28:14     18s] 
+[08/12 04:28:14     18s] 
+[08/12 04:28:14     18s] @tempus 40> 
+
+[08/12 04:28:14     18s] @tempus 40> # C. Load the Final Routed Netlist from Innovu# C. Load the Final Routed Netlist from Innovus
+s
+[08/12 04:28:14     18s] @tempus 41> puts "INFO: Reading Post-Route Netlist..."
+puts "INFO: Reading Post-Route Netlist..."
+[08/12 04:28:14     18s] INFO: Reading Post-Route Netlist...
+[08/12 04:28:14     18s] @tempus 42> read_netlist /home/cc/Documents/Abdullah/Lab_04_Data/export/outputs/ [1Gpnr/top_wrapper.final.read_netlist /home/cc/Documents/Abdullah/Lab_04_Data/export/outputs/pnr/top_wrapper.final.v
+v
+[08/12 04:28:14     18s] **ERROR: (IMPIMEX-12):	'init_design' failed. You are missing one or more of the required commands before running init_design.
+[08/12 04:28:14     18s] The MMMC init sequence looks like this: 
+[08/12 04:28:14     18s] read_mmmc top.mmmc 
+[08/12 04:28:14     18s] read_physical -lef {tech.lef stdcell.lef}   #optional in Tempus, required for Innovus 
+[08/12 04:28:14     18s] read_netlist top.v 
+[08/12 04:28:14     18s] read_power_intent -1801 top.1801	    #only for MSV designs 
+[08/12 04:28:14     18s] init_design 
+[08/12 04:28:14     18s] 
+[08/12 04:28:14     18s] Tempus also supports a single-mode timing init sequence with no MMMC file like this: 
+[08/12 04:28:14     18s] read_libs all.lib 
+[08/12 04:28:14     18s] read_netlist top.v 
+[08/12 04:28:14     18s] read_sdc top.sdc 
+[08/12 04:28:14     18s] init_design 
+[08/12 04:28:14     18s] 
+[08/12 04:28:14     18s] See the 'Stylus Common UI Initialization' section in the 'Design Import and Export Capabilities' chapter of the Innovus Stylus 
+[08/12 04:28:14     18s] Common UI User Guide for more details.
+[08/12 04:28:14     18s] ''.
+[08/12 04:28:14     18s] 
+[08/12 04:28:14     18s] 
+[08/12 04:28:14     18s] @tempus 43> 
+
+[08/12 04:28:14     18s] @tempus 43> # D. Initialize the Timing Graph
+# D. Initialize the Timing Graph
+[08/12 04:28:14     18s] @tempus 44> # This builds the logic connectivity in memory
+# This builds the logic connectivity in memory
+[08/12 04:28:14     18s] @tempus 45> puts "INFO: Initializing Design Database...puts "INFO: Initializing Design Database..."
+"
+[08/12 04:28:14     18s] INFO: Initializing Design Database...
+[08/12 04:28:14     18s] @tempus 46> init_designinit_design
+
+[08/12 04:28:15     18s] **ERROR: (IMPIMEX-12):	'init_design' failed. You are missing one or more of the required commands before running init_design.
+[08/12 04:28:15     18s] The MMMC init sequence looks like this: 
+[08/12 04:28:15     18s] read_mmmc top.mmmc 
+[08/12 04:28:15     18s] read_physical -lef {tech.lef stdcell.lef}   #optional in Tempus, required for Innovus 
+[08/12 04:28:15     18s] read_netlist top.v 
+[08/12 04:28:15     18s] read_power_intent -1801 top.1801	    #only for MSV designs 
+[08/12 04:28:15     18s] init_design 
+[08/12 04:28:15     18s] 
+[08/12 04:28:15     18s] Tempus also supports a single-mode timing init sequence with no MMMC file like this: 
+[08/12 04:28:15     18s] read_libs all.lib 
+[08/12 04:28:15     18s] read_netlist top.v 
+[08/12 04:28:15     18s] read_sdc top.sdc 
+[08/12 04:28:15     18s] init_design 
+[08/12 04:28:15     18s] 
+[08/12 04:28:15     18s] See the 'Stylus Common UI Initialization' section in the 'Design Import and Export Capabilities' chapter of the Innovus Stylus 
+[08/12 04:28:15     18s] Common UI User Guide for more details.
+[08/12 04:28:15     18s] 
+[08/12 04:28:15     18s] 
+[08/12 04:28:15     18s] @tempus 47> set spef_file "/home/cc/Documents/Abdullah/Lab_04_Data/export/outputs/pnr/top_wrapper.spef"
+set spef_file "/home/cc/Documents/Abdullah/Lab_04_Data/export/output [1Gs/pnr/top_wrapper.spef"
+
+puts "INFO: Mapping SPEF parasitics to RC Corners..."
+
+# Worst-Case (Setup) Corner
+read_spef -rc_corner rc_worst $spef_file
+[08/12 04:28:22     18s] /home/cc/Documents/Abdullah/Lab_04_Data/export/outputs/pnr/top_wrapper.spef
+[08/12 04:28:22     18s] @tempus 48> 
+[08/12 04:28:22     18s] @tempus 48> puts "INFO: Mapping SPEF parasitics to RC Corners..."
+[08/12 04:28:22     18s] INFO: Mapping SPEF parasitics to RC Corners...
+[08/12 04:28:22     18s] @tempus 49> 
+[08/12 04:28:22     18s] @tempus 49> # Worst-Case (Setup) Corner
+[08/12 04:28:22     18s] @tempus 50> read_spef -rc_corner rc_worst $spef_file
+[08/12 04:28:22     18s] **ERROR: (UI-187):	Cannot open /home/cc/Documents/Abdullah/Lab_04_Data/export/outputs/pnr/top_wrapper.spef for reading!
+
+[08/12 04:28:22     18s] **ERROR: (UI-187):	Cannot open /home/cc/Documents/Abdullah/Lab_04_Data/export/outputs/pnr/top_wrapper.spef for reading!
+[08/12 04:28:22     18s] 
+[08/12 04:28:22     18s] @tempus 51> 
+
+[08/12 04:28:22     18s] @tempus 51> # Best-Case (Hold) Corner# Best-Case (Hold) Corner
+
+[08/12 04:28:22     18s] @tempus 52> read_spef -rc_corner rc_best $spef_file
+read_spef -rc_corner rc_best $spef_file
+[08/12 04:28:22     18s] **ERROR: (UI-187):	Cannot open /home/cc/Documents/Abdullah/Lab_04_Data/export/outputs/pnr/top_wrapper.spef for reading!
+
+[08/12 04:28:22     18s] **ERROR: (UI-187):	Cannot open /home/cc/Documents/Abdullah/Lab_04_Data/export/outputs/pnr/top_wrapper.spef for reading!
+[08/12 04:28:22     18s] 
+[08/12 04:28:22     18s] @tempus 53> 
+
+[08/12 04:28:22     18s] @tempus 53> # Typical Corner (Optional)
+# Typical Corner (Optional)
+[08/12 04:28:22     18s] @tempus 54> read_spef -rc_corner rc_typical $spef_fileread_spef -rc_corner rc_typical $spef_file
+[08/12 04:28:24     18s] **ERROR: (UI-187):	Cannot open /home/cc/Documents/Abdullah/Lab_04_Data/export/outputs/pnr/top_wrapper.spef for reading!
+
+**ERROR: (UI-187):	Cannot open /home/cc/Documents/Abdullah/Lab_04_Data/export/outputs/pnr/top_wrapper.spef for reading!
+[08/12 04:28:24     18s] 
+[08/12 04:28:24     18s] @tempus 55> exit
+
+[08/12 04:30:03     21s] 
+[08/12 04:30:03     21s] *** Memory Usage v#3 (Current mem = 1520.945M, initial mem = 656.645M) ***
+[08/12 04:30:03     21s] 
+[08/12 04:30:03     21s] *** Summary of all messages that are not suppressed in this session:
+[08/12 04:30:03     21s] Severity  ID               Count  Summary                                  
+[08/12 04:30:03     21s] WARNING   IMPLF-200            1  Pin '%s' in macro '%s' has no ANTENNAGAT...
+[08/12 04:30:03     21s] ERROR     UI-187               6  Cannot open %s for %s!                   
+[08/12 04:30:03     21s] ERROR     IMPIMEX-10           1  Specified file cannot be found: %s.      
+[08/12 04:30:03     21s] ERROR     IMPIMEX-12           4  'init_design' failed. You are missing on...
+[08/12 04:30:03     21s] WARNING   TCLCMD-1306          1  read_mmmc command should be called once ...
+[08/12 04:30:03     21s] WARNING   TECHLIB-302         46  No function defined for cell '%s'. The c...
+[08/12 04:30:03     21s] *** Message Summary: 48 warning(s), 11 error(s)
+[08/12 04:30:03     21s] 
+[08/12 04:30:03     21s] --- Ending "Tempus Timing Solution" (totcpu=0:00:21.7, real=0:05:30, mem=1520.9M) ---

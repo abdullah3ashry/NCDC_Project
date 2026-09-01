@@ -1,0 +1,119 @@
+# ==============================================================================
+# CADENCE MMMC (Multi-Mode Multi-Corner) SETUP FILE
+# Project: ALU with I/O Pads
+# ==============================================================================
+
+# ------------------------------------------------------------------------------
+# 0. SAFETY CHECK & FILE PATH VARIABLES
+# ------------------------------------------------------------------------------
+# If this script is run standalone and INCLUDE_DFT isn't set, default to false.
+if {![info exists INCLUDE_DFT]} {
+    set INCLUDE_DFT "false"
+}
+
+# ------------------------------------------------------------------------------
+# ⚠️ IMPORTANT: UPDATE THIS DIRECTORY PATH FOR YOUR SPECIFIC PC ⚠️
+# ------------------------------------------------------------------------------
+# NOTE FOR USERS: Change the WORK_DIR path below to point to where you saved 
+# the project folder on your specific computer. 
+# Example: "/home/your_username/Desktop/Lab01_Data"
+# Since all other paths are dynamic, this is the ONLY path you need to change!
+
+set WORK_DIR "/home/cc/Documents/Abdullah/Lab_04_Data"
+
+# ------------------------------------------------------------------------------
+# --- Auto-Generated Sub-Paths (Do not change these) ---
+# ------------------------------------------------------------------------------
+
+# --- SDC Files ---
+set SDC_FUNC_FILE "${WORK_DIR}/inputs/ALU.sdc"
+#set SDC_TEST_FILE "${WORK_DIR}/inputs/alu_dft.sdc"
+
+# --- Standard Cell Libraries (Logic) ---
+set LIB_TC        "${WORK_DIR}/libraries/libs/tcbn65lptc.lib"
+set LIB_WC        "${WORK_DIR}/libraries/libs/tcbn65lpwc.lib"
+set LIB_BC        "${WORK_DIR}/libraries/libs/tcbn65lpbc.lib"
+
+# --- I/O Pad Libraries (Physical Interface) ---
+set IO_LIB_TC     "${WORK_DIR}/libraries/libs/tpzn65lpgv2od3tc.lib"
+set IO_LIB_WC     "${WORK_DIR}/libraries/libs/tpzn65lpgv2od3wc.lib"
+set IO_LIB_BC     "${WORK_DIR}/libraries/libs/tpzn65lpgv2od3bc.lib"
+
+# --- Cap Tables ---
+set CAPTABLE_TC   "${WORK_DIR}/inputs/mmmc_files/captable/cln65lp_1p09m+alrdl_top2_typical.captable"
+set CAPTABLE_WC   "${WORK_DIR}/inputs/mmmc_files/captable/cln65lp_1p09m+alrdl_top2_rcworst.captable"
+set CAPTABLE_BC   "${WORK_DIR}/inputs/mmmc_files/captable/cln65lp_1p09m+alrdl_top2_rcbest.captable"
+
+# ------------------------------------------------------------------------------
+# 1. LIBRARY SETS (Logical Timing & Power)
+# ------------------------------------------------------------------------------
+# Merging Core Logic and I/O Timing into single sets for each corner
+create_library_set -name tc_libset -timing [list $LIB_TC $IO_LIB_TC]
+create_library_set -name wc_libset -timing [list $LIB_WC $IO_LIB_WC]
+create_library_set -name bc_libset -timing [list $LIB_BC $IO_LIB_BC]
+
+# ------------------------------------------------------------------------------
+# 2. TIMING CONDITIONS
+# ------------------------------------------------------------------------------
+create_timing_condition -name tc_cond -library_sets {tc_libset}
+create_timing_condition -name wc_cond -library_sets {wc_libset}
+create_timing_condition -name bc_cond -library_sets {bc_libset}
+
+# ------------------------------------------------------------------------------
+# 3. RC CORNERS (Physical Interconnect Parasitics)
+# ------------------------------------------------------------------------------
+create_rc_corner -name rc_typical -temperature 25  -cap_table $CAPTABLE_TC
+create_rc_corner -name rc_worst   -temperature 125 -cap_table $CAPTABLE_WC
+create_rc_corner -name rc_best    -temperature -40 -cap_table $CAPTABLE_BC
+
+# ------------------------------------------------------------------------------
+# 4. CONSTRAINT MODES (Design Goals)
+# ------------------------------------------------------------------------------
+# Mode 1: Functional (Always Active) - High speed standard operation
+create_constraint_mode -name func_mode -sdc_files [list $SDC_FUNC_FILE]
+
+# Mode 2: Test (Conditional) - Slow clock, shifting data for scan chains
+if {$INCLUDE_DFT == "true"} {
+    create_constraint_mode -name test_mode -sdc_files $SDC_TEST_FILE
+}
+
+# ------------------------------------------------------------------------------
+# 5. DELAY CORNERS (Merging Logic and Physics)
+# ------------------------------------------------------------------------------
+create_delay_corner -name dc_typical -timing_condition {tc_cond} -rc_corner {rc_typical}
+create_delay_corner -name dc_worst   -timing_condition {wc_cond} -rc_corner {rc_worst}
+create_delay_corner -name dc_best    -timing_condition {bc_cond} -rc_corner {rc_best}
+
+# ------------------------------------------------------------------------------
+# 6. ANALYSIS VIEWS (Merging Delays and Constraints)
+# ------------------------------------------------------------------------------
+# Create Functional Views
+create_analysis_view -name view_func_typical -constraint_mode {func_mode} -delay_corner {dc_typical}
+create_analysis_view -name view_func_setup   -constraint_mode {func_mode} -delay_corner {dc_worst}
+create_analysis_view -name view_func_hold    -constraint_mode {func_mode} -delay_corner {dc_best}
+
+# Create Test Views (If DFT is enabled)
+if {$INCLUDE_DFT == "true"} {
+    create_analysis_view -name view_test_typical -constraint_mode {test_mode} -delay_corner {dc_typical}
+    create_analysis_view -name view_test_setup   -constraint_mode {test_mode} -delay_corner {dc_worst}
+    create_analysis_view -name view_test_hold    -constraint_mode {test_mode} -delay_corner {dc_best}
+}
+
+# ------------------------------------------------------------------------------
+# 7. SET ACTIVE VIEWS
+# ------------------------------------------------------------------------------
+# If DFT is enabled, we force the tool to balance timing for BOTH modes.
+# However, Genus requires a single, primary view for power analysis (leakage/dynamic).
+if {$INCLUDE_DFT == "true"} {
+    set_analysis_view \
+        -setup   {view_func_setup view_test_setup} \
+        -hold    {view_func_hold view_test_hold} \
+        -leakage {view_func_typical} \
+        -dynamic {view_func_typical}
+} else {
+    set_analysis_view \
+        -setup   {view_func_setup} \
+        -hold    {view_func_hold} \
+        -leakage {view_func_typical} \
+        -dynamic {view_func_typical}
+}

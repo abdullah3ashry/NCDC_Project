@@ -1,0 +1,30 @@
+# SVDB: Port Table (ports)
+# SVDB: Layout Primary top_wrapper
+B[1] 78 B[1] -145380 302315 metal2
+B[2] 79 B[2] -113070 302315 metal2
+Out[5] 53 Out[5] 302315 -102220 metal2
+B[3] 80 B[3] -48455 302315 metal2
+Out[2] 28 Out[2] 302315 53330 metal2
+Out[4] 68 Out[4] 302315 -24440 metal2
+A[5] 16 A[5] -302315 35000 metal2
+B[4] 81 B[4] -16150 302315 metal2
+Out[3] 69 Out[3] 302315 14445 metal2
+A[3] 56 A[3] -302315 -35000 metal2
+B[5] 82 B[5] 16155 302315 metal2
+A[4] 57 A[4] -302315 0 metal2
+B[6] 83 B[6] 80765 302315 metal2
+B[7] 84 B[7] 113070 302315 metal2
+Out[7] 46 Out[7] 302315 -180000 metal2
+clk_in 33 clk_in -22500 -302315 metal2
+Sel[0] 85 Sel[0] 145380 302315 metal2
+Sel[1] 86 Sel[1] 177690 302315 metal2
+A[1] 8 A[1] -302315 -140000 metal2
+A[2] 48 A[2] -302315 -105000 metal2
+Out[1] 87 Out[1] 302315 131110 metal2
+A[6] 74 A[6] -302315 105000 metal2
+A[7] 75 A[7] -302315 140000 metal2
+Out[0] 88 Out[0] 302315 170000 metal2
+Out[6] 24 Out[6] 302315 -141110 metal2
+rst 76 rst -302315 175000 metal2
+A[0] 37 A[0] -302315 -175000 metal2
+B[0] 77 B[0] -177690 302315 metal2

@@ -1,0 +1,232 @@
+			*****************************************************
+			**                                                 **
+			**                L V S  R E P O R T               **
+			**                                                 **
+			*****************************************************
+
+
+Report File Name         : lvs.rep
+ERC Summary File         : erc.sum
+LVS Comparison Report    : lvs.rep.cls
+LVS Softchk Report       : top_wrapper.softchk
+LVS Find Shorts Report   : lvs.rep.shorts
+Layout Name              : /home/cc/Documents/Abdullah/Lab_04_Data/export/Innovus_Data/outputs/pnr/top_wrapper.gds ("top_wrapper")
+User Name                : cc
+Creation Time            : Wed Aug 12 04:14:05 2026
+Current directory        : /home/cc/Documents/Abdullah/Lab_04_Data/export/LVS_Results
+PVS Version              : 23.11-s036 Wed Jan 17 18:11:41 PST 2024
+
+
+			*****************************************************
+			**                                                 **
+			**            D E V E X T  R E P O R T             **
+			**                                                 **
+			*****************************************************
+
+
+    LVS_FIND_SHORTS  -cell primary
+    LVS_FIND_SHORTS result file "lvs.rep.shorts"
+
+    LVS_SOFTCHK result file "top_wrapper.softchk"
+    LVS_SOFTCHK DNW -TYPE CONTACT   Total Result        0 (       0)
+    LVS_SOFTCHK PROBEM1_T -TYPE CONTACT   Total Result        0 (       0)
+    LVS_SOFTCHK PROBEM2_T -TYPE CONTACT   Total Result        0 (       0)
+    LVS_SOFTCHK PROBEM3_T -TYPE CONTACT   Total Result        0 (       0)
+    LVS_SOFTCHK PROBEM4_T -TYPE CONTACT   Total Result        0 (       0)
+    LVS_SOFTCHK PROBEM5_T -TYPE CONTACT   Total Result        0 (       0)
+    LVS_SOFTCHK PROBEM6_T -TYPE CONTACT   Total Result        0 (       0)
+    LVS_SOFTCHK PROBEM7_T -TYPE CONTACT   Total Result        0 (       0)
+    LVS_SOFTCHK poly_term -TYPE CONTACT   Total Result        0 (       0)
+    LVS_SOFTCHK RFDMY_hia_psub -TYPE CONTACT   Total Result        0 (       0)
+    LVS_SOFTCHK rfdmy56 -TYPE CONTACT   Total Result        0 (       0)
+    LVS_SOFTCHK HVNW -TYPE CONTACT   Total Result        0 (       0)
+    LVS_SOFTCHK nxwell -TYPE CONTACT   Total Result        0 (       0)
+    LVS_SOFTCHK HVPSUB -TYPE CONTACT   Total Result        0 (       0)
+    LVS_SOFTCHK HVPW -TYPE CONTACT   Total Result        0 (       0)
+    LVS_SOFTCHK RFDMY_hia -TYPE CONTACT   Total Result        0 (       0)
+    LVS_SOFTCHK coll1 -TYPE CONTACT   Total Result        0 (       0)
+    LVS_SOFTCHK n_psub -TYPE CONTACT   Total Result       37 (      43)
+    LVS_SOFTCHK psub -TYPE CONTACT   Total Result       35 (      41)
+    LVS_SOFTCHK psub_term -TYPE CONTACT   Total Result        0 (       0)
+    LVS_SOFTCHK rwel -TYPE CONTACT   Total Result        0 (       0)
+
+Warnings and errors of connectivity for cell "PCORNER"
+------------------------------------------------------
+
+[WARN] Same label "VDDPST" for multiple nets, it is assigned to net 4 :
+    [1] Net 4 on layer 3227(metal1_text) at (78.660, 189.805)
+    [2] Net 4 on layer 3227(metal1_text) at (189.765, 78.660)
+    [3] Net 9 on layer 3234(metal7_text) at (110.010, 189.805)
+    [4] Net 9 on layer 3234(metal7_text) at (189.765, 110.010)
+    [5] Net 9 on layer 3233(metal6_text) at (110.010, 189.805)
+    [6] Net 9 on layer 3233(metal6_text) at (189.765, 110.010)
+    [7] Net 9 on layer 3232(metal5_text) at (110.010, 189.805)
+    [8] Net 9 on layer 3232(metal5_text) at (189.765, 110.010)
+    [9] Net 9 on layer 3231(metal4_text) at (110.010, 189.805)
+    [10] Net 9 on layer 3231(metal4_text) at (189.765, 110.010)
+    [11] Net 9 on layer 3230(metal3_text) at (110.010, 189.805)
+    [12] Net 9 on layer 3230(metal3_text) at (189.765, 110.010)
+
+[WARN] Same label "VSS" for multiple nets, it is assigned to net 3 :
+    [1] Net 3 on layer 3227(metal1_text) at (152.325, 189.805)
+    [2] Net 3 on layer 3227(metal1_text) at (164.475, 189.805)
+    [3] Net 3 on layer 3227(metal1_text) at (189.765, 152.325)
+    [4] Net 3 on layer 3227(metal1_text) at (189.765, 164.475)
+    [5] Net 3 on layer 3229(metal2_text) at (152.325, 189.805)
+    [6] Net 3 on layer 3229(metal2_text) at (164.475, 189.805)
+    [7] Net 3 on layer 3229(metal2_text) at (185.730, 189.805)
+    [8] Net 3 on layer 3229(metal2_text) at (189.805, 185.730)
+    [9] Net 3 on layer 3229(metal2_text) at (189.765, 152.325)
+    [10] Net 3 on layer 3229(metal2_text) at (189.765, 164.475)
+    [11] Net 3 on layer 3227(metal1_text) at (185.730, 189.805)
+    [12] Net 3 on layer 3227(metal1_text) at (189.805, 185.730)
+    [13] Net 3 on layer 3230(metal3_text) at (145.080, 189.805)
+    [14] Net 3 on layer 3230(metal3_text) at (189.765, 145.080)
+    [15] Net 3 on layer 3230(metal3_text) at (152.325, 189.805)
+    [16] Net 3 on layer 3230(metal3_text) at (189.765, 152.325)
+    [17] Net 3 on layer 3230(metal3_text) at (164.475, 189.805)
+    [18] Net 3 on layer 3230(metal3_text) at (189.765, 164.475)
+    [19] Net 3 on layer 3230(metal3_text) at (185.730, 189.805)
+    [20] Net 3 on layer 3230(metal3_text) at (189.805, 185.730)
+    [21] Net 3 on layer 3231(metal4_text) at (145.080, 189.805)
+    [22] Net 3 on layer 3231(metal4_text) at (189.765, 145.080)
+    [23] Net 3 on layer 3231(metal4_text) at (152.325, 189.805)
+    [24] Net 3 on layer 3231(metal4_text) at (189.765, 152.325)
+    [25] Net 3 on layer 3231(metal4_text) at (164.475, 189.805)
+    [26] Net 3 on layer 3231(metal4_text) at (189.765, 164.475)
+    [27] Net 3 on layer 3231(metal4_text) at (185.730, 189.805)
+    [28] Net 3 on layer 3231(metal4_text) at (189.805, 185.730)
+    [29] Net 3 on layer 3232(metal5_text) at (145.080, 189.805)
+    [30] Net 3 on layer 3232(metal5_text) at (189.765, 145.080)
+    [31] Net 3 on layer 3232(metal5_text) at (152.325, 189.805)
+    [32] Net 3 on layer 3232(metal5_text) at (189.765, 152.325)
+    [33] Net 3 on layer 3232(metal5_text) at (164.475, 189.805)
+    [34] Net 3 on layer 3232(metal5_text) at (189.765, 164.475)
+    [35] Net 3 on layer 3232(metal5_text) at (185.730, 189.805)
+    [36] Net 3 on layer 3232(metal5_text) at (189.805, 185.730)
+    [37] Net 3 on layer 3233(metal6_text) at (145.080, 189.805)
+    [38] Net 3 on layer 3233(metal6_text) at (189.765, 145.080)
+    [39] Net 3 on layer 3233(metal6_text) at (152.325, 189.805)
+    [40] Net 3 on layer 3233(metal6_text) at (189.765, 152.325)
+    [41] Net 3 on layer 3233(metal6_text) at (164.475, 189.805)
+    [42] Net 3 on layer 3233(metal6_text) at (189.765, 164.475)
+    [43] Net 3 on layer 3233(metal6_text) at (185.730, 189.805)
+    [44] Net 3 on layer 3233(metal6_text) at (189.805, 185.730)
+    [45] Net 3 on layer 3234(metal7_text) at (145.080, 189.805)
+    [46] Net 3 on layer 3234(metal7_text) at (189.765, 145.080)
+    [47] Net 3 on layer 3234(metal7_text) at (152.325, 189.805)
+    [48] Net 3 on layer 3234(metal7_text) at (189.765, 152.325)
+    [49] Net 3 on layer 3234(metal7_text) at (164.475, 189.805)
+    [50] Net 3 on layer 3234(metal7_text) at (189.765, 164.475)
+    [51] Net 3 on layer 3234(metal7_text) at (185.730, 189.805)
+    [52] Net 3 on layer 3234(metal7_text) at (189.805, 185.730)
+    [53] Net 11 on layer 3234(metal7_text) at (134.605, 189.805)
+    [54] Net 11 on layer 3234(metal7_text) at (189.765, 134.605)
+    [55] Net 11 on layer 3233(metal6_text) at (134.605, 189.805)
+    [56] Net 11 on layer 3233(metal6_text) at (189.765, 134.605)
+    [57] Net 11 on layer 3232(metal5_text) at (134.605, 189.805)
+    [58] Net 11 on layer 3232(metal5_text) at (189.765, 134.605)
+    [59] Net 11 on layer 3231(metal4_text) at (134.605, 189.805)
+    [60] Net 11 on layer 3231(metal4_text) at (189.765, 134.605)
+    [61] Net 11 on layer 3230(metal3_text) at (134.605, 189.805)
+    [62] Net 11 on layer 3230(metal3_text) at (189.765, 134.605)
+    [63] Net 12 on layer 3234(metal7_text) at (139.975, 189.805)
+    [64] Net 12 on layer 3234(metal7_text) at (189.765, 139.975)
+    [65] Net 12 on layer 3231(metal4_text) at (139.975, 189.805)
+    [66] Net 12 on layer 3231(metal4_text) at (189.765, 139.975)
+    [67] Net 12 on layer 3230(metal3_text) at (139.975, 189.805)
+    [68] Net 12 on layer 3230(metal3_text) at (189.765, 139.975)
+    [69] Net 12 on layer 3233(metal6_text) at (139.975, 189.805)
+    [70] Net 12 on layer 3233(metal6_text) at (189.765, 139.975)
+    [71] Net 12 on layer 3232(metal5_text) at (139.975, 189.805)
+    [72] Net 12 on layer 3232(metal5_text) at (189.765, 139.975)
+    [73] Net 13 on layer 3234(metal7_text) at (177.925, 189.805)
+    [74] Net 13 on layer 3234(metal7_text) at (189.765, 177.925)
+    [75] Net 13 on layer 3233(metal6_text) at (177.925, 189.805)
+    [76] Net 13 on layer 3233(metal6_text) at (189.765, 177.925)
+    [77] Net 13 on layer 3232(metal5_text) at (177.925, 189.805)
+    [78] Net 13 on layer 3232(metal5_text) at (189.765, 177.925)
+    [79] Net 13 on layer 3231(metal4_text) at (177.925, 189.805)
+    [80] Net 13 on layer 3231(metal4_text) at (189.765, 177.925)
+
+[WARN] Same label "VSSPST" for multiple nets, it is assigned to net 1 :
+    [1] Net 1 on layer 3230(metal3_text) at (34.985, 189.805)
+    [2] Net 1 on layer 3230(metal3_text) at (189.765, 34.985)
+    [3] Net 1 on layer 3231(metal4_text) at (34.985, 189.805)
+    [4] Net 1 on layer 3231(metal4_text) at (189.765, 34.985)
+    [5] Net 1 on layer 3232(metal5_text) at (34.985, 189.805)
+    [6] Net 1 on layer 3232(metal5_text) at (189.765, 34.985)
+    [7] Net 1 on layer 3233(metal6_text) at (34.985, 189.805)
+    [8] Net 1 on layer 3233(metal6_text) at (189.765, 34.985)
+    [9] Net 1 on layer 3234(metal7_text) at (34.985, 189.805)
+    [10] Net 1 on layer 3234(metal7_text) at (189.765, 34.985)
+    [11] Net 2 on layer 3227(metal1_text) at (84.790, 189.805)
+    [12] Net 2 on layer 3227(metal1_text) at (189.765, 84.790)
+
+
+Warnings and errors of connectivity for cell "SAB363_SAB050_PREVDD1_SHR_RPO"
+----------------------------------------------------------------------------
+
+[WARN] Stamping conflict in SCONNECT(Multiple source nets stamp one target net):
+    LVS_SOFTCHK psub -TYPE CONTACT   Total Result        2 (       8)
+    LVS_SOFTCHK n_psub -TYPE CONTACT   Total Result        2 (       8)
+
+
+
+Warnings and errors of connectivity for cell "PVDD1DGZ"
+-------------------------------------------------------
+
+[WARN] Same label "VDDPST" for multiple nets, it is assigned to net 4 :
+    [1] Net 4 on layer 3227(metal1_text) at (0.080, 134.605)
+    [2] Net 4 on layer 3227(metal1_text) at (0.080, 139.975)
+    [3] Net 4 on layer 3227(metal1_text) at (0.080, 145.080)
+    [4] Net 4 on layer 3227(metal1_text) at (29.865, 134.605)
+    [5] Net 4 on layer 3227(metal1_text) at (29.865, 139.975)
+    [6] Net 4 on layer 3227(metal1_text) at (29.865, 145.080)
+    [7] Net 4 on layer 3229(metal2_text) at (0.080, 134.605)
+    [8] Net 4 on layer 3229(metal2_text) at (0.080, 139.975)
+    [9] Net 4 on layer 3229(metal2_text) at (0.080, 145.080)
+    [10] Net 4 on layer 3229(metal2_text) at (29.865, 134.605)
+    [11] Net 4 on layer 3229(metal2_text) at (29.865, 139.975)
+    [12] Net 4 on layer 3229(metal2_text) at (29.865, 145.080)
+    [13] Net 4 on layer 3231(metal4_text) at (0.145, 110.010)
+    [14] Net 4 on layer 3231(metal4_text) at (29.920, 110.010)
+    [15] Net 4 on layer 3230(metal3_text) at (0.145, 110.010)
+    [16] Net 4 on layer 3230(metal3_text) at (29.920, 110.010)
+    [17] Net 4 on layer 3232(metal5_text) at (0.145, 110.010)
+    [18] Net 4 on layer 3232(metal5_text) at (29.920, 110.010)
+    [19] Net 4 on layer 3233(metal6_text) at (0.145, 110.010)
+    [20] Net 4 on layer 3233(metal6_text) at (29.920, 110.010)
+    [21] Net 4 on layer 3234(metal7_text) at (0.145, 110.010)
+    [22] Net 4 on layer 3234(metal7_text) at (29.920, 110.010)
+    [23] Net 3 on layer 3227(metal1_text) at (0.145, 78.660)
+    [24] Net 3 on layer 3227(metal1_text) at (29.920, 78.660)
+
+
+Warnings and errors of connectivity for cell "MASCO__P16"
+---------------------------------------------------------
+
+[WARN] Stamping conflict in SCONNECT(Multiple source nets stamp one target net):
+    Selected net for stamping: 267
+    Rejected Nets: 268
+
+    Selected net for stamping: 281
+    Rejected Nets: 282
+
+
+
+
+Warnings and errors of connectivity for cell "top_wrapper"
+----------------------------------------------------------
+
+[WARN] Stamping conflict in SCONNECT(Multiple source nets stamp one target net):
+    Selected net for stamping: 2
+    Rejected Nets: 4 13 15 20 21 25 29 32 47 54 55 70 71 72 73 89 90 91 92 93 94 95 96 97 98 99 100 101 102 103 104 105 106 107
+
+    Selected net for stamping: 2
+    Rejected Nets: 4 13 15 20 21 25 29 32 47 54 55 70 71 72 73 89 90 91 92 93 94 95 96 97 98 99 100 101 102 103 104 105 106 107
+
+    LVS_SOFTCHK psub -TYPE CONTACT   Total Result       33 (      33)
+    LVS_SOFTCHK n_psub -TYPE CONTACT   Total Result       35 (      35)
+
+
