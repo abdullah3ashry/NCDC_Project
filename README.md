@@ -1,4 +1,3 @@
-Markdown
 # 🚀 32-Bit RISC-V Processor: ASIC Physical Design Flow (TSMC 65nm)
 
 This repository contains the RTL, automation scripts, constraints, and final signoff reports for the backend physical design of a 32-bit Single-Cycle RISC-V processor core. The project was executed during an internship at the **NUST Chip Design Centre (NCDC)** using the **TSMC 65nm LP (9-Metal Layer)** technology node.
