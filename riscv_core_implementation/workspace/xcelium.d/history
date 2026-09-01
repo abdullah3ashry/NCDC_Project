@@ -1,5 +1,0 @@
-//
-// File created by:  xrun
-// Do not modify this file
-
-s1::(03Aug2026:04:47:42):( xrun -timescale 1ns/1ps /home/cc/Documents/Abdullah/RISCV_synthesis/export/Synthesis_Data/netlists/riscv_core_physical_synth_agg_clk.v /home/cc/Documents/Abdullah/RISCV_synthesis/sourcecode/tb/riscv_core_tb.sv -libext .v -y /home/cc/Documents/Abdullah/RISCV_synthesis/libraries/v/ -access +rwc -define SDF_TEST +sdf_verbose -sdfstats /home/cc/Documents/Abdullah/RISCV_synthesis/export/Synthesis_Data/reports/sdf_statistics.rpt -maxdelay -nospecify -update )

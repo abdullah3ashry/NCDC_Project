@@ -1,0 +1,16 @@
+# Cadence Temporary & Log Files
+*.err
+*.log
+*.jou
+*.cmd
+.bpad/
+*.db/
+*.enc/
+*.oas
+
+# TSMC Proprietary IP (NEVER upload)
+*.lef
+*.lib
+*.captable
+*.spi
+*.qrcTechFile
